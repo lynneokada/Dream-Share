@@ -19,6 +19,9 @@
 		D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DACB19DBD85E009D425B /* CreateAccountViewController.m */; };
 		D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DACE19DC7849009D425B /* WelcomeViewController.m */; };
 		D270DAD219DC7F36009D425B /* DreamListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DAD119DC7F36009D425B /* DreamListTableViewController.m */; };
+		D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB0B19DCA7E3009D425B /* RecordViewController.m */; };
+		D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D270DB0D19DCAB8C009D425B /* AVFoundation.framework */; };
+		D270DB1119DCC8FC009D425B /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1019DCC8FC009D425B /* Dream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,11 @@
 		D270DACE19DC7849009D425B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		D270DAD019DC7F36009D425B /* DreamListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamListTableViewController.h; sourceTree = "<group>"; };
 		D270DAD119DC7F36009D425B /* DreamListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreamListTableViewController.m; sourceTree = "<group>"; };
+		D270DB0A19DCA7E3009D425B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		D270DB0B19DCA7E3009D425B /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		D270DB0D19DCAB8C009D425B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D270DB0F19DCC8FC009D425B /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D270DB1019DCC8FC009D425B /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,7 @@
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
+				D270DB0D19DCAB8C009D425B /* AVFoundation.framework */,
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
@@ -107,10 +117,14 @@
 				D270DACE19DC7849009D425B /* WelcomeViewController.m */,
 				D270DAD019DC7F36009D425B /* DreamListTableViewController.h */,
 				D270DAD119DC7F36009D425B /* DreamListTableViewController.m */,
+				D270DB0A19DCA7E3009D425B /* RecordViewController.h */,
+				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
 				D270DAA719DB2270009D425B /* LaunchScreen.xib */,
 				D270DA9C19DB2270009D425B /* DreamApp.xcdatamodeld */,
+				D270DB0F19DCC8FC009D425B /* Dream.h */,
+				D270DB1019DCC8FC009D425B /* Dream.m */,
 				D270DA9519DB2270009D425B /* Supporting Files */,
 			);
 			path = DreamApp;
@@ -243,11 +257,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
+				D270DB1119DCC8FC009D425B /* Dream.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DAD219DC7F36009D425B /* DreamListTableViewController.m in Sources */,
+				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 			);

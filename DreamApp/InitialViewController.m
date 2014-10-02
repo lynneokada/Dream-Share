@@ -8,6 +8,7 @@
 
 #import "InitialViewController.h"
 #import "LoginViewController.h"
+#import "CreateAccountViewController.h"
 
 @interface InitialViewController ()
 
@@ -66,7 +67,7 @@
     self.login.frame = offScreenLoginFrame;
     self.createAccount.frame = offScreenCreateAccountFrame;
     
-    [UIView animateWithDuration:2.0f delay:0.0f usingSpringWithDamping:0.75f initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:1.0f delay:0.0f usingSpringWithDamping:0.75f initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         //self.appName.alpha = 1.0f;
         self.login.alpha = 1.0f;
         self.createAccount.alpha = 1.0f;
@@ -85,20 +86,22 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:2];
+    [UIView setAnimationDuration:1];
     self.appName.alpha = 1;
     
     [UIView commitAnimations];
 }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Login"]) {
-        LoginViewController *loginViewController = [segue destinationViewController];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"login"]) {
+//        LoginViewController *loginViewController = [segue destinationViewController];
+//    }
+//    if ([segue.identifier isEqualToString:@"createAccount"]) {
+//        CreateAccountViewController *createAccountViewController = [segue destinationViewController];
+//    }
+//}
 
-- (IBAction)unwindToAddCandyViewController:(UIStoryboardSegue *)unwindSegue {
+- (IBAction)unwindToInitialViewController:(UIStoryboardSegue *)unwindSegue {
     
 }
 
