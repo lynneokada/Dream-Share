@@ -9,14 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@protocol RecordViewControllerDelegate <NSObject>
-
-- (void) dreamRecorded:(NSData*)dream;
-
-@end
-
 @interface RecordViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-@property (weak, nonatomic) id <RecordViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+
 @end

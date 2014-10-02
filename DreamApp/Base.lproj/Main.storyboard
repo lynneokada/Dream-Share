@@ -203,21 +203,6 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krv-1m-YGl">
-                                <rect key="frame" x="0.0" y="480" width="600" height="76"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="BRb-jH-BYd"/>
-                                    <constraint firstAttribute="height" constant="76" id="z95-wn-Tm9"/>
-                                </constraints>
-                                <state key="normal" title="DONE">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="K2T-3B-4Ar"/>
-                                    <segue destination="oG3-96-ORR" kind="unwind" unwindAction="unwindToDreamListTableViewController:" id="ps4-Ho-5Am"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1m-85-vTy">
                                 <rect key="frame" x="0.0" y="64" width="600" height="416"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -233,6 +218,30 @@
                                     <action selector="recordPauseTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="7oz-cG-Ybq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krv-1m-YGl">
+                                <rect key="frame" x="0.0" y="480" width="600" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="BRb-jH-BYd"/>
+                                    <constraint firstAttribute="height" constant="76" id="z95-wn-Tm9"/>
+                                </constraints>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="G5e-cI-cuF"/>
+                                    <segue destination="1uP-Wb-MZn" kind="presentation" identifier="editDream" modalTransitionStyle="crossDissolve" id="d5Y-jb-257"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1e-JJ-VIh">
+                                <rect key="frame" x="212" y="384" width="37" height="30"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="q0Q-Dx-aS9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -245,13 +254,66 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="Krv-1m-YGl" id="XBr-cv-dEO"/>
+                        <outlet property="playButton" destination="i1e-JJ-VIh" id="TcH-dX-u8S"/>
                         <outlet property="recordPauseButton" destination="z1m-85-vTy" id="KwX-vd-jmb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8u-Kp-duq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="oG3-96-ORR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5561" y="384"/>
+            <point key="canvasLocation" x="5589" y="384"/>
+        </scene>
+        <!--Edit Dream View Controller-->
+        <scene sceneID="HjD-UN-t3v">
+            <objects>
+                <viewController id="1uP-Wb-MZn" customClass="EditDreamViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="68K-lw-Pkl"/>
+                        <viewControllerLayoutGuide type="bottom" id="hLY-Zr-4RT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vsL-Gt-faE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="MGn-s8-0Fv"/>
+                                    <constraint firstAttribute="height" constant="85" id="TAK-hA-Elq"/>
+                                </constraints>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="xd0-KV-RU5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-vB-SFA">
+                                <rect key="frame" x="0.0" y="86" width="600" height="514"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="PWI-yI-IaE"/>
+                                    <constraint firstAttribute="height" constant="514" id="bJY-MF-xyP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dq7-vB-SFA" firstAttribute="top" secondItem="68K-lw-Pkl" secondAttribute="bottom" constant="66" id="4RS-yv-zvb"/>
+                            <constraint firstAttribute="centerX" secondItem="Dq7-vB-SFA" secondAttribute="centerX" id="651-7w-okh"/>
+                            <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="Cdt-Or-DFc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playButton" destination="gLk-dG-eX6" id="7xv-f0-feK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6322" y="384"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">

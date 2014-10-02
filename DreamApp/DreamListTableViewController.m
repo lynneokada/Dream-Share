@@ -29,7 +29,7 @@
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        _dreamList = [NSMutableArray array];
+        _privateDreamList = [NSMutableArray array];
     }
     return self;
 }
@@ -48,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.dreamList count];
+    return [self.privateDreamList count];
 }
 
 - (IBAction)unwindToDreamListTableViewController:(UIStoryboardSegue *)unwindSegue {

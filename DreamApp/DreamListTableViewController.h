@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DreamListTableViewController : UITableViewController
-@property (strong, nonatomic) NSMutableArray *dreamList;
+@property (strong, nonatomic) NSMutableArray *privateDreamList;
+@property (strong, nonatomic) NSMutableArray *publicDreamList;
 
 @end

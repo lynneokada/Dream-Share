@@ -7,6 +7,7 @@
 //
 
 #import "RecordViewController.h"
+#import "EditDreamViewController.h"
 
 @interface RecordViewController () {
     AVAudioPlayer *player;
@@ -48,6 +49,7 @@
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
     [recorder prepareToRecord];
+
 }
 
 - (IBAction)recordPauseTapped:(id)sender {
@@ -77,6 +79,9 @@
 - (IBAction)doneTapped:(id)sender {
     [recorder stop];
     
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+    [player setDelegate:self];
+    
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
 }
@@ -94,12 +99,15 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"DONE"]) {
+    if ([segue.identifier isEqualToString:@"editDream"]) {
+        EditDreamViewController *editDreamViewController = [segue destinationViewController];
+        editDreamViewController.recorder = recorder;
+        editDreamViewController.player = player;
         
+    
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
 
 @end
