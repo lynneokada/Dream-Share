@@ -23,6 +23,7 @@
 		D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D270DB0D19DCAB8C009D425B /* AVFoundation.framework */; };
 		D270DB1119DCC8FC009D425B /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1019DCC8FC009D425B /* Dream.m */; };
 		D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1319DD4059009D425B /* EditDreamViewController.m */; };
+		D270DB1719DDC831009D425B /* DreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1619DDC831009D425B /* DreamViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		D270DB1019DCC8FC009D425B /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D270DB1219DD4059009D425B /* EditDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDreamViewController.h; sourceTree = "<group>"; };
 		D270DB1319DD4059009D425B /* EditDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDreamViewController.m; sourceTree = "<group>"; };
+		D270DB1519DDC831009D425B /* DreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamViewController.h; sourceTree = "<group>"; };
+		D270DB1619DDC831009D425B /* DreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreamViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
 				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
+				D270DB1519DDC831009D425B /* DreamViewController.h */,
+				D270DB1619DDC831009D425B /* DreamViewController.m */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
 				D270DAA719DB2270009D425B /* LaunchScreen.xib */,
@@ -261,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D270DB1719DDC831009D425B /* DreamViewController.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */,
 				D270DB1119DCC8FC009D425B /* Dream.m in Sources */,

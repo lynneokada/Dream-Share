@@ -7,7 +7,10 @@
 //
 
 #import "DreamListTableViewController.h"
-#import "DreamListTableViewController.h"
+#import "DreamViewController.h"
+#import "Dream.h"
+#import "AppDelegate.h"
+#import "RecordViewController.h"
 
 @interface DreamListTableViewController ()
 
@@ -23,13 +26,28 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // get access to the managed object context
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    // get entity description for entity we are selecting
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
+    // create a new fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    // create an error variable to pass to the execute method
+    NSError *error;
+    // retrieve results
+    self.privateDreamList = [[context executeFetchRequest:request error:&error] mutableCopy];
+    if (self.privateDreamList == nil) {
+        //error handling, e.g. display error to user
+    }
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        _privateDreamList = [NSMutableArray array];
+        self.privateDreamList = [NSMutableArray array];
     }
     return self;
 }
@@ -40,12 +58,6 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [self.privateDreamList count];
@@ -56,18 +68,28 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    DreamViewController *dreamViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"DreamCells"]) {
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        dreamViewController.dream = self.privateDreamList[selectedIndexPath.row];
+    } else if ([segue.identifier isEqualToString:@"addDream"]) {
+        RecordViewController *recordViewController = [segue destinationViewController];
+        recordViewController.privateDreamList = self.privateDreamList;
+    }
  }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DreamCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
     
     return cell;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.privateDreamList removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
 /*
 // Override to support conditional editing of the table view.
