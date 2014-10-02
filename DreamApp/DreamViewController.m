@@ -7,8 +7,10 @@
 //
 
 #import "DreamViewController.h"
+#import "Dream.h"
 
 @interface DreamViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 
 @end
 
@@ -16,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _dreamContentTextView.text = self.dream.content;
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

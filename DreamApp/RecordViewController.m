@@ -103,8 +103,6 @@
         EditDreamViewController *editDreamViewController = [segue destinationViewController];
         editDreamViewController.recorder = recorder;
         editDreamViewController.player = player;
-        
-    
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

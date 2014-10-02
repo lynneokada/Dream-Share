@@ -13,6 +13,7 @@
 @interface EditDreamViewController () {
     Dream *dreamBeingAdded;
 }
+@property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 
 @end
 
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _contentTextView.delegate = self;
+    _dreamContentTextView.delegate = self;
     
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     
@@ -53,7 +54,10 @@
 
 - (IBAction)saveTapped:(id)sender {
     [_privateDreamList addObject:dreamBeingAdded];
-    dreamBeingAdded.recording = self.player;
+    dreamBeingAdded.recording = self.player.data;
+    dreamBeingAdded.content = self.dreamContentTextView.text;
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {

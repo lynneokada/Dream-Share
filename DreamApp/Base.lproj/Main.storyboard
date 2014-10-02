@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ekh-Du-Xem">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Initial View Controller-->
@@ -205,8 +206,19 @@
                     <view key="view" contentMode="scaleToFill" id="xaG-1t-Eoc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="start" translatesAutoresizingMaskIntoConstraints="NO" id="d1A-jI-aO7">
+                                <rect key="frame" x="0.0" y="294" width="600" height="306"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="dreamContentTextView" destination="d1A-jI-aO7" id="avP-p7-QFU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ju-jR-Bqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,17 +297,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dq7-vB-SFA">
-                                <rect key="frame" x="0.0" y="86" width="600" height="473"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="473" id="6hn-e2-CiV"/>
-                                    <constraint firstAttribute="width" constant="600" id="PWI-yI-IaE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -310,34 +312,56 @@
                                     <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="xd0-KV-RU5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvO-Ig-yOE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvO-Ig-yOE">
                                 <rect key="frame" x="0.0" y="559" width="600" height="41"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="PZu-b9-r26"/>
+                                    <constraint firstAttribute="height" constant="41" id="Rja-V3-1ME"/>
+                                </constraints>
                                 <state key="normal" title="SAVE">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="oeV-0v-XHr"/>
+                                    <segue destination="6Ur-hC-vdq" kind="unwind" unwindAction="unwindToDreamListTableViewController:" id="ChW-rG-Gj1"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
+                                <rect key="frame" x="59" y="117" width="483" height="411"/>
+                                <color key="backgroundColor" red="0.97776387090000005" green="0.98210750739999997" blue="0.99513841709999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="411" id="Hq3-Ac-92u"/>
+                                    <constraint firstAttribute="width" constant="483" id="fMK-wu-Aqi"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dq7-vB-SFA" firstAttribute="top" secondItem="68K-lw-Pkl" secondAttribute="bottom" constant="66" id="4RS-yv-zvb"/>
-                            <constraint firstAttribute="centerX" secondItem="Dq7-vB-SFA" secondAttribute="centerX" id="651-7w-okh"/>
-                            <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="Cdt-Or-DFc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="42" id="Eun-tx-ulx"/>
+                            <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="CvO-Ig-yOE" secondAttribute="bottom" id="LOQ-W1-6r9"/>
+                            <constraint firstItem="gLk-dG-eX6" firstAttribute="top" secondItem="vsL-Gt-faE" secondAttribute="topMargin" id="Ozd-Hs-HTZ"/>
+                            <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="Rhx-RA-vr1"/>
+                            <constraint firstAttribute="centerX" secondItem="CvO-Ig-yOE" secondAttribute="centerX" id="SKW-8l-fsZ"/>
+                            <constraint firstAttribute="centerX" secondItem="VI5-UC-nAq" secondAttribute="centerX" constant="-0.5" id="lT8-9a-uEc"/>
+                            <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="gLk-dG-eX6" secondAttribute="bottom" constant="32" id="pQm-E5-Uan"/>
+                            <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="43" id="xVR-IC-eGe"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentTextView" destination="Dq7-vB-SFA" id="Yf5-F8-06Z"/>
+                        <outlet property="dreamContentTextView" destination="VI5-UC-nAq" id="Dm5-Os-cJg"/>
                         <outlet property="playButton" destination="gLk-dG-eX6" id="7xv-f0-feK"/>
                         <outlet property="saveButton" destination="CvO-Ig-yOE" id="bpX-6Z-VuZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Ur-hC-vdq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6288" y="-314"/>
+            <point key="canvasLocation" x="6288" y="-308"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
