@@ -8,10 +8,13 @@
 
 #import "RecordViewController.h"
 #import "EditDreamViewController.h"
+#import "Dream.h"
+#import "AppDelegate.h"
 
 @interface RecordViewController () {
     AVAudioPlayer *player;
     AVAudioRecorder *recorder;
+    Dream *dreamBeingAdded;
 }
 
 @end
@@ -49,7 +52,10 @@
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
     [recorder prepareToRecord];
-
+    
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    
+    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
 }
 
 - (IBAction)recordPauseTapped:(id)sender {
@@ -84,6 +90,9 @@
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
+    
+    [_privateDreamList addObject:dreamBeingAdded];
+    dreamBeingAdded.recording = player.data;
 }
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{

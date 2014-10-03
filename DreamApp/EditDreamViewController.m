@@ -13,6 +13,7 @@
 @interface EditDreamViewController () {
     Dream *dreamBeingAdded;
 }
+
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 
 @end
@@ -23,6 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _dreamContentTextView.delegate = self;
+    
+    //resign textView
+
     
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     
@@ -53,20 +57,19 @@
 }
 
 - (IBAction)saveTapped:(id)sender {
-    [_privateDreamList addObject:dreamBeingAdded];
-    dreamBeingAdded.recording = self.player.data;
+//    [_privateDreamList addObject:dreamBeingAdded];
+//    dreamBeingAdded.recording = self.player.data;
     dreamBeingAdded.content = self.dreamContentTextView.text;
     
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
+- (IBAction)doneEditing:(id)sender {
+    [_dreamContentTextView resignFirstResponder];
 }
 
 /*

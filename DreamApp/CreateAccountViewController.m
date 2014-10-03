@@ -10,6 +10,9 @@
 #import "WelcomeViewController.h"
 
 @interface CreateAccountViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameInput;
+@property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+@property (weak, nonatomic) IBOutlet UITextField *locationInput;
 
 @end
 
@@ -17,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.usernameInput.delegate = self;
+    self.passwordInput.delegate = self;
+    self.locationInput.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -26,11 +32,11 @@
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"accountCreated"]) {
-        WelcomeViewController *welcomeViewController = [segue destinationViewController];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"accountCreated"]) {
+//        WelcomeViewController *welcomeViewController = [segue destinationViewController];
+//    }
+//}
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     return YES;

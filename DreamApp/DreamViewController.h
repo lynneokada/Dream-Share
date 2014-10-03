@@ -10,7 +10,7 @@
 
 @class Dream;
 
-@interface DreamViewController : UIViewController
+@interface DreamViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) Dream *dream;
 

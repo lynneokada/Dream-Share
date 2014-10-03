@@ -1,28 +1,24 @@
 //
-//  DreamViewController.m
+//  ProfileViewController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/2/14.
+//  Created by Lynne Okada on 10/3/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "DreamViewController.h"
-#import "Dream.h"
+#import "ProfileViewController.h"
 
-@interface DreamViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
+@interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @end
 
-@implementation DreamViewController
+@implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dreamContentTextView.delegate = self;
-    
-    _dreamContentTextView.text = self.dream.content;
     // Do any additional setup after loading the view.
-    
+    [self.profile setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {

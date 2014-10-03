@@ -1,28 +1,23 @@
 //
-//  DreamViewController.m
+//  HomeViewController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/2/14.
+//  Created by Lynne Okada on 10/3/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "DreamViewController.h"
-#import "Dream.h"
+#import "HomeViewController.h"
 
-@interface DreamViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
+@interface HomeViewController ()
 
 @end
 
-@implementation DreamViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _dreamContentTextView.delegate = self;
-    
-    _dreamContentTextView.text = self.dream.content;
     // Do any additional setup after loading the view.
-    
+    [self.home setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {

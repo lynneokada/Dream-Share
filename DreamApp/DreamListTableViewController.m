@@ -89,6 +89,19 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.privateDreamList removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+//    // get access to the managed object context
+//    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication
+//                                                       sharedApplication].delegate).managedObjectContext;
+//    // delete object
+//    [context deleteObject:];
+//    // create an error variable to pass to the save method
+//    NSError *error = nil;
+//    // attempt to save the context and persist our changes
+//    [context save:&error];
+//    if (error) {
+//        //error handling, e.g. display error to user
+//    }
 }
 
 /*
