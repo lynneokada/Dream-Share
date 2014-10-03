@@ -122,7 +122,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uFm-E5-gu4" kind="presentation" modalTransitionStyle="crossDissolve" id="EWu-HK-leo"/>
+                                    <segue destination="fVQ-ao-dc2" kind="presentation" id="b1t-CF-hxZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prA-8X-Vzi">
@@ -162,83 +162,6 @@
             </objects>
             <point key="canvasLocation" x="3415" y="384"/>
         </scene>
-        <!--Dream Share-->
-        <scene sceneID="G72-9y-5M0">
-            <objects>
-                <tableViewController id="4Qm-Nm-LCW" customClass="DreamListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bok-QC-Egb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DreamCell" id="bYa-31-4h2">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYa-31-4h2" id="SdS-WC-9Hp">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="EiR-mW-OcB" kind="show" identifier="showDream" id="696-8b-sHs"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4Qm-Nm-LCW" id="Vkb-G4-Qzn"/>
-                            <outlet property="delegate" destination="4Qm-Nm-LCW" id="oHR-Wh-z3l"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Dream Share" id="M4B-k2-cHF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="474-pn-66l">
-                            <connections>
-                                <segue destination="Ne4-Yb-xoD" kind="show" identifier="addDream" id="pYk-td-0MF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NzI-kl-jMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4841" y="384"/>
-        </scene>
-        <!--Dream Share-->
-        <scene sceneID="VJB-tg-eUg">
-            <objects>
-                <viewController id="EiR-mW-OcB" customClass="DreamViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="205-IG-H9E"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zjo-eW-J8L"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xaG-1t-Eoc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1A-jI-aO7">
-                                <rect key="frame" x="0.0" y="250" width="600" height="306"/>
-                                <color key="backgroundColor" red="0.97776387090000005" green="0.98210750739999997" blue="0.99513841709999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="306" id="8WJ-Sm-G9D"/>
-                                    <constraint firstAttribute="width" constant="600" id="CmF-6m-6DA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Zjo-eW-J8L" firstAttribute="top" secondItem="d1A-jI-aO7" secondAttribute="bottom" id="FIX-gX-us5"/>
-                            <constraint firstAttribute="centerX" secondItem="d1A-jI-aO7" secondAttribute="centerX" id="VgL-BH-prQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Dream Share" id="09L-d4-7nO"/>
-                    <connections>
-                        <outlet property="dreamContentTextView" destination="d1A-jI-aO7" id="BCQ-pN-Zvt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ju-jR-Bqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5559" y="384"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="9eN-MG-OpP">
             <objects>
@@ -258,7 +181,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem title="home" width="65" id="Q4c-hd-5h6"/>
-                                    <barButtonItem systemItem="add" id="Mx1-95-i9V"/>
+                                    <barButtonItem systemItem="add" id="Mx1-95-i9V">
+                                        <connections>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="2fi-LC-7yO"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="search" style="plain" id="aJi-mi-Lgh">
                                         <connections>
                                             <segue destination="fTT-W6-EIA" kind="presentation" id="txH-p7-gMY"/>
@@ -289,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tph-dO-VaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="1786"/>
+            <point key="canvasLocation" x="4841" y="1830"/>
         </scene>
         <!--Dream Share-->
         <scene sceneID="98F-SQ-Zde">
@@ -314,7 +241,11 @@
                                             <segue destination="fVQ-ao-dc2" kind="presentation" id="uh6-xA-SSd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Item" width="65" systemItem="add" id="Nam-eA-Utk"/>
+                                    <barButtonItem title="Item" width="65" systemItem="add" id="Nam-eA-Utk">
+                                        <connections>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="2D0-ZX-yNl"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="search" width="65" id="4JJ-lD-uGR"/>
                                     <barButtonItem title="profile" width="65" id="kMZ-Zr-DC8">
                                         <connections>
@@ -353,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6371" y="2870"/>
+            <point key="canvasLocation" x="4841" y="3446"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="LBG-as-eKr">
@@ -378,7 +309,11 @@
                                             <segue destination="fVQ-ao-dc2" kind="presentation" id="6V2-aq-KfP"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="add" width="65" systemItem="add" id="A74-c0-ZqE"/>
+                                    <barButtonItem title="add" width="65" systemItem="add" id="A74-c0-ZqE">
+                                        <connections>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="3pe-0J-zG1"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="search" width="65" id="d9J-vq-DkC">
                                         <connections>
                                             <segue destination="fTT-W6-EIA" kind="presentation" id="pxr-QJ-3Rx"/>
@@ -420,11 +355,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1m-85-vTy">
-                                <rect key="frame" x="-7" y="64" width="614" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="516"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="614" id="1eW-4o-rlH"/>
-                                    <constraint firstAttribute="height" constant="416" id="puQ-vk-sMS"/>
+                                    <constraint firstAttribute="height" constant="516" id="9vT-Ja-vN7"/>
                                 </constraints>
                                 <state key="normal" title="RECORD">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -435,10 +369,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krv-1m-YGl">
-                                <rect key="frame" x="0.0" y="480" width="600" height="76"/>
+                                <rect key="frame" x="0.0" y="524" width="600" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="BRb-jH-BYd"/>
-                                    <constraint firstAttribute="height" constant="76" id="z95-wn-Tm9"/>
+                                    <constraint firstAttribute="height" constant="76" id="RuR-fJ-ERg"/>
                                 </constraints>
                                 <state key="normal" title="DONE">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -452,10 +385,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Krv-1m-YGl" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" id="2ai-5N-uhp"/>
-                            <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="Krv-1m-YGl" secondAttribute="bottom" id="K4U-qE-Pci"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Krv-1m-YGl" secondAttribute="trailing" constant="-16" id="HWa-cs-X59"/>
                             <constraint firstAttribute="centerX" secondItem="z1m-85-vTy" secondAttribute="centerX" id="Ltr-g3-8YS"/>
-                            <constraint firstItem="z1m-85-vTy" firstAttribute="top" secondItem="2v6-7a-hIr" secondAttribute="bottom" id="aJC-m8-Nuj"/>
+                            <constraint firstItem="Krv-1m-YGl" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" constant="8" id="Tp8-mZ-ffr"/>
+                            <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="Krv-1m-YGl" secondAttribute="bottom" id="WfS-lc-k34"/>
+                            <constraint firstItem="z1m-85-vTy" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="XVT-a2-KvH"/>
+                            <constraint firstItem="z1m-85-vTy" firstAttribute="top" secondItem="rll-cI-M32" secondAttribute="topMargin" id="biR-i2-J0b"/>
+                            <constraint firstItem="Krv-1m-YGl" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="cSm-WT-50H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z1m-85-vTy" secondAttribute="trailing" constant="-16" id="kJd-VK-koQ"/>
                             <constraint firstAttribute="centerX" secondItem="Krv-1m-YGl" secondAttribute="centerX" id="ndp-2O-lYx"/>
                         </constraints>
                     </view>
@@ -467,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8u-Kp-duq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="-308"/>
+            <point key="canvasLocation" x="5559" y="1830"/>
         </scene>
         <!--Edit Dream View Controller-->
         <scene sceneID="HjD-UN-t3v">
@@ -555,7 +492,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6Ur-hC-vdq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6288" y="-308"/>
+            <point key="canvasLocation" x="6248" y="1830"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
@@ -702,24 +639,6 @@
             <point key="canvasLocation" x="4129" y="1064"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="b8w-qr-FP1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uFm-E5-gu4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UOD-2j-NvA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4Qm-Nm-LCW" kind="relationship" relationship="rootViewController" id="9mu-lK-s2J"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P6U-zf-rBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4129" y="384"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="nff-Hx-miE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4b0-pm-EaU" sceneMemberID="viewController">
@@ -753,12 +672,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiP-Bj-Fwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="2870"/>
+            <point key="canvasLocation" x="4841" y="2658"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2D0-ZX-yNl"/>
+        <segue reference="txH-p7-gMY"/>
         <segue reference="uh6-xA-SSd"/>
-        <segue reference="pxr-QJ-3Rx"/>
         <segue reference="ErW-6F-ZAd"/>
     </inferredMetricsTieBreakers>
 </document>
