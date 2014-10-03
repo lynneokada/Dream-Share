@@ -69,7 +69,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DreamViewController *dreamViewController = [segue destinationViewController];
-    if ([segue.identifier isEqualToString:@"DreamCells"]) {
+    if ([segue.identifier isEqualToString:@"showDream"]) {
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         dreamViewController.dream = self.privateDreamList[selectedIndexPath.row];
     } else if ([segue.identifier isEqualToString:@"addDream"]) {

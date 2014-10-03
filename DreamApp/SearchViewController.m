@@ -1,23 +1,24 @@
 //
-//  ProfileViewController.m
+//  SearchViewController.m
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/3/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "SearchViewController.h"
 
-@interface ProfileViewController ()
+@interface SearchViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.search setEnabled:NO];
     // Do any additional setup after loading the view.
-    [self.profile setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {

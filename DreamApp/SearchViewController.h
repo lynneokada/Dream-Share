@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  SearchViewController.h
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/3/14.
@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
-//toolbar buttons
+@interface SearchViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *home;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *add;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *search;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *profile;
-
-//profile stats
 
 @end
