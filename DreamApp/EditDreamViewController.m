@@ -26,7 +26,11 @@
     _dreamContentTextView.delegate = self;
     
     //resign textView
-
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     
@@ -64,12 +68,9 @@
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
 }
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    return YES;
-}
-
-- (IBAction)doneEditing:(id)sender {
-    [_dreamContentTextView resignFirstResponder];
+- (void) dismissKeyboard {
+    // add self
+    [self.dreamContentTextView resignFirstResponder];
 }
 
 /*

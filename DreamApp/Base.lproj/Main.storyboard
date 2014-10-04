@@ -122,7 +122,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fVQ-ao-dc2" kind="presentation" id="b1t-CF-hxZ"/>
+                                    <segue destination="fVQ-ao-dc2" kind="presentation" modalTransitionStyle="crossDissolve" id="b1t-CF-hxZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prA-8X-Vzi">
@@ -183,17 +183,17 @@
                                     <barButtonItem title="home" width="65" id="Q4c-hd-5h6"/>
                                     <barButtonItem systemItem="add" id="Mx1-95-i9V">
                                         <connections>
-                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="2fi-LC-7yO"/>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" modalTransitionStyle="crossDissolve" id="2fi-LC-7yO"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="search" style="plain" id="aJi-mi-Lgh">
                                         <connections>
-                                            <segue destination="fTT-W6-EIA" kind="presentation" id="txH-p7-gMY"/>
+                                            <segue destination="fTT-W6-EIA" kind="presentation" modalTransitionStyle="crossDissolve" id="txH-p7-gMY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="profile" width="65" id="JTK-xd-PJ2">
                                         <connections>
-                                            <segue destination="8Ne-0x-pKM" kind="presentation" id="vMp-Xp-5ry"/>
+                                            <segue destination="8Ne-0x-pKM" kind="presentation" modalTransitionStyle="crossDissolve" id="vMp-Xp-5ry"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -238,18 +238,18 @@
                                 <items>
                                     <barButtonItem title="home" width="65" id="LYf-dU-wWT">
                                         <connections>
-                                            <segue destination="fVQ-ao-dc2" kind="presentation" id="uh6-xA-SSd"/>
+                                            <segue destination="fVQ-ao-dc2" kind="presentation" modalTransitionStyle="crossDissolve" id="uh6-xA-SSd"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Item" width="65" systemItem="add" id="Nam-eA-Utk">
                                         <connections>
-                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="2D0-ZX-yNl"/>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" modalTransitionStyle="crossDissolve" id="2D0-ZX-yNl"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="search" width="65" id="4JJ-lD-uGR"/>
                                     <barButtonItem title="profile" width="65" id="kMZ-Zr-DC8">
                                         <connections>
-                                            <segue destination="8Ne-0x-pKM" kind="presentation" id="ErW-6F-ZAd"/>
+                                            <segue destination="8Ne-0x-pKM" kind="presentation" modalTransitionStyle="crossDissolve" id="ErW-6F-ZAd"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -280,11 +280,12 @@
                         <outlet property="home" destination="LYf-dU-wWT" id="eAH-Da-Dj0"/>
                         <outlet property="profile" destination="kMZ-Zr-DC8" id="2WL-im-9lQ"/>
                         <outlet property="search" destination="4JJ-lD-uGR" id="JLa-1p-xFI"/>
+                        <outlet property="searchDreamTags" destination="WFB-U2-rDd" id="tGo-RK-b80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="3446"/>
+            <point key="canvasLocation" x="4841" y="2578"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="LBG-as-eKr">
@@ -306,28 +307,56 @@
                                 <items>
                                     <barButtonItem title="home" width="65" id="Ayc-Z0-bIL">
                                         <connections>
-                                            <segue destination="fVQ-ao-dc2" kind="presentation" id="6V2-aq-KfP"/>
+                                            <segue destination="fVQ-ao-dc2" kind="presentation" modalTransitionStyle="crossDissolve" id="6V2-aq-KfP"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="add" width="65" systemItem="add" id="A74-c0-ZqE">
                                         <connections>
-                                            <segue destination="Ne4-Yb-xoD" kind="presentation" id="3pe-0J-zG1"/>
+                                            <segue destination="Ne4-Yb-xoD" kind="presentation" modalTransitionStyle="crossDissolve" id="3pe-0J-zG1"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="search" width="65" id="d9J-vq-DkC">
                                         <connections>
-                                            <segue destination="fTT-W6-EIA" kind="presentation" id="pxr-QJ-3Rx"/>
+                                            <segue destination="fTT-W6-EIA" kind="presentation" modalTransitionStyle="crossDissolve" id="pxr-QJ-3Rx"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="profile" width="65" id="4nL-AK-HOx"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzU-mM-XBo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="121"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-jV-sW9">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="VxR-0e-168"/>
+                                </constraints>
+                            </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ama-T8-djx">
+                                <rect key="frame" x="0.0" y="185" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="my posts" id="sqK-E3-FEI"/>
+                                    <tabBarItem title="Item" id="OZe-9e-OVP"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KzU-mM-XBo" firstAttribute="leading" secondItem="uBA-Nz-8uK" secondAttribute="leadingMargin" constant="-16" id="2hx-UT-uAm"/>
                             <constraint firstItem="skp-NX-bSR" firstAttribute="top" secondItem="EXK-BA-OTK" secondAttribute="bottom" id="Bgm-mN-oC2"/>
+                            <constraint firstAttribute="centerX" secondItem="ama-T8-djx" secondAttribute="centerX" id="CL1-kd-ULJ"/>
+                            <constraint firstItem="ama-T8-djx" firstAttribute="leading" secondItem="uBA-Nz-8uK" secondAttribute="leadingMargin" constant="-16" id="NCn-dx-9I0"/>
+                            <constraint firstItem="KzU-mM-XBo" firstAttribute="top" secondItem="3kM-vB-pr3" secondAttribute="bottom" id="RhF-TB-R5D"/>
                             <constraint firstItem="EXK-BA-OTK" firstAttribute="leading" secondItem="uBA-Nz-8uK" secondAttribute="leadingMargin" constant="-16" id="Zt3-fj-oZb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EXK-BA-OTK" secondAttribute="trailing" constant="-16" id="c1Q-na-xH2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KzU-mM-XBo" secondAttribute="trailing" constant="-16" id="rRG-nV-uUJ"/>
+                            <constraint firstItem="ama-T8-djx" firstAttribute="top" secondItem="KzU-mM-XBo" secondAttribute="bottom" id="t6e-M3-W1v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ama-T8-djx" secondAttribute="trailing" constant="-16" id="uyr-oE-LJq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GFs-eg-LRm"/>
@@ -340,7 +369,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fc-8j-YMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="1064"/>
+            <point key="canvasLocation" x="5559" y="1128"/>
+        </scene>
+        <!--Dream List Table View Controller-->
+        <scene sceneID="G1n-KP-YdZ">
+            <objects>
+                <tableViewController id="uM6-5f-9PL" customClass="DreamListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="I1d-bF-Cwv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pPk-ie-5Et">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pPk-ie-5Et" id="j4D-iJ-3Yr">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uM6-5f-9PL" id="q1X-sp-5SC"/>
+                            <outlet property="delegate" destination="uM6-5f-9PL" id="vZK-lN-Mj2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71n-2o-wJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6248" y="1064"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="O3u-mt-VKj">
@@ -443,15 +498,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dl-x4-Xzv">
-                                <rect key="frame" x="279" y="86" width="43" height="30"/>
-                                <state key="normal" title="DONE">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneEditing:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="qna-Hh-JAV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbV-KD-psc">
                                 <rect key="frame" x="0.0" y="552" width="600" height="48"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -472,12 +518,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="CbV-KD-psc" secondAttribute="bottom" id="36k-uy-dwz"/>
-                            <constraint firstAttribute="centerX" secondItem="4Dl-x4-Xzv" secondAttribute="centerX" constant="-0.5" id="5ea-fP-PFH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="-16" id="LeD-KV-bnr"/>
                             <constraint firstAttribute="centerX" secondItem="CbV-KD-psc" secondAttribute="centerX" id="NYu-1X-JI0"/>
                             <constraint firstItem="gLk-dG-eX6" firstAttribute="top" secondItem="vsL-Gt-faE" secondAttribute="topMargin" id="Ozd-Hs-HTZ"/>
                             <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="Rhx-RA-vr1"/>
-                            <constraint firstItem="4Dl-x4-Xzv" firstAttribute="top" secondItem="gLk-dG-eX6" secondAttribute="bottom" constant="1" id="U0c-Xg-9gx"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="lNk-PD-IJP"/>
                             <constraint firstAttribute="centerX" secondItem="VI5-UC-nAq" secondAttribute="centerX" constant="-0.5" id="lT8-9a-uEc"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="gLk-dG-eX6" secondAttribute="bottom" constant="32" id="pQm-E5-Uan"/>
@@ -672,13 +716,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiP-Bj-Fwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="2658"/>
+            <point key="canvasLocation" x="4119" y="2578"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2D0-ZX-yNl"/>
-        <segue reference="txH-p7-gMY"/>
-        <segue reference="uh6-xA-SSd"/>
-        <segue reference="ErW-6F-ZAd"/>
+        <segue reference="6V2-aq-KfP"/>
+        <segue reference="prH-S0-JU7"/>
+        <segue reference="3pe-0J-zG1"/>
+        <segue reference="pxr-QJ-3Rx"/>
     </inferredMetricsTieBreakers>
 </document>

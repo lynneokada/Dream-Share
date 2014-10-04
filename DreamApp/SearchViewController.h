@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController <UISearchBarDelegate>
+//tool bar references
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *home;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *add;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *search;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *profile;
+
+//search bar reference
+@property (weak, nonatomic) IBOutlet UISearchBar *searchDreamTags;
 
 @end

@@ -13,11 +13,20 @@
 @end
 
 @implementation SearchViewController
+@synthesize searchDreamTags;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchDreamTags.delegate = self;
     
     [self.search setEnabled:NO];
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
 
@@ -26,6 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) dismissKeyboard
+{
+    // add self
+    [self.searchDreamTags resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 

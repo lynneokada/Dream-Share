@@ -18,12 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.profile setEnabled:NO];
+    //self.tableView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    // Return the number of rows in the section.
+//    return 2;
+//}
 
 /*
 #pragma mark - Navigation

@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDelegate>
 //toolbar buttons
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *home;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *add;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *search;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *profile;
 
+//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 //profile stats
 
 @end
