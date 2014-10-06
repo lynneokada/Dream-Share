@@ -10,10 +10,11 @@
 
 @interface SearchViewController : UIViewController <UISearchBarDelegate>
 //tool bar references
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *home;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *add;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *search;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *profile;
+@property (weak, nonatomic) IBOutlet UITabBarItem *home;
+@property (weak, nonatomic) IBOutlet UITabBarItem *add;
+@property (weak, nonatomic) IBOutlet UITabBarItem *search;
+@property (weak, nonatomic) IBOutlet UITabBarItem *profile;
+
 
 //search bar reference
 @property (weak, nonatomic) IBOutlet UISearchBar *searchDreamTags;

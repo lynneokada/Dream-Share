@@ -26,6 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+}
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    // Return the number of rows in the section.
 //    return 2;
