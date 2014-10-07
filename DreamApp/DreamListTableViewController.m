@@ -57,14 +57,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)unwindToDreamListTableViewController:(UIStoryboardSegue *)unwindSegue {
+    
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [self.privateDreamList count];
-}
-
-- (IBAction)unwindToDreamListTableViewController:(UIStoryboardSegue *)unwindSegue {
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

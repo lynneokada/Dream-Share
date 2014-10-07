@@ -19,9 +19,6 @@
     [super viewDidLoad];
     self.searchDreamTags.delegate = self;
     
-    [self.search setEnabled:NO];
-    
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];

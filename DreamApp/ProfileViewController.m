@@ -7,6 +7,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "DreamViewController.h"
+#import "AppDelegate.h"
 
 @interface ProfileViewController ()
 
@@ -14,11 +16,36 @@
 
 @implementation ProfileViewController
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        self.dreamLog = [NSMutableArray array];
+
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
-    [self.profile setEnabled:NO];
-    //self.tableView.delegate = self;
+    // get access to the managed object context
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    // get entity description for entity we are selecting
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
+    // create a new fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    // create an error variable to pass to the execute method
+    NSError *error;
+    // retrieve results
+    self.dreamLog = [[context executeFetchRequest:request error:&error] mutableCopy];
+    if (self.dreamLog == nil) {
+        //error handling, e.g. display error to user
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,22 +53,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+- (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue {
     
 }
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    // Return the number of rows in the section.
-//    return 2;
-//}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [self.dreamLog count];
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
+    
+    //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
+    
+    return cell;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showDream"]) {
+        DreamViewController *dreamViewController = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        dreamViewController.dream = self.dreamLog[selectedIndexPath.row];
+    }
+}
 
 @end

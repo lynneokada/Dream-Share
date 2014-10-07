@@ -13,5 +13,6 @@
 @interface DreamViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) Dream *dream;
+@property (weak, nonatomic) IBOutlet UITextView *dreamTextView;
 
 @end

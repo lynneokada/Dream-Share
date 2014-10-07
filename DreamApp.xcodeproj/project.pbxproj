@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D123519DF51E800DE7485 /* SearchViewController.m */; };
 		D20D126219E2FBC900DE7485 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126119E2FBC900DE7485 /* HomeTableViewController.m */; };
+		D20D126819E3404900DE7485 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126719E3404900DE7485 /* TabBarController.m */; };
 		D270DA9819DB2270009D425B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9719DB2270009D425B /* main.m */; };
 		D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9A19DB2270009D425B /* AppDelegate.m */; };
 		D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9C19DB2270009D425B /* DreamApp.xcdatamodeld */; };
@@ -26,7 +27,6 @@
 		D270DB1119DCC8FC009D425B /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1019DCC8FC009D425B /* Dream.m */; };
 		D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1319DD4059009D425B /* EditDreamViewController.m */; };
 		D270DB1719DDC831009D425B /* DreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1619DDC831009D425B /* DreamViewController.m */; };
-		D270DB1A19DF1B1A009D425B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1919DF1B1A009D425B /* HomeViewController.m */; };
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,8 @@
 		D20D123519DF51E800DE7485 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D20D126019E2FBC900DE7485 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		D20D126119E2FBC900DE7485 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		D20D126619E3404900DE7485 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
+		D20D126719E3404900DE7485 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
 		D270DA9219DB2270009D425B /* DreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270DA9619DB2270009D425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270DA9719DB2270009D425B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,8 +78,6 @@
 		D270DB1319DD4059009D425B /* EditDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDreamViewController.m; sourceTree = "<group>"; };
 		D270DB1519DDC831009D425B /* DreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamViewController.h; sourceTree = "<group>"; };
 		D270DB1619DDC831009D425B /* DreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreamViewController.m; sourceTree = "<group>"; };
-		D270DB1819DF1B1A009D425B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		D270DB1919DF1B1A009D425B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D270DB1B19DF21E4009D425B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		D270DB1C19DF21E4009D425B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,10 +139,10 @@
 				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
 				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
+				D20D126619E3404900DE7485 /* TabBarController.h */,
+				D20D126719E3404900DE7485 /* TabBarController.m */,
 				D270DB1519DDC831009D425B /* DreamViewController.h */,
 				D270DB1619DDC831009D425B /* DreamViewController.m */,
-				D270DB1819DF1B1A009D425B /* HomeViewController.h */,
-				D270DB1919DF1B1A009D425B /* HomeViewController.m */,
 				D20D126019E2FBC900DE7485 /* HomeTableViewController.h */,
 				D20D126119E2FBC900DE7485 /* HomeTableViewController.m */,
 				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
@@ -299,9 +299,9 @@
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DAD219DC7F36009D425B /* DreamListTableViewController.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
+				D20D126819E3404900DE7485 /* TabBarController.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
-				D270DB1A19DF1B1A009D425B /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,23 +1,25 @@
 //
-//  HomeViewController.m
+//  TabBarController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/3/14.
+//  Created by Lynne Okada on 10/6/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "TabBarController.h"
 
-@interface HomeViewController ()
+@interface TabBarController ()
 
 @end
 
-@implementation HomeViewController
+@implementation TabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.home setEnabled:NO];
+    self.tabBarArray = self.viewControllers;
+    
+    NSLog(@"View Controllers = %@", [self.tabBarArray description]);
 }
 
 - (void)didReceiveMemoryWarning {

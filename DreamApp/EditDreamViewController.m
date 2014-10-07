@@ -9,6 +9,7 @@
 #import "EditDreamViewController.h"
 #import "Dream.h"
 #import "AppDelegate.h"
+#import "ProfileViewController.h"
 
 @interface EditDreamViewController () {
     Dream *dreamBeingAdded;
@@ -32,8 +33,8 @@
     
     [self.view addGestureRecognizer:tap];
     
+    //create managedObjectContext to store data into core data
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    
     dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
 
 }
@@ -60,27 +61,34 @@
 //    [alert show];
 }
 
-- (IBAction)saveTapped:(id)sender {
-//    [_privateDreamList addObject:dreamBeingAdded];
-//    dreamBeingAdded.recording = self.player.data;
-    dreamBeingAdded.content = self.dreamContentTextView.text;
-    
-    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-}
-
 - (void) dismissKeyboard {
     // add self
     [self.dreamContentTextView resignFirstResponder];
 }
 
-/*
+- (IBAction)saveTapped:(id)sender {
+    //references via tab bar controller
+    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    [profileViewController.dreamLog addObject:dreamBeingAdded];
+
+    dreamBeingAdded.content = self.dreamContentTextView.text;
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    self.tabBarController.selectedIndex = 3;
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
+//        
+//        //dreamBeingAdded.recording = self.player.data;
+//
+//    }
+//}
+
 
 @end
