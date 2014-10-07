@@ -10,6 +10,8 @@
 		D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D123519DF51E800DE7485 /* SearchViewController.m */; };
 		D20D126219E2FBC900DE7485 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126119E2FBC900DE7485 /* HomeTableViewController.m */; };
 		D20D126819E3404900DE7485 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126719E3404900DE7485 /* TabBarController.m */; };
+		D20D126E19E39AF700DE7485 /* AlarmTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */; };
+		D20D127119E39BBD00DE7485 /* AddAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */; };
 		D270DA9819DB2270009D425B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9719DB2270009D425B /* main.m */; };
 		D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9A19DB2270009D425B /* AppDelegate.m */; };
 		D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9C19DB2270009D425B /* DreamApp.xcdatamodeld */; };
@@ -47,6 +49,10 @@
 		D20D126119E2FBC900DE7485 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		D20D126619E3404900DE7485 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
 		D20D126719E3404900DE7485 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
+		D20D126C19E39AF700DE7485 /* AlarmTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmTableViewController.h; path = ../AlarmTableViewController.h; sourceTree = "<group>"; };
+		D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmTableViewController.m; path = ../AlarmTableViewController.m; sourceTree = "<group>"; };
+		D20D126F19E39BBD00DE7485 /* AddAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAlarmViewController.h; sourceTree = "<group>"; };
+		D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlarmViewController.m; sourceTree = "<group>"; };
 		D270DA9219DB2270009D425B /* DreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270DA9619DB2270009D425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270DA9719DB2270009D425B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +155,10 @@
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
 				D20D123419DF51E800DE7485 /* SearchViewController.h */,
 				D20D123519DF51E800DE7485 /* SearchViewController.m */,
+				D20D126C19E39AF700DE7485 /* AlarmTableViewController.h */,
+				D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */,
+				D20D126F19E39BBD00DE7485 /* AddAlarmViewController.h */,
+				D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
 				D270DAA719DB2270009D425B /* LaunchScreen.xib */,
@@ -286,8 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20D127119E39BBD00DE7485 /* AddAlarmViewController.m in Sources */,
 				D270DB1719DDC831009D425B /* DreamViewController.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
+				D20D126E19E39AF700DE7485 /* AlarmTableViewController.m in Sources */,
 				D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */,
 				D270DB1119DCC8FC009D425B /* Dream.m in Sources */,
 				D20D126219E2FBC900DE7485 /* HomeTableViewController.m in Sources */,

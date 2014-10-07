@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="2578"/>
+            <point key="canvasLocation" x="5565" y="2564"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="LBG-as-eKr">
@@ -216,6 +216,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gs1-Uv-MQ0">
                                         <rect key="frame" x="250" y="17" width="100" height="100"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="cQ1-zI-Rgb"/>
                                             <constraint firstAttribute="height" constant="100" id="rQR-KI-UZT"/>
@@ -268,7 +269,136 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fc-8j-YMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6371" y="1064"/>
+            <point key="canvasLocation" x="6279" y="2564"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="6AO-SW-FEx">
+            <objects>
+                <tableViewController id="BBz-cg-BIJ" customClass="AlarmTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="KIu-XQ-mJj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" id="K2Z-Ej-237">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K2Z-Ej-237" id="gg8-uk-KM1">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNY-0w-WO5">
+                                            <rect key="frame" x="501" y="34" width="51" height="31"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-bq-h93">
+                                            <rect key="frame" x="50" y="39" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SNY-0w-WO5" firstAttribute="top" secondItem="gg8-uk-KM1" secondAttribute="topMargin" constant="26" id="39t-ce-Sfz"/>
+                                        <constraint firstItem="KBx-bq-h93" firstAttribute="top" secondItem="gg8-uk-KM1" secondAttribute="topMargin" constant="31" id="K1C-1d-oR0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SNY-0w-WO5" secondAttribute="trailing" constant="42" id="w6z-rq-env"/>
+                                        <constraint firstItem="KBx-bq-h93" firstAttribute="leading" secondItem="gg8-uk-KM1" secondAttribute="leadingMargin" constant="42" id="xfU-FR-M6f"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BBz-cg-BIJ" id="1un-Fn-GPF"/>
+                            <outlet property="delegate" destination="BBz-cg-BIJ" id="B5C-E6-TSV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Alarm" id="hDn-Gm-ets">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="H9C-OZ-L8a">
+                            <connections>
+                                <segue destination="bfC-np-8tk" kind="show" identifier="addAlarm" id="3tK-ZQ-fTq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYK-w4-j7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7045" y="2564"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="3pe-ZA-sv7">
+            <objects>
+                <viewController id="bfC-np-8tk" customClass="AddAlarmViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="go4-aT-FQr"/>
+                        <viewControllerLayoutGuide type="bottom" id="ruV-8h-PcS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0tt-ag-f0d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-f6-d7f">
+                                <rect key="frame" x="56" y="150" width="167" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="NVv-ur-Nti"/>
+                                    <constraint firstAttribute="height" constant="162" id="RTl-g4-AFE"/>
+                                </constraints>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBI-BD-ExQ">
+                                <rect key="frame" x="231" y="150" width="138" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="kFU-1s-2ML"/>
+                                    <constraint firstAttribute="width" constant="138" id="qQQ-hh-moe"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-8B-fbN">
+                                <rect key="frame" x="0.0" y="64" width="600" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="1X6-JW-6vo"/>
+                                    <constraint firstAttribute="height" constant="93" id="z9e-hv-gof"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVf-KJ-wZM">
+                                <rect key="frame" x="377" y="150" width="134" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="j1C-mg-ojk"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rBI-BD-ExQ" firstAttribute="leading" secondItem="s0u-f6-d7f" secondAttribute="trailing" constant="8" id="8hE-1x-44y"/>
+                            <constraint firstItem="Mzi-8B-fbN" firstAttribute="top" secondItem="go4-aT-FQr" secondAttribute="bottom" id="G50-Cc-GLS"/>
+                            <constraint firstItem="s0u-f6-d7f" firstAttribute="top" secondItem="Mzi-8B-fbN" secondAttribute="bottom" constant="-7" id="Hpt-Vw-PoK"/>
+                            <constraint firstItem="rBI-BD-ExQ" firstAttribute="top" secondItem="Mzi-8B-fbN" secondAttribute="bottom" constant="-7" id="Tv8-Nm-2of"/>
+                            <constraint firstItem="KVf-KJ-wZM" firstAttribute="top" secondItem="Mzi-8B-fbN" secondAttribute="bottom" constant="-7" id="kt9-m3-kzW"/>
+                            <constraint firstAttribute="centerX" secondItem="rBI-BD-ExQ" secondAttribute="centerX" id="p8t-oN-4um"/>
+                            <constraint firstItem="KVf-KJ-wZM" firstAttribute="leading" secondItem="rBI-BD-ExQ" secondAttribute="trailing" constant="8" id="qdd-Zn-jam"/>
+                            <constraint firstAttribute="centerX" secondItem="Mzi-8B-fbN" secondAttribute="centerX" id="ws1-WD-Qus"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Alarm" id="rVW-Bu-oRS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jCV-xr-j4O">
+                            <connections>
+                                <segue destination="U8Q-uN-Dzf" kind="unwind" identifier="AlarmAdded" unwindAction="unwindToAlarmListTableViewController:" id="RPV-ik-WOn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="ampm" destination="KVf-KJ-wZM" id="LeJ-Pm-ILv"/>
+                        <outlet property="currentTime" destination="Mzi-8B-fbN" id="FLp-DQ-Dm2"/>
+                        <outlet property="hour" destination="s0u-f6-d7f" id="XZd-L7-0bT"/>
+                        <outlet property="minute" destination="rBI-BD-ExQ" id="h2K-Fo-xSm"/>
+                        <outlet property="saveButton" destination="jCV-xr-j4O" id="SZt-uN-Z8A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xTg-Qn-eYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U8Q-uN-Dzf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="7045" y="3300"/>
         </scene>
         <!--Dream View Controller-->
         <scene sceneID="WIz-jZ-bzG">
@@ -297,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWn-3k-oTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7104" y="1064"/>
+            <point key="canvasLocation" x="6279" y="3300"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="O3u-mt-VKj">
@@ -362,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8u-Kp-duq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6371" y="1824"/>
+            <point key="canvasLocation" x="4841" y="2564"/>
         </scene>
         <!--Edit Dream View Controller-->
         <scene sceneID="HjD-UN-t3v">
@@ -437,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7104" y="1824"/>
+            <point key="canvasLocation" x="4841" y="3300"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
@@ -598,6 +728,7 @@
                         <segue destination="01T-ze-IXp" kind="relationship" relationship="viewControllers" id="D0U-t6-4Z3"/>
                         <segue destination="fTT-W6-EIA" kind="relationship" relationship="viewControllers" id="qmP-ir-fWx"/>
                         <segue destination="fni-4c-lR8" kind="relationship" relationship="viewControllers" id="pXH-w6-FM7"/>
+                        <segue destination="P77-7c-2uk" kind="relationship" relationship="viewControllers" id="32F-83-RHv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZY-im-shS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,7 +761,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzv-cN-Swl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="1824"/>
+            <point key="canvasLocation" x="4129" y="2564"/>
         </scene>
         <!--search-->
         <scene sceneID="W2F-9i-UYT">
@@ -649,7 +780,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiP-Bj-Fwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="2578"/>
+            <point key="canvasLocation" x="5565" y="1824"/>
         </scene>
         <!--add-->
         <scene sceneID="QXy-fW-eN4">
@@ -668,7 +799,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLK-hS-Rie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="1824"/>
+            <point key="canvasLocation" x="4841" y="1824"/>
         </scene>
         <!--profile-->
         <scene sceneID="6sg-Wo-VAK">
@@ -687,7 +818,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vjw-Za-TbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="1064"/>
+            <point key="canvasLocation" x="6279" y="1824"/>
         </scene>
         <!--home-->
         <scene sceneID="xru-on-Zvj">
@@ -707,6 +838,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2JE-fl-t42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4129" y="1824"/>
+        </scene>
+        <!--alarm-->
+        <scene sceneID="TOp-Yj-4dg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P77-7c-2uk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="alarm" id="Bzi-gs-WbK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PoT-hH-lLw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BBz-cg-BIJ" kind="relationship" relationship="rootViewController" id="JE1-ZA-frh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjK-kF-jKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7045" y="1824"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
