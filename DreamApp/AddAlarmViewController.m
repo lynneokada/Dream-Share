@@ -7,6 +7,8 @@
 //
 
 #import "AddAlarmViewController.h"
+#import "AppDelegate.h"
+#import "Alarm.h"
 
 @interface AddAlarmViewController () {
     NSArray *_hourData;
@@ -16,6 +18,8 @@
     NSString *_hourValue;
     NSString *_minuteValue;
     NSString *_ampmValue;
+    
+    Alarm *alarmBeingAdded;
 }
 
 @end
@@ -40,6 +44,11 @@
     _hourData = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12"];
     _minuteData = @[@"00",@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",@"32",@"33",@"34",@"35",@"36",@"37",@"38",@"39",@"40",@"41",@"42",@"43",@"44",@"45",@"46",@"47",@"48",@"49",@"50",@"51",@"52",@"53",@"54",@"55",@"56",@"57",@"58",@"59"];
     _ampmData = @[@"am",@"pm"];
+    
+    //create managedObjectContext to store data into core data
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    alarmBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:context];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,30 +87,27 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSInteger selectedHour = [self.timePicker selectedRowInComponent:0];
-    NSInteger selectedMinute = [self.timePicker selectedRowInComponent:1];
-    NSInteger selectedampm = [self.timePicker selectedRowInComponent:2];
-    
-    //NSLog(@"hour:%@, minute:%@, ampm:%@", _hourData[row], _minuteData[row], _ampmData[row]);
-    
     if (component == 0) {
+        _hourValue = [_hourData objectAtIndex:row];
         return NSLog(@"Selected hour: %@",[_hourData objectAtIndex:row]);
     } else if (component == 1) {
+        _minuteValue = [_minuteData objectAtIndex:row];
         return NSLog(@"Selected minute: %@",[_minuteData objectAtIndex:row]);
     } else {
+        _ampmValue = [_ampmData objectAtIndex:row];
         return NSLog(@"Selected am/pm: %@",[_ampmData objectAtIndex:row]);
     }
-    
-    //_hourValue = [_hourData objectAtIndex:[pickerView selectedRowInComponent:0]];
-
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AlarmAdded"]) {
-        
+        NSLog(@"hour:%@, minute:%@, am/pm:%@", _hourValue, _minuteValue, _ampmValue);
+        alarmBeingAdded.hour = _hourValue;
+        alarmBeingAdded.minute = _minuteValue;
+        alarmBeingAdded.ampm = _ampmValue;
+        [self.alarms addObject:alarmBeingAdded];
     }
 }
-
 
 @end

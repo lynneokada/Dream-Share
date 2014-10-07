@@ -8,20 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AddAlarmViewControllerDelegate <NSObject>
-
-- (void)didChooseHour:(NSString *)hour minute:(NSString *)minute andampm:(NSString *)ampm;
-
-@end
-
 @interface AddAlarmViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
     IBOutlet UILabel *currentTime;
     NSTimer *timer;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
-@property (weak, nonatomic) id <AddAlarmViewControllerDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *alarms;
 
 - (void)updateTimer;
 
