@@ -30,6 +30,7 @@
 		D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1319DD4059009D425B /* EditDreamViewController.m */; };
 		D270DB1719DDC831009D425B /* DreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1619DDC831009D425B /* DreamViewController.m */; };
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
+		D272CD1619E45D180059353E /* ProfileSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1519E45D180059353E /* ProfileSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		D270DB1619DDC831009D425B /* DreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreamViewController.m; sourceTree = "<group>"; };
 		D270DB1B19DF21E4009D425B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		D270DB1C19DF21E4009D425B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D272CD1419E45D180059353E /* ProfileSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileSettingsViewController.h; sourceTree = "<group>"; };
+		D272CD1519E45D180059353E /* ProfileSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */,
 				D20D126F19E39BBD00DE7485 /* AddAlarmViewController.h */,
 				D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */,
+				D272CD1419E45D180059353E /* ProfileSettingsViewController.h */,
+				D272CD1519E45D180059353E /* ProfileSettingsViewController.m */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
 				D270DAA719DB2270009D425B /* LaunchScreen.xib */,
@@ -304,6 +309,7 @@
 				D270DB1119DCC8FC009D425B /* Dream.m in Sources */,
 				D20D126219E2FBC900DE7485 /* HomeTableViewController.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
+				D272CD1619E45D180059353E /* ProfileSettingsViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
