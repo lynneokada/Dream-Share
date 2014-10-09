@@ -208,7 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="skp-NX-bSR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uBA-Nz-8uK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGV-GP-MT0">
@@ -233,12 +233,18 @@
                                         <state key="normal" title="followers">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="FzC-ZE-GoT" kind="show" id="9Ty-hh-xZZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-ST-pFL">
                                         <rect key="frame" x="246" y="60" width="62" height="30"/>
                                         <state key="normal" title="following">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="sFn-01-KmY" kind="show" id="EjS-kk-bTe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnY-hu-0Pa">
                                         <rect key="frame" x="126" y="87" width="182" height="30"/>
@@ -249,7 +255,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="qu2-d3-wSr" kind="show" id="RHc-vR-zqR"/>
+                                            <segue destination="qu2-d3-wSr" kind="show" identifier="editProfile" id="RHc-vR-zqR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -308,6 +314,7 @@
                         <outlet property="followers" destination="UId-T7-hdV" id="wIP-eD-dob"/>
                         <outlet property="following" destination="8uJ-ST-pFL" id="rrB-8k-RIQ"/>
                         <outlet property="posts" destination="zTZ-q9-O28" id="x5a-WK-eAV"/>
+                        <outlet property="profilePicture" destination="Gs1-Uv-MQ0" id="yhx-qz-qof"/>
                         <outlet property="tableView" destination="jjZ-wN-jiN" id="IG8-L8-CJF"/>
                     </connections>
                 </viewController>
@@ -419,7 +426,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gJJ-hU-xhj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fy3-oO-GQ9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2R-5E-9hp">
@@ -456,7 +463,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uFq-FO-1NR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9w3-wZ-Od9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -474,35 +481,61 @@
                         <viewControllerLayoutGuide type="bottom" id="b0B-UP-hrs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rc8-HG-e7b">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdH-a0-Ftq">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="edit profile" id="kq5-0q-s1g">
-                                        <barButtonItem key="backBarButtonItem" title="cancel" id="ukT-Bc-kkx"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="v8k-sI-sds"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnJ-Cw-hEj">
                                 <rect key="frame" x="0.0" y="74" width="600" height="180"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PHC-yV-4Dt">
                                         <rect key="frame" x="225" y="15" width="150" height="150"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0qc-ke-Una"/>
                                             <constraint firstAttribute="width" constant="150" id="xhG-YC-HnG"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33b-oc-gNN">
+                                        <rect key="frame" x="225" y="135" width="75" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7NL-Fz-9y5"/>
+                                            <constraint firstAttribute="width" constant="75" id="WhR-fZ-YQ6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="take photo">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="TakePhoto" destination="qu2-d3-wSr" eventType="touchUpInside" id="deR-hI-nLH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnN-xA-wny">
+                                        <rect key="frame" x="300" y="135" width="75" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hLf-xN-lZC"/>
+                                            <constraint firstAttribute="width" constant="75" id="y6j-zV-7EK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="choose existing">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ChooseExisting" destination="qu2-d3-wSr" eventType="touchUpInside" id="1hI-di-e7N"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="PHC-yV-4Dt" secondAttribute="centerY" id="DnS-Ff-b30"/>
+                                    <constraint firstItem="gnN-xA-wny" firstAttribute="leading" secondItem="PHC-yV-4Dt" secondAttribute="trailing" constant="-75" id="NZ8-gD-HzN"/>
+                                    <constraint firstItem="gnN-xA-wny" firstAttribute="leading" secondItem="33b-oc-gNN" secondAttribute="trailing" id="OUX-MO-aHg"/>
                                     <constraint firstAttribute="centerX" secondItem="PHC-yV-4Dt" secondAttribute="centerX" id="OfJ-XB-WjG"/>
+                                    <constraint firstItem="PHC-yV-4Dt" firstAttribute="leading" secondItem="33b-oc-gNN" secondAttribute="trailing" constant="-75" id="V6h-t0-ftX"/>
                                     <constraint firstAttribute="height" constant="180" id="YMN-3a-oc3"/>
+                                    <constraint firstItem="33b-oc-gNN" firstAttribute="top" secondItem="PHC-yV-4Dt" secondAttribute="bottom" constant="-30" id="juT-IT-eu6"/>
+                                    <constraint firstItem="gnN-xA-wny" firstAttribute="top" secondItem="PHC-yV-4Dt" secondAttribute="bottom" constant="-30" id="mLT-9m-Ppd"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="change username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-aO-hdU">
@@ -524,6 +557,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G94-ZL-Il8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="edit profile" id="HhL-Eu-MTw">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ADL-qJ-YKy"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -544,12 +585,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ou1-N0-OIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6279" y="4688"/>
+            <point key="canvasLocation" x="6279" y="4720"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Followers Table View Controller-->
         <scene sceneID="ki7-Lf-c8F">
             <objects>
-                <tableViewController id="FzC-ZE-GoT" sceneMemberID="viewController">
+                <tableViewController id="FzC-ZE-GoT" customClass="FollowersTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Jvp-2J-Igr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -570,7 +611,33 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcd-e2-bO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6279" y="5362"/>
+            <point key="canvasLocation" x="6279" y="5424"/>
+        </scene>
+        <!--Following Table View Controller-->
+        <scene sceneID="GtQ-yq-5VH">
+            <objects>
+                <tableViewController id="sFn-01-KmY" customClass="FollowingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LN3-ns-XCz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="76i-Vx-gjx">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="76i-Vx-gjx" id="YIM-Ms-XXZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sFn-01-KmY" id="2F1-Re-Ms8"/>
+                            <outlet property="delegate" destination="sFn-01-KmY" id="DMp-YB-3Zh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYY-Rx-L1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6279" y="6130"/>
         </scene>
         <!--Record-->
         <scene sceneID="O3u-mt-VKj">

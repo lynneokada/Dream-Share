@@ -22,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //make imageView circular
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height /2;
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.borderWidth = 0;
+    
     self.imgPicker = [[UIImagePickerController alloc] init];
     self.imgPicker.delegate = self;
     self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -69,14 +74,14 @@
     
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    if ([touch view] == self.profilePicture){
-        NSLog(@"touchrecieved");
-        //[self performSegueWithIdentifier:@"imageScroll" sender:self];
-    }
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    UITouch *touch = [touches anyObject];
+//    if ([touch view] == self.profilePicture){
+//        NSLog(@"touchrecieved");
+//        //[self performSegueWithIdentifier:@"imageScroll" sender:self];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
