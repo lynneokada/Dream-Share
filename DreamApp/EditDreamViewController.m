@@ -33,10 +33,10 @@
     
     [self.view addGestureRecognizer:tap];
     
-    //create managedObjectContext to store data into core data
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
-
+    //create file in library directory
+    NSString *cachesFolder = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *file = [cachesFolder stringByAppendingPathComponent:@"testfile"];
+    [[NSData data] writeToFile:file options:NSDataWritingAtomic error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,14 +52,14 @@
     }
 }
 
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+//- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
 //                                                    message: @"Your recording has ended"
 //                                                   delegate: nil
 //                                          cancelButtonTitle:@"OK"
 //                                          otherButtonTitles:nil];
 //    [alert show];
-}
+//}
 
 - (void) dismissKeyboard {
     // add self
@@ -77,7 +77,6 @@
     
     self.tabBarController.selectedIndex = 3;
 }
-
 
 #pragma mark - Navigation
 

@@ -32,6 +32,7 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D272CD1619E45D180059353E /* ProfileSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1519E45D180059353E /* ProfileSettingsViewController.m */; };
 		D272CD1919E497210059353E /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1819E497210059353E /* Alarm.m */; };
+		D272CD1C19E4B0880059353E /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		D272CD1519E45D180059353E /* ProfileSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSettingsViewController.m; sourceTree = "<group>"; };
 		D272CD1719E497210059353E /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
 		D272CD1819E497210059353E /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		D272CD1A19E4B0880059353E /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
+		D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */,
 				D20D126F19E39BBD00DE7485 /* AddAlarmViewController.h */,
 				D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */,
+				D272CD1A19E4B0880059353E /* AlarmTableViewCell.h */,
+				D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
 				D270DAA719DB2270009D425B /* LaunchScreen.xib */,
@@ -308,6 +313,7 @@
 			files = (
 				D20D127119E39BBD00DE7485 /* AddAlarmViewController.m in Sources */,
 				D270DB1719DDC831009D425B /* DreamViewController.m in Sources */,
+				D272CD1C19E4B0880059353E /* AlarmTableViewCell.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D272CD1919E497210059353E /* Alarm.m in Sources */,
 				D20D126E19E39AF700DE7485 /* AlarmTableViewController.m in Sources */,

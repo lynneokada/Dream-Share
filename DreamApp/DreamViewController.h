@@ -14,5 +14,7 @@
 
 @property (nonatomic, strong) Dream *dream;
 @property (weak, nonatomic) IBOutlet UITextView *dreamTextView;
+@property (weak, nonatomic) IBOutlet UILabel *dreamTitleLabel;
+
 
 @end

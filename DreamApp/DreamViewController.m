@@ -20,6 +20,7 @@
     self.dreamTextView.delegate = self;
     
     self.dreamTextView.text = self.dream.content;
+    self.dreamTitleLabel.text = self.dream.title;
     // Do any additional setup after loading the view.
     
 }

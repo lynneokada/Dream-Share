@@ -11,7 +11,7 @@
 
 @interface RecordViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
-@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (nonatomic, strong) NSMutableArray *privateDreamList;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end

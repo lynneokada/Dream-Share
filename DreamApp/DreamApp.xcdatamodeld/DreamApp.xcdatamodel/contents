@@ -10,9 +10,10 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="recording" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Dream" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Alarm" positionX="-63" positionY="9" width="128" height="88"/>
+        <element name="Dream" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
