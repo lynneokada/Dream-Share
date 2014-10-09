@@ -10,13 +10,15 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProfileViewController.h"
 
-@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITextViewDelegate>
+@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITextViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
 
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
 
 - (IBAction)playTapped:(id)sender;
+
 
 @end

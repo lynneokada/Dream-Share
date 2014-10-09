@@ -12,6 +12,13 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dreamLog;
 
+//buttonsssssss
+@property (weak, nonatomic) IBOutlet UIButton *posts;
+@property (weak, nonatomic) IBOutlet UIButton *followers;
+@property (weak, nonatomic) IBOutlet UIButton *following;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+
+
 //profile stats
 
 @end

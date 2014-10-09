@@ -35,10 +35,12 @@
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     // get entity description for entity we are selecting
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
+    NSEntityDescription *dreamDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
+    NSEntityDescription *userInfoDescription = [NSEntityDescription entityForName:@"UserInfo" inManagedObjectContext:context];
     // create a new fetch request
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
+    [request setEntity:dreamDescription];
+    [request setEntity:userInfoDescription];
     // create an error variable to pass to the execute method
     NSError *error;
     // retrieve results

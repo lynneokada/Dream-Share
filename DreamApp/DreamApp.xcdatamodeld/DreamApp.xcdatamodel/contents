@@ -12,8 +12,12 @@
         <attribute name="recording" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="UserInfo" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Alarm" positionX="-63" positionY="9" width="128" height="88"/>
         <element name="Dream" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="UserInfo" positionX="-63" positionY="18" width="128" height="60"/>
     </elements>
 </model>

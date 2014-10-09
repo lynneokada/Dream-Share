@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamTextView.delegate = self;
     
     self.dreamTextView.text = self.dream.content;

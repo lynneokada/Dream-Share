@@ -16,6 +16,8 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
+@property (weak, nonatomic) IBOutlet UITextField *dreamTitleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *tags;
 
 @end
 
@@ -24,7 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     _dreamContentTextView.delegate = self;
+    _dreamTitleLabel.delegate = self;
+    _tags.delegate = self;
     
     //resign textView
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -37,6 +42,11 @@
     NSString *cachesFolder = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *file = [cachesFolder stringByAppendingPathComponent:@"testfile"];
     [[NSData data] writeToFile:file options:NSDataWritingAtomic error:nil];
+    
+    //create NSManagedObjectContext
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    
+    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,18 +62,22 @@
     }
 }
 
-//- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
-//                                                    message: @"Your recording has ended"
-//                                                   delegate: nil
-//                                          cancelButtonTitle:@"OK"
-//                                          otherButtonTitles:nil];
-//    [alert show];
-//}
-
 - (void) dismissKeyboard {
     // add self
     [self.dreamContentTextView resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+//    if (textField == _tags) {
+//        
+//    }
+    return YES;
 }
 
 - (IBAction)saveTapped:(id)sender {
@@ -73,6 +87,18 @@
     [profileViewController.dreamLog addObject:dreamBeingAdded];
 
     dreamBeingAdded.content = self.dreamContentTextView.text;
+    dreamBeingAdded.title = self.dreamTitleLabel.text;
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    self.tabBarController.selectedIndex = 3;
+}
+- (IBAction)editLaterTapped:(id)sender {
+    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    [profileViewController.dreamLog addObject:dreamBeingAdded];
+    
+    dreamBeingAdded.content = self.dreamContentTextView.text;
+    dreamBeingAdded.title = self.dreamTitleLabel.text;
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
     self.tabBarController.selectedIndex = 3;
