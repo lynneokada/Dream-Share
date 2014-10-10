@@ -6,10 +6,14 @@
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
+#import "ProfileViewController.h"
 #import "EditProfileViewController.h"
 #import "AppDelegate.h"
+#import "UserInfo.h"
 
-@interface EditProfileViewController ()
+@interface EditProfileViewController () {
+    UserInfo *userInfoChanged;
+}
 
 @end
 
@@ -31,7 +35,6 @@
     self.imgPicker.delegate = self;
     self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    self.profilePicture.image = [UIImage imageWithData:self.userInfo.image];
     self.profilePicture.userInteractionEnabled = YES;
     
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -83,19 +86,25 @@
 //    }
 //}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"doneEdittingProfile"]) {
+        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        
+        NSError *error = nil;
+        [context save:&error];
+        if (error) {
+            
+        }
+        
+        
+        [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

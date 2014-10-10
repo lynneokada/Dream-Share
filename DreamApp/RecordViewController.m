@@ -52,10 +52,6 @@
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
     [recorder prepareToRecord];
-    
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    
-    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
 }
 
 - (IBAction)recordPauseTapped:(id)sender {
@@ -82,6 +78,10 @@
     [doneButton setEnabled:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [doneButton setEnabled:NO];
+}
+
 - (IBAction)doneTapped:(id)sender {
     [recorder stop];
     
@@ -92,14 +92,12 @@
     [audioSession setActive:NO error:nil];
     
     [_privateDreamList addObject:dreamBeingAdded];
-    dreamBeingAdded.recording = player.data;
 }
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
     [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     
     [doneButton setEnabled:NO];
-    [recordPauseButton setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {

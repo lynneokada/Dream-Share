@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfo.h"
 
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *following;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 
+@property (nonatomic, strong) UserInfo *userInfo;
 
 //profile stats
 

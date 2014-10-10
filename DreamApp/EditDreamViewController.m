@@ -90,7 +90,10 @@
     dreamBeingAdded.title = self.dreamTitleLabel.text;
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
-    self.tabBarController.selectedIndex = 3;
+    //return to record view controller
+    [navigationController popViewControllerAnimated:YES];
+    
+    //self.tabBarController.selectedIndex = 3;
 }
 - (IBAction)editLaterTapped:(id)sender {
     UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
@@ -101,7 +104,10 @@
     dreamBeingAdded.title = self.dreamTitleLabel.text;
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
-    self.tabBarController.selectedIndex = 3;
+    //return to record view controller
+    [navigationController popToRootViewControllerAnimated:YES];
+    
+    //self.tabBarController.selectedIndex = 3;
 }
 
 #pragma mark - Navigation
