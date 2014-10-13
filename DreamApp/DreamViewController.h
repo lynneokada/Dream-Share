@@ -13,6 +13,9 @@
 @interface DreamViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) Dream *dream;
+
+#pragma message "IBOutlets should be set up in the '.m' file instead of the '.h' file"
+
 @property (weak, nonatomic) IBOutlet UITextView *dreamTextView;
 @property (weak, nonatomic) IBOutlet UILabel *dreamTitleLabel;
 

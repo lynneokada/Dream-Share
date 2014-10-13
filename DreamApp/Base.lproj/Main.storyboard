@@ -89,15 +89,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-s7-WAU">
-                                <rect key="frame" x="212" y="220" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="220" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="fWD-QV-ley"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5U-9m-JDA">
-                                <rect key="frame" x="212" y="260" width="176.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5U-9m-JDA">
+                                <rect key="frame" x="212" y="260" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="9Qs-xY-yhJ"/>
                                 </constraints>
@@ -105,13 +105,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDY-6Y-eDj">
-                                <rect key="frame" x="212" y="173" width="176.5" height="37"/>
+                                <rect key="frame" x="212" y="173" width="177" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xha-2L-8dV">
-                                <rect key="frame" x="212" y="305" width="176.5" height="34"/>
+                                <rect key="frame" x="212" y="305" width="177" height="34"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="4FR-P7-jQq"/>
@@ -836,13 +836,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRE-mr-EDN">
-                                <rect key="frame" x="212" y="173" width="176.5" height="37"/>
+                                <rect key="frame" x="212" y="173" width="177" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fxi-7a-Gia">
-                                <rect key="frame" x="212" y="220" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="220" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="EaE-fO-X0T"/>
                                 </constraints>
@@ -850,15 +850,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uer-dV-Ryh">
-                                <rect key="frame" x="212" y="260" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="260" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="bd2-A0-Vgi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5Z-k9-3vh">
-                                <rect key="frame" x="212" y="300" width="176.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5Z-k9-3vh">
+                                <rect key="frame" x="212" y="300" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="ULr-sC-RGv"/>
                                 </constraints>
@@ -866,7 +866,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-Yq-sBo">
-                                <rect key="frame" x="212" y="340" width="176.5" height="34"/>
+                                <rect key="frame" x="212" y="340" width="177" height="34"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="FCi-5Y-IhW"/>
@@ -929,7 +929,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgA-nV-lem">
-                                <rect key="frame" x="219" y="141" width="162.5" height="37"/>
+                                <rect key="frame" x="219" y="141" width="163" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>

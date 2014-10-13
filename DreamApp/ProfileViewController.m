@@ -64,6 +64,8 @@
         //error handling
     }
     
+    
+#pragma message "More comments would be helpful here. What is the textfile being created for?"
     //access filesystem
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AddAlarmViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+#pragma message "Is there a specific reason you aren't using properties for the following 2 variables?:"
     IBOutlet UILabel *currentTime;
     NSTimer *timer;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;

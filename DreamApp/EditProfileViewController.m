@@ -42,6 +42,8 @@
     self.userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"UserInfo" inManagedObjectContext:context];
 }
 
+#pragma message "Method names should be small"
+
 - (IBAction)TakePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

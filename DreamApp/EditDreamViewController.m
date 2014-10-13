@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
+#pragma message "Access properties with 'self.dreamContentTextView' instead of using underscores"
     _dreamContentTextView.delegate = self;
     _dreamTitleLabel.delegate = self;
     _tags.delegate = self;
@@ -82,6 +83,7 @@
 
 - (IBAction)saveTapped:(id)sender {
     //references via tab bar controller
+#pragma message "You should not access other ViewControllers through their position in the tab bar, this is very fragile. Ideally you would store your dreamlog separately, not within a ViewController. Can you have Daniel discuss a better solution for this with you?"
     UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
     ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
     [profileViewController.dreamLog addObject:dreamBeingAdded];
@@ -96,6 +98,7 @@
     //self.tabBarController.selectedIndex = 3;
 }
 - (IBAction)editLaterTapped:(id)sender {
+#pragma message "You should not access other ViewControllers through their position in the tab bar, this is very fragile. Ideally you would store your dreamlog separately, not within a ViewController. Can you have Daniel discuss a better solution for this with you?"
     UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
     ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
     [profileViewController.dreamLog addObject:dreamBeingAdded];

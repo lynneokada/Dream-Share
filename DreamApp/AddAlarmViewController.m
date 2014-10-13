@@ -19,6 +19,7 @@
     NSString *_minuteValue;
     NSString *_ampmValue;
     
+#pragma message "You should use leading underscores for all instance variables that you declare here:"
     Alarm *alarmBeingAdded;
 }
 
@@ -57,12 +58,15 @@
 }
 
 #pragma picker components
+
+#pragma message "Use NSInteger as return type instead of 'int'"
 - (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 3;
 }
 
 // The number of rows of data
+#pragma message "Use NSInteger as return type instead of 'int'"
 - (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (component == 0) {

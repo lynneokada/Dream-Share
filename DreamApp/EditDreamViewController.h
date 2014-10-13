@@ -11,6 +11,9 @@
 #import "ProfileViewController.h"
 
 @interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITextViewDelegate, UITextFieldDelegate>
+
+#pragma message "IBOutlets should be set up in the '.m' file instead of the '.h' file"
+
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;

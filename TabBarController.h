@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#pragma message "Is this class actually necessary? What does it do?"
+
 @interface TabBarController : UITabBarController
 
 @property (nonatomic, strong) NSArray *tabBarArray;

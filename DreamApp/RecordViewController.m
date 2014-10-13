@@ -20,12 +20,16 @@
 @end
 
 @implementation RecordViewController
+
+#pragma message "Synthesize should not be necessary as this gets added automatically"
+
 @synthesize doneButton, recordPauseButton;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+#pragma message "Properties should get accessed with dot-Syntax: 'doneButton.enabled = NO'"
     // Disable Stop/Play button when application launches
     [doneButton setEnabled:NO];
     
@@ -74,11 +78,14 @@
         [recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     }
-    
+#pragma message "Properties should get accessed with dot-Syntax: 'doneButton.enabled = NO'"
+
     [doneButton setEnabled:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+#pragma message "Properties should get accessed with dot-Syntax: 'doneButton.enabled = NO'"
+
     [doneButton setEnabled:NO];
 }
 
