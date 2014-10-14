@@ -12,29 +12,43 @@
 #import "AppDelegate.h"
 
 @interface RecordViewController () {
-    AVAudioPlayer *player;
-    AVAudioRecorder *recorder;
-    Dream *dreamBeingAdded;
+    AVAudioPlayer *_player;
+    AVAudioRecorder *_recorder;
+    Dream *_dreamBeingAdded;
+    NSURL *_tempURL;
 }
 
 @end
 
 @implementation RecordViewController
-@synthesize doneButton, recordPauseButton;
+@synthesize doneBarButton, recordPauseButton;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Disable Stop/Play button when application launches
-    [doneButton setEnabled:NO];
+    [doneBarButton setEnabled:NO];
     
     // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
-                               nil];
-    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSLog(@"%@", documentsDirectory);
+    
+    NSLog(@"Create file.");
+    
+    //date formatter
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
+    
+    NSString *audioFileDate = [ NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
+    
+    NSString *file = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioFileDate]];
+    
+    NSLog(@"%@", file);
+    _tempURL = [NSURL fileURLWithPath:file];
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -48,56 +62,46 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
-    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL];
-    recorder.delegate = self;
-    recorder.meteringEnabled = YES;
-    [recorder prepareToRecord];
+    _recorder = [[AVAudioRecorder alloc] initWithURL:_tempURL settings:recordSetting error:NULL];
+    
+    _recorder.delegate = self;
+    _recorder.meteringEnabled = YES;
+    [_recorder prepareToRecord];
+    
 }
 
 - (IBAction)recordPauseTapped:(id)sender {
     // Stop the audio player before recording
-    if (player.playing) {
-        [player stop];
+    if (_player.playing) {
+        [_player stop];
     }
     
-    if (!recorder.recording) {
+    if (!_recorder.recording) {
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
         
         // Start recording
-        [recorder record];
+        [_recorder record];
         [recordPauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
         
     } else {
         
         // Pause recording
-        [recorder pause];
+        [_recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     }
     
-    [doneButton setEnabled:YES];
+    [doneBarButton setEnabled:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [doneButton setEnabled:NO];
-}
-
-- (IBAction)doneTapped:(id)sender {
-    [recorder stop];
-    
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
-    [player setDelegate:self];
-    
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
-    
-    [_privateDreamList addObject:dreamBeingAdded];
+    [doneBarButton setEnabled:NO];
 }
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
     [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     
-    [doneButton setEnabled:NO];
+    [doneBarButton setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,8 +112,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"editDream"]) {
         EditDreamViewController *editDreamViewController = [segue destinationViewController];
-        editDreamViewController.recorder = recorder;
-        editDreamViewController.player = player;
+        
+        [_recorder stop];
+        
+        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
+        [_player setDelegate:self];
+        
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setActive:NO error:nil];
+        
+        editDreamViewController.recorder = _recorder;
+        editDreamViewController.player = _player;
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

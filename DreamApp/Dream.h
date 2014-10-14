@@ -10,7 +10,6 @@
 
 @interface Dream : NSManagedObject
 
-@property (nonatomic, retain) NSData *recording;
 @property (nonatomic, retain) NSNumber *longitude;
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSString *content;

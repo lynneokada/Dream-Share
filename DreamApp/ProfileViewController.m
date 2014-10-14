@@ -38,7 +38,7 @@
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
     
-        
+    
     // Do any additional setup after loading the view.
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -63,21 +63,6 @@
     if (self.userInfo == nil) {
         //error handling
     }
-    
-    //access filesystem
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory
-                          stringByAppendingPathComponent:@"txtFile.txt"];
-    NSString *content = [NSString stringWithContentsOfFile:filePath
-                                                  encoding:NSUTF8StringEncoding error:NULL];
-    
-    //create file in documents folder
-    NSString *cachesFolder = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
-                                                                  NSUserDomainMask, YES) lastObject];
-    NSString *file = [cachesFolder stringByAppendingPathComponent:@"testfile"];
-    [[NSData data] writeToFile:file options:NSDataWritingAtomic error:nil];
 }
 
 - (void)didReceiveMemoryWarning {

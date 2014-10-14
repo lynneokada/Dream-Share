@@ -13,7 +13,6 @@
 @dynamic content;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic recording;
 @dynamic title;
 
 @end

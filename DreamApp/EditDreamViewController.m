@@ -38,11 +38,6 @@
     
     [self.view addGestureRecognizer:tap];
     
-    //create file in library directory
-    NSString *cachesFolder = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *file = [cachesFolder stringByAppendingPathComponent:@"testfile"];
-    [[NSData data] writeToFile:file options:NSDataWritingAtomic error:nil];
-    
     //create NSManagedObjectContext
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     
@@ -74,9 +69,9 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     
-//    if (textField == _tags) {
-//        
-//    }
+    //    if (textField == _tags) {
+    //
+    //    }
     return YES;
 }
 
@@ -85,15 +80,12 @@
     UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
     ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
     [profileViewController.dreamLog addObject:dreamBeingAdded];
-
+    
     dreamBeingAdded.content = self.dreamContentTextView.text;
     dreamBeingAdded.title = self.dreamTitleLabel.text;
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
-    //return to record view controller
-    [navigationController popViewControllerAnimated:YES];
-    
-    //self.tabBarController.selectedIndex = 3;
+    self.tabBarController.selectedIndex = 3;
 }
 - (IBAction)editLaterTapped:(id)sender {
     UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
@@ -104,10 +96,13 @@
     dreamBeingAdded.title = self.dreamTitleLabel.text;
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
-    //return to record view controller
-    [navigationController popToRootViewControllerAnimated:YES];
+    self.tabBarController.selectedIndex = 3;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     
-    //self.tabBarController.selectedIndex = 3;
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - Navigation
@@ -115,7 +110,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
-//        
+//
 //        //dreamBeingAdded.recording = self.player.data;
 //
 //    }
