@@ -9,7 +9,9 @@
 #import "RecordingsTableViewController.h"
 #import "Global.h"
 
-@interface RecordingsTableViewController ()
+@interface RecordingsTableViewController () {
+    NSURL *url;
+}
 
 @end
 
@@ -30,8 +32,6 @@
     NSLog(@"%@", dataPath);
     
     self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +57,6 @@
     
     cell.textLabel.text = self.recordingsToBeEdited[indexPath.row];
     
-    
     return cell;
 }
 
@@ -74,6 +73,18 @@
     [self.recordingsToBeEdited removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"referencingRecording"]) {
+        
+    }
+}
+
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//
+//    [self.navigationController popToRootViewControllerAnimated:NO];
+//}
 
 /*
 // Override to support conditional editing of the table view.
@@ -98,14 +109,5 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.tabBarArray = self.viewControllers;
     
-    NSLog(@"View Controllers = %@", [self.tabBarArray description]);
+    //NSLog(@"View Controllers = %@", [self.tabBarArray description]);
 }
 
 - (void)didReceiveMemoryWarning {

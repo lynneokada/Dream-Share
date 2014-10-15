@@ -468,6 +468,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pob-Cb-55s" id="mlJ-NB-95s">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1uP-Wb-MZn" kind="show" identifier="referenceRecording" id="r9c-M7-wn8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -676,16 +679,15 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="z1m-85-vTy" secondAttribute="trailing" constant="-16" id="1zc-5a-QYS"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="7aD-20-vfK"/>
+                            <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" id="KYM-Ca-mgc"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="top" secondItem="rll-cI-M32" secondAttribute="topMargin" id="R6V-fw-IJP"/>
-                            <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" id="jIX-jy-dVP"/>
-                            <constraint firstItem="z1m-85-vTy" firstAttribute="top" secondItem="rll-cI-M32" secondAttribute="topMargin" id="n2S-6R-qAe"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Record" id="eiy-9D-gBP">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94l-PE-MGJ">
                             <connections>
-                                <segue destination="1uP-Wb-MZn" kind="show" identifier="editDream" id="j44-NM-Vq0"/>
+                                <segue destination="1uP-Wb-MZn" kind="show" identifier="editDream" id="QRt-vr-s0n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -755,10 +757,10 @@
                                 <rect key="frame" x="0.0" y="498" width="299" height="53"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="299" id="jIp-gf-53J"/>
-                                    <constraint firstAttribute="height" constant="53" id="nwe-Xz-bwu"/>
+                                    <constraint firstAttribute="width" constant="299" id="ELz-MV-SSr"/>
+                                    <constraint firstAttribute="height" constant="53" id="Wob-7z-oIr"/>
                                 </constraints>
-                                <state key="normal" title="SAVE">
+                                <state key="normal" title="SHARE">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -770,8 +772,8 @@
                                 <rect key="frame" x="301" y="498" width="299" height="53"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="299" id="8FH-8y-AVM"/>
-                                    <constraint firstAttribute="height" constant="53" id="93i-sw-0jo"/>
+                                    <constraint firstAttribute="height" constant="53" id="29d-vr-Tv9"/>
+                                    <constraint firstAttribute="width" constant="299" id="pzc-RU-qLs"/>
                                 </constraints>
                                 <state key="normal" title="EDIT LATER">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -784,21 +786,21 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="9Z9-tn-Bcg" secondAttribute="trailing" constant="-16" id="114-av-mt3"/>
-                            <constraint firstItem="LZK-gq-OZA" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="2e3-R2-jLl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ghy-YG-umX" secondAttribute="trailing" constant="-16" id="4AM-S7-EKb"/>
+                            <constraint firstItem="Ghy-YG-umX" firstAttribute="leading" secondItem="LZK-gq-OZA" secondAttribute="trailing" constant="2" id="2qr-eZ-Klc"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="RgV-cH-f3m" secondAttribute="bottom" constant="3" id="4ns-KA-En0"/>
                             <constraint firstAttribute="centerX" secondItem="VI5-UC-nAq" secondAttribute="centerX" id="4y6-pA-WSh"/>
                             <constraint firstItem="RgV-cH-f3m" firstAttribute="top" secondItem="gLk-dG-eX6" secondAttribute="bottom" constant="14" id="6rG-h0-rOW"/>
                             <constraint firstItem="gLk-dG-eX6" firstAttribute="top" secondItem="68K-lw-Pkl" secondAttribute="bottom" id="7z8-jQ-r9H"/>
                             <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="B9l-Ud-TA5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ghy-YG-umX" secondAttribute="trailing" constant="-16" id="EUz-YY-Fn4"/>
                             <constraint firstItem="9Z9-tn-Bcg" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="3" id="Mg7-qF-CeR"/>
-                            <constraint firstItem="Ghy-YG-umX" firstAttribute="leading" secondItem="LZK-gq-OZA" secondAttribute="trailing" constant="2" id="MoD-TD-ntE"/>
-                            <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="LZK-gq-OZA" secondAttribute="bottom" id="OXd-uj-GVn"/>
                             <constraint firstItem="RgV-cH-f3m" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="UcS-wA-qpq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gLk-dG-eX6" secondAttribute="trailing" constant="-16" id="YZD-mu-Wl6"/>
-                            <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="Ghy-YG-umX" secondAttribute="bottom" id="cxm-CP-7JA"/>
+                            <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="Ghy-YG-umX" secondAttribute="bottom" id="aRO-0Q-c3V"/>
+                            <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="LZK-gq-OZA" secondAttribute="bottom" id="cG1-rg-XAG"/>
                             <constraint firstItem="9Z9-tn-Bcg" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="dN3-hP-BTe"/>
                             <constraint firstItem="gLk-dG-eX6" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="eXl-ch-Vfa"/>
+                            <constraint firstItem="LZK-gq-OZA" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="jf5-mc-m3E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="-16" id="sSm-kB-CsI"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="smh-FG-e6D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RgV-cH-f3m" secondAttribute="trailing" constant="-16" id="tBU-gf-KLT"/>
@@ -816,7 +818,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="3300"/>
+            <point key="canvasLocation" x="4841" y="5612"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
@@ -988,12 +990,12 @@
         <scene sceneID="VAx-Z5-iOS">
             <objects>
                 <tableViewController id="bM4-ie-BP0" customClass="HomeTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="216" sectionHeaderHeight="22" sectionFooterHeight="22" id="XqK-AY-PsP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="429" sectionHeaderHeight="22" sectionFooterHeight="22" id="XqK-AY-PsP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LPB-pF-kue">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="429" id="LPB-pF-kue">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LPB-pF-kue" id="TUR-SG-gum">
@@ -1110,5 +1112,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Agc-bG-7qX"/>
+        <segue reference="QRt-vr-s0n"/>
     </inferredMetricsTieBreakers>
 </document>
