@@ -39,6 +39,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -56,18 +62,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.recordingsToBeEdited removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *audioPath = [documentDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
+    NSString *audioFolderPath = [documentDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
 
-    NSString *audioFilePath = [audioPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioPath]];
-    
-    NSLog(@"%@", audioFilePath);
+    NSLog(@"deleting in %@", audioFolderPath);
     
     NSError *error;
-    [[NSFileManager defaultManager] removeItemAtPath:audioFilePath error:&error];
+    [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/%@", audioFolderPath, self.recordingsToBeEdited[indexPath.row]]  error:&error];
+    
+    [self.recordingsToBeEdited removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 /*
