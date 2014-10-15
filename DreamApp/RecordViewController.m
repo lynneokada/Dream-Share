@@ -10,6 +10,7 @@
 #import "EditDreamViewController.h"
 #import "Dream.h"
 #import "AppDelegate.h"
+#import "Global.h"
 
 @interface RecordViewController () {
     AVAudioPlayer *_player;
@@ -32,9 +33,11 @@
     // Set the audio file
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
     
-    NSLog(@"%@", documentsDirectory);
-    
+    NSError *error;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
     NSLog(@"Create file.");
     
     //date formatter
@@ -43,9 +46,9 @@
     
     [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
     
-    NSString *audioFileDate = [ NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
+    NSString *audioFileDate = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
     
-    NSString *file = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioFileDate]];
+    NSString *file = [dataPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioFileDate]];
     
     NSLog(@"%@", file);
     _tempURL = [NSURL fileURLWithPath:file];
@@ -63,7 +66,6 @@
     
     // Initiate and prepare the recorder
     _recorder = [[AVAudioRecorder alloc] initWithURL:_tempURL settings:recordSetting error:NULL];
-    
     _recorder.delegate = self;
     _recorder.meteringEnabled = YES;
     [_recorder prepareToRecord];

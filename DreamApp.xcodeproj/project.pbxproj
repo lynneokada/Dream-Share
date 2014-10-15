@@ -37,6 +37,7 @@
 		D272CD1919E497210059353E /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1819E497210059353E /* Alarm.m */; };
 		D272CD1C19E4B0880059353E /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */; };
 		D29A1C7F19EC4D9100A1DC02 /* RecordingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D29A1C7E19EC4D9100A1DC02 /* RecordingsTableViewController.m */; };
+		D2D2376D19EDD36B00C738AF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D2376C19EDD36B00C738AF /* Global.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
 		D29A1C7D19EC4D9100A1DC02 /* RecordingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordingsTableViewController.h; path = ../RecordingsTableViewController.h; sourceTree = "<group>"; };
 		D29A1C7E19EC4D9100A1DC02 /* RecordingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordingsTableViewController.m; path = ../RecordingsTableViewController.m; sourceTree = "<group>"; };
+		D2D2376B19EDD36B00C738AF /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		D2D2376C19EDD36B00C738AF /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 			children = (
 				D270DA9919DB2270009D425B /* AppDelegate.h */,
 				D270DA9A19DB2270009D425B /* AppDelegate.m */,
+				D2D2376B19EDD36B00C738AF /* Global.h */,
+				D2D2376C19EDD36B00C738AF /* Global.m */,
 				D270DAC419DB362B009D425B /* InitialViewController.h */,
 				D270DAC519DB362B009D425B /* InitialViewController.m */,
 				D270DAC719DBD38F009D425B /* LoginViewController.h */,
@@ -347,6 +352,7 @@
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
+				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DAD219DC7F36009D425B /* DreamListTableViewController.m in Sources */,

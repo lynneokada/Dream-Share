@@ -7,6 +7,7 @@
 //
 
 #import "RecordingsTableViewController.h"
+#import "Global.h"
 
 @interface RecordingsTableViewController ()
 
@@ -24,8 +25,13 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
     
-    self.recordingsToBeEditted = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
+    NSLog(@"%@", dataPath);
+    
+    self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,18 +42,33 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.recordingsToBeEditted count];
+    return [self.recordingsToBeEdited count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordingCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.recordingsToBeEditted[indexPath.row];
+    cell.textLabel.text = self.recordingsToBeEdited[indexPath.row];
+    
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.recordingsToBeEdited removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *audioPath = [documentDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
+
+    NSString *audioFilePath = [audioPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioPath]];
+    
+    NSLog(@"%@", audioFilePath);
+    
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:audioFilePath error:&error];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -57,17 +78,6 @@
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
 /*
 // Override to support rearranging the table view.
