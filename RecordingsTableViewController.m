@@ -22,24 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    //path to documents directory
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    //path to documents directory for audio files
     dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
     
-    NSLog(@"%@", dataPath);
-    
+    //NSString of the .m4a file
     self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated {

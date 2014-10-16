@@ -13,6 +13,10 @@
 
 @interface EditProfileViewController () {
     UserInfo *userInfoChanged;
+    NSURL *imageURL;
+    UIImage *displayImage;
+    UIImage *chosenImage;
+    NSString *getImagePath;
 }
 
 @end
@@ -37,8 +41,8 @@
     
     self.profilePicture.userInteractionEnabled = YES;
     
+    //core data for user info
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    
     self.userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"UserInfo" inManagedObjectContext:context];
 }
 
@@ -65,8 +69,15 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.profilePicture.image = chosenImage;
+    //display image
+    displayImage = info[UIImagePickerControllerEditedImage];
+    self.profilePicture.image = displayImage;
+    
+    //path to documents directory
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [path objectAtIndex:0];
+    getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    NSLog(@"%@", getImagePath);
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -88,6 +99,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"doneEdittingProfile"]) {
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        //profile picture
+        UIImage *chosenImage = [UIImage imageWithContentsOfFile:getImagePath];
+        profileViewController.profilePictureImage = chosenImage;
+        
+        //user info
         NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
         
         NSError *error = nil;

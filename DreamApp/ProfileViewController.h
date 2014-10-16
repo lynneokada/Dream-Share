@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) UserInfo *userInfo;
 
+@property (nonatomic, strong) UIImage *profilePictureImage;
+
 //profile stats
 
 @end

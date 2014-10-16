@@ -73,8 +73,8 @@
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         dreamViewController.dream = self.privateDreamList[selectedIndexPath.row];
     } else if ([segue.identifier isEqualToString:@"addDream"]) {
-        RecordViewController *recordViewController = [segue destinationViewController];
-//        recordViewController.recordingsToBeEditted = self.recordingsToBeEditted;
+        //RecordViewController *recordViewController = [segue destinationViewController];
+        //recordViewController.recordingsToBeEditted = self.recordingsToBeEditted;
     }
  }
 

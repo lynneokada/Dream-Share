@@ -102,6 +102,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 

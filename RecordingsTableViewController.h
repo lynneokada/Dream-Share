@@ -12,7 +12,5 @@
 @interface RecordingsTableViewController : UITableViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *recordingsToBeEdited;
-//@property (nonatomic, strong) AVAudioRecorder *recorder;
-//@property (nonatomic, strong) AVAudioPlayer *player;
 
 @end

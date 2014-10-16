@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () {
+    NSString *profilePicturePath;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @end
@@ -85,6 +87,18 @@
     //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
     
     return cell;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    
+    //path to documents directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+//    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
+//    
+//    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
