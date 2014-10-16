@@ -8,9 +8,12 @@
 
 #import "RecordingsTableViewController.h"
 #import "Global.h"
+#import "EditDreamViewController.h"
 
 @interface RecordingsTableViewController () {
-    NSURL *url;
+    AVAudioPlayer *player;
+    NSString *dataPath;
+    NSURL *audioFileURL;
 }
 
 @end
@@ -27,7 +30,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
+    dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
     
     NSLog(@"%@", dataPath);
     
@@ -75,8 +78,11 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"referencingRecording"]) {
-        
+    if ([segue.identifier isEqualToString:@"editDream"]) {
+        EditDreamViewController *editDreamViewController = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", dataPath,self.recordingsToBeEdited[selectedIndexPath.row]]];
+        editDreamViewController.audioURL = audioFileURL;
     }
 }
 

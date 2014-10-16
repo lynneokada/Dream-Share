@@ -95,8 +95,6 @@
         if (error) {
             
         }
-        
-        
         [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     }
 }

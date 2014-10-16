@@ -15,8 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
 
+@property (nonatomic, strong) NSMutableArray *recordingsToBeEdited;
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
+
+@property (nonatomic, strong) NSString *audioFilePath;
+@property (nonatomic, strong) NSURL *audioURL;
 
 - (IBAction)playTapped:(id)sender;
 

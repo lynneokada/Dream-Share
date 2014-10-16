@@ -17,6 +17,8 @@
     AVAudioRecorder *_recorder;
     Dream *_dreamBeingAdded;
     NSURL *_tempURL;
+    UITabBarController *tabBarController;
+    NSString *file;
 }
 
 @end
@@ -95,6 +97,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [doneBarButton setEnabled:NO];
+    self.tabBarController.tabBar.userInteractionEnabled = NO;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -108,9 +111,9 @@
     
     NSString *audioFileDate = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
     
-    NSString *file = [dataPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioFileDate]];
+    file = [dataPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.m4a", audioFileDate]];
     
-    NSLog(@"%@", file);
+    NSLog(@"path to the .m4a: %@", file);
     _tempURL = [NSURL fileURLWithPath:file];
     
     // Setup audio session
@@ -129,14 +132,14 @@
     _recorder.delegate = self;
     _recorder.meteringEnabled = YES;
     [_recorder prepareToRecord];
-
 }
 
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    
-//    [self.navigationController popToRootViewControllerAnimated:NO];
-//}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
+    //[self.navigationController popToRootViewControllerAnimated:NO];
+}
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
     [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
@@ -155,14 +158,15 @@
         
         [_recorder stop];
         
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
-        [_player setDelegate:self];
-        
-        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        [audioSession setActive:NO error:nil];
-        
-        editDreamViewController.recorder = _recorder;
-        editDreamViewController.player = _player;
+        editDreamViewController.audioURL = _tempURL;
+//        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:_recorder.url error:nil];
+//        [_player setDelegate:self];
+//        
+//        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//        [audioSession setActive:NO error:nil];
+//        
+//        editDreamViewController.recorder = _recorder;
+//        editDreamViewController.player = _player;
     }
     
 //    if ([segue.identifier isEqualToString:@"toRecordingList"]) {

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RecordViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate>
+@interface RecordViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 

@@ -469,7 +469,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1uP-Wb-MZn" kind="show" identifier="referenceRecording" id="r9c-M7-wn8"/>
+                                    <segue destination="1uP-Wb-MZn" kind="show" identifier="editDream" id="r9c-M7-wn8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -818,7 +818,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="5612"/>
+            <point key="canvasLocation" x="4832" y="5612"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
