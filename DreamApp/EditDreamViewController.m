@@ -59,80 +59,80 @@
 //}
 
 - (IBAction)recordPlayTapped:(id)sender {
-    if ([self.recordPlay.titleLabel.text isEqualToString:@"PLAY"]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath: [self.audioURL absoluteString]]) {
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
         NSLog(@"%@", self.audioURL);
         [self.player setDelegate:self];
         [self.player play];
-    } else if ([self.recordPlay.titleLabel.text isEqualToString:@"RECORD"]) {
+    } else {
         [self performSegueWithIdentifier:@"recordDream" sender:self];
     }
 }
 
-- (void) dismissKeyboard {
-    // add self
-    [self.dreamContentTextView resignFirstResponder];
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    
-    //    if (textField == _tags) {
-    //
-    //    }
-    return YES;
-}
-
-- (IBAction)saveTapped:(id)sender {
-    //references via tab bar controller
-    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-    [profileViewController.dreamLog addObject:dreamBeingAdded];
-    
-    dreamBeingAdded.content = self.dreamContentTextView.text;
-    dreamBeingAdded.title = self.dreamTitleLabel.text;
-    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    
-    self.tabBarController.selectedIndex = 3;
-}
-- (IBAction)editLaterTapped:(id)sender {
-    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-    [profileViewController.dreamLog addObject:dreamBeingAdded];
-    
-    dreamBeingAdded.content = self.dreamContentTextView.text;
-    dreamBeingAdded.title = self.dreamTitleLabel.text;
-    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    
-    self.tabBarController.selectedIndex = 3;
-}
-
-- (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
-{
-    
-}
-
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    self.tabBarController.tabBar.userInteractionEnabled = YES;
-}
-
+        - (void) dismissKeyboard {
+            // add self
+            [self.dreamContentTextView resignFirstResponder];
+        }
+        
+        - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+            return YES;
+        }
+        
+        - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+            [textField resignFirstResponder];
+            
+            //    if (textField == _tags) {
+            //
+            //    }
+            return YES;
+        }
+        
+        - (IBAction)saveTapped:(id)sender {
+            //references via tab bar controller
+            UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+            ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+            [profileViewController.dreamLog addObject:dreamBeingAdded];
+            
+            dreamBeingAdded.content = self.dreamContentTextView.text;
+            dreamBeingAdded.title = self.dreamTitleLabel.text;
+            [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+            
+            self.tabBarController.selectedIndex = 3;
+        }
+        - (IBAction)editLaterTapped:(id)sender {
+            UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+            ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+            [profileViewController.dreamLog addObject:dreamBeingAdded];
+            
+            dreamBeingAdded.content = self.dreamContentTextView.text;
+            dreamBeingAdded.title = self.dreamTitleLabel.text;
+            [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+            
+            self.tabBarController.selectedIndex = 3;
+        }
+        
+        - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
+    {
+        
+    }
+        
+        
+        - (void)viewDidDisappear:(BOOL)animated {
+            [super viewWillDisappear:animated];
+            
+            self.tabBarController.tabBar.userInteractionEnabled = YES;
+        }
+        
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
-//
-//        //dreamBeingAdded.recording = self.player.data;
-//
-//    }
-//}
-
-
-@end
+        
+        // In a storyboard-based application, you will often want to do a little preparation before navigation
+        //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        //    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
+        //
+        //        //dreamBeingAdded.recording = self.player.data;
+        //
+        //    }
+        //}
+        
+        
+        @end

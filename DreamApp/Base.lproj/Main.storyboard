@@ -706,7 +706,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
                                 <rect key="frame" x="0.0" y="160" width="600" height="167"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -715,7 +715,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+ tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Z9-tn-Bcg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+ tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Z9-tn-Bcg">
                                 <rect key="frame" x="0.0" y="330" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -724,7 +724,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RgV-cH-f3m">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RgV-cH-f3m">
                                 <rect key="frame" x="0.0" y="127" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -762,20 +762,6 @@
                                     <action selector="editLaterTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="yn3-79-pcI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="Zq8-Vc-KpX"/>
-                                </constraints>
-                                <state key="normal" title="RECORD">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recordPlayTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="R9v-P6-YFf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -783,29 +769,25 @@
                             <constraint firstItem="Ghy-YG-umX" firstAttribute="leading" secondItem="LZK-gq-OZA" secondAttribute="trailing" constant="2" id="2qr-eZ-Klc"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="RgV-cH-f3m" secondAttribute="bottom" constant="3" id="4ns-KA-En0"/>
                             <constraint firstAttribute="centerX" secondItem="VI5-UC-nAq" secondAttribute="centerX" id="4y6-pA-WSh"/>
-                            <constraint firstItem="RgV-cH-f3m" firstAttribute="top" secondItem="gLk-dG-eX6" secondAttribute="bottom" constant="14" id="6rG-h0-rOW"/>
-                            <constraint firstItem="gLk-dG-eX6" firstAttribute="top" secondItem="68K-lw-Pkl" secondAttribute="bottom" id="7z8-jQ-r9H"/>
-                            <constraint firstAttribute="centerX" secondItem="gLk-dG-eX6" secondAttribute="centerX" id="B9l-Ud-TA5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ghy-YG-umX" secondAttribute="trailing" constant="-16" id="EUz-YY-Fn4"/>
                             <constraint firstItem="9Z9-tn-Bcg" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="3" id="Mg7-qF-CeR"/>
                             <constraint firstItem="RgV-cH-f3m" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="UcS-wA-qpq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gLk-dG-eX6" secondAttribute="trailing" constant="-16" id="YZD-mu-Wl6"/>
                             <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="Ghy-YG-umX" secondAttribute="bottom" id="aRO-0Q-c3V"/>
                             <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="LZK-gq-OZA" secondAttribute="bottom" id="cG1-rg-XAG"/>
                             <constraint firstItem="9Z9-tn-Bcg" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="dN3-hP-BTe"/>
-                            <constraint firstItem="gLk-dG-eX6" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="eXl-ch-Vfa"/>
                             <constraint firstItem="LZK-gq-OZA" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="jf5-mc-m3E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="-16" id="sSm-kB-CsI"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="smh-FG-e6D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RgV-cH-f3m" secondAttribute="trailing" constant="-16" id="tBU-gf-KLT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="edit" id="ZHm-6B-9c8"/>
+                    <navigationItem key="navigationItem" title="edit" id="ZHm-6B-9c8">
+                        <barButtonItem key="rightBarButtonItem" title="Record" id="jHG-fw-EvI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="dreamContentTextView" destination="VI5-UC-nAq" id="kQA-aC-08s"/>
                         <outlet property="dreamTitleLabel" destination="RgV-cH-f3m" id="Xq1-ym-xPI"/>
                         <outlet property="editLaterButton" destination="Ghy-YG-umX" id="YiQ-4X-ciK"/>
-                        <outlet property="recordPlay" destination="gLk-dG-eX6" id="3YP-WD-kSp"/>
                         <outlet property="saveButton" destination="LZK-gq-OZA" id="Inl-Lq-HKW"/>
                         <outlet property="tags" destination="9Z9-tn-Bcg" id="jim-EJ-zAb"/>
                         <segue destination="Ne4-Yb-xoD" kind="show" identifier="recordDream" id="lZg-3q-9XA"/>
