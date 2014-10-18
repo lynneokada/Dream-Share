@@ -10,19 +10,15 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProfileViewController.h"
 
-@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
+@property (weak, nonatomic) IBOutlet UIButton *recordPlay;
 
 @property (nonatomic, strong) NSMutableArray *recordingsToBeEdited;
-@property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) AVAudioPlayer *player;
 
 @property (nonatomic, strong) NSString *audioFilePath;
 @property (nonatomic, strong) NSURL *audioURL;
-
-- (IBAction)playTapped:(id)sender;
-
 
 @end

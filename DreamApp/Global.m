@@ -8,4 +8,4 @@
 
 #import "Global.h"
 
-NSString * const AUDIO_DIRECTORY = @"/MyAudioFolder";
+NSString * const DREAM_DIRECTORY = @"/MasterDreamsFolder";

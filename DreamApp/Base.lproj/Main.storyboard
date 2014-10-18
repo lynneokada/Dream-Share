@@ -89,15 +89,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3QR-s7-WAU">
-                                <rect key="frame" x="212" y="220" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="220" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="fWD-QV-ley"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5U-9m-JDA">
-                                <rect key="frame" x="212" y="260" width="176.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5U-9m-JDA">
+                                <rect key="frame" x="212" y="260" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="9Qs-xY-yhJ"/>
                                 </constraints>
@@ -105,13 +105,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDY-6Y-eDj">
-                                <rect key="frame" x="212" y="173" width="176.5" height="37"/>
+                                <rect key="frame" x="212" y="173" width="177" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xha-2L-8dV">
-                                <rect key="frame" x="212" y="305" width="176.5" height="34"/>
+                                <rect key="frame" x="212" y="305" width="177" height="34"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="4FR-P7-jQq"/>
@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5565" y="2564"/>
+            <point key="canvasLocation" x="7189" y="2564"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="LBG-as-eKr">
@@ -282,9 +282,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="twM-e5-EmL" id="wUI-Oq-rt9">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="i8i-iM-q7I" kind="show" identifier="showDream" id="QEe-um-5i7"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -303,11 +300,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GFs-eg-LRm">
-                        <barButtonItem key="rightBarButtonItem" title="recordings" id="TJh-9J-8Q5">
-                            <connections>
-                                <segue destination="8Mk-7A-oRi" kind="show" id="bQg-AV-mfZ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="recordings" id="TJh-9J-8Q5"/>
                     </navigationItem>
                     <connections>
                         <outlet property="editProfileButton" destination="ZnY-hu-0Pa" id="QJI-gW-T7c"/>
@@ -355,7 +348,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYK-w4-j7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7045" y="2564"/>
+            <point key="canvasLocation" x="8669" y="2564"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="3pe-ZA-sv7">
@@ -468,9 +461,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pob-Cb-55s" id="mlJ-NB-95s">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="1uP-Wb-MZn" kind="show" identifier="editDream" id="r9c-M7-wn8"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -666,12 +656,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1m-85-vTy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="551" id="1el-7P-0HY"/>
+                                </constraints>
                                 <state key="normal" title="RECORD">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordPauseTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="7oz-cG-Ybq"/>
+                                    <action selector="recordPauseTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="W7C-WJ-zn1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -687,7 +680,7 @@
                     <navigationItem key="navigationItem" title="Record" id="eiy-9D-gBP">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94l-PE-MGJ">
                             <connections>
-                                <segue destination="1uP-Wb-MZn" kind="show" identifier="editDream" id="QRt-vr-s0n"/>
+                                <segue destination="xKO-9P-tjJ" kind="unwind" identifier="doneRecording" unwindAction="unwindToEditDreamViewController:" id="FY3-oO-woj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -697,8 +690,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8u-Kp-duq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xKO-9P-tjJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4841" y="2564"/>
+            <point key="canvasLocation" x="4841" y="3366"/>
         </scene>
         <!--edit-->
         <scene sceneID="HjD-UN-t3v">
@@ -721,20 +715,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="Zq8-Vc-KpX"/>
-                                </constraints>
-                                <state key="normal" title="PLAY">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="xd0-KV-RU5"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+ tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Z9-tn-Bcg">
                                 <rect key="frame" x="0.0" y="330" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -775,11 +755,25 @@
                                     <constraint firstAttribute="height" constant="53" id="29d-vr-Tv9"/>
                                     <constraint firstAttribute="width" constant="299" id="pzc-RU-qLs"/>
                                 </constraints>
-                                <state key="normal" title="EDIT LATER">
+                                <state key="normal" title="SAVE">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="editLaterTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="yn3-79-pcI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLk-dG-eX6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Zq8-Vc-KpX"/>
+                                </constraints>
+                                <state key="normal" title="RECORD">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordPlayTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="R9v-P6-YFf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -811,14 +805,15 @@
                         <outlet property="dreamContentTextView" destination="VI5-UC-nAq" id="kQA-aC-08s"/>
                         <outlet property="dreamTitleLabel" destination="RgV-cH-f3m" id="Xq1-ym-xPI"/>
                         <outlet property="editLaterButton" destination="Ghy-YG-umX" id="YiQ-4X-ciK"/>
-                        <outlet property="playButton" destination="gLk-dG-eX6" id="7xv-f0-feK"/>
+                        <outlet property="recordPlay" destination="gLk-dG-eX6" id="3YP-WD-kSp"/>
                         <outlet property="saveButton" destination="LZK-gq-OZA" id="Inl-Lq-HKW"/>
                         <outlet property="tags" destination="9Z9-tn-Bcg" id="jim-EJ-zAb"/>
+                        <segue destination="Ne4-Yb-xoD" kind="show" identifier="recordDream" id="lZg-3q-9XA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4832" y="5612"/>
+            <point key="canvasLocation" x="4841" y="2564"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="EZS-eg-Ic2">
@@ -833,13 +828,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRE-mr-EDN">
-                                <rect key="frame" x="212" y="173" width="176.5" height="37"/>
+                                <rect key="frame" x="212" y="173" width="177" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fxi-7a-Gia">
-                                <rect key="frame" x="212" y="220" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="220" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="EaE-fO-X0T"/>
                                 </constraints>
@@ -847,15 +842,15 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uer-dV-Ryh">
-                                <rect key="frame" x="212" y="260" width="176.5" height="30"/>
+                                <rect key="frame" x="212" y="260" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="bd2-A0-Vgi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5Z-k9-3vh">
-                                <rect key="frame" x="212" y="300" width="176.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5Z-k9-3vh">
+                                <rect key="frame" x="212" y="300" width="177" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" id="ULr-sC-RGv"/>
                                 </constraints>
@@ -863,7 +858,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-Yq-sBo">
-                                <rect key="frame" x="212" y="340" width="176.5" height="34"/>
+                                <rect key="frame" x="212" y="340" width="177" height="34"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176.5" id="FCi-5Y-IhW"/>
@@ -926,7 +921,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgA-nV-lem">
-                                <rect key="frame" x="219" y="141" width="162.5" height="37"/>
+                                <rect key="frame" x="219" y="141" width="163" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -976,10 +971,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="jqa-16-8iN" kind="relationship" relationship="viewControllers" id="k27-YP-o4f"/>
-                        <segue destination="01T-ze-IXp" kind="relationship" relationship="viewControllers" id="D0U-t6-4Z3"/>
                         <segue destination="fTT-W6-EIA" kind="relationship" relationship="viewControllers" id="qmP-ir-fWx"/>
                         <segue destination="fni-4c-lR8" kind="relationship" relationship="viewControllers" id="pXH-w6-FM7"/>
                         <segue destination="P77-7c-2uk" kind="relationship" relationship="viewControllers" id="32F-83-RHv"/>
+                        <segue destination="UZA-PF-wkO" kind="relationship" relationship="viewControllers" id="ovt-S7-WZn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZY-im-shS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1032,25 +1027,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oiP-Bj-Fwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5565" y="1824"/>
-        </scene>
-        <!--add-->
-        <scene sceneID="QXy-fW-eN4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="01T-ze-IXp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="add" id="n6V-Qf-V8b"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FU9-ND-Wx1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ne4-Yb-xoD" kind="relationship" relationship="rootViewController" id="E4C-Vo-pgC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lLK-hS-Rie" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4841" y="1824"/>
         </scene>
         <!--profile-->
         <scene sceneID="6sg-Wo-VAK">
@@ -1109,9 +1085,27 @@
             </objects>
             <point key="canvasLocation" x="7045" y="1824"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="W1t-EU-0f5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UZA-PF-wkO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="qPm-Xv-iug"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="omF-w1-gTI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1uP-Wb-MZn" kind="relationship" relationship="rootViewController" id="qdB-LA-XKi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SET-31-Vvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4841" y="1824"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Agc-bG-7qX"/>
-        <segue reference="QRt-vr-s0n"/>
     </inferredMetricsTieBreakers>
 </document>

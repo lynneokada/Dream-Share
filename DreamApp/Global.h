@@ -8,4 +8,4 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *const AUDIO_DIRECTORY;
+extern NSString *const DREAM_DIRECTORY;

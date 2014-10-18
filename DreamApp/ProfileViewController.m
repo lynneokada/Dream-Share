@@ -10,11 +10,14 @@
 #import "DreamViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
+#import "EditDreamViewController.h"
+#import "Global.h"
 
 @interface ProfileViewController () {
     NSString *profilePicturePath;
+    NSURL *audioFileURL;
 }
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+
 
 @end
 
@@ -93,8 +96,8 @@
     [super viewDidAppear:YES];
     
     //path to documents directory
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    self.profilePicture.image = [UIImage imageWithContentsOfFile:@"savedImage.png"];
+    NSLog(@"%@", self.profilePicture.image);
     
 //    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
 //    
@@ -114,6 +117,15 @@
         dreamViewController.dream = self.dreamLog[selectedIndexPath.row];
     } else if ([segue.identifier isEqualToString:@"editProfile"]) {
         //EditProfileViewController *editProfileViewController = [segue destinationViewController];
+    } else if ([segue.identifier isEqualToString:@"editDream"]) {
+        if ([segue.identifier isEqualToString:@"editDream"]) {
+            EditDreamViewController *editDreamViewController = [segue destinationViewController];
+            NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+            
+//            audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/%@", DREAM_DIRECTORY,self.recordingsToBeEdited[selectedIndexPath.row]]];
+            editDreamViewController.audioURL = audioFileURL;
+        }
+        
     }
 }
 

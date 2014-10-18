@@ -12,6 +12,7 @@
 @interface RecordViewController : UIViewController <AVAudioPlayerDelegate, AVAudioRecorderDelegate, UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
+@property (strong, nonatomic) AVAudioRecorder *myRecorder;
 
 @property (nonatomic, assign) BOOL createdAudioFile;
 @end

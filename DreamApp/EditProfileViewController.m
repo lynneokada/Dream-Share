@@ -14,16 +14,13 @@
 @interface EditProfileViewController () {
     UserInfo *userInfoChanged;
     NSURL *imageURL;
-    UIImage *displayImage;
     UIImage *chosenImage;
-    NSString *getImagePath;
 }
 
 @end
 
 @implementation EditProfileViewController {
     UIImage *image;
-    
 }
 @synthesize imgPicker;
 
@@ -70,26 +67,43 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     //display image
-    displayImage = info[UIImagePickerControllerEditedImage];
-    self.profilePicture.image = displayImage;
+    chosenImage = info[UIImagePickerControllerEditedImage];
+    self.profilePicture.image = chosenImage;
     
     //path to documents directory
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [path objectAtIndex:0];
-    getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-    NSLog(@"%@", getImagePath);
+    //    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //    NSString *documentsDirectory = [path objectAtIndex:0];
+    //    NSString *getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    //    NSLog(@"%@", getImagePath);
+    //
+    //    chosenImage = [[UIImage alloc] initWithContentsOfFile:@"savedImage.png"];
+    //    NSLog(@"%@", chosenImage);
     
+    UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(pickedImage);
+    
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    
+    NSLog(@"%@", path);
+    
+    NSError * error = nil;
+    [imageData writeToFile:path options:NSDataWritingAtomic error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error: %@", error);
+        return;
+    }
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    
+//
 //    UITouch *touch = [touches anyObject];
 //    if ([touch view] == self.profilePicture){
 //        NSLog(@"touchrecieved");
@@ -101,8 +115,8 @@
     if ([segue.identifier isEqualToString:@"doneEdittingProfile"]) {
         ProfileViewController *profileViewController = [segue destinationViewController];
         //profile picture
-        UIImage *chosenImage = [UIImage imageWithContentsOfFile:getImagePath];
-        profileViewController.profilePictureImage = chosenImage;
+        profileViewController.profilePicture.image = chosenImage;
+        
         
         //user info
         NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;

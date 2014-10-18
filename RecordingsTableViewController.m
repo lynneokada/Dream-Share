@@ -28,7 +28,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     //path to documents directory for audio files
-    dataPath = [documentsDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
+    dataPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
     
     //NSString of the .m4a file
     self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
@@ -62,7 +62,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *audioFolderPath = [documentDirectory stringByAppendingPathComponent:AUDIO_DIRECTORY];
+    NSString *audioFolderPath = [documentDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
 
     NSLog(@"deleting in %@", audioFolderPath);
     

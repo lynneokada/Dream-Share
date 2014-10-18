@@ -18,10 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *followers;
 @property (weak, nonatomic) IBOutlet UIButton *following;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @property (nonatomic, strong) UserInfo *userInfo;
-
-@property (nonatomic, strong) UIImage *profilePictureImage;
 
 //profile stats
 

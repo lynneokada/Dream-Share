@@ -10,6 +10,7 @@
 #import "Dream.h"
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
+#import "Global.h"
 
 @interface EditDreamViewController () {
     Dream *dreamBeingAdded;
@@ -49,11 +50,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)playTapped:(id)sender {
-    if (!self.recorder.recording){
+//- (IBAction)playTapped:(id)sender
+//{
+//    if ([self.recordPlay.titleLabel.text isEqualToString:@"RECORD"])
+//    {
+//        [self performSegueWithIdentifier:@"recordDream" sender:self];
+//    }
+//}
+
+- (IBAction)recordPlayTapped:(id)sender {
+    if ([self.recordPlay.titleLabel.text isEqualToString:@"PLAY"]) {
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
+        NSLog(@"%@", self.audioURL);
         [self.player setDelegate:self];
         [self.player play];
+    } else if ([self.recordPlay.titleLabel.text isEqualToString:@"RECORD"]) {
+        [self performSegueWithIdentifier:@"recordDream" sender:self];
     }
 }
 
@@ -99,11 +111,16 @@
     self.tabBarController.selectedIndex = 3;
 }
 
+- (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
+{
+    
+}
+
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     self.tabBarController.tabBar.userInteractionEnabled = YES;
-    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - Navigation
