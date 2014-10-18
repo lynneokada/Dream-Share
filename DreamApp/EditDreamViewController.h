@@ -13,7 +13,6 @@
 @interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
-@property (weak, nonatomic) IBOutlet UIButton *recordPlay;
 
 @property (nonatomic, strong) NSMutableArray *recordingsToBeEdited;
 @property (nonatomic, strong) AVAudioPlayer *player;

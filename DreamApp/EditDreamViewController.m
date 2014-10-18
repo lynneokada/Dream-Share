@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UITextField *dreamTitleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *tags;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
 
@@ -50,89 +51,90 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (IBAction)playTapped:(id)sender
-//{
-//    if ([self.recordPlay.titleLabel.text isEqualToString:@"RECORD"])
-//    {
-//        [self performSegueWithIdentifier:@"recordDream" sender:self];
+- (IBAction)playTapped:(id)sender {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
+    NSLog(@"%@", self.audioURL);
+    [self.player setDelegate:self];
+    [self.player play];
+}
+
+- (void) dismissKeyboard {
+    // add self
+    [self.dreamContentTextView resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+
+    return YES;
+}
+
+- (IBAction)saveTapped:(id)sender {
+    //references via tab bar controller
+    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    [profileViewController.dreamLog addObject:dreamBeingAdded];
+    
+    dreamBeingAdded.content = self.dreamContentTextView.text;
+    dreamBeingAdded.title = self.dreamTitleLabel.text;
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    self.tabBarController.selectedIndex = 3;
+}
+- (IBAction)editLaterTapped:(id)sender {
+    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    [profileViewController.dreamLog addObject:dreamBeingAdded];
+    
+    dreamBeingAdded.content = self.dreamContentTextView.text;
+    dreamBeingAdded.title = self.dreamTitleLabel.text;
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    self.tabBarController.selectedIndex = 3;
+}
+
+- (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
+{
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    NSLog(@"%@", self.audioURL);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioURL.path])
+    {
+        [self.playButton setEnabled:NO];
+    }
+    [self.playButton setEnabled:YES];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
+//
+//        //dreamBeingAdded.recording = self.player.data;
+//
 //    }
 //}
 
-- (IBAction)recordPlayTapped:(id)sender {
-    if ([[NSFileManager defaultManager] fileExistsAtPath: [self.audioURL absoluteString]]) {
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
-        NSLog(@"%@", self.audioURL);
-        [self.player setDelegate:self];
-        [self.player play];
-    } else {
-        [self performSegueWithIdentifier:@"recordDream" sender:self];
-    }
-}
 
-        - (void) dismissKeyboard {
-            // add self
-            [self.dreamContentTextView resignFirstResponder];
-        }
-        
-        - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-            return YES;
-        }
-        
-        - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-            [textField resignFirstResponder];
-            
-            //    if (textField == _tags) {
-            //
-            //    }
-            return YES;
-        }
-        
-        - (IBAction)saveTapped:(id)sender {
-            //references via tab bar controller
-            UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-            ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-            [profileViewController.dreamLog addObject:dreamBeingAdded];
-            
-            dreamBeingAdded.content = self.dreamContentTextView.text;
-            dreamBeingAdded.title = self.dreamTitleLabel.text;
-            [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-            
-            self.tabBarController.selectedIndex = 3;
-        }
-        - (IBAction)editLaterTapped:(id)sender {
-            UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-            ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-            [profileViewController.dreamLog addObject:dreamBeingAdded];
-            
-            dreamBeingAdded.content = self.dreamContentTextView.text;
-            dreamBeingAdded.title = self.dreamTitleLabel.text;
-            [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-            
-            self.tabBarController.selectedIndex = 3;
-        }
-        
-        - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
-    {
-        
-    }
-        
-        
-        - (void)viewDidDisappear:(BOOL)animated {
-            [super viewWillDisappear:animated];
-            
-            self.tabBarController.tabBar.userInteractionEnabled = YES;
-        }
-        
-#pragma mark - Navigation
-        
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
-        //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-        //    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
-        //
-        //        //dreamBeingAdded.recording = self.player.data;
-        //
-        //    }
-        //}
-        
-        
-        @end
+@end

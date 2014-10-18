@@ -142,7 +142,6 @@
     
     editDreamViewController.audioURL = _tempURL;
     NSLog(@"Sending the ulr to edit screen: %@", _tempURL);
-    [editDreamViewController.recordPlay.titleLabel setText:@"PLAY"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
