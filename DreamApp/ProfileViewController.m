@@ -98,7 +98,7 @@
     //path to documents directory
     self.profilePicture.image = [UIImage imageWithContentsOfFile:@"savedImage.png"];
     NSLog(@"%@", self.profilePicture.image);
-    
+    NSLog(@"%@", DREAM_DIRECTORY);
 //    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
 //    
 //    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
@@ -122,7 +122,8 @@
             EditDreamViewController *editDreamViewController = [segue destinationViewController];
             NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
             
-//            audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/%@", DREAM_DIRECTORY,self.recordingsToBeEdited[selectedIndexPath.row]]];
+            NSLog(@"%@", DREAM_DIRECTORY);
+            //audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/%@", DREAM_DIRECTORY,self.recordingsToBeEdited[selectedIndexPath.row],]];
             editDreamViewController.audioURL = audioFileURL;
         }
         

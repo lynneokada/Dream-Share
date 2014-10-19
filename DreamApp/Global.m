@@ -9,3 +9,4 @@
 #import "Global.h"
 
 NSString * const DREAM_DIRECTORY = @"/MasterDreamsFolder";
+NSString * const RECORDING = @"/dreamRecording.m4a";

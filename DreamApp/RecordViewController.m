@@ -141,6 +141,8 @@
     EditDreamViewController *editDreamViewController = [segue destinationViewController];
     
     editDreamViewController.audioURL = _tempURL;
+    editDreamViewController.dreamFolderPath = _dreamFolderPath;
+    NSLog(@"dream folder path: %@", _dreamFolderPath);
     NSLog(@"Sending the ulr to edit screen: %@", _tempURL);
 }
 

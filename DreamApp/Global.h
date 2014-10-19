@@ -9,3 +9,4 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *const DREAM_DIRECTORY;
+extern NSString *const RECORDING;
