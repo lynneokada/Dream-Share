@@ -7,7 +7,6 @@
 //
 
 #import "ProfileViewController.h"
-#import "DreamViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
 #import "EditDreamViewController.h"
@@ -16,6 +15,9 @@
 @interface ProfileViewController () {
     NSString *profilePicturePath;
     NSURL *audioFileURL;
+    NSURL *txtFileURL;
+    NSString *masterDreamFolderPath;
+    NSMutableArray *dreamFolders;
 }
 
 
@@ -43,31 +45,6 @@
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
     
-    
-    // Do any additional setup after loading the view.
-    // get access to the managed object context
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    // get entity description for entity we are selecting
-    NSEntityDescription *dreamDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
-    NSEntityDescription *userInfoDescription = [NSEntityDescription entityForName:@"UserInfo" inManagedObjectContext:context];
-    // create a new fetch request
-    NSFetchRequest *requestDream = [[NSFetchRequest alloc] init];
-    NSFetchRequest *requestUserInfo = [[NSFetchRequest alloc] init];
-    
-    [requestDream setEntity:dreamDescription];
-    [requestUserInfo setEntity:userInfoDescription];
-    // create an error variable to pass to the execute method
-    NSError *error;
-    // retrieve results
-    self.dreamLog = [[context executeFetchRequest:requestDream error:&error] mutableCopy];
-    if (self.dreamLog == nil) {
-        //error handling, e.g. display error to user
-    }
-    
-    self.userInfo = [[context executeFetchRequest:requestUserInfo error:&error] mutableCopy];
-    if (self.userInfo == nil) {
-        //error handling
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.dreamLog count];
+    return [dreamFolders count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,10 +75,32 @@
     //path to documents directory
     self.profilePicture.image = [UIImage imageWithContentsOfFile:@"savedImage.png"];
     NSLog(@"%@", self.profilePicture.image);
-    NSLog(@"%@", DREAM_DIRECTORY);
-//    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
-//    
-//    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    masterDreamFolderPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
+    NSLog(@"masterDreamFolderPath: %@", masterDreamFolderPath);
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:masterDreamFolderPath])
+    {
+        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
+    NSArray *masterDreamFolderContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:masterDreamFolderPath error:NULL];
+    dreamFolders = [NSMutableArray arrayWithCapacity: [masterDreamFolderContent count]];
+    NSString *filename;
+    for (filename in masterDreamFolderContent)
+    {
+        [dreamFolders addObject: filename];
+    }
+    
+    //self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
+    
+    NSLog(@"dreamFolders: %@", dreamFolders);
+    //    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
+    //
+    //    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -111,22 +110,19 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showDream"]) {
-        DreamViewController *dreamViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"editDream"]) {
+        EditDreamViewController *editDreamViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
-        dreamViewController.dream = self.dreamLog[selectedIndexPath.row];
-    } else if ([segue.identifier isEqualToString:@"editProfile"]) {
-        //EditProfileViewController *editProfileViewController = [segue destinationViewController];
-    } else if ([segue.identifier isEqualToString:@"editDream"]) {
-        if ([segue.identifier isEqualToString:@"editDream"]) {
-            EditDreamViewController *editDreamViewController = [segue destinationViewController];
-            NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
-            
-            NSLog(@"%@", DREAM_DIRECTORY);
-            //audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/%@", DREAM_DIRECTORY,self.recordingsToBeEdited[selectedIndexPath.row],]];
-            editDreamViewController.audioURL = audioFileURL;
-        }
         
+        NSLog(@"dreamFolders: %@", dreamFolders);
+        audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
+        editDreamViewController.audioURL = audioFileURL;
+        
+        txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
+        editDreamViewController.txtURL = txtFileURL;
+        
+        NSLog(@"audioFile: %@", audioFileURL);
+        NSLog(@"txtFile: %@", txtFileURL);
     }
 }
 

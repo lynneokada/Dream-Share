@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) NSString *audioFilePath;
 @property (nonatomic, strong) NSURL *audioURL;
+@property (nonatomic, strong) NSURL *txtURL;
 @property (nonatomic, strong) NSString *dreamFolderPath;
 
 @end

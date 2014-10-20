@@ -7,13 +7,11 @@
 //
 
 #import "EditDreamViewController.h"
-#import "Dream.h"
 #import "AppDelegate.h"
 #import "ProfileViewController.h"
 #import "Global.h"
 
 @interface EditDreamViewController () {
-    Dream *dreamBeingAdded;
     NSString *masterDreamFolderPath;
 }
 
@@ -37,11 +35,6 @@
     
     [self.view addGestureRecognizer:tap];
     
-    //create NSManagedObjectContext - CORE DATA
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    
-    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
-    
     //FILE SYSTEM
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -59,12 +52,19 @@
     [super viewDidAppear:YES];
     
     //Does audio file exist
-    NSLog(@"%@", self.audioURL);
+    NSLog(@"audioFile exists? %@", self.audioURL);
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioURL.path])
     {
         [self.playButton setEnabled:NO];
     } else {
         [self.playButton setEnabled:YES];
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.txtURL.path])
+    {
+        NSString *textFile = [NSString stringWithContentsOfURL:self.txtURL encoding:NSUTF8StringEncoding error:nil];
+        NSLog(@"textFile: %@", textFile);
+        self.dreamContentTextView.text = textFile;
     }
 }
 
@@ -85,22 +85,25 @@
         [self.player play];
 }
 
-- (void) dismissKeyboard {
-    // add self
+- (void) dismissKeyboard
+{
     [self.dreamContentTextView resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
     return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     
     return YES;
 }
 
-- (IBAction)shareTapped:(id)sender {
+- (IBAction)shareTapped:(id)sender
+{
     //references via tab bar controller
 //    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
 //    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
@@ -110,8 +113,27 @@
 //    dreamBeingAdded.title = self.dreamTitleLabel.text;
 //    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
+    NSString *dreamContent = _dreamContentTextView.text;
     
-    NSLog(@"dreamFolderPath: %@", _dreamFolderPath);
+    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
+    
+    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
+    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
+    
+    self.dreamContentTextView.text = NULL;
+    
+    self.tabBarController.selectedIndex = 3;
+}
+
+- (IBAction)saveTapped:(id)sender
+{
+//    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+//    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+//    [profileViewController.dreamLog addObject:dreamBeingAdded];
+//    
+//    dreamBeingAdded.content = self.dreamContentTextView.text;
+//    dreamBeingAdded.title = self.dreamTitleLabel.text;
+//    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
     NSString *dreamContent = _dreamContentTextView.text;
     
@@ -120,21 +142,7 @@
     NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
     
-    NSLog(@"%@", dreamContentData);
-    
-    
-    
-    self.tabBarController.selectedIndex = 3;
-}
-
-- (IBAction)saveTapped:(id)sender {
-//    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-//    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-//    [profileViewController.dreamLog addObject:dreamBeingAdded];
-//    
-//    dreamBeingAdded.content = self.dreamContentTextView.text;
-//    dreamBeingAdded.title = self.dreamTitleLabel.text;
-//    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    self.dreamContentTextView.text = NULL;
     
     self.tabBarController.selectedIndex = 3;
 }

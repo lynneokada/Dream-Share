@@ -8,13 +8,11 @@
 
 #import "RecordViewController.h"
 #import "EditDreamViewController.h"
-#import "Dream.h"
 #import "AppDelegate.h"
 #import "Global.h"
 
 @interface RecordViewController ()
 {
-    Dream *_dreamBeingAdded;
     UITabBarController *_tabBarController;
     
     AVAudioPlayer *_player;
@@ -44,7 +42,6 @@
     {
         [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
     }
-    
     
     //date formatter
     NSDate *date = [NSDate date];

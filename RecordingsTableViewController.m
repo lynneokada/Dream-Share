@@ -31,7 +31,7 @@
     dataPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
     
     //NSString of the .m4a file
-    self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
+    
 }
 
 - (void)didReceiveMemoryWarning {
