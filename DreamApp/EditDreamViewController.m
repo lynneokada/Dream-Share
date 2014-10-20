@@ -13,6 +13,7 @@
 
 @interface EditDreamViewController () {
     NSString *masterDreamFolderPath;
+    NSString *textFile;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
@@ -62,7 +63,7 @@
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.txtURL.path])
     {
-        NSString *textFile = [NSString stringWithContentsOfURL:self.txtURL encoding:NSUTF8StringEncoding error:nil];
+        textFile = [NSString stringWithContentsOfURL:self.txtURL encoding:NSUTF8StringEncoding error:nil];
         NSLog(@"textFile: %@", textFile);
         self.dreamContentTextView.text = textFile;
     }
@@ -134,7 +135,7 @@
 //    dreamBeingAdded.content = self.dreamContentTextView.text;
 //    dreamBeingAdded.title = self.dreamTitleLabel.text;
 //    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    
+
     NSString *dreamContent = _dreamContentTextView.text;
     
     NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
@@ -161,13 +162,13 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"unwindToProfile"]) {
-//
-//        //dreamBeingAdded.recording = self.player.data;
-//
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"unwindToProfile"])
+    {
+        textFile = self.dreamContentTextView.text;
+        NSLog(@"textFile in dd: %@", textFile);
+        [[NSFileManager defaultManager]
+    }
+}
 
 @end

@@ -656,6 +656,7 @@
                                 </state>
                                 <connections>
                                     <action selector="shareTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="igj-zF-imG"/>
+                                    <segue destination="S2P-Mz-JhW" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="cmQ-yS-DL4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghy-YG-umX">
@@ -669,6 +670,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="tNT-As-jWl"/>
+                                    <segue destination="S2P-Mz-JhW" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="jU2-U1-hSG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-z1-baV">
@@ -724,6 +726,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="S2P-Mz-JhW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4841" y="2564"/>
         </scene>

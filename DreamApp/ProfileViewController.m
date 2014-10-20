@@ -47,28 +47,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue {
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [dreamFolders count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
-    
-    //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
-    
-    return cell;
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     
@@ -101,6 +79,42 @@
     //    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
     //
     //    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue {
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [dreamFolders count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
+    
+    //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *audioFolderPath = [documentDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
+    
+    NSLog(@"deleting in %@", audioFolderPath);
+    
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/%@", masterDreamFolderPath, dreamFolders[indexPath.row]]  error:&error];
+    
+    [dreamFolders removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
