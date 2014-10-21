@@ -75,15 +75,15 @@
 }
 
 - (IBAction)playTapped:(id)sender {
-        [self.playButton setEnabled:YES];
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setCategory:AVAudioSessionCategoryPlayback error:nil];
-        [session setActive:YES error:nil];
-        
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
-        NSLog(@"%@", self.audioURL);
-        [self.player setDelegate:self];
-        [self.player play];
+    [self.playButton setEnabled:YES];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
+    
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
+    NSLog(@"%@", self.audioURL);
+    [self.player setDelegate:self];
+    [self.player play];
 }
 
 - (void) dismissKeyboard
@@ -106,13 +106,13 @@
 - (IBAction)shareTapped:(id)sender
 {
     //references via tab bar controller
-//    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-//    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-//    [profileViewController.dreamLog addObject:dreamBeingAdded];
-//    
-//    dreamBeingAdded.content = self.dreamContentTextView.text;
-//    dreamBeingAdded.title = self.dreamTitleLabel.text;
-//    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    //    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    //    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    //    [profileViewController.dreamLog addObject:dreamBeingAdded];
+    //
+    //    dreamBeingAdded.content = self.dreamContentTextView.text;
+    //    dreamBeingAdded.title = self.dreamTitleLabel.text;
+    //    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
     NSString *dreamContent = _dreamContentTextView.text;
     
@@ -128,14 +128,14 @@
 
 - (IBAction)saveTapped:(id)sender
 {
-//    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
-//    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
-//    [profileViewController.dreamLog addObject:dreamBeingAdded];
-//    
-//    dreamBeingAdded.content = self.dreamContentTextView.text;
-//    dreamBeingAdded.title = self.dreamTitleLabel.text;
-//    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-
+    //    UINavigationController *navigationController = [self.tabBarController.viewControllers objectAtIndex:3];
+    //    ProfileViewController *profileViewController = [navigationController.viewControllers objectAtIndex:0];
+    //    [profileViewController.dreamLog addObject:dreamBeingAdded];
+    //
+    //    dreamBeingAdded.content = self.dreamContentTextView.text;
+    //    dreamBeingAdded.title = self.dreamTitleLabel.text;
+    //    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
     NSString *dreamContent = _dreamContentTextView.text;
     
     NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
@@ -162,12 +162,18 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"unwindToProfile"])
     {
         textFile = self.dreamContentTextView.text;
         NSLog(@"textFile in dd: %@", textFile);
-        [[NSFileManager defaultManager]
+        
+        NSString *changedDreamContentPath = [NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, _dreamFolderPath];
+        NSLog(@"changedDreamContentPath: %@", changedDreamContentPath);
+        
+        NSData *changedDreamContentData = [textFile dataUsingEncoding:NSASCIIStringEncoding];
+        [[NSFileManager defaultManager] createFileAtPath:changedDreamContentPath contents:changedDreamContentData attributes:NULL];
     }
 }
 

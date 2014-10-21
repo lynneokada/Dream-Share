@@ -128,13 +128,15 @@
         EditDreamViewController *editDreamViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
-        NSLog(@"dreamFolders: %@", dreamFolders);
         audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
         editDreamViewController.audioURL = audioFileURL;
         
         txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
         editDreamViewController.txtURL = txtFileURL;
         
+        editDreamViewController.dreamFolderPath = dreamFolders[selectedIndexPath.row];
+        
+        NSLog(@"dreamFolderPath: %@", dreamFolders[selectedIndexPath.row]);
         NSLog(@"audioFile: %@", audioFileURL);
         NSLog(@"txtFile: %@", txtFileURL);
     }
