@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
-#import "EditDreamViewController.h"
+#import "EditDreamViewController2.h"
 #import "Global.h"
 
 @interface ProfileViewController () {
@@ -44,7 +44,6 @@
     self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height /2;
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -125,16 +124,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"editDream"]) {
-        EditDreamViewController *editDreamViewController = [segue destinationViewController];
+        EditDreamViewController2 *editDreamViewController2 = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
         audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-        editDreamViewController.audioURL = audioFileURL;
+        editDreamViewController2.audioFileURL = audioFileURL;
         
         txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-        editDreamViewController.txtURL = txtFileURL;
+        editDreamViewController2.txtURL = txtFileURL;
         
-        editDreamViewController.dreamFolderPath = dreamFolders[selectedIndexPath.row];
+        editDreamViewController2.dreamFolderPath = dreamFolders[selectedIndexPath.row];
         
         NSLog(@"dreamFolderPath: %@", dreamFolders[selectedIndexPath.row]);
         NSLog(@"audioFile: %@", audioFileURL);

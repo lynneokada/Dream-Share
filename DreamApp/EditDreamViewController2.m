@@ -1,19 +1,18 @@
 //
-//  EditDreamViewController.m
+//  EditDreamViewController2.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/2/14.
+//  Created by Lynne Okada on 10/21/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "EditDreamViewController.h"
-#import "AppDelegate.h"
-#import "ProfileViewController.h"
+#import "EditDreamViewController2.h"
 #import "Global.h"
 
-@interface EditDreamViewController () {
+@interface EditDreamViewController2 () {
     NSString *masterDreamFolderPath;
     NSString *textFile;
+    AVAudioPlayer *_player;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
@@ -21,15 +20,14 @@
 
 @end
 
-@implementation EditDreamViewController
+@implementation EditDreamViewController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     _dreamContentTextView.delegate = self;
     
-    //resign textView
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -48,13 +46,12 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     
     //Does audio file exist
-    NSLog(@"audioFile exists? %@", self.audioURL);
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioURL.path])
+    NSLog(@"audioFile exists? %@", self.audioFileURL);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioFileURL.path])
     {
         [self.playButton setEnabled:NO];
     } else {
@@ -69,21 +66,17 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)playTapped:(id)sender {
+- (IBAction)playTapped:(id)sender
+{
     [self.playButton setEnabled:YES];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
-    NSLog(@"%@", self.audioURL);
-    [self.player setDelegate:self];
-    [self.player play];
+    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFileURL error:nil];
+    NSLog(@"%@", self.audioFileURL);
+    [_player setDelegate:self];
+    [_player play];
 }
 
 - (void) dismissKeyboard
@@ -103,50 +96,24 @@
     return YES;
 }
 
-- (IBAction)shareTapped:(id)sender
-{
-    
-    NSString *dreamContent = _dreamContentTextView.text;
-    
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
-    
-    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-    
-    self.dreamContentTextView.text = @"";
-    self.audioFilePath = NULL;
-    
-    self.tabBarController.selectedIndex = 3;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)saveTapped:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    NSString *dreamContent = _dreamContentTextView.text;
-    
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
-    
-    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-    
-    self.dreamContentTextView.text = @"";
-    self.audioFilePath = NULL;
-    
-    self.tabBarController.selectedIndex = 3;
-}
-
-- (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
-{
-    
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    
-    
-    self.tabBarController.tabBar.userInteractionEnabled = YES;
+    if ([segue.identifier isEqualToString:@"unwindToProfile"])
+    {
+        textFile = self.dreamContentTextView.text;
+        NSLog(@"textFile in dd: %@", textFile);
+        
+        NSString *changedDreamContentPath = [NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, _dreamFolderPath];
+        NSLog(@"changedDreamContentPath: %@", changedDreamContentPath);
+        
+        NSData *changedDreamContentData = [textFile dataUsingEncoding:NSASCIIStringEncoding];
+        [[NSFileManager defaultManager] createFileAtPath:changedDreamContentPath contents:changedDreamContentData attributes:NULL];
+    }
 }
 
 @end
