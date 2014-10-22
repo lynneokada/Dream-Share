@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @property (nonatomic, strong) UserInfo *userInfo;
+@property (nonatomic, strong) NSString *dreamTitle;
 
 //profile stats
 

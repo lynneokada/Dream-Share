@@ -9,6 +9,7 @@
 #import "InitialViewController.h"
 #import "LoginViewController.h"
 #import "CreateAccountViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface InitialViewController ()
 
@@ -36,6 +37,12 @@
     
     [self fadein];
     [self whoaThatWasKindaCool];
+    
+    
+    FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"user_friends"]];
+    //loginView.center = self.view.center;
+    loginView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2+75);
+    [self.view addSubview:loginView];
 }
 
 - (void) whoaThatWasKindaCool {

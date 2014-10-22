@@ -13,6 +13,10 @@
 		D20D126E19E39AF700DE7485 /* AlarmTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */; };
 		D20D127119E39BBD00DE7485 /* AddAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */; };
 		D2249FDE19F6D07500F4252F /* EditDreamViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */; };
+		D224A0F819F8224000F4252F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2249FF819F8224000F4252F /* Bolts.framework */; };
+		D224A0F919F8224000F4252F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2249FF919F8224000F4252F /* FacebookSDK.framework */; };
+		D224A11219F8224000F4252F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D224A02619F8224000F4252F /* LICENSE */; };
+		D224A11319F8224000F4252F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D224A02719F8224000F4252F /* README.txt */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA019E748450014F22B /* FollowersTableViewController.m */; };
 		D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA319E748DE0014F22B /* FollowingTableViewController.m */; };
@@ -34,7 +38,6 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D272CD1919E497210059353E /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1819E497210059353E /* Alarm.m */; };
 		D272CD1C19E4B0880059353E /* AlarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */; };
-		D29A1C7F19EC4D9100A1DC02 /* RecordingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D29A1C7E19EC4D9100A1DC02 /* RecordingsTableViewController.m */; };
 		D2D2376D19EDD36B00C738AF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D2376C19EDD36B00C738AF /* Global.m */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,10 @@
 		D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlarmViewController.m; sourceTree = "<group>"; };
 		D2249FDC19F6D07500F4252F /* EditDreamViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDreamViewController2.h; sourceTree = "<group>"; };
 		D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDreamViewController2.m; sourceTree = "<group>"; };
+		D2249FF819F8224000F4252F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D2249FF919F8224000F4252F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D224A02619F8224000F4252F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D224A02719F8224000F4252F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D2594C9F19E748450014F22B /* FollowersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersTableViewController.h; sourceTree = "<group>"; };
@@ -100,8 +107,6 @@
 		D272CD1819E497210059353E /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		D272CD1A19E4B0880059353E /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
 		D272CD1B19E4B0880059353E /* AlarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTableViewCell.m; sourceTree = "<group>"; };
-		D29A1C7D19EC4D9100A1DC02 /* RecordingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordingsTableViewController.h; path = ../RecordingsTableViewController.h; sourceTree = "<group>"; };
-		D29A1C7E19EC4D9100A1DC02 /* RecordingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordingsTableViewController.m; path = ../RecordingsTableViewController.m; sourceTree = "<group>"; };
 		D2D2376B19EDD36B00C738AF /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		D2D2376C19EDD36B00C738AF /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +117,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */,
+				D224A0F819F8224000F4252F /* Bolts.framework in Frameworks */,
+				D224A0F919F8224000F4252F /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,12 +132,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2249FF719F8224000F4252F /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D2249FF819F8224000F4252F /* Bolts.framework */,
+				D2249FF919F8224000F4252F /* FacebookSDK.framework */,
+				D224A02619F8224000F4252F /* LICENSE */,
+				D224A02719F8224000F4252F /* README.txt */,
+			);
+			name = FacebookSDK;
+			path = ../../Documents/FacebookSDK;
+			sourceTree = "<group>";
+		};
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
+				D2249FF719F8224000F4252F /* FacebookSDK */,
 				D270DB0D19DCAB8C009D425B /* AVFoundation.framework */,
 			);
 			sourceTree = "<group>";
@@ -171,8 +191,6 @@
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
 				D2249FDC19F6D07500F4252F /* EditDreamViewController2.h */,
 				D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */,
-				D29A1C7D19EC4D9100A1DC02 /* RecordingsTableViewController.h */,
-				D29A1C7E19EC4D9100A1DC02 /* RecordingsTableViewController.m */,
 				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
 				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
 				D2594C9F19E748450014F22B /* FollowersTableViewController.h */,
@@ -290,6 +308,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = D270DA8919DB2270009D425B;
 			productRefGroup = D270DA9319DB2270009D425B /* Products */;
@@ -310,6 +329,8 @@
 				D270DAA419DB2270009D425B /* Main.storyboard in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
 				D270DAA619DB2270009D425B /* Images.xcassets in Resources */,
+				D224A11219F8224000F4252F /* LICENSE in Resources */,
+				D224A11319F8224000F4252F /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +367,6 @@
 				D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
-				D29A1C7F19EC4D9100A1DC02 /* RecordingsTableViewController.m in Sources */,
 				D20D126819E3404900DE7485 /* TabBarController.m in Sources */,
 				D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
@@ -476,6 +496,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/lokada/Documents/FacebookSDK,
+					/Users/lokada/Documents/FacebookSDK/FBAudienceNetwork,
+				);
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -490,6 +515,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/lokada/Documents/FacebookSDK,
+					/Users/lokada/Documents/FacebookSDK/FBAudienceNetwork,
+				);
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

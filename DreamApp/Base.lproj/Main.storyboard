@@ -49,9 +49,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knw-zH-Ef8">
-                                <rect key="frame" x="212" y="173" width="177" height="37"/>
+                                <rect key="frame" x="212" y="173" width="176.5" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- or -" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-8g-5jQ">
+                                <rect key="frame" x="279" y="304" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="43s-LR-ZJj"/>
+                                    <constraint firstAttribute="height" constant="21" id="LUO-01-U7i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -61,6 +71,8 @@
                             <constraint firstAttribute="centerX" secondItem="4ag-Rk-Ax8" secondAttribute="centerX" constant="-0.5" id="FeI-XS-hRd"/>
                             <constraint firstAttribute="centerX" secondItem="knw-zH-Ef8" secondAttribute="centerX" constant="-0.5" id="Pub-Xj-uHx"/>
                             <constraint firstItem="d32-z8-bPt" firstAttribute="top" secondItem="knw-zH-Ef8" secondAttribute="bottom" constant="8" id="RA4-KD-jaO"/>
+                            <constraint firstAttribute="centerX" secondItem="O4q-8g-5jQ" secondAttribute="centerX" constant="1.5" id="RGN-Sv-IgK"/>
+                            <constraint firstItem="O4q-8g-5jQ" firstAttribute="top" secondItem="4ag-Rk-Ax8" secondAttribute="bottom" constant="8" id="hIM-Pl-t35"/>
                             <constraint firstAttribute="centerX" secondItem="d32-z8-bPt" secondAttribute="centerX" constant="-0.5" id="iR8-3h-egD"/>
                             <constraint firstItem="knw-zH-Ef8" firstAttribute="top" secondItem="zMM-EI-BSb" secondAttribute="bottom" constant="153" id="zJ3-L1-YXf"/>
                         </constraints>
@@ -568,9 +580,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf4-o2-2cu">
                                 <rect key="frame" x="0.0" y="121" width="600" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="369" id="yqk-AV-bDQ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -597,6 +606,9 @@
                                 <state key="normal" title="SHARE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7Ds-H7-4d6" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="J3k-I6-zFA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKV-KB-ImZ">
                                 <rect key="frame" x="301.5" y="498" width="298.5" height="53"/>
@@ -607,6 +619,9 @@
                                 <state key="normal" title="SAVE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7Ds-H7-4d6" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="025-mP-Qzi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -622,6 +637,8 @@
                             <constraint firstItem="cZV-CB-MM5" firstAttribute="leading" secondItem="mB6-Kd-QvN" secondAttribute="leadingMargin" constant="-16" id="dGg-Ld-MNZ"/>
                             <constraint firstItem="cKV-KB-ImZ" firstAttribute="width" secondItem="cZV-CB-MM5" secondAttribute="width" id="esK-oc-bcn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cKV-KB-ImZ" secondAttribute="trailing" constant="-16" id="loa-Ty-j4Q"/>
+                            <constraint firstItem="cZV-CB-MM5" firstAttribute="top" secondItem="Pf4-o2-2cu" secondAttribute="bottom" constant="8" id="pBa-8m-ZfG"/>
+                            <constraint firstItem="cKV-KB-ImZ" firstAttribute="top" secondItem="Pf4-o2-2cu" secondAttribute="bottom" constant="8" id="qwL-E7-2ak"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pf4-o2-2cu" secondAttribute="trailing" constant="-16" id="wcC-ev-VLK"/>
                         </constraints>
                     </view>
@@ -631,6 +648,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewI-9C-pmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7Ds-H7-4d6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7745" y="4844"/>
         </scene>
@@ -737,7 +755,6 @@
                                 </state>
                                 <connections>
                                     <action selector="shareTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="igj-zF-imG"/>
-                                    <segue destination="S2P-Mz-JhW" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="cmQ-yS-DL4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-z1-baV">
@@ -754,9 +771,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
                                 <rect key="frame" x="0.0" y="121" width="600" height="369"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="369" id="gVe-Xy-Bis"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
@@ -771,13 +785,13 @@
                                 </state>
                                 <connections>
                                     <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="tNT-As-jWl"/>
-                                    <segue destination="S2P-Mz-JhW" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="jU2-U1-hSG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="cLb-z1-baV" secondAttribute="trailing" constant="-16" id="3XY-sB-Fkq"/>
+                            <constraint firstItem="LZK-gq-OZA" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="8" id="5xS-ih-HQD"/>
                             <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="LZK-gq-OZA" secondAttribute="bottom" id="6pw-xg-jMZ"/>
                             <constraint firstItem="LZK-gq-OZA" firstAttribute="width" secondItem="Ghy-YG-umX" secondAttribute="width" id="HYL-Oq-Jb0"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="Ih0-wo-ghJ"/>
@@ -787,6 +801,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="-16" id="ddO-lu-0UD"/>
                             <constraint firstItem="cLb-z1-baV" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="mc9-qM-XO0"/>
                             <constraint firstItem="Ghy-YG-umX" firstAttribute="leading" secondItem="LZK-gq-OZA" secondAttribute="trailing" constant="3" id="nex-Rz-GQ3"/>
+                            <constraint firstItem="Ghy-YG-umX" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="8" id="rLU-9P-jpl"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="cLb-z1-baV" secondAttribute="bottom" constant="3" id="yVB-CI-kBB"/>
                             <constraint firstItem="cLb-z1-baV" firstAttribute="top" secondItem="vsL-Gt-faE" secondAttribute="topMargin" constant="63" id="zKZ-SG-qpn"/>
                         </constraints>
@@ -806,7 +821,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="S2P-Mz-JhW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4841.5" y="2564"/>
         </scene>

@@ -20,7 +20,6 @@
     NSMutableArray *dreamFolders;
 }
 
-
 @end
 
 @implementation ProfileViewController
@@ -48,11 +47,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
+    [self.tableView reloadData];
     
     //path to documents directory
     self.profilePicture.image = [UIImage imageWithContentsOfFile:@"savedImage.png"];
     NSLog(@"%@", self.profilePicture.image);
-    
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -71,13 +70,7 @@
     {
         [dreamFolders addObject: filename];
     }
-    
-    //self.recordingsToBeEdited = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:NULL] mutableCopy];
-    
     NSLog(@"dreamFolders: %@", dreamFolders);
-    //    profilePicturePath = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL] mutableCopy];
-    //
-    //    _profilePicture.image = [[UIImageView alloc] initWithImage:[NSString stringWithFormat:profilePicturePath]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,12 +107,6 @@
     
     [dreamFolders removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.tableView reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

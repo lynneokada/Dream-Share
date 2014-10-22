@@ -108,13 +108,24 @@
     
     NSString *dreamContent = _dreamContentTextView.text;
     
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
+    {
+        //date formatter
+        NSDate *date = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
+        
+        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
     NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
     
     NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
     
     self.dreamContentTextView.text = @"";
-    self.audioFilePath = NULL;
     
     self.tabBarController.selectedIndex = 3;
 }
@@ -124,13 +135,24 @@
     
     NSString *dreamContent = _dreamContentTextView.text;
     
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
+    {
+        //date formatter
+        NSDate *date = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
+        
+        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:_dreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
     NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
     
     NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
     
     self.dreamContentTextView.text = @"";
-    self.audioFilePath = NULL;
     
     self.tabBarController.selectedIndex = 3;
 }
@@ -143,8 +165,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    
-    
     
     self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
