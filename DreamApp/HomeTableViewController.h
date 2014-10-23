@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeTableViewController : UITableViewController
+@interface HomeTableViewController : UITableViewController <NSURLSessionDelegate>
+
+@property (nonatomic, strong) NSMutableArray *dreamFeed;
 
 @end

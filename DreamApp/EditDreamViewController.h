@@ -10,7 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProfileViewController.h"
 
-@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
+@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
 

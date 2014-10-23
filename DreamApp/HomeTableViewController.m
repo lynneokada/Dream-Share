@@ -22,6 +22,45 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request
+                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                       NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                                       NSInteger responseStatusCode = [httpResponse statusCode];
+                                                       
+                                                       if (responseStatusCode == 200 && data) {
+                                                           NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                           // do something with this data
+                                                           // if you want to update UI, do it on main queue
+                                                           for (int i = 0; i < [downloadedJSON count]; i++) {
+                                                               [self.dreamFeed addObject:downloadedJSON[i][@"content"]];
+                                                           }
+                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                               [self.tableView reloadData];
+                                                               
+                                                           });
+                                                       } else {
+                                                           // error handling
+                                                       }
+                                                   }];
+    
+    [dataTask resume];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,26 +69,19 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return [self.dreamFeed count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"feedCell" forIndexPath:indexPath];
+    cell.textLabel.text = self.dreamFeed[indexPath.row];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
