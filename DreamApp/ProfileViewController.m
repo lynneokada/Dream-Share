@@ -13,7 +13,6 @@
 #import "Global.h"
 
 @interface ProfileViewController () {
-    NSString *profilePicturePath;
     NSURL *audioFileURL;
     NSURL *txtFileURL;
     NSString *masterDreamFolderPath;
@@ -40,18 +39,16 @@
     self.tableView.dataSource = self;
     
     //make imageView circular
-    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height /2;
-    self.profilePicture.layer.masksToBounds = YES;
-    self.profilePicture.layer.borderWidth = 0;
+    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height /2;
+    self.profilePictureView.layer.masksToBounds = YES;
+    self.profilePictureView.layer.borderWidth = 0;
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     [self.tableView reloadData];
-    
-    //path to documents directory
-    self.profilePicture.image = [UIImage imageWithContentsOfFile:@"savedImage.png"];
-    NSLog(@"%@", self.profilePicture.image);
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];

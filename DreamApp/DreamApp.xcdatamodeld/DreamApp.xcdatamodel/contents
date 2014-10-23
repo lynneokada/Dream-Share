@@ -5,11 +5,7 @@
         <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="minute" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
-        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Alarm" positionX="-63" positionY="9" width="128" height="88"/>
-        <element name="UserInfo" positionX="-63" positionY="18" width="128" height="58"/>
     </elements>
 </model>

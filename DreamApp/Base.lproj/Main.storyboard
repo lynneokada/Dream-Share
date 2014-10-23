@@ -320,7 +320,7 @@
                         <outlet property="followers" destination="UId-T7-hdV" id="wIP-eD-dob"/>
                         <outlet property="following" destination="8uJ-ST-pFL" id="rrB-8k-RIQ"/>
                         <outlet property="posts" destination="zTZ-q9-O28" id="x5a-WK-eAV"/>
-                        <outlet property="profilePicture" destination="Gs1-Uv-MQ0" id="yhx-qz-qof"/>
+                        <outlet property="profilePictureView" destination="Gs1-Uv-MQ0" id="HBg-qR-Fhg"/>
                         <outlet property="tableView" destination="jjZ-wN-jiN" id="IG8-L8-CJF"/>
                     </connections>
                 </viewController>
@@ -525,7 +525,7 @@
                     <navigationItem key="navigationItem" title="edit profile" id="HhL-Eu-MTw">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="ADL-qJ-YKy">
                             <connections>
-                                <segue destination="cdD-Je-Bm0" kind="unwind" identifier="doneEdittingProfile" unwindAction="unwindToProfileViewController:" id="u59-CT-gqB"/>
+                                <segue destination="cdD-Je-Bm0" kind="unwind" identifier="doneEditingProfile" unwindAction="unwindToProfileViewController:" id="u59-CT-gqB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

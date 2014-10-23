@@ -9,10 +9,8 @@
 #import "ProfileViewController.h"
 #import "EditProfileViewController.h"
 #import "AppDelegate.h"
-#import "UserInfo.h"
 
 @interface EditProfileViewController () {
-    UserInfo *userInfoChanged;
     NSURL *imageURL;
     UIImage *chosenImage;
 }
@@ -37,10 +35,6 @@
     self.imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     self.profilePicture.userInteractionEnabled = YES;
-    
-    //core data for user info
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    self.userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"UserInfo" inManagedObjectContext:context];
 }
 
 - (IBAction)TakePhoto {
@@ -111,22 +105,11 @@
 //    }
 //}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"doneEdittingProfile"]) {
-        ProfileViewController *profileViewController = [segue destinationViewController];
-        //profile picture
-        profileViewController.profilePicture.image = chosenImage;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"doneEditingProfile"])
+    {
         
-        
-        //user info
-        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-        
-        NSError *error = nil;
-        [context save:&error];
-        if (error) {
-            
-        }
-        [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     }
 }
 

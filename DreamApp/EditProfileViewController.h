@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserInfo.h"
-
-@class UserInfo;
 
 @interface EditProfileViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 
-@property (nonatomic, strong) UserInfo *userInfo;
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserInfo.h"
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource>
+@interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dreamLog;
 
@@ -18,11 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *followers;
 @property (weak, nonatomic) IBOutlet UIButton *following;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
-@property (nonatomic, strong) UserInfo *userInfo;
 @property (nonatomic, strong) NSString *dreamTitle;
 
-//profile stats
+//profile
+@property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 
 @end

@@ -21,8 +21,9 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>URL schemes</key>
+			<key>CFBundleURLSchemes</key>
 			<array>
+				<string></string>
 				<string>fb368484489976994</string>
 			</array>
 		</dict>
