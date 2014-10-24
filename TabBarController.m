@@ -8,6 +8,8 @@
 
 #import "TabBarController.h"
 
+#pragma message "Is this class used? If not remove it to keep the project clean"
+
 @interface TabBarController ()
 
 @end

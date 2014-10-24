@@ -13,8 +13,9 @@
 
 @interface RecordViewController ()
 {
+#pragma message "Seems this variable is unused?"
     UITabBarController *_tabBarController;
-    
+#pragma message "Seems this variable is unused?"
     AVAudioPlayer *_player;
     
     NSString *_dreamFolderPath;
@@ -45,6 +46,7 @@
     
     //date formatter
     NSDate *date = [NSDate date];
+#pragma message "ideally you create DateFormatters as static (class) variables and only create them once; they take quite a lot of CPU time to create"
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
     
@@ -110,6 +112,8 @@
     [doneBarButton setEnabled:YES];
 }
 
+#pragma message "View Lifecycle methods, such as viewDidAppear should go towards the top of the file. Typically they are placed directly after the init method"
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     
@@ -142,6 +146,8 @@
     NSLog(@"dream folder path: %@", _dreamFolderPath);
     NSLog(@"Sending the ulr to edit screen: %@", _tempURL);
 }
+
+#pragma message "View Lifecycle methods, such as viewDidAppear should go towards the top of the file. Typically they are placed directly after the init method"
 
 -(void)viewWillDisappear:(BOOL)animated
 {
