@@ -56,6 +56,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma message "For the following methods the return type should be NSInteger"
+
 #pragma picker components
 - (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

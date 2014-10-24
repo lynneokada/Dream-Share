@@ -37,6 +37,8 @@
     self.profilePicture.userInteractionEnabled = YES;
 }
 
+#pragma message "method names should be small"
+
 - (IBAction)TakePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

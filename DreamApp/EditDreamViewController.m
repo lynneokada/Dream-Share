@@ -13,6 +13,7 @@
 
 
 @interface EditDreamViewController () {
+#pragma message "try to be consistent with the use of underscores for instance variables. Both options are fine but try to stick with one of the two"
     NSString *masterDreamFolderPath;
     NSString *textFile;
     NSMutableArray *addedDreamContent;
@@ -70,6 +71,7 @@
     NSLog(@"audioFile exists? %@", self.audioURL);
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioURL.path])
     {
+#pragma message "Use .enabled = YES instead of setEnabled:YES"
         [self.playButton setEnabled:NO];
     } else {
         [self.playButton setEnabled:YES];
@@ -132,7 +134,7 @@
 
 - (IBAction)shareTapped:(id)sender
 {
-    
+#pragma message "Absolutely fine for now, however I would refactor this future; split it up in multiple methods and move it to a separate class" 
     NSString *dreamContent = _dreamContentTextView.text;
     
     //FILE SYSTEM

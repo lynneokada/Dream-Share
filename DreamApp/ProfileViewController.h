@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dreamLog;
 
+#pragma message "You should create IBOutlet Connections in the .m file instead of the .h. That makes the interface look less cluttered"
+
 //buttonsssssss
 @property (weak, nonatomic) IBOutlet UIButton *posts;
 @property (weak, nonatomic) IBOutlet UIButton *followers;

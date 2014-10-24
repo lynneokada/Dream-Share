@@ -30,6 +30,7 @@
     loginView.delegate = self;
 }
 
+#pragma message "It's best to remove empty methods; makes the relevant code more readable"
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -42,6 +43,7 @@
     [self whoaThatWasKindaCool];
 }
 
+#pragma message "Not a great method name ;)"
 - (void) whoaThatWasKindaCool {
     //saving the original position of the elements
     //CGRect originalTitleFrame = self.appName.frame;
