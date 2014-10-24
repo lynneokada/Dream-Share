@@ -8,29 +8,40 @@
 
 #import "EditDreamViewController.h"
 #import "AppDelegate.h"
-#import "ProfileViewController.h"
 #import "Global.h"
+#import "ProfileViewController.h"
+
 
 @interface EditDreamViewController () {
     NSString *masterDreamFolderPath;
     NSString *textFile;
-    NSMutableArray *_addedDreamContent;
+    NSMutableArray *addedDreamContent;
+    NSMutableArray *tags;
+    ProfileViewController *profileViewController;
+    
+    NSMutableArray *dreamCollection;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
 @implementation EditDreamViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _dreamContentTextView.delegate = self;
+    self.dreamContentTextView.delegate = self;
+    self.textField.delegate = self;
+    profileViewController = [ProfileViewController new];
+    tags = [NSMutableArray new];
+    dreamCollection = [NSMutableArray new];
     
-    _addedDreamContent = [NSMutableArray new];
+    addedDreamContent = [NSMutableArray new];
     
     //resign textView
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -72,12 +83,14 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)playTapped:(id)sender {
+- (IBAction)playTapped:(id)sender
+{
     [self.playButton setEnabled:YES];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -86,7 +99,7 @@
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
     NSLog(@"%@", self.audioURL);
     [self.player setDelegate:self];
-    [self.player play];
+    [self.player play]; 
 }
 
 - (void) dismissKeyboard
@@ -101,9 +114,20 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    
-    return YES;
+    //[textField resignFirstResponder];
+//    for  (int i = 0; i < [tags count]; i++)
+//    {
+//        NSMutableArray *tags = [[NSMutableArray alloc] init];
+//        [tags addObject:tag];
+//    }
+//    NSString *allTags = textField.text;
+//    NSString *hashDaTags = [NSString stringWithFormat:@"#%@ ", ];
+//    
+//    NSArray *tag = [textField.text componentsSeparatedByString:@" "];
+//    
+//    NSLog(@"tag: %@", tag);
+//    
+//    return YES;
 }
 
 - (IBAction)shareTapped:(id)sender
@@ -129,18 +153,15 @@
     NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
     
+    //MONGODB
+    NSDictionary *dictionaryDreamLog = [NSDictionary dictionaryWithObject:self.dreamContentTextView.text forKey:@"dreamContent"];
     
-    //MONGODB/IP
-    NSDictionary *dictionaryDream = [NSDictionary dictionaryWithObject:self.dreamContentTextView.text forKey:@"content"];
-    
-    //url to mac
     NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
     
-    //post request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"POST"];
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryDream options:0 error:nil];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryDreamLog options:0 error:nil];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -156,7 +177,7 @@
             NSLog(@"uploaded");
             
             NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
-//??? wrong
+            
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
             [request setHTTPMethod:@"GET"];
             
@@ -172,28 +193,24 @@
                                                                    NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                                                    // do something with this data
                                                                    // if you want to update UI, do it on main queue
-                                                                   [_addedDreamContent removeAllObjects];
+                                                                   [dreamCollection removeAllObjects];
                                                                    for (int i = 0; i < [downloadedJSON count]; i++) {
-                                                                       [_addedDreamContent addObject:downloadedJSON[i][@"content"]];
+                                                                       [dreamCollection addObject:downloadedJSON[i][@"content"]];
                                                                    }
-//                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-//                                                                       [self.tableView reloadData];
-//                                                                       
-//                                                                   });
                                                                } else {
                                                                    // error handling
                                                                }
                                                            }];
             [dataTask resume];
-        }
-        else {
-            
+        } else {
+         //error handing?
         }
     }];
     
     [dataUpload resume];
     
     self.dreamContentTextView.text = @"";
+    profileViewController.dreamFeed = dreamCollection;
     
     self.tabBarController.selectedIndex = 3;
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate>
+@interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate, NSURLSessionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dreamLog;
 
@@ -23,5 +23,6 @@
 
 //profile
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
-
+@property (nonatomic, strong) NSDictionary *dreamContentDictionary;
+@property (nonatomic, strong) NSMutableArray *dreamFeed;
 @end

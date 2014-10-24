@@ -42,8 +42,6 @@
     self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height /2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -68,6 +66,37 @@
         [dreamFolders addObject: filename];
     }
     NSLog(@"dreamFolders: %@", dreamFolders);
+    
+    NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        
+        if (responseStatusCode == 200 && data) {
+            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            // do something with this data
+            // if you want to update UI, do it on main queue
+            [self.dreamFeed removeAllObjects];
+            for (int i = 0; i < [downloadedJSON count]; i++)
+            {
+                [self.dreamFeed addObject:downloadedJSON[i][@"content"]];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        } else {
+            // error handling
+        }
+    }];
+    [dataTask resume];
+    NSLog(@"dreamFeed: %@", self.dreamFeed);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +116,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
     
-    //cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
+//    cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
     
     return cell;
 }
