@@ -117,8 +117,7 @@
 {
     //[textField resignFirstResponder];
     NSString *tag;
-    NSArray *words = [textField.text componentsSeparatedByString:@" "];
-    NSArray *tags = [textField.text componentsSeparatedByString:@" #"];
+    NSArray *tags = [textField.text componentsSeparatedByString:@" "];
     
     NSMutableArray *mutableTags = [[NSMutableArray alloc] init];
     
@@ -127,8 +126,6 @@
         tag = [NSString stringWithFormat:@"%@ ", tags[i]];
         [mutableTags addObject:tag];
     }
-    
-    
     
     textField.text = [NSString stringWithFormat:@"%@ #%@", textField.text, [mutableTags lastObject]];
     NSLog(@"mutableTags: %@", mutableTags);
