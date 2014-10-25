@@ -1,5 +1,5 @@
 //
-//  EditDreamViewController2.h
+//  EditDreamFromProfileViewController.h
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/21/14.
@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-#pragma message "Numbers in class names are bad! Is this the new EditDreamViewController? If so, then just delete the old one. Through Git you'll always have access to the old file"
-
-@interface EditDreamViewController2 : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
+@interface EditDreamFromProfileViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
 
 @property (nonatomic, strong) NSURL *audioFileURL;
 @property (nonatomic, strong) NSURL *txtURL;

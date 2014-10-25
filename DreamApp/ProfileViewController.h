@@ -10,21 +10,12 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate, NSURLSessionDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (nonatomic, strong) NSMutableArray *dreamLog;
-
-#pragma message "You should create IBOutlet Connections in the .m file instead of the .h. That makes the interface look less cluttered"
-
-//buttonsssssss
-@property (weak, nonatomic) IBOutlet UIButton *posts;
-@property (weak, nonatomic) IBOutlet UIButton *followers;
-@property (weak, nonatomic) IBOutlet UIButton *following;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
-
 @property (nonatomic, strong) NSString *dreamTitle;
 
 //profile
-@property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
+
 @property (nonatomic, strong) NSDictionary *dreamContentDictionary;
 @property (nonatomic, strong) NSMutableArray *dreamFeed;
 @end

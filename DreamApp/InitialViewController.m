@@ -30,12 +30,6 @@
     loginView.delegate = self;
 }
 
-#pragma message "It's best to remove empty methods; makes the relevant code more readable"
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     

@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
-#import "EditDreamViewController2.h"
+#import "EditDreamFromProfileViewController.h"
 #import "Global.h"
 
 @interface ProfileViewController () {
@@ -18,7 +18,16 @@
     NSString *masterDreamFolderPath;
     NSMutableArray *dreamFolders;
 }
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+
+//buttonsssssss
+@property (weak, nonatomic) IBOutlet UIButton *posts;
+@property (weak, nonatomic) IBOutlet UIButton *followers;
+@property (weak, nonatomic) IBOutlet UIButton *following;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @end
 
 @implementation ProfileViewController
@@ -137,16 +146,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"editDream"]) {
-        EditDreamViewController2 *editDreamViewController2 = [segue destinationViewController];
+        EditDreamFromProfileViewController *EditDreamFromProfileViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
         audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-        editDreamViewController2.audioFileURL = audioFileURL;
+        EditDreamFromProfileViewController.audioFileURL = audioFileURL;
         
         txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-        editDreamViewController2.txtURL = txtFileURL;
+        EditDreamFromProfileViewController.txtURL = txtFileURL;
         
-        editDreamViewController2.dreamFolderPath = dreamFolders[selectedIndexPath.row];
+        EditDreamFromProfileViewController.dreamFolderPath = dreamFolders[selectedIndexPath.row];
         
         NSLog(@"dreamFolderPath: %@", dreamFolders[selectedIndexPath.row]);
         NSLog(@"audioFile: %@", audioFileURL);

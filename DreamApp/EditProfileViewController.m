@@ -37,9 +37,7 @@
     self.profilePicture.userInteractionEnabled = YES;
 }
 
-#pragma message "method names should be small"
-
-- (IBAction)TakePhoto {
+- (IBAction)takePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -49,7 +47,7 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (IBAction)ChooseExisting {
+- (IBAction)chooseExisting {
     //[self presentModalViewController:self.imgPicker animated:YES];
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];

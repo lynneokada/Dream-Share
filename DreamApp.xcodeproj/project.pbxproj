@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D123519DF51E800DE7485 /* SearchViewController.m */; };
 		D20D126219E2FBC900DE7485 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126119E2FBC900DE7485 /* HomeTableViewController.m */; };
-		D20D126819E3404900DE7485 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126719E3404900DE7485 /* TabBarController.m */; };
 		D20D126E19E39AF700DE7485 /* AlarmTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */; };
 		D20D127119E39BBD00DE7485 /* AddAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */; };
-		D2249FDE19F6D07500F4252F /* EditDreamViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */; };
+		D2249FDE19F6D07500F4252F /* EditDreamFromProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */; };
 		D224A0F819F8224000F4252F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2249FF819F8224000F4252F /* Bolts.framework */; };
 		D224A0F919F8224000F4252F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2249FF919F8224000F4252F /* FacebookSDK.framework */; };
 		D224A11219F8224000F4252F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D224A02619F8224000F4252F /* LICENSE */; };
@@ -58,14 +57,12 @@
 		D20D123519DF51E800DE7485 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D20D126019E2FBC900DE7485 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		D20D126119E2FBC900DE7485 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
-		D20D126619E3404900DE7485 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
-		D20D126719E3404900DE7485 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
 		D20D126C19E39AF700DE7485 /* AlarmTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmTableViewController.h; path = ../AlarmTableViewController.h; sourceTree = "<group>"; };
 		D20D126D19E39AF700DE7485 /* AlarmTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmTableViewController.m; path = ../AlarmTableViewController.m; sourceTree = "<group>"; };
 		D20D126F19E39BBD00DE7485 /* AddAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAlarmViewController.h; sourceTree = "<group>"; };
 		D20D127019E39BBD00DE7485 /* AddAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAlarmViewController.m; sourceTree = "<group>"; };
-		D2249FDC19F6D07500F4252F /* EditDreamViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDreamViewController2.h; sourceTree = "<group>"; };
-		D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDreamViewController2.m; sourceTree = "<group>"; };
+		D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EditDreamFromProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EditDreamFromProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D2249FF819F8224000F4252F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D2249FF919F8224000F4252F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D224A02619F8224000F4252F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -105,7 +102,7 @@
 		D270DB1219DD4059009D425B /* EditDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDreamViewController.h; sourceTree = "<group>"; };
 		D270DB1319DD4059009D425B /* EditDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDreamViewController.m; sourceTree = "<group>"; };
 		D270DB1B19DF21E4009D425B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		D270DB1C19DF21E4009D425B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D270DB1C19DF21E4009D425B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D272CD1719E497210059353E /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
 		D272CD1819E497210059353E /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		D272CD1A19E4B0880059353E /* AlarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTableViewCell.h; sourceTree = "<group>"; };
@@ -192,14 +189,12 @@
 				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
 				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
-				D20D126619E3404900DE7485 /* TabBarController.h */,
-				D20D126719E3404900DE7485 /* TabBarController.m */,
 				D20D126019E2FBC900DE7485 /* HomeTableViewController.h */,
 				D20D126119E2FBC900DE7485 /* HomeTableViewController.m */,
 				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
-				D2249FDC19F6D07500F4252F /* EditDreamViewController2.h */,
-				D2249FDD19F6D07500F4252F /* EditDreamViewController2.m */,
+				D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */,
+				D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */,
 				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
 				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
 				D2594C9F19E748450014F22B /* FollowersTableViewController.h */,
@@ -367,13 +362,12 @@
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
-				D2249FDE19F6D07500F4252F /* EditDreamViewController2.m in Sources */,
+				D2249FDE19F6D07500F4252F /* EditDreamFromProfileViewController.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D270DA9E19DB2270009D425B /* DreamApp.xcdatamodeld in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
-				D20D126819E3404900DE7485 /* TabBarController.m in Sources */,
 				D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,

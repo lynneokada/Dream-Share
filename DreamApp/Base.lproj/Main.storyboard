@@ -458,7 +458,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="TakePhoto" destination="qu2-d3-wSr" eventType="touchUpInside" id="deR-hI-nLH"/>
+                                            <action selector="takePhoto" destination="qu2-d3-wSr" eventType="touchUpInside" id="zNH-UX-cz1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnN-xA-wny">
@@ -473,7 +473,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="ChooseExisting" destination="qu2-d3-wSr" eventType="touchUpInside" id="1hI-di-e7N"/>
+                                            <action selector="chooseExisting" destination="qu2-d3-wSr" eventType="touchUpInside" id="vdf-AZ-liK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -565,10 +565,10 @@
             </objects>
             <point key="canvasLocation" x="7045" y="4844"/>
         </scene>
-        <!--Edit Dream View Controller2-->
+        <!--Edit Dream From Profile View Controller-->
         <scene sceneID="NMa-DZ-9nT">
             <objects>
-                <viewController id="KGX-EM-FjZ" customClass="EditDreamViewController2" sceneMemberID="viewController">
+                <viewController id="KGX-EM-FjZ" customClass="EditDreamFromProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qKn-QP-MRG"/>
                         <viewControllerLayoutGuide type="bottom" id="nA0-TS-A89"/>
@@ -984,7 +984,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="W0y-YJ-fW9">
             <objects>
-                <tabBarController id="1bK-Ct-sO6" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController id="1bK-Ct-sO6" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Nmy-OM-DLu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

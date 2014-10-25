@@ -1,15 +1,15 @@
 //
-//  EditDreamViewController2.m
+//  EditDreamFromProfileViewController.m
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/21/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "EditDreamViewController2.h"
+#import "EditDreamFromProfileViewController.h"
 #import "Global.h"
 
-@interface EditDreamViewController2 () {
+@interface EditDreamFromProfileViewController () {
     NSString *masterDreamFolderPath;
     NSString *textFile;
     AVAudioPlayer *_player;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation EditDreamViewController2
+@implementation EditDreamFromProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

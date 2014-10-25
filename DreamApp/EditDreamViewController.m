@@ -13,13 +13,13 @@
 
 
 @interface EditDreamViewController () {
-#pragma message "try to be consistent with the use of underscores for instance variables. Both options are fine but try to stick with one of the two"
     NSString *masterDreamFolderPath;
     NSString *textFile;
     NSMutableArray *addedDreamContent;
     NSMutableArray *tags;
     ProfileViewController *profileViewController;
     
+    NSMutableArray *hashTags;
     NSMutableArray *dreamCollection;
 }
 
@@ -41,7 +41,7 @@
     profileViewController = [ProfileViewController new];
     tags = [NSMutableArray new];
     dreamCollection = [NSMutableArray new];
-    
+    hashTags = [[NSMutableArray alloc] init];
     addedDreamContent = [NSMutableArray new];
     
     //resign textView
@@ -71,10 +71,9 @@
     NSLog(@"audioFile exists? %@", self.audioURL);
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioURL.path])
     {
-#pragma message "Use .enabled = YES instead of setEnabled:YES"
-        [self.playButton setEnabled:NO];
+        self.playButton.enabled = NO;
     } else {
-        [self.playButton setEnabled:YES];
+        self.playButton.enabled = YES;
     }
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.txtURL.path])
@@ -101,7 +100,7 @@
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioURL error:nil];
     NSLog(@"%@", self.audioURL);
     [self.player setDelegate:self];
-    [self.player play]; 
+    [self.player play];
 }
 
 - (void) dismissKeyboard
@@ -117,24 +116,28 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     //[textField resignFirstResponder];
-//    for  (int i = 0; i < [tags count]; i++)
-//    {
-//        NSMutableArray *tags = [[NSMutableArray alloc] init];
-//        [tags addObject:tag];
-//    }
-//    NSString *allTags = textField.text;
-//    NSString *hashDaTags = [NSString stringWithFormat:@"#%@ ", ];
-//    
-//    NSArray *tag = [textField.text componentsSeparatedByString:@" "];
-//    
-//    NSLog(@"tag: %@", tag);
-//    
-//    return YES;
+    NSString *tag;
+    NSArray *words = [textField.text componentsSeparatedByString:@" "];
+    NSArray *tags = [textField.text componentsSeparatedByString:@" #"];
+    
+    NSMutableArray *mutableTags = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [tags count]; i++)
+    {
+        tag = [NSString stringWithFormat:@"%@ ", tags[i]];
+        [mutableTags addObject:tag];
+    }
+    
+    
+    
+    textField.text = [NSString stringWithFormat:@"%@ #%@", textField.text, [mutableTags lastObject]];
+    NSLog(@"mutableTags: %@", mutableTags);
+    
+    return YES;
 }
 
 - (IBAction)shareTapped:(id)sender
 {
-#pragma message "Absolutely fine for now, however I would refactor this future; split it up in multiple methods and move it to a separate class" 
     NSString *dreamContent = _dreamContentTextView.text;
     
     //FILE SYSTEM
@@ -205,7 +208,7 @@
                                                            }];
             [dataTask resume];
         } else {
-         //error handing?
+            //error handing?
         }
     }];
     
