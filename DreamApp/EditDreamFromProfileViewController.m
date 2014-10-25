@@ -17,16 +17,22 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, strong) NSString *stringHolder;
 
 @end
 
 @implementation EditDreamFromProfileViewController
+@synthesize keyboardToolBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _dreamContentTextView.delegate = self;
+    self.dreamContentTextView.delegate = self;
+    self.textField.delegate = self;
+    
+    self.stringHolder = [NSString stringWithFormat:@""];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -44,6 +50,16 @@
     {
         [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
     }
+    
+    if (keyboardToolBar == nil) {
+        keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+        
+        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
+        [keyboardToolBar setItems:[[NSArray alloc] initWithObjects:done, nil]];
+    }
+    
+    self.textField.inputAccessoryView = keyboardToolBar;
+    self.dreamContentTextView.inputAccessoryView = keyboardToolBar;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -89,16 +105,73 @@
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    textField.frame = CGRectMake(textField.frame.origin.x, (textField.frame.origin.y - 100), textField.frame.size.width, textField.frame.size.height);
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    textField.frame = CGRectMake(textField.frame.origin.x, (textField.frame.origin.y + 100.0), textField.frame.size.width, textField.frame.size.height);
+    [UIView commitAnimations];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    
+    NSLog(@"string holder = \"%@\"", self.stringHolder);
+    NSLog(@"textField text = \"%@\"", textField.text);
+    
+    NSLog(@"New added string %@", [textField.text substringFromIndex:[self.stringHolder length]]);
+    
+    if (![textField.text isEqualToString:self.stringHolder]) {
+        textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
+    }
+    
+    if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
+    {
+        textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
+    }
+    
+    self.stringHolder = textField.text;
     
     return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)textFieldDidChange
+{
+    if ([self.textField.text length] < [self.stringHolder length])
+    {
+        int textFieldLength = [self.textField.text length];
+        
+        for (int i = textFieldLength - 1; i >= 0; i--)
+        {
+            if ([self.textField.text characterAtIndex:i] == '#')
+            {
+                self.textField.text = [self.textField.text substringToIndex:i];
+                break;
+            }
+        }
+        self.stringHolder = self.textField.text;
+        NSLog(@"string holder = \"%@\"", self.stringHolder);
+    }
+}
+
+- (void)resignKeyboard:(id)sender {
+    if ([self.textField isFirstResponder])
+    {
+        [self.textField resignFirstResponder];
+    } else if ([self.dreamContentTextView isFirstResponder])
+    {
+        [self.dreamContentTextView resignFirstResponder];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, strong) NSString *stringHolder;
 
 @end
 
@@ -39,6 +40,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamContentTextView.delegate = self;
     self.textField.delegate = self;
+    self.stringHolder = [NSString stringWithFormat:@""];
     
     profileViewController = [ProfileViewController new];
     
@@ -74,6 +76,11 @@
     
     self.textField.inputAccessoryView = keyboardToolBar;
     self.dreamContentTextView.inputAccessoryView = keyboardToolBar;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(textFieldDidChange)
+                                                 name:@"UITextFieldTextDidChangeNotification"
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -128,22 +135,49 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    //[textField resignFirstResponder];
-    NSString *tag;
-    NSArray *tags = [textField.text componentsSeparatedByString:@" "];
     
-    NSMutableArray *mutableTags = [[NSMutableArray alloc] init];
+    NSLog(@"string holder = \"%@\"", self.stringHolder);
+    NSLog(@"textField text = \"%@\"", textField.text);
     
-    for (int i = 0; i < [tags count]; i++)
-    {
-        tag = [NSString stringWithFormat:@"%@ ", tags[i]];
-        [mutableTags addObject:tag];
+    
+    NSLog(@"New added string %@", [textField.text substringFromIndex:[self.stringHolder length]]);
+    
+    if (![textField.text isEqualToString:self.stringHolder]) {
+        textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
     }
     
-    textField.text = [NSString stringWithFormat:@"%@ #%@", textField.text, [mutableTags lastObject]];
-    NSLog(@"mutableTags: %@", mutableTags);
+    if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
+    {
+        textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
+        
+    }
+    
+    self.stringHolder = textField.text;
+    
     
     return YES;
+}
+
+-(void)textFieldDidChange
+{
+    if ([self.textField.text length] < [self.stringHolder length])
+    {
+        int textFieldLength = [self.textField.text length];
+        
+        for (int i = textFieldLength - 1; i >= 0; i--)
+        {
+            if ([self.textField.text characterAtIndex:i] == '#')
+            {
+                self.textField.text = [self.textField.text substringToIndex:i];
+                break;
+            }
+            
+        }
+        
+        self.stringHolder = self.textField.text;
+        NSLog(@"string holder = \"%@\"", self.stringHolder);
+    }
+    
 }
 
 - (void)resignKeyboard:(id)sender {
@@ -237,7 +271,7 @@
     self.dreamContentTextView.text = @"";
     profileViewController.dreamFeed = dreamCollection;
     
-    self.tabBarController.selectedIndex = 3;
+    self.tabBarController.selectedIndex = 2;
 }
 
 - (IBAction)saveTapped:(id)sender
@@ -263,8 +297,9 @@
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
     
     self.dreamContentTextView.text = @"";
+    self.tabBarController.selectedIndex = 2;
     
-    self.tabBarController.selectedIndex = 3;
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue

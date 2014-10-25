@@ -146,6 +146,7 @@
     editDreamViewController.dreamFolderPath = _dreamFolderPath;
     NSLog(@"dream folder path: %@", _dreamFolderPath);
     NSLog(@"Sending the ulr to edit screen: %@", _tempURL);
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
 
 @end
