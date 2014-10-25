@@ -30,6 +30,7 @@
 @end
 
 @implementation EditDreamViewController
+@synthesize keyboardToolBar;
 
 - (void)viewDidLoad
 {
@@ -38,7 +39,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamContentTextView.delegate = self;
     self.textField.delegate = self;
+    
     profileViewController = [ProfileViewController new];
+    
     tags = [NSMutableArray new];
     dreamCollection = [NSMutableArray new];
     hashTags = [[NSMutableArray alloc] init];
@@ -61,6 +64,16 @@
     {
         [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
     }
+    
+    if (keyboardToolBar == nil) {
+        keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+        
+        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
+        [keyboardToolBar setItems:[[NSArray alloc] initWithObjects:done, nil]];
+    }
+    
+    self.textField.inputAccessoryView = keyboardToolBar;
+    self.dreamContentTextView.inputAccessoryView = keyboardToolBar;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -131,6 +144,16 @@
     NSLog(@"mutableTags: %@", mutableTags);
     
     return YES;
+}
+
+- (void)resignKeyboard:(id)sender {
+    if ([self.textField isFirstResponder])
+    {
+        [self.textField resignFirstResponder];
+    } else if ([self.dreamContentTextView isFirstResponder])
+    {
+        [self.dreamContentTextView resignFirstResponder];
+    }
 }
 
 - (IBAction)shareTapped:(id)sender

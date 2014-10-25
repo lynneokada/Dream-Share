@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditProfileViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface EditProfileViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> 
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;

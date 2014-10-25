@@ -10,7 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProfileViewController.h"
 
-@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate>
+@interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate> {
+    UIToolbar *keyboardToolBar;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
@@ -23,4 +25,5 @@
 @property (nonatomic, strong) NSURL *txtURL;
 @property (nonatomic, strong) NSString *dreamFolderPath;
 
+@property (nonatomic, retain) UIToolbar *keyboardToolBar;
 @end
