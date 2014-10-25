@@ -18,16 +18,14 @@
     NSString *masterDreamFolderPath;
     NSMutableArray *dreamFolders;
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-
-//buttonsssssss
 @property (weak, nonatomic) IBOutlet UIButton *posts;
 @property (weak, nonatomic) IBOutlet UIButton *followers;
 @property (weak, nonatomic) IBOutlet UIButton *following;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
-
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
+
 @end
 
 @implementation ProfileViewController
@@ -125,7 +123,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
     
-//    cell.textLabel.text = [self.privateDreamList[indexPath.row] name];
+    NSLog(@"%@", masterDreamFolderPath);
+    
+    //[masterDreamFolderPath[indexPath.row]];
+    
+    NSString *title = @"dream title";
+    
+    cell.textLabel.text = title;
     
     return cell;
 }
