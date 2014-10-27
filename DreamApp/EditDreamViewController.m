@@ -15,12 +15,13 @@
 @interface EditDreamViewController () {
     NSString *masterDreamFolderPath;
     NSString *textFile;
+    
     NSMutableArray *addedDreamContent;
     NSMutableArray *tags;
-    ProfileViewController *profileViewController;
-    
     NSMutableArray *hashTags;
     NSMutableArray *dreamCollection;
+    
+    ProfileViewController *profileViewController;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
@@ -31,6 +32,7 @@
 @end
 
 @implementation EditDreamViewController
+
 @synthesize keyboardToolBar;
 
 - (void)viewDidLoad
@@ -40,6 +42,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamContentTextView.delegate = self;
     self.textField.delegate = self;
+    
     self.stringHolder = [NSString stringWithFormat:@""];
     
     profileViewController = [ProfileViewController new];
@@ -146,6 +149,7 @@
         textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
     }
     
+    NSLog(@"textField.text length: %d", [textField.text length]);
     if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
     {
         textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
@@ -190,89 +194,89 @@
     }
 }
 
-- (IBAction)shareTapped:(id)sender
-{
-    NSString *dreamContent = _dreamContentTextView.text;
-    
-    //FILE SYSTEM
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
-    {
-        //date formatter
-        NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
-        
-        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
-        
-        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-    }
-    
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
-    
-    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-    
-    //MONGODB
-    NSDictionary *dictionaryDreamLog = [NSDictionary dictionaryWithObject:self.dreamContentTextView.text forKey:@"dreamContent"];
-    
-    NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    [request setHTTPMethod:@"POST"];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryDreamLog options:0 error:nil];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-    
-    NSURLSessionUploadTask *dataUpload = [urlSession uploadTaskWithRequest:request fromData:jsonData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-        NSInteger responseStatusCode = [httpResponse statusCode];
-        
-        if (responseStatusCode == 200)
-        {
-            //            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSLog(@"uploaded");
-            
-            NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
-            
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-            [request setHTTPMethod:@"GET"];
-            
-            NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-            NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-            
-            NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request
-                                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-                                                               NSInteger responseStatusCode = [httpResponse statusCode];
-                                                               
-                                                               if (responseStatusCode == 200 && data) {
-                                                                   NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                                                   // do something with this data
-                                                                   // if you want to update UI, do it on main queue
-                                                                   [dreamCollection removeAllObjects];
-                                                                   for (int i = 0; i < [downloadedJSON count]; i++) {
-                                                                       [dreamCollection addObject:downloadedJSON[i][@"content"]];
-                                                                   }
-                                                               } else {
-                                                                   // error handling
-                                                               }
-                                                           }];
-            [dataTask resume];
-        } else {
-            //error handing?
-        }
-    }];
-    
-    [dataUpload resume];
-    
-    self.dreamContentTextView.text = @"";
-    profileViewController.dreamFeed = dreamCollection;
-    
-    self.tabBarController.selectedIndex = 2;
-}
+//- (IBAction)shareTapped:(id)sender
+//{
+//    NSString *dreamContent = _dreamContentTextView.text;
+//    
+//    //FILE SYSTEM
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
+//    {
+//        //date formatter
+//        NSDate *date = [NSDate date];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
+//        
+//        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
+//        
+//        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+//    }
+//    
+//    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
+//    
+//    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
+//    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
+//    
+//    //MONGODB
+//    NSDictionary *dictionaryDreamLog = [NSDictionary dictionaryWithObject:self.dreamContentTextView.text forKey:@"dreamContent"];
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+//    [request setHTTPMethod:@"POST"];
+//    
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryDreamLog options:0 error:nil];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    
+//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+//    
+//    NSURLSessionUploadTask *dataUpload = [urlSession uploadTaskWithRequest:request fromData:jsonData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+//        NSInteger responseStatusCode = [httpResponse statusCode];
+//        
+//        if (responseStatusCode == 200)
+//        {
+//            //            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//            NSLog(@"uploaded");
+//            
+//            NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
+//            
+//            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+//            [request setHTTPMethod:@"GET"];
+//            
+//            NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//            NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+//            
+//            NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request
+//                                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//                                                               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+//                                                               NSInteger responseStatusCode = [httpResponse statusCode];
+//                                                               
+//                                                               if (responseStatusCode == 200 && data) {
+//                                                                   NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//                                                                   // do something with this data
+//                                                                   // if you want to update UI, do it on main queue
+//                                                                   [dreamCollection removeAllObjects];
+//                                                                   for (int i = 0; i < [downloadedJSON count]; i++) {
+//                                                                       [dreamCollection addObject:downloadedJSON[i][@"content"]];
+//                                                                   }
+//                                                               } else {
+//                                                                   // error handling
+//                                                               }
+//                                                           }];
+//            [dataTask resume];
+//        } else {
+//            //error handing?
+//        }
+//    }];
+//    
+//    [dataUpload resume];
+//    
+//    self.dreamContentTextView.text = @"";
+//    profileViewController.dreamFeed = dreamCollection;
+//    
+//    self.tabBarController.selectedIndex = 2;
+//}
 
 - (IBAction)saveTapped:(id)sender
 {

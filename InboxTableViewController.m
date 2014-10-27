@@ -1,45 +1,27 @@
 //
-//  AlarmTableViewController.m
+//  InboxTableViewController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/6/14.
+//  Created by Lynne Okada on 10/26/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "AlarmTableViewController.h"
-#import "AppDelegate.h"
-#import "AddAlarmViewController.h"
+#import "InboxTableViewController.h"
 
-@interface AlarmTableViewController ()
+@interface InboxTableViewController ()
 
 @end
 
-@implementation AlarmTableViewController
+@implementation InboxTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.alarms = [NSMutableArray new];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    // get entity description for entity we are selecting
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Alarm" inManagedObjectContext:context];
-    // create a new fetch request
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    // create an error variable to pass to the execute method
-    NSError *error;
-    // retrieve results
-    self.alarms = [[context executeFetchRequest:request error:&error] mutableCopy];
-    if (self.alarms == nil) {
-        //error handling, e.g. display error to user
-    }
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,36 +29,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)unwindToAlarmListTableViewController:(UIStoryboardSegue *)unwindSegue {
-    
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 0;
 }
 
-#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.alarms count];
+    // Return the number of rows in the section.
+    return 0;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"alarmCell" forIndexPath:indexPath];
-    cell.textLabel.text = @"meow";
-    [cell.contentView addSubview:self.alarmSwitch];
-    cell.selectionStyle= UITableViewCellSelectionStyleNone;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inboxCell" forIndexPath:indexPath];
+    
+    // Configure the cell...
     
     return cell;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.tableView reloadData];
-}
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"addAlarm"]) {
-        AddAlarmViewController *addAlarmViewController = [segue destinationViewController];
-        addAlarmViewController.alarms = self.alarms;
-    }
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -109,6 +82,16 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 */
 
