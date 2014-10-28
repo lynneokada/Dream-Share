@@ -63,6 +63,8 @@
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
 }
 
+- (void)newRecordingTo:(NSString*) dreamFolderPath withRecording:
+
 - (NSMutableArray*) getMyDreams {
 
     NSMutableArray *masterDreamFolderContent = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:masterDreamFolderPath error:NULL] mutableCopy];

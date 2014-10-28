@@ -14,8 +14,8 @@
 #import "FileSystemManager.h"
 
 
-@interface EditDreamViewController () {
-    NSString *masterDreamFolderPath;
+@interface EditDreamViewController ()
+{
     NSString *textFile;
     
     NSMutableArray *addedDreamContent;
@@ -149,7 +149,6 @@
     if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
     {
         textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
-        
     }
     
     self.stringHolder = textField.text;
@@ -177,7 +176,8 @@
     
 }
 
-- (void)resignKeyboard:(id)sender {
+- (void)resignKeyboard:(id)sender
+{
     if ([self.textField isFirstResponder])
     {
         [self.textField resignFirstResponder];
@@ -204,6 +204,7 @@
         
     }
     
+    NSLog(@"dreamBeingAdded: %@", dreamBeingAdded);
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     self.dreamContentTextView.text = @"";
 }

@@ -10,6 +10,7 @@
 #import "EditDreamViewController.h"
 #import "AppDelegate.h"
 #import "Global.h"
+#import "FileSystemManager.h"
 
 @interface RecordViewController ()
 {
@@ -23,7 +24,8 @@
 
 @synthesize doneBarButton, recordPauseButton;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Disable Stop/Play button when application launches
     [doneBarButton setEnabled:NO];
@@ -81,14 +83,16 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:YES];
     
     self.createdAudioFile = NO;
     [doneBarButton setEnabled:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     
     //[self.navigationController popToRootViewControllerAnimated:NO];
@@ -102,7 +106,8 @@
     NSLog(@"Finished recording");
 }
 
-- (IBAction)recordPauseTapped:(id)sender {
+- (IBAction)recordPauseTapped:(id)sender
+{
     // Stop the audio player before recording
 
     self.tabBarController.tabBar.userInteractionEnabled = NO;
@@ -128,18 +133,21 @@
     [doneBarButton setEnabled:YES];
 }
 
-- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag
+{
     [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     
     [doneBarButton setEnabled:NO];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     EditDreamViewController *editDreamViewController = [segue destinationViewController];
     
     editDreamViewController.audioURL = _tempURL;

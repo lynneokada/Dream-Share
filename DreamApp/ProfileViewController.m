@@ -28,7 +28,8 @@
 
 @implementation ProfileViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     
     if (self) {
@@ -37,7 +38,8 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -48,7 +50,8 @@
     self.profilePictureView.layer.borderWidth = 0;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:YES];
     [self.tableView reloadData];
     
@@ -71,16 +74,19 @@
     //dreamFolders = [[FileSystemManager sharedManager] getMyDreams];
 }
 
-- (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue {
+- (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue
+{
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
     return [self.dreamFolders count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
     
     NSString *title = @"dream title";
@@ -90,7 +96,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *audioFolderPath = [documentDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
@@ -104,25 +111,23 @@
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"editDream"]) {
         EditDreamFromProfileViewController *editDreamFromProfileViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
-        NSLog(@"%@", self.dreamFolders[selectedIndexPath.row]);
-        editDreamFromProfileViewController.txtURL =  self.dreamFolders[selectedIndexPath.row];
+        audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, self.dreamFolders[selectedIndexPath.row]]];
+        editDreamFromProfileViewController.audioFileURL = audioFileURL;
         
-//        audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-//        EditDreamFromProfileViewController.audioFileURL = audioFileURL;
-//        
-//        txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, dreamFolders[selectedIndexPath.row]]];
-//        EditDreamFromProfileViewController.txtURL = txtFileURL;
-//        
-//        EditDreamFromProfileViewController.dreamFolderPath = dreamFolders[selectedIndexPath.row];
-//        
-//        NSLog(@"dreamFolderPath: %@", dreamFolders[selectedIndexPath.row]);
-//        NSLog(@"audioFile: %@", audioFileURL);
-//        NSLog(@"txtFile: %@", txtFileURL);
+        txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/dreamContent.txt", self.dreamFolders[selectedIndexPath.row]]];
+        editDreamFromProfileViewController.txtURL = txtFileURL;
+        
+        editDreamFromProfileViewController.dreamFolderPath = self.dreamFolders[selectedIndexPath.row];
+        
+        NSLog(@"dreamFolderPath: %@", self.dreamFolders[selectedIndexPath.row]);
+        NSLog(@"audioFile: %@", audioFileURL);
+        NSLog(@"txtFile: %@", txtFileURL);
     }
 }
 
