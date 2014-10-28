@@ -8,11 +8,12 @@
 
 #import "EditDreamFromProfileViewController.h"
 #import "Global.h"
+#import "FileSystemManager.h"
 
 @interface EditDreamFromProfileViewController () {
     NSString *masterDreamFolderPath;
     NSString *textFile;
-    AVAudioPlayer *_player;
+    AVAudioPlayer *player;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
@@ -31,6 +32,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamContentTextView.delegate = self;
     self.textField.delegate = self;
+    self.commentList = [NSMutableArray new];
     
     self.stringHolder = [NSString stringWithFormat:@""];
     
@@ -39,17 +41,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    //FILE SYSTEM
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    masterDreamFolderPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
-    NSLog(@"%@", masterDreamFolderPath);
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:masterDreamFolderPath])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-    }
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -89,10 +80,10 @@
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFileURL error:nil];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFileURL error:nil];
     NSLog(@"%@", self.audioFileURL);
-    [_player setDelegate:self];
-    [_player play];
+    [player setDelegate:self];
+    [player play];
 }
 
 - (void) dismissKeyboard
@@ -103,65 +94,6 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    textField.frame = CGRectMake(textField.frame.origin.x, (textField.frame.origin.y - 100), textField.frame.size.width, textField.frame.size.height);
-    [UIView commitAnimations];
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    textField.frame = CGRectMake(textField.frame.origin.x, (textField.frame.origin.y + 100.0), textField.frame.size.width, textField.frame.size.height);
-    [UIView commitAnimations];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    
-    NSLog(@"string holder = \"%@\"", self.stringHolder);
-    NSLog(@"textField text = \"%@\"", textField.text);
-    
-    NSLog(@"New added string %@", [textField.text substringFromIndex:[self.stringHolder length]]);
-    
-    if (![textField.text isEqualToString:self.stringHolder]) {
-        textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
-    }
-    
-    if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
-    {
-        textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
-    }
-    
-    self.stringHolder = textField.text;
-    
-    return YES;
-}
-
--(void)textFieldDidChange
-{
-    if ([self.textField.text length] < [self.stringHolder length])
-    {
-        int textFieldLength = [self.textField.text length];
-        
-        for (int i = textFieldLength - 1; i >= 0; i--)
-        {
-            if ([self.textField.text characterAtIndex:i] == '#')
-            {
-                self.textField.text = [self.textField.text substringToIndex:i];
-                break;
-            }
-        }
-        self.stringHolder = self.textField.text;
-        NSLog(@"string holder = \"%@\"", self.stringHolder);
-    }
 }
 
 - (void)resignKeyboard:(id)sender {

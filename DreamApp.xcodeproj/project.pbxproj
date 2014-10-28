@@ -16,8 +16,16 @@
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
-		D224A20819FCE50A00F4252F /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A20719FCE50A00F4252F /* InboxTableViewController.m */; };
 		D224A20B19FEB33300F4252F /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D224A20919FEB33300F4252F /* DreamApp.xcdatamodeld */; };
+		D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A20D19FEDF8F00F4252F /* ServerManager.m */; };
+		D224A21719FEEDE700F4252F /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A21619FEEDE700F4252F /* SyncableDBObject.m */; };
+		D224A23A19FEEFED00F4252F /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A23719FEEFED00F4252F /* Tag.m */; };
+		D224A23B19FEEFED00F4252F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A23919FEEFED00F4252F /* User.m */; };
+		D224A23E19FEEFFD00F4252F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A23D19FEEFFD00F4252F /* Comment.m */; };
+		D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24019FEF01700F4252F /* InboxTableViewController.m */; };
+		D224A24419FEF12E00F4252F /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24319FEF12E00F4252F /* Dream.m */; };
+		D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24919FF01BC00F4252F /* FileSystemManager.m */; };
+		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA019E748450014F22B /* FollowersTableViewController.m */; };
 		D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA319E748DE0014F22B /* FollowingTableViewController.m */; };
@@ -60,9 +68,25 @@
 		D224A1AB19F83DD200F4252F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D224A1AD19F83DD900F4252F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		D224A20619FCE50A00F4252F /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InboxTableViewController.h; path = ../InboxTableViewController.h; sourceTree = "<group>"; };
-		D224A20719FCE50A00F4252F /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InboxTableViewController.m; path = ../InboxTableViewController.m; sourceTree = "<group>"; };
 		D224A20A19FEB33300F4252F /* DreamApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamApp.xcdatamodel; sourceTree = "<group>"; };
+		D224A20C19FEDF8F00F4252F /* ServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
+		D224A20D19FEDF8F00F4252F /* ServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerManager.m; sourceTree = "<group>"; };
+		D224A21519FEEDE700F4252F /* SyncableDBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncableDBObject.h; sourceTree = "<group>"; };
+		D224A21619FEEDE700F4252F /* SyncableDBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncableDBObject.m; sourceTree = "<group>"; };
+		D224A23619FEEFED00F4252F /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		D224A23719FEEFED00F4252F /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		D224A23819FEEFED00F4252F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D224A23919FEEFED00F4252F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D224A23C19FEEFFD00F4252F /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		D224A23D19FEEFFD00F4252F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		D224A23F19FEF01700F4252F /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
+		D224A24019FEF01700F4252F /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
+		D224A24219FEF12E00F4252F /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D224A24319FEF12E00F4252F /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
+		D224A24819FF01BC00F4252F /* FileSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemManager.h; sourceTree = "<group>"; };
+		D224A24919FF01BC00F4252F /* FileSystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemManager.m; sourceTree = "<group>"; };
+		D224A24B19FF2CC100F4252F /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		D224A24C19FF2CC100F4252F /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D2594C9F19E748450014F22B /* FollowersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersTableViewController.h; sourceTree = "<group>"; };
@@ -135,6 +159,56 @@
 			path = ../../Documents/FacebookSDK;
 			sourceTree = "<group>";
 		};
+		D224A21F19FEEE2700F4252F /* CoreDataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				D224A21519FEEDE700F4252F /* SyncableDBObject.h */,
+				D224A21619FEEDE700F4252F /* SyncableDBObject.m */,
+				D224A24219FEF12E00F4252F /* Dream.h */,
+				D224A24319FEF12E00F4252F /* Dream.m */,
+				D224A23819FEEFED00F4252F /* User.h */,
+				D224A23919FEEFED00F4252F /* User.m */,
+				D224A23C19FEEFFD00F4252F /* Comment.h */,
+				D224A23D19FEEFFD00F4252F /* Comment.m */,
+				D224A23619FEEFED00F4252F /* Tag.h */,
+				D224A23719FEEFED00F4252F /* Tag.m */,
+			);
+			name = CoreDataObjects;
+			sourceTree = "<group>";
+		};
+		D224A22019FEEE3D00F4252F /* UIVIews */ = {
+			isa = PBXGroup;
+			children = (
+				D270DAC419DB362B009D425B /* InitialViewController.h */,
+				D270DAC519DB362B009D425B /* InitialViewController.m */,
+				D270DAC719DBD38F009D425B /* LoginViewController.h */,
+				D270DAC819DBD38F009D425B /* LoginViewController.m */,
+				D270DACA19DBD85E009D425B /* CreateAccountViewController.h */,
+				D270DACB19DBD85E009D425B /* CreateAccountViewController.m */,
+				D270DACD19DC7849009D425B /* WelcomeViewController.h */,
+				D270DACE19DC7849009D425B /* WelcomeViewController.m */,
+				D224A23F19FEF01700F4252F /* InboxTableViewController.h */,
+				D224A24019FEF01700F4252F /* InboxTableViewController.m */,
+				D270DB0A19DCA7E3009D425B /* RecordViewController.h */,
+				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
+				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
+				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
+				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
+				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
+				D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */,
+				D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */,
+				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
+				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
+				D2594C9F19E748450014F22B /* FollowersTableViewController.h */,
+				D2594CA019E748450014F22B /* FollowersTableViewController.m */,
+				D2594CA219E748DE0014F22B /* FollowingTableViewController.h */,
+				D2594CA319E748DE0014F22B /* FollowingTableViewController.m */,
+				D20D123419DF51E800DE7485 /* SearchViewController.h */,
+				D20D123519DF51E800DE7485 /* SearchViewController.m */,
+			);
+			name = UIVIews;
+			sourceTree = "<group>";
+		};
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
@@ -165,32 +239,14 @@
 				D270DA9A19DB2270009D425B /* AppDelegate.m */,
 				D2D2376B19EDD36B00C738AF /* Global.h */,
 				D2D2376C19EDD36B00C738AF /* Global.m */,
-				D270DAC419DB362B009D425B /* InitialViewController.h */,
-				D270DAC519DB362B009D425B /* InitialViewController.m */,
-				D270DAC719DBD38F009D425B /* LoginViewController.h */,
-				D270DAC819DBD38F009D425B /* LoginViewController.m */,
-				D270DACA19DBD85E009D425B /* CreateAccountViewController.h */,
-				D270DACB19DBD85E009D425B /* CreateAccountViewController.m */,
-				D270DACD19DC7849009D425B /* WelcomeViewController.h */,
-				D270DACE19DC7849009D425B /* WelcomeViewController.m */,
-				D224A20619FCE50A00F4252F /* InboxTableViewController.h */,
-				D224A20719FCE50A00F4252F /* InboxTableViewController.m */,
-				D270DB0A19DCA7E3009D425B /* RecordViewController.h */,
-				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
-				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
-				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
-				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
-				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
-				D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */,
-				D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */,
-				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
-				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
-				D2594C9F19E748450014F22B /* FollowersTableViewController.h */,
-				D2594CA019E748450014F22B /* FollowersTableViewController.m */,
-				D2594CA219E748DE0014F22B /* FollowingTableViewController.h */,
-				D2594CA319E748DE0014F22B /* FollowingTableViewController.m */,
-				D20D123419DF51E800DE7485 /* SearchViewController.h */,
-				D20D123519DF51E800DE7485 /* SearchViewController.m */,
+				D224A20C19FEDF8F00F4252F /* ServerManager.h */,
+				D224A20D19FEDF8F00F4252F /* ServerManager.m */,
+				D224A24819FF01BC00F4252F /* FileSystemManager.h */,
+				D224A24919FF01BC00F4252F /* FileSystemManager.m */,
+				D224A24B19FF2CC100F4252F /* CoreDataManager.h */,
+				D224A24C19FF2CC100F4252F /* CoreDataManager.m */,
+				D224A22019FEEE3D00F4252F /* UIVIews */,
+				D224A21F19FEEE2700F4252F /* CoreDataObjects */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
 				D224A20919FEB33300F4252F /* DreamApp.xcdatamodeld */,
 				D270DAA519DB2270009D425B /* Images.xcassets */,
@@ -331,12 +387,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */,
-				D224A20819FCE50A00F4252F /* InboxTableViewController.m in Sources */,
+				D224A21719FEEDE700F4252F /* SyncableDBObject.m in Sources */,
+				D224A23A19FEEFED00F4252F /* Tag.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */,
+				D224A23E19FEEFFD00F4252F /* Comment.m in Sources */,
+				D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */,
+				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
+				D224A23B19FEEFED00F4252F /* User.m in Sources */,
+				D224A24419FEF12E00F4252F /* Dream.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
 				D224A20B19FEB33300F4252F /* DreamApp.xcdatamodeld in Sources */,
+				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2249FDE19F6D07500F4252F /* EditDreamFromProfileViewController.m in Sources */,
@@ -344,6 +407,7 @@
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
+				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,

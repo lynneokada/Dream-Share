@@ -26,4 +26,8 @@
 @property (nonatomic, strong) NSString *dreamFolderPath;
 
 @property (nonatomic, retain) UIToolbar *keyboardToolBar;
+
+@property (nonatomic, strong) NSMutableArray *pathToDreams;
+@property (nonatomic, strong) NSMutableArray *pathToRecordings;
+
 @end

@@ -96,8 +96,22 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-//    self.profilePictureView.profileID = user.id;
-//    self.nameLabel.text = user.name;
+    [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (error)
+        {
+                //error handling no wifi
+        }
+        else {
+            NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", user.objectID];
+            
+            dispatch_async(dispatch_get_global_queue(0, 0),^{
+                UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+                
+            });
+        }
+      }];
+    NSLog(@"username: %@", user.name);
+    NSLog(@"user_id: %@", user.objectID);
 }
 
 // Handle possible errors that can occur durqing login

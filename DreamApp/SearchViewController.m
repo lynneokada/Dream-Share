@@ -37,6 +37,8 @@
     // add self
     [self.searchDreamTags resignFirstResponder];
 }
+
+
 /*
 #pragma mark - Navigation
 

@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "Global.h"
 #import "ProfileViewController.h"
+#import "Dream.h"
+#import "FileSystemManager.h"
 
 
 @interface EditDreamViewController () {
@@ -22,12 +24,15 @@
     NSMutableArray *dreamCollection;
     
     ProfileViewController *profileViewController;
+    
+    Dream *dreamBeingAdded;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, strong) NSString *stringHolder;
+@property (nonatomic, strong) NSMutableArray *dreamList;
 
 @end
 
@@ -59,16 +64,9 @@
     
     [self.view addGestureRecognizer:tap];
     
-    //FILE SYSTEM
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    masterDreamFolderPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
-    NSLog(@"%@", masterDreamFolderPath);
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:masterDreamFolderPath])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-    }
+    //CORE DATA
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -138,10 +136,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    
     NSLog(@"string holder = \"%@\"", self.stringHolder);
     NSLog(@"textField text = \"%@\"", textField.text);
-    
     
     NSLog(@"New added string %@", [textField.text substringFromIndex:[self.stringHolder length]]);
     
@@ -157,7 +153,6 @@
     }
     
     self.stringHolder = textField.text;
-    
     
     return YES;
 }
@@ -175,9 +170,7 @@
                 self.textField.text = [self.textField.text substringToIndex:i];
                 break;
             }
-            
         }
-        
         self.stringHolder = self.textField.text;
         NSLog(@"string holder = \"%@\"", self.stringHolder);
     }
@@ -194,116 +187,25 @@
     }
 }
 
-//- (IBAction)shareTapped:(id)sender
-//{
-//    NSString *dreamContent = _dreamContentTextView.text;
-//    
-//    //FILE SYSTEM
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
-//    {
-//        //date formatter
-//        NSDate *date = [NSDate date];
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
-//        
-//        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
-//        
-//        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-//    }
-//    
-//    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
-//    
-//    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-//    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-//    
-//    //MONGODB
-//    NSDictionary *dictionaryDreamLog = [NSDictionary dictionaryWithObject:self.dreamContentTextView.text forKey:@"dreamContent"];
-//    
-//    NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
-//    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryDreamLog options:0 error:nil];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-//    
-//    NSURLSessionUploadTask *dataUpload = [urlSession uploadTaskWithRequest:request fromData:jsonData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-//        NSInteger responseStatusCode = [httpResponse statusCode];
-//        
-//        if (responseStatusCode == 200)
-//        {
-//            //            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//            NSLog(@"uploaded");
-//            
-//            NSURL *url = [NSURL URLWithString:@"http://10.0.32.225:3000/dream"];
-//            
-//            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-//            [request setHTTPMethod:@"GET"];
-//            
-//            NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//            NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-//            
-//            NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request
-//                                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//                                                               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-//                                                               NSInteger responseStatusCode = [httpResponse statusCode];
-//                                                               
-//                                                               if (responseStatusCode == 200 && data) {
-//                                                                   NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//                                                                   // do something with this data
-//                                                                   // if you want to update UI, do it on main queue
-//                                                                   [dreamCollection removeAllObjects];
-//                                                                   for (int i = 0; i < [downloadedJSON count]; i++) {
-//                                                                       [dreamCollection addObject:downloadedJSON[i][@"content"]];
-//                                                                   }
-//                                                               } else {
-//                                                                   // error handling
-//                                                               }
-//                                                           }];
-//            [dataTask resume];
-//        } else {
-//            //error handing?
-//        }
-//    }];
-//    
-//    [dataUpload resume];
-//    
-//    self.dreamContentTextView.text = @"";
-//    profileViewController.dreamFeed = dreamCollection;
-//    
-//    self.tabBarController.selectedIndex = 2;
-//}
-
 - (IBAction)saveTapped:(id)sender
 {
+    [self.dreamList addObject:dreamBeingAdded];
+    dreamBeingAdded.pathToContent = self.dreamFolderPath;
+    dreamBeingAdded.pathToRecording = self.audioURL.path;
     
     NSString *dreamContent = _dreamContentTextView.text;
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath])
-    {
-        //date formatter
-        NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
+    [[FileSystemManager sharedManager] newDreamTo:self.dreamFolderPath withContent:dreamContent];
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    
+    NSError *error = nil;
+    [context save:&error];
+    if (error) {
         
-        _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
-        
-        [[NSFileManager defaultManager] createDirectoryAtPath:_dreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
     }
     
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", _dreamFolderPath];
-    
-    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     self.dreamContentTextView.text = @"";
-    self.tabBarController.selectedIndex = 2;
-    
-    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
