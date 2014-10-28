@@ -7,8 +7,11 @@
 //
 
 #import "CoreDataManager.h"
+#import "AppDelegate.h"
 
-@implementation CoreDataManager
+@implementation CoreDataManager {
+    NSMutableArray *dreamFolders;
+}
 
 + (instancetype) sharedManager {
     static CoreDataManager *sharedManager = nil;
@@ -27,6 +30,26 @@
     return self;
 }
 
+- (void) requestDreams
+{
+    // get access to the managed object context
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    // get entity description for entity we are selecting
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Dream" inManagedObjectContext:context];
+    // create a new fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // create an error variable to pass to the execute method
+    NSError *error;
+    // retrieve results
+    dreamFolders = [[context executeFetchRequest:request error:&error] mutableCopy];
+    if (dreamFolders == nil) {
+        //error handling, e.g. display error to user
+    }
+    NSLog(@"dreamFolders: %@", dreamFolders);
+    //dreamFolders = [[FileSystemManager sharedManager] getMyDreams];
 
+}
 
 @end

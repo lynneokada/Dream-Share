@@ -12,4 +12,5 @@
 
 + (instancetype) sharedManager;
 
+- (void) requestDreams;
 @end

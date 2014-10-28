@@ -12,7 +12,8 @@
 
 + (instancetype) sharedManager;
 
-- (void)newDreamTo:(NSString*) dreamFolderPath withContent:(NSString*) dreamContent;
+- (NSString*)newDreamWithContent:(NSString*) dreamContent;
 - (NSMutableArray*)getMyDreams;
+- (NSURL*) newRecording;
 
 @end

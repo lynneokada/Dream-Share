@@ -21,18 +21,14 @@
     NSMutableArray *addedDreamContent;
     NSMutableArray *tags;
     NSMutableArray *hashTags;
-    NSMutableArray *dreamCollection;
     
     ProfileViewController *profileViewController;
-    
-    Dream *dreamBeingAdded;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, strong) NSString *stringHolder;
-@property (nonatomic, strong) NSMutableArray *dreamList;
 
 @end
 
@@ -53,7 +49,6 @@
     profileViewController = [ProfileViewController new];
     
     tags = [NSMutableArray new];
-    dreamCollection = [NSMutableArray new];
     hashTags = [[NSMutableArray alloc] init];
     addedDreamContent = [NSMutableArray new];
     
@@ -64,9 +59,6 @@
     
     [self.view addGestureRecognizer:tap];
     
-    //CORE DATA
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -103,12 +95,30 @@
         NSLog(@"textFile: %@", textFile);
         self.dreamContentTextView.text = textFile;
     }
+    
+    if (self.dreamContentTextView.text.length == 0) {
+        self.saveButton.userInteractionEnabled = NO;
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createNewDreamToEdit
+{
+    //CORE DATA
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    self.dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
 }
 
 - (IBAction)playTapped:(id)sender
@@ -122,6 +132,22 @@
     NSLog(@"%@", self.audioURL);
     [self.player setDelegate:self];
     [self.player play];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        self.saveButton.userInteractionEnabled = NO;
+    } else {
+        self.saveButton.userInteractionEnabled = YES;
+    }
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        self.saveButton.userInteractionEnabled = NO;
+    } else {
+        self.saveButton.userInteractionEnabled = YES;
+    }
 }
 
 - (void) dismissKeyboard
@@ -189,22 +215,15 @@
 
 - (IBAction)saveTapped:(id)sender
 {
-    [self.dreamList addObject:dreamBeingAdded];
-    dreamBeingAdded.pathToContent = self.dreamFolderPath;
-    dreamBeingAdded.pathToRecording = self.audioURL.path;
-    
     NSString *dreamContent = _dreamContentTextView.text;
     
-    [[FileSystemManager sharedManager] newDreamTo:self.dreamFolderPath withContent:dreamContent];
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    self.dreamFolderPath = [[FileSystemManager sharedManager] newDreamWithContent:dreamContent];
     
-    NSError *error = nil;
-    [context save:&error];
-    if (error) {
-        
-    }
+    [self.dreamFolders addObject:self.dreamBeingAdded];
+    self.dreamBeingAdded.pathToContent = self.dreamFolderPath;
+    self.dreamBeingAdded.pathToRecording = self.audioURL.path;
     
-    NSLog(@"dreamBeingAdded: %@", dreamBeingAdded);
+    NSLog(@"dreamBeingAdded: %@", self.dreamBeingAdded);
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     self.dreamContentTextView.text = @"";
 }
@@ -214,11 +233,6 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    self.tabBarController.tabBar.userInteractionEnabled = YES;
-}
+
 
 @end

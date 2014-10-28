@@ -9,6 +9,7 @@
 #import "EditDreamFromProfileViewController.h"
 #import "Global.h"
 #import "FileSystemManager.h"
+#import "Dream.h"
 
 @interface EditDreamFromProfileViewController () {
     NSString *masterDreamFolderPath;
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    //Display dream content
     self.dreamContentTextView.delegate = self;
     self.textField.delegate = self;
     self.commentList = [NSMutableArray new];
@@ -56,20 +58,19 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     
+    //Dream Content
+    NSURL *pathToURL = [NSURL fileURLWithPath:self.dream.pathToContent];
+    NSString *content = [NSString stringWithContentsOfURL:pathToURL encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"CONTENT: %@", content);
+    self.dreamContentTextView.text = content;
+    
     //Does audio file exist
-    NSLog(@"audioFile exists? %@", self.audioFileURL);
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.audioFileURL.path])
+    NSLog(@"audioFile exists? %@", self.dream.pathToRecording);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.dream.pathToRecording])
     {
         [self.playButton setEnabled:NO];
     } else {
         [self.playButton setEnabled:YES];
-    }
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:self.txtURL.path])
-    {
-        textFile = [NSString stringWithContentsOfURL:self.txtURL encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"textFile: %@", textFile);
-        self.dreamContentTextView.text = textFile;
     }
 }
 
@@ -80,8 +81,9 @@
     [session setCategory:AVAudioSessionCategoryPlayback error:nil];
     [session setActive:YES error:nil];
     
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFileURL error:nil];
-    NSLog(@"%@", self.audioFileURL);
+    NSURL *recordingURL = [NSURL fileURLWithPath:self.dream.pathToRecording];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
+    NSLog(@"RECORDING_URL: %@", recordingURL);
     [player setDelegate:self];
     [player play];
 }
@@ -103,21 +105,6 @@
     } else if ([self.dreamContentTextView isFirstResponder])
     {
         [self.dreamContentTextView resignFirstResponder];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"unwindToProfile"])
-    {
-        textFile = self.dreamContentTextView.text;
-        NSLog(@"textFile in dd: %@", textFile);
-        
-        NSString *changedDreamContentPath = [NSString stringWithFormat:@"%@/%@/dreamContent.txt", masterDreamFolderPath, _dreamFolderPath];
-        NSLog(@"changedDreamContentPath: %@", changedDreamContentPath);
-        
-        NSData *changedDreamContentData = [textFile dataUsingEncoding:NSASCIIStringEncoding];
-        [[NSFileManager defaultManager] createFileAtPath:changedDreamContentPath contents:changedDreamContentData attributes:NULL];
     }
 }
 

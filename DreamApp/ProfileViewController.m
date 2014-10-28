@@ -10,9 +10,11 @@
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
 #import "EditDreamFromProfileViewController.h"
+#import "EditDreamViewController.h"
 #import "Global.h"
 #import "FileSystemManager.h"
 #import "Dream.h"
+#import "CoreDataManager.h"
 
 @interface ProfileViewController () {
     NSURL *audioFileURL;
@@ -53,8 +55,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    [self.tableView reloadData];
-    
+
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     // get entity description for entity we are selecting
@@ -70,6 +71,9 @@
     if (self.dreamFolders == nil) {
         //error handling, e.g. display error to user
     }
+    
+    [self.tableView reloadData];
+    
     NSLog(@"dreamFolders: %@", self.dreamFolders);
     //dreamFolders = [[FileSystemManager sharedManager] getMyDreams];
 }
@@ -113,21 +117,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"editDream"]) {
+    if ([segue.identifier isEqualToString:@"editDream"])
+    {
         EditDreamFromProfileViewController *editDreamFromProfileViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+
+        editDreamFromProfileViewController.dream = self.dreamFolders[selectedIndexPath.row];
         
-        audioFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@/dreamRecording.m4a", masterDreamFolderPath, self.dreamFolders[selectedIndexPath.row]]];
-        editDreamFromProfileViewController.audioFileURL = audioFileURL;
+        NSLog(@"DREAM FOLDERS: %@", self.dreamFolders);
         
-        txtFileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/dreamContent.txt", self.dreamFolders[selectedIndexPath.row]]];
-        editDreamFromProfileViewController.txtURL = txtFileURL;
+    } else if ([segue.identifier isEqualToString:@"addDream"])
+    {
+        EditDreamViewController *editDreamViewController = [segue destinationViewController];
         
-        editDreamFromProfileViewController.dreamFolderPath = self.dreamFolders[selectedIndexPath.row];
+        [editDreamViewController createNewDreamToEdit];
         
-        NSLog(@"dreamFolderPath: %@", self.dreamFolders[selectedIndexPath.row]);
-        NSLog(@"audioFile: %@", audioFileURL);
-        NSLog(@"txtFile: %@", txtFileURL);
+        editDreamViewController.dreamFolders = self.dreamFolders;
     }
 }
 

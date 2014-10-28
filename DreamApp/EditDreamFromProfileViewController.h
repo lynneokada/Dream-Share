@@ -16,11 +16,6 @@
 }
 @property (nonatomic, strong) Dream *dream;
 
-@property (nonatomic, strong) NSURL *audioFileURL;
-@property (nonatomic, strong) NSURL *txtURL;
-@property (nonatomic, strong) NSString *dreamFolderPath;
-@property (nonatomic, strong) NSString *audioFilePath;
-
 @property (strong, nonatomic) NSMutableArray *commentList;
 
 @property (nonatomic, retain) UIToolbar *keyboardToolBar;

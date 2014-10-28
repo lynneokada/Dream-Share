@@ -13,9 +13,10 @@
 @interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate> {
     UIToolbar *keyboardToolBar;
 }
+@property (nonatomic, strong) Dream *dreamBeingAdded;
+@property (nonatomic, strong) NSMutableArray *dreamFolders;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIButton *editLaterButton;
 
 @property (nonatomic, strong) NSMutableArray *recordingsToBeEdited;
 @property (nonatomic, strong) AVAudioPlayer *player;
@@ -29,5 +30,8 @@
 
 @property (nonatomic, strong) NSMutableArray *pathToDreams;
 @property (nonatomic, strong) NSMutableArray *pathToRecordings;
+
+
+- (void)createNewDreamToEdit;
 
 @end

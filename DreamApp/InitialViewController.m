@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "CreateAccountViewController.h"
 #import "ProfileViewController.h"
+#import "Dream.h"
 
 @interface InitialViewController ()
 

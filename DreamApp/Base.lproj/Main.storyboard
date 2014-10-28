@@ -425,7 +425,7 @@
                     <navigationItem key="navigationItem" id="GFs-eg-LRm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FDO-EK-W3R">
                             <connections>
-                                <segue destination="agT-pq-XbK" kind="show" id="6yS-zS-lLE"/>
+                                <segue destination="1uP-Wb-MZn" kind="show" identifier="addDream" id="nRM-fP-bUC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -770,7 +770,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="tNT-As-jWl"/>
+                                    <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="0QF-k7-UyS"/>
                                     <segue destination="wgk-EB-3GH" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="Hfx-XO-YDL"/>
                                 </connections>
                             </button>
@@ -809,8 +809,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dreamContentTextView" destination="VI5-UC-nAq" id="kQA-aC-08s"/>
-                        <outlet property="editLaterButton" destination="Ghy-YG-umX" id="YiQ-4X-ciK"/>
                         <outlet property="playButton" destination="cLb-z1-baV" id="nTM-7z-gzx"/>
+                        <outlet property="saveButton" destination="Ghy-YG-umX" id="PzI-Mt-XXE"/>
                         <outlet property="textField" destination="sf5-HJ-OLw" id="UvI-Vr-Exs"/>
                     </connections>
                 </viewController>
@@ -1129,6 +1129,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="nRM-fP-bUC"/>
         <segue reference="Agc-bG-7qX"/>
     </inferredMetricsTieBreakers>
 </document>

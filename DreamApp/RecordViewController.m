@@ -15,7 +15,7 @@
 @interface RecordViewController ()
 {
     NSString *_dreamFolderPath;
-    NSURL *_tempURL;
+    NSURL *_URL;
 }
 
 @end
@@ -30,38 +30,7 @@
     // Disable Stop/Play button when application launches
     [doneBarButton setEnabled:NO];
     
-    // Set the audio file
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *masterDreamFolderPath = [documentsDirectory stringByAppendingPathComponent:DREAM_DIRECTORY];
-    NSLog(@"masterDreamFolderPath: %@", masterDreamFolderPath);
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:masterDreamFolderPath])
-    {
-        [[NSFileManager defaultManager] createDirectoryAtPath:masterDreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-    }
-    
-    //date formatter
-    NSDate *date = [NSDate date];
-//#pragma message "ideally you create DateFormatters as static (class) variables and only create them once; they take quite a lot of CPU time to create"
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
-    
-    _dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
-    
-    NSLog(@"dreamFolderPath: %@",_dreamFolderPath);
-    
-    NSError *error;
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_dreamFolderPath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:_dreamFolderPath withIntermediateDirectories:NO attributes:nil error:&error];
-        //Create folder
-        NSLog(@"Create file.");
-    }
-    
-    NSString *file = [_dreamFolderPath stringByAppendingPathComponent:@"/dreamRecording.m4a"];
-    NSLog(@"file: %@", file);
-    
-    _tempURL = [NSURL fileURLWithPath:file];
+    _URL = [[FileSystemManager sharedManager] newRecording];
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -76,7 +45,7 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
-    self.myRecorder= [[AVAudioRecorder alloc] initWithURL:_tempURL settings:recordSetting error:NULL];
+    self.myRecorder= [[AVAudioRecorder alloc] initWithURL:_URL settings:recordSetting error:NULL];
     self.myRecorder.delegate = self;
     self.myRecorder.meteringEnabled = YES;
     [self.myRecorder prepareToRecord];
@@ -150,10 +119,10 @@
 {
     EditDreamViewController *editDreamViewController = [segue destinationViewController];
     
-    editDreamViewController.audioURL = _tempURL;
+    editDreamViewController.audioURL = _URL;
     editDreamViewController.dreamFolderPath = _dreamFolderPath;
     NSLog(@"dream folder path: %@", _dreamFolderPath);
-    NSLog(@"Sending the ulr to edit screen: %@", _tempURL);
+    NSLog(@"Sending the ulr to edit screen: %@", _URL);
     self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
 
