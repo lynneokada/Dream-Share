@@ -13,8 +13,9 @@
 @interface EditDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate> {
     UIToolbar *keyboardToolBar;
 }
-@property (nonatomic, strong) Dream *dreamBeingAdded;
+
 @property (nonatomic, strong) NSMutableArray *dreamFolders;
+@property (nonatomic, strong) NSString *dreamFolderPath;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
@@ -24,7 +25,6 @@
 @property (nonatomic, strong) NSString *audioFilePath;
 @property (nonatomic, strong) NSURL *audioURL;
 @property (nonatomic, strong) NSURL *txtURL;
-@property (nonatomic, strong) NSString *dreamFolderPath;
 
 @property (nonatomic, retain) UIToolbar *keyboardToolBar;
 

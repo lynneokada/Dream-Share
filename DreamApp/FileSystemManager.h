@@ -13,7 +13,6 @@
 + (instancetype) sharedManager;
 
 - (NSString*)newDreamWithContent:(NSString*) dreamContent;
-- (NSMutableArray*)getMyDreams;
 - (NSURL*) newRecording;
 
 @end

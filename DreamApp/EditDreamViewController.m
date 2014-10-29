@@ -23,6 +23,8 @@
     NSMutableArray *hashTags;
     
     ProfileViewController *profileViewController;
+    
+    Dream *dreamBeingAdded;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *dreamContentTextView;
@@ -42,6 +44,7 @@
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dreamContentTextView.delegate = self;
+    
     self.textField.delegate = self;
     
     self.stringHolder = [NSString stringWithFormat:@""];
@@ -59,6 +62,9 @@
     
     [self.view addGestureRecognizer:tap];
     
+    //CORE DATA
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -116,9 +122,7 @@
 
 - (void)createNewDreamToEdit
 {
-    //CORE DATA
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    self.dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
+    
 }
 
 - (IBAction)playTapped:(id)sender
@@ -217,15 +221,14 @@
 {
     NSString *dreamContent = _dreamContentTextView.text;
     
-    self.dreamFolderPath = [[FileSystemManager sharedManager] newDreamWithContent:dreamContent];
+    NSString* dreamFolderPath = [[FileSystemManager sharedManager] newDreamWithContent:dreamContent];
     
-    [self.dreamFolders addObject:self.dreamBeingAdded];
-    self.dreamBeingAdded.pathToContent = self.dreamFolderPath;
-    self.dreamBeingAdded.pathToRecording = self.audioURL.path;
+    [self.dreamFolders addObject:dreamBeingAdded];
+    dreamBeingAdded.pathToContent = dreamFolderPath;
+    dreamBeingAdded.pathToRecording = self.audioURL.path;
     
-    NSLog(@"dreamBeingAdded: %@", self.dreamBeingAdded);
+    NSLog(@"dreamBeingAdded: %@", dreamBeingAdded);
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    self.dreamContentTextView.text = @"";
 }
 
 - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue

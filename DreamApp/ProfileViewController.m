@@ -50,12 +50,7 @@
     self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height /2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
-
+    
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     // get entity description for entity we are selecting
@@ -71,11 +66,15 @@
     if (self.dreamFolders == nil) {
         //error handling, e.g. display error to user
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
     
     [self.tableView reloadData];
     
     NSLog(@"dreamFolders: %@", self.dreamFolders);
-    //dreamFolders = [[FileSystemManager sharedManager] getMyDreams];
 }
 
 - (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue
@@ -129,8 +128,6 @@
     } else if ([segue.identifier isEqualToString:@"addDream"])
     {
         EditDreamViewController *editDreamViewController = [segue destinationViewController];
-        
-        [editDreamViewController createNewDreamToEdit];
         
         editDreamViewController.dreamFolders = self.dreamFolders;
     }

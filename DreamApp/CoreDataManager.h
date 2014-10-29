@@ -12,5 +12,5 @@
 
 + (instancetype) sharedManager;
 
-- (void) requestDreams;
+- (NSArray*) requestDreams;
 @end

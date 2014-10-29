@@ -62,14 +62,15 @@
         [[NSFileManager defaultManager] createDirectoryAtPath:dreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
     }
     NSLog(@"DREAMFOLDERPATH: %@", dreamFolderPath);
+    
     return dreamFolderPath;
 }
 
 - (NSString*)newDreamWithContent:(NSString*) dreamContent
 {
-    [self createDreamFolderIfNotCreated];
+    NSString* saveFolderPath = [self createDreamFolderIfNotCreated];
     
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", dreamFolderPath];
+    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", saveFolderPath];
     
     NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
     [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
@@ -78,11 +79,11 @@
     return dreamContentPath;
 }
 
-- (NSURL*) newRecording
+- (NSURL*)newRecording
 {
-    [self createDreamFolderIfNotCreated];
+    NSString* saveFolderPath = [self createDreamFolderIfNotCreated];
     
-    NSString *file = [NSString stringWithFormat:@"%@/dreamRecording.m4a", dreamFolderPath];
+    NSString *file = [NSString stringWithFormat:@"%@/dreamRecording.m4a", saveFolderPath];
     NSLog(@"FILE: %@", file);
     
     NSURL *tempURL = [NSURL fileURLWithPath:file];
@@ -91,15 +92,4 @@
     return tempURL;
 }
 
-- (NSMutableArray*) getMyDreams {
-
-    NSMutableArray *masterDreamFolderContent = [[[NSFileManager defaultManager] contentsOfDirectoryAtPath:masterDreamFolderPath error:NULL] mutableCopy];
-
-    return masterDreamFolderContent;
-}
-
-//- (void)accessDreamFolders
-//{
-//    NSString *dreamFolders = [NSString stringWithFormat:@"%@", masterDreamFolderPath];
-//}
 @end

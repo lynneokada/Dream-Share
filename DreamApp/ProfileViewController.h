@@ -14,6 +14,5 @@
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate, NSURLSessionDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dreamFolders;
-@property (nonatomic, strong) Dream *dream;
 
 @end

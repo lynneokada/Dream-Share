@@ -9,8 +9,9 @@
 #import "CoreDataManager.h"
 #import "AppDelegate.h"
 
-@implementation CoreDataManager {
-    NSMutableArray *dreamFolders;
+@implementation CoreDataManager
+{
+
 }
 
 + (instancetype) sharedManager {
@@ -30,7 +31,7 @@
     return self;
 }
 
-- (void) requestDreams
+- (NSArray*) requestDreams
 {
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -43,13 +44,13 @@
     // create an error variable to pass to the execute method
     NSError *error;
     // retrieve results
-    dreamFolders = [[context executeFetchRequest:request error:&error] mutableCopy];
-    if (dreamFolders == nil) {
+    NSArray* fetchedDreams = [context executeFetchRequest:request error:&error];
+    if (fetchedDreams == nil) {
         //error handling, e.g. display error to user
     }
-    NSLog(@"dreamFolders: %@", dreamFolders);
-    //dreamFolders = [[FileSystemManager sharedManager] getMyDreams];
+    NSLog(@"fetchedDreams: %@", fetchedDreams);
 
+    return fetchedDreams;
 }
 
 @end
