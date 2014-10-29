@@ -26,20 +26,14 @@
     
     self.textView.delegate = self;
     self.textField.delegate = self;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    
-    self.textView.text = [NSString stringWithContentsOfFile:self.dream.pathToFolder encoding:NSUTF8StringEncoding error:nil];
+    NSString *pathToContent = [NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.dreamName];
+    NSString *content = [NSString stringWithContentsOfFile:pathToContent encoding:NSUTF8StringEncoding error:nil];
+    self.textView.text = content;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.recordingName]])
     {
