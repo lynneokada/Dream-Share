@@ -16,6 +16,7 @@
 #import "Dream.h"
 #import "CoreDataManager.h"
 #import "ShowDreamViewController.h"
+#import "ProfileManager.h"
 
 @interface ProfileViewController ()
 
@@ -49,7 +50,7 @@
     dreams = [[CoreDataManager sharedManager] requestDreams];
     [self.tableView reloadData];
     
-    self.profilePictureView.image = [[FileSystemManager sharedManager] FBProfilePicture];
+    self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -75,15 +76,14 @@
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     [context deleteObject:dreams[indexPath.row]];
     
+    Dream *dream = dreams[indexPath.row];
     //DELETE FROM FILE SYSTEM
-    //NSString *dreamToBeDeleted = [NSString stringWithFormat:@"%@", self.dreams[indexPath.row].pathToFolder];
-    //NSError *error;
-    //[[NSFileManager defaultManager] removeItemAtPath:dreamToBeDeleted error:&error];
+    NSString *dreamToBeDeleted = dream.pathToFolder;
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:dreamToBeDeleted error:&error];
     
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [dreams removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue

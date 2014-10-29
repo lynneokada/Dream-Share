@@ -10,7 +10,7 @@
 #import "LoginViewController.h"
 #import "CreateAccountViewController.h"
 #import "ProfileViewController.h"
-#import "FileSystemManager.h"
+#import "ProfileManager.h"
 #import "Dream.h"
 
 @interface InitialViewController ()
@@ -79,7 +79,7 @@
         self.login.frame = originalLoginFrame;
         self.createAccount.frame = originalCreateAccountFrame;
     } completion:^(BOOL finished) {
-        NSLog(@"Fancy animation complete!");
+
     }];
 }
 
@@ -108,13 +108,14 @@
             
             dispatch_async(dispatch_get_global_queue(0, 0),^{
                 UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-                FileSystemManager *sharedFileSystemManager = [FileSystemManager sharedManager];
+                ProfileManager *sharedFileSystemManager = [ProfileManager sharedManager];
                 sharedFileSystemManager.FBProfilePicture = profilePic;
                 
             });
         }
       }];
     NSLog(@"username: %@", user.name);
+    
     NSLog(@"user_id: %@", user.objectID);
 }
 

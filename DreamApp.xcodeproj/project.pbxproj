@@ -31,6 +31,7 @@
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA019E748450014F22B /* FollowersTableViewController.m */; };
 		D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA319E748DE0014F22B /* FollowingTableViewController.m */; };
+		D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AF71A01ACA600CFB30F /* ProfileManager.m */; };
 		D270DA9819DB2270009D425B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9719DB2270009D425B /* main.m */; };
 		D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9A19DB2270009D425B /* AppDelegate.m */; };
 		D270DAA419DB2270009D425B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D270DAA219DB2270009D425B /* Main.storyboard */; };
@@ -99,6 +100,8 @@
 		D2594CA019E748450014F22B /* FollowersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowersTableViewController.m; sourceTree = "<group>"; };
 		D2594CA219E748DE0014F22B /* FollowingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingTableViewController.h; sourceTree = "<group>"; };
 		D2594CA319E748DE0014F22B /* FollowingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingTableViewController.m; sourceTree = "<group>"; };
+		D26A3AF61A01ACA600CFB30F /* ProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileManager.h; sourceTree = "<group>"; };
+		D26A3AF71A01ACA600CFB30F /* ProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileManager.m; sourceTree = "<group>"; };
 		D270DA9219DB2270009D425B /* DreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270DA9619DB2270009D425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270DA9719DB2270009D425B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				D224A24919FF01BC00F4252F /* FileSystemManager.m */,
 				D224A24B19FF2CC100F4252F /* CoreDataManager.h */,
 				D224A24C19FF2CC100F4252F /* CoreDataManager.m */,
+				D26A3AF61A01ACA600CFB30F /* ProfileManager.h */,
+				D26A3AF71A01ACA600CFB30F /* ProfileManager.m */,
 				D224A22019FEEE3D00F4252F /* UIVIews */,
 				D224A21F19FEEE2700F4252F /* CoreDataObjects */,
 				D270DAA219DB2270009D425B /* Main.storyboard */,
@@ -399,6 +404,7 @@
 				D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */,
 				D224A21719FEEDE700F4252F /* SyncableDBObject.m in Sources */,
 				D224A23A19FEEFED00F4252F /* Tag.m in Sources */,
+				D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */,
 				D22CDF881A009B9E00C70894 /* Dream.m in Sources */,

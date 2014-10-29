@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface FileSystemManager : NSObject
-
-@property (nonatomic, strong) UIImage *FBProfilePicture;
 
 + (instancetype) sharedManager;
 

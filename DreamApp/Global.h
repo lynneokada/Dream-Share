@@ -10,3 +10,4 @@
 
 extern NSString *const DREAM_DIRECTORY;
 extern NSString *const SERVER_URL;
+extern NSString *const USER_ID;
