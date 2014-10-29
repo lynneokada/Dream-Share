@@ -57,35 +57,35 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
-    
-    //Dream Content
-    NSURL *pathToURL = [NSURL fileURLWithPath:self.dream.pathToContent];
-    NSString *content = [NSString stringWithContentsOfURL:pathToURL encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"CONTENT: %@", content);
-    self.dreamContentTextView.text = content;
-    
-    //Does audio file exist
-    NSLog(@"audioFile exists? %@", self.dream.pathToRecording);
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.dream.pathToRecording])
-    {
-        [self.playButton setEnabled:NO];
-    } else {
-        [self.playButton setEnabled:YES];
-    }
+//    
+//    //Dream Content
+//    NSURL *pathToURL = [NSURL fileURLWithPath:self.dream.pathToContent];
+//    NSString *content = [NSString stringWithContentsOfURL:pathToURL encoding:NSUTF8StringEncoding error:nil];
+//    NSLog(@"CONTENT: %@", content);
+//    self.dreamContentTextView.text = content;
+//    
+//    //Does audio file exist
+//    NSLog(@"audioFile exists? %@", self.dream.pathToRecording);
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:self.dream.pathToRecording])
+//    {
+//        [self.playButton setEnabled:NO];
+//    } else {
+//        [self.playButton setEnabled:YES];
+//    }
 }
 
 - (IBAction)playTapped:(id)sender
 {
-    [self.playButton setEnabled:YES];
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [session setActive:YES error:nil];
-    
-    NSURL *recordingURL = [NSURL fileURLWithPath:self.dream.pathToRecording];
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
-    NSLog(@"RECORDING_URL: %@", recordingURL);
-    [player setDelegate:self];
-    [player play];
+//    [self.playButton setEnabled:YES];
+//    AVAudioSession *session = [AVAudioSession sharedInstance];
+//    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    [session setActive:YES error:nil];
+//    
+//    NSURL *recordingURL = [NSURL fileURLWithPath:self.dream.pathToRecording];
+//    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
+//    NSLog(@"RECORDING_URL: %@", recordingURL);
+//    [player setDelegate:self];
+//    [player play];
 }
 
 - (void) dismissKeyboard

@@ -13,14 +13,13 @@
 #import "FileSystemManager.h"
 
 @interface RecordViewController ()
-{
-    NSString *_dreamFolderPath;
-    NSURL *_URL;
-}
 
 @end
 
-@implementation RecordViewController
+@implementation RecordViewController {
+    AVAudioRecorder *myRecorder;
+    NSURL *URL;
+}
 
 @synthesize doneBarButton, recordPauseButton;
 
@@ -30,7 +29,7 @@
     // Disable Stop/Play button when application launches
     [doneBarButton setEnabled:NO];
     
-    _URL = [[FileSystemManager sharedManager] newRecording];
+    //_URL = [[FileSystemManager sharedManager] newRecording];
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -45,7 +44,7 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
-    self.myRecorder= [[AVAudioRecorder alloc] initWithURL:_URL settings:recordSetting error:NULL];
+    self.myRecorder= [[AVAudioRecorder alloc] initWithURL:URL settings:recordSetting error:NULL];
     self.myRecorder.delegate = self;
     self.myRecorder.meteringEnabled = YES;
     [self.myRecorder prepareToRecord];
@@ -56,7 +55,6 @@
 {
     [super viewDidAppear:YES];
     
-    self.createdAudioFile = NO;
     [doneBarButton setEnabled:NO];
 }
 
@@ -119,10 +117,10 @@
 {
     EditDreamViewController *editDreamViewController = [segue destinationViewController];
     
-    editDreamViewController.audioURL = _URL;
-    editDreamViewController.dreamFolderPath = _dreamFolderPath;
-    NSLog(@"dream folder path: %@", _dreamFolderPath);
-    NSLog(@"Sending the ulr to edit screen: %@", _URL);
+//    editDreamViewController.audioURL = URL;
+//    editDreamViewController.dreamFolderPath = _dreamFolderPath;
+//    NSLog(@"dream folder path: %@", _dreamFolderPath);
+//    NSLog(@"Sending the ulr to edit screen: %@", URL);
     self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
 

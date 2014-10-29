@@ -808,10 +808,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dreamContentTextView" destination="VI5-UC-nAq" id="kQA-aC-08s"/>
-                        <outlet property="playButton" destination="cLb-z1-baV" id="nTM-7z-gzx"/>
-                        <outlet property="saveButton" destination="Ghy-YG-umX" id="PzI-Mt-XXE"/>
-                        <outlet property="textField" destination="sf5-HJ-OLw" id="UvI-Vr-Exs"/>
+                        <outlet property="playButton" destination="cLb-z1-baV" id="1wg-Ug-JSN"/>
+                        <outlet property="saveButton" destination="Ghy-YG-umX" id="jti-xd-21T"/>
+                        <outlet property="textField" destination="sf5-HJ-OLw" id="rEZ-Ll-St2"/>
+                        <outlet property="textView" destination="VI5-UC-nAq" id="f1V-tZ-Cp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>

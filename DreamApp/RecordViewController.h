@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (strong, nonatomic) AVAudioRecorder *myRecorder;
 
-@property (nonatomic, assign) BOOL createdAudioFile;
+
 @end

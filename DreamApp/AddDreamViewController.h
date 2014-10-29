@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class Dream;
 
-@interface AddDreamViewController : UIViewController
+@interface AddDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate>
 
 @property (nonatomic, strong) Dream *dreamBeingAdded;
 

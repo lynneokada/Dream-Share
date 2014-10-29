@@ -61,7 +61,7 @@
 
 - (void) saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content
 {
-    
+    [[NSFileManager defaultManager] createFileAtPath:[NSString stringWithFormat:@"%@/%@", path, name] contents:[content dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
 }
 
 - (void) saveNewRecordingWithName:(NSString*)name atPath:(NSString*)path
