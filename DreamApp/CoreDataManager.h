@@ -12,5 +12,6 @@
 
 + (instancetype) sharedManager;
 
-- (NSArray*) requestDreams;
+- (NSMutableArray*) requestDreams;
+
 @end

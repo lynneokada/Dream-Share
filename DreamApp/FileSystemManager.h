@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface FileSystemManager : NSObject
+
+@property (nonatomic, strong) UIImage *FBProfilePicture;
 
 + (instancetype) sharedManager;
 
 - (NSString*)createDreamFolder;
-- (void) saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content;
+- (void)saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content;
 - (NSString*) saveNewRecordingWithName:(NSString*)name atPath:(NSString*)path;
+
 @end

@@ -15,6 +15,6 @@
 
 @property (nonatomic, strong) Dream *dreamBeingAdded;
 
-@property (nonatomic, strong) NSString *pathToAudio;
+@property (nonatomic, strong) NSString *pathToRecording;
 
 @end

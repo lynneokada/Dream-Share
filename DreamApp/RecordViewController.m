@@ -63,8 +63,6 @@
 
 - (IBAction)recordPauseTapped:(id)sender
 {
-    // Stop the audio player before recording
-    
     self.tabBarController.tabBar.userInteractionEnabled = NO;
 
     if (!self.recorder.recording)
@@ -83,7 +81,6 @@
         [self.recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     }
-    
     [doneBarButton setEnabled:YES];
 }
 
@@ -105,8 +102,8 @@
     AddDreamViewController *addDreamViewController = [segue destinationViewController];
     self.dreamBeingAdded.recordingName = @"recording.m4a";
     
-    NSString *pathToAudio = [[FileSystemManager sharedManager] saveNewRecordingWithName:self.dreamBeingAdded.recordingName atPath:self.dreamBeingAdded.pathToFolder];
-    addDreamViewController.pathToAudio = pathToAudio;
+    NSString *pathToRecording = [[FileSystemManager sharedManager] saveNewRecordingWithName:self.dreamBeingAdded.recordingName atPath:self.dreamBeingAdded.pathToFolder];
+    addDreamViewController.pathToRecording = pathToRecording;
     
     self.tabBarController.tabBar.userInteractionEnabled = YES;
 }

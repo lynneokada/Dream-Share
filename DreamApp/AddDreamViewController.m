@@ -19,6 +19,7 @@
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
 @property (nonatomic, strong) NSString *stringHolder;
+@property (nonatomic, strong) AVAudioPlayer *player;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
@@ -56,7 +57,7 @@
     [super viewDidAppear:YES];
     
     //does an audio file exist?
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.pathToAudio])
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.pathToRecording])
     {
         self.playButton.enabled = NO;
     } else {
@@ -70,7 +71,15 @@
 
 - (IBAction)playTapped:(id)sender
 {
+    [self.playButton setEnabled:YES];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
     
+    NSURL *recordingURL = [NSURL fileURLWithPath:self.pathToRecording];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
+    [self.player setDelegate:self];
+    [self.player play];
 }
 
 - (IBAction)saveTapped:(id)sender

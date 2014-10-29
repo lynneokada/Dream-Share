@@ -11,7 +11,7 @@
 
 @implementation CoreDataManager
 {
-
+    
 }
 
 + (instancetype) sharedManager {
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (NSArray*) requestDreams
+- (NSMutableArray*) requestDreams
 {
     // get access to the managed object context
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
@@ -44,12 +44,13 @@
     // create an error variable to pass to the execute method
     NSError *error;
     // retrieve results
-    NSArray* fetchedDreams = [context executeFetchRequest:request error:&error];
+    NSMutableArray* fetchedDreams = [[context executeFetchRequest:request error:&error] mutableCopy];
     if (fetchedDreams == nil) {
         //error handling, e.g. display error to user
     }
     NSLog(@"fetchedDreams: %@", fetchedDreams);
-
+    
     return fetchedDreams;
 }
+
 @end

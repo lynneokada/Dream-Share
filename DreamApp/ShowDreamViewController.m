@@ -37,9 +37,9 @@
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.recordingName]])
     {
-        [self.playButton setEnabled:NO];
+        self.playButton.enabled = NO;
     } else {
-        [self.playButton setEnabled:YES];
+        self.playButton.enabled = YES;
     }
 }
 

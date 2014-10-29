@@ -66,8 +66,9 @@
 
 - (NSString*) saveNewRecordingWithName:(NSString*)name atPath:(NSString*)path
 {
-    NSString *pathToAudio = [NSString stringWithFormat:@"%@/%@", path, name];
-    return pathToAudio;
+    NSString *pathToRecording = [NSString stringWithFormat:@"%@/%@", path, name];
+    
+    return pathToRecording;
 }
 
 @end

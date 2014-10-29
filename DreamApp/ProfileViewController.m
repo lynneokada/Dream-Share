@@ -27,17 +27,7 @@
 
 @implementation ProfileViewController {
     //array of dreams fetched from core data
-    NSArray *dreams;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    
-    if (self) {
-        
-    }
-    return self;
+    NSMutableArray *dreams;
 }
 
 - (void)viewDidLoad
@@ -58,6 +48,8 @@
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
     [self.tableView reloadData];
+    
+    self.profilePictureView.image = [[FileSystemManager sharedManager] FBProfilePicture];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,13 +60,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamLog" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
     NSString *title = @"dream title";
     
     cell.textLabel.text = title;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //DELETE FROM CORE DATA
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    [context deleteObject:dreams[indexPath.row]];
+    
+    //DELETE FROM FILE SYSTEM
+    //NSString *dreamToBeDeleted = [NSString stringWithFormat:@"%@", self.dreams[indexPath.row].pathToFolder];
+    //NSError *error;
+    //[[NSFileManager defaultManager] removeItemAtPath:dreamToBeDeleted error:&error];
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [dreams removeObjectAtIndex:indexPath.row];
 }
 
 - (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue

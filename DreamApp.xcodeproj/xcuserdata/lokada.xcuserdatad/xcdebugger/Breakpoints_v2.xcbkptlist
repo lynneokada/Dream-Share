@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DreamApp/AddDreamViewController.m"
-            timestampString = "436260514.449192"
+            filePath = "DreamApp/ShowDreamViewController.m"
+            timestampString = "436295252.263224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-saveTapped:"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DreamApp/FileSystemManager.m"
-            timestampString = "436253197.310129"
+            filePath = "DreamApp/ProfileViewController.m"
+            timestampString = "436314622.312654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-saveNewDreamWithName:atPath:withContent:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DreamApp/RecordViewController.m"
-            timestampString = "436263031.528073"
+            filePath = "DreamApp/ProfileViewController.m"
+            timestampString = "436314622.312654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-prepareForSegue:sender:"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DreamApp/RecordViewController.m"
-            timestampString = "436262569.931616"
+            filePath = "DreamApp/ProfileViewController.m"
+            timestampString = "436314622.312654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,30 +83,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DreamApp/RecordViewController.m"
-            timestampString = "436263031.528073"
+            filePath = "DreamApp/InitialViewController.m"
+            timestampString = "436315488.303769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-recordPauseTapped:"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-loginViewFetchedUserInfo:user:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DreamApp/RecordViewController.m"
-            timestampString = "436263031.528073"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-recordPauseTapped:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[InitialViewController loginViewFetchedUserInfo:user:]_block_invoke_2"
+                  moduleName = "DreamApp"
+                  urlString = "file:///Users/lokada/Desktop/DreamApp/DreamApp/InitialViewController.m"
+                  timestampString = "436315511.974249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[InitialViewController loginViewFetchedUserInfo:user:]_block_invoke_2"
+                  moduleName = "DreamApp"
+                  urlString = "file:///Users/lokada/Desktop/DreamApp/DreamApp/InitialViewController.m"
+                  timestampString = "436315511.974473"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

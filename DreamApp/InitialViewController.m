@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "CreateAccountViewController.h"
 #import "ProfileViewController.h"
+#import "FileSystemManager.h"
 #import "Dream.h"
 
 @interface InitialViewController ()
@@ -107,6 +108,8 @@
             
             dispatch_async(dispatch_get_global_queue(0, 0),^{
                 UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+                FileSystemManager *sharedFileSystemManager = [FileSystemManager sharedManager];
+                sharedFileSystemManager.FBProfilePicture = profilePic;
                 
             });
         }
