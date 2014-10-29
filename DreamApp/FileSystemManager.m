@@ -13,8 +13,6 @@
 @implementation FileSystemManager
 {
     NSString *masterDreamFolderPath;
-    NSString *dreamFolderPath;
-    Dream *dreamBeingAdded;
 }
 
 + (instancetype) sharedManager
@@ -48,48 +46,27 @@
     }
 }
 
-- (NSString*)createDreamFolderIfNotCreated
+- (NSString*)createDreamFolder
 {
-    if (![[NSFileManager defaultManager] fileExistsAtPath:dreamFolderPath])
-    {
-        //date formatter
-        NSDate *date = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
-        
-        dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
-        
-        [[NSFileManager defaultManager] createDirectoryAtPath:dreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
-    }
-    NSLog(@"DREAMFOLDERPATH: %@", dreamFolderPath);
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy-hh-mm-ss-a"];
     
+    NSString *dreamFolderPath = [masterDreamFolderPath stringByAppendingString:[NSString stringWithFormat:@"/%@", [dateFormatter stringFromDate:date]]];
+    
+    [[NSFileManager defaultManager] createDirectoryAtPath:dreamFolderPath withIntermediateDirectories:NO attributes:nil error:nil];
+
     return dreamFolderPath;
 }
 
-- (NSString*)newDreamWithContent:(NSString*) dreamContent
+- (void) saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content
 {
-    NSString* saveFolderPath = [self createDreamFolderIfNotCreated];
     
-    NSString *dreamContentPath = [NSString stringWithFormat:@"%@/dreamContent.txt", saveFolderPath];
-    
-    NSData *dreamContentData = [dreamContent dataUsingEncoding:NSASCIIStringEncoding];
-    [[NSFileManager defaultManager] createFileAtPath:dreamContentPath contents:dreamContentData attributes:NULL];
-    
-    NSLog(@"DREAM CONTENT PATH: %@", dreamContentPath);
-    return dreamContentPath;
 }
 
-- (NSURL*)newRecording
+- (void) saveNewRecordingWithName:(NSString*)name atPath:(NSString*)path
 {
-    NSString* saveFolderPath = [self createDreamFolderIfNotCreated];
     
-    NSString *file = [NSString stringWithFormat:@"%@/dreamRecording.m4a", saveFolderPath];
-    NSLog(@"FILE: %@", file);
-    
-    NSURL *tempURL = [NSURL fileURLWithPath:file];
-    
-    NSLog(@"RECPRDING_URL: %@", tempURL);
-    return tempURL;
 }
 
 @end

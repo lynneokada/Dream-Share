@@ -23,9 +23,10 @@
 		D224A23B19FEEFED00F4252F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A23919FEEFED00F4252F /* User.m */; };
 		D224A23E19FEEFFD00F4252F /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A23D19FEEFFD00F4252F /* Comment.m */; };
 		D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24019FEF01700F4252F /* InboxTableViewController.m */; };
-		D224A24419FEF12E00F4252F /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24319FEF12E00F4252F /* Dream.m */; };
 		D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24919FF01BC00F4252F /* FileSystemManager.m */; };
 		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
+		D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF841A006BDE00C70894 /* AddDreamViewController.m */; };
+		D22CDF881A009B9E00C70894 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF871A009B9E00C70894 /* Dream.m */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA019E748450014F22B /* FollowersTableViewController.m */; };
 		D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA319E748DE0014F22B /* FollowingTableViewController.m */; };
@@ -81,12 +82,14 @@
 		D224A23D19FEEFFD00F4252F /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		D224A23F19FEF01700F4252F /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
 		D224A24019FEF01700F4252F /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
-		D224A24219FEF12E00F4252F /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D224A24319FEF12E00F4252F /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D224A24819FF01BC00F4252F /* FileSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemManager.h; sourceTree = "<group>"; };
 		D224A24919FF01BC00F4252F /* FileSystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemManager.m; sourceTree = "<group>"; };
 		D224A24B19FF2CC100F4252F /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		D224A24C19FF2CC100F4252F /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		D22CDF831A006BDE00C70894 /* AddDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDreamViewController.h; sourceTree = "<group>"; };
+		D22CDF841A006BDE00C70894 /* AddDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDreamViewController.m; sourceTree = "<group>"; };
+		D22CDF861A009B9E00C70894 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D22CDF871A009B9E00C70894 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D2594C9F19E748450014F22B /* FollowersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersTableViewController.h; sourceTree = "<group>"; };
@@ -164,8 +167,8 @@
 			children = (
 				D224A21519FEEDE700F4252F /* SyncableDBObject.h */,
 				D224A21619FEEDE700F4252F /* SyncableDBObject.m */,
-				D224A24219FEF12E00F4252F /* Dream.h */,
-				D224A24319FEF12E00F4252F /* Dream.m */,
+				D22CDF861A009B9E00C70894 /* Dream.h */,
+				D22CDF871A009B9E00C70894 /* Dream.m */,
 				D224A23819FEEFED00F4252F /* User.h */,
 				D224A23919FEEFED00F4252F /* User.m */,
 				D224A23C19FEEFFD00F4252F /* Comment.h */,
@@ -193,6 +196,8 @@
 				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D270DB1219DD4059009D425B /* EditDreamViewController.h */,
 				D270DB1319DD4059009D425B /* EditDreamViewController.m */,
+				D22CDF831A006BDE00C70894 /* AddDreamViewController.h */,
+				D22CDF841A006BDE00C70894 /* AddDreamViewController.m */,
 				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
 				D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */,
@@ -391,13 +396,14 @@
 				D224A23A19FEEFED00F4252F /* Tag.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D270DB1419DD4059009D425B /* EditDreamViewController.m in Sources */,
+				D22CDF881A009B9E00C70894 /* Dream.m in Sources */,
 				D224A23E19FEEFFD00F4252F /* Comment.m in Sources */,
 				D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */,
 				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
 				D224A23B19FEEFED00F4252F /* User.m in Sources */,
-				D224A24419FEF12E00F4252F /* Dream.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
+				D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */,
 				D224A20B19FEB33300F4252F /* DreamApp.xcdatamodeld in Sources */,
 				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,

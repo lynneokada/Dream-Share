@@ -12,7 +12,7 @@
 
 + (instancetype) sharedManager;
 
-- (NSString*)newDreamWithContent:(NSString*) dreamContent;
-- (NSURL*) newRecording;
+- (NSString*)createDreamFolder;
+- (void) saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content;
 
 @end

@@ -731,7 +731,7 @@
         <!--edit-->
         <scene sceneID="HjD-UN-t3v">
             <objects>
-                <viewController id="1uP-Wb-MZn" customClass="EditDreamViewController" sceneMemberID="viewController">
+                <viewController id="1uP-Wb-MZn" customClass="AddDreamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="68K-lw-Pkl"/>
                         <viewControllerLayoutGuide type="bottom" id="hLY-Zr-4RT"/>
@@ -748,7 +748,7 @@
                                 </constraints>
                                 <state key="normal" title="PLAY"/>
                                 <connections>
-                                    <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="YBE-tC-I7B"/>
+                                    <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="0oT-nn-tfu"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
@@ -770,7 +770,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="0QF-k7-UyS"/>
+                                    <action selector="saveTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="rJC-4e-59Z"/>
                                     <segue destination="wgk-EB-3GH" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="Hfx-XO-YDL"/>
                                 </connections>
                             </button>

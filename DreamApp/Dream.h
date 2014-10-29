@@ -2,7 +2,7 @@
 //  Dream.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/27/14.
+//  Created by Lynne Okada on 10/28/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -14,10 +14,11 @@
 
 @interface Dream : SyncableDBObject
 
-@property (nonatomic, retain) NSString * pathToContent;
-@property (nonatomic, retain) NSString * pathToRecording;
-@property (nonatomic, retain) User *dreamer;
+@property (nonatomic, retain) NSString * dreamName;
+@property (nonatomic, retain) NSString * recordingName;
+@property (nonatomic, retain) NSString * pathToFolder;
 @property (nonatomic, retain) NSSet *comments;
+@property (nonatomic, retain) User *dreamer;
 @property (nonatomic, retain) NSSet *tags;
 @end
 

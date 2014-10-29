@@ -217,19 +217,20 @@
     }
 }
 
-- (IBAction)saveTapped:(id)sender
-{
-    NSString *dreamContent = _dreamContentTextView.text;
-    
-    NSString* dreamFolderPath = [[FileSystemManager sharedManager] newDreamWithContent:dreamContent];
-    
-    [self.dreamFolders addObject:dreamBeingAdded];
-    dreamBeingAdded.pathToContent = dreamFolderPath;
-    dreamBeingAdded.pathToRecording = self.audioURL.path;
-    
-    NSLog(@"dreamBeingAdded: %@", dreamBeingAdded);
-    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-}
+//- (IBAction)saveTapped:(id)sender
+//{
+//    NSString *dreamContent = _dreamContentTextView.text;
+//    
+//    self.dreamFolderPath = [[FileSystemManager sharedManager] newDreamWithContent:dreamContent];
+//    
+//    [self.dreamFolders addObject:self.dreamBeingAdded];
+//    self.dreamBeingAdded.pathToContent = self.dreamFolderPath;
+//    self.dreamBeingAdded.pathToRecording = self.audioURL.path;
+//    
+//    NSLog(@"dreamBeingAdded: %@", self.dreamBeingAdded);
+//    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+//    self.dreamContentTextView.text = @"";
+//}
 
 - (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
 {
