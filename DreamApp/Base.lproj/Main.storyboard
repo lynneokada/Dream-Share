@@ -403,7 +403,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="KGX-EM-FjZ" kind="show" identifier="editDream" id="BjV-xf-EyF"/>
+                                            <segue destination="KGX-EM-FjZ" kind="show" identifier="showDream" id="BjV-xf-EyF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -581,10 +581,10 @@
             </objects>
             <point key="canvasLocation" x="7045" y="4844"/>
         </scene>
-        <!--Edit Dream From Profile View Controller-->
+        <!--Show Dream View Controller-->
         <scene sceneID="NMa-DZ-9nT">
             <objects>
-                <viewController id="KGX-EM-FjZ" customClass="EditDreamFromProfileViewController" sceneMemberID="viewController">
+                <viewController id="KGX-EM-FjZ" customClass="ShowDreamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qKn-QP-MRG"/>
                         <viewControllerLayoutGuide type="bottom" id="nA0-TS-A89"/>
@@ -640,9 +640,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dreamContentTextView" destination="Pf4-o2-2cu" id="8H7-5x-TUF"/>
-                        <outlet property="playButton" destination="w6l-Vv-w1E" id="FBz-8y-vTV"/>
-                        <outlet property="textField" destination="3Yw-lj-1g0" id="V11-Dc-idQ"/>
+                        <outlet property="playButton" destination="w6l-Vv-w1E" id="R07-ca-OTg"/>
+                        <outlet property="textField" destination="3Yw-lj-1g0" id="m6U-rz-R8R"/>
+                        <outlet property="textView" destination="Pf4-o2-2cu" id="Kem-Lj-TVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewI-9C-pmT" userLabel="First Responder" sceneMemberID="firstResponder"/>

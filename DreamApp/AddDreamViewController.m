@@ -10,6 +10,7 @@
 #import "Dream.h"
 #import "FileSystemManager.h"
 #import "AppDelegate.h"
+#import "RecordViewController.h"
 
 @interface AddDreamViewController ()
 {
@@ -55,6 +56,16 @@
     [super viewDidAppear:YES];
     
     //does an audio file exist?
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.pathToAudio])
+    {
+        self.playButton.enabled = NO;
+    } else {
+        self.playButton.enabled = YES;
+    }
+    
+    if (self.textView.text.length == 0) {
+        self.saveButton.userInteractionEnabled = NO;
+    }
 }
 
 - (IBAction)playTapped:(id)sender
@@ -122,7 +133,6 @@
         }
         self.stringHolder = self.textField.text;
     }
-    
 }
 
 - (void)resignKeyboard:(id)sender
@@ -141,14 +151,13 @@
     
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"recordDream"])
+    {
+        RecordViewController *recordViewController = [segue destinationViewController];
+        recordViewController.dreamBeingAdded = self.dreamBeingAdded;
+    }
+}
+
 
 @end

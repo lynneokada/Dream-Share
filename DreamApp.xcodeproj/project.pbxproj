@@ -27,6 +27,7 @@
 		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
 		D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF841A006BDE00C70894 /* AddDreamViewController.m */; };
 		D22CDF881A009B9E00C70894 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF871A009B9E00C70894 /* Dream.m */; };
+		D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D2594CA119E748450014F22B /* FollowersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA019E748450014F22B /* FollowersTableViewController.m */; };
 		D2594CA419E748DE0014F22B /* FollowingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594CA319E748DE0014F22B /* FollowingTableViewController.m */; };
@@ -90,6 +91,8 @@
 		D22CDF841A006BDE00C70894 /* AddDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDreamViewController.m; sourceTree = "<group>"; };
 		D22CDF861A009B9E00C70894 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
 		D22CDF871A009B9E00C70894 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
+		D22CDF891A00D94800C70894 /* ShowDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDreamViewController.h; sourceTree = "<group>"; };
+		D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDreamViewController.m; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D2594C9F19E748450014F22B /* FollowersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersTableViewController.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				D22CDF841A006BDE00C70894 /* AddDreamViewController.m */,
 				D270DB1B19DF21E4009D425B /* ProfileViewController.h */,
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
+				D22CDF891A00D94800C70894 /* ShowDreamViewController.h */,
+				D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */,
 				D2249FDC19F6D07500F4252F /* EditDreamFromProfileViewController.h */,
 				D2249FDD19F6D07500F4252F /* EditDreamFromProfileViewController.m */,
 				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
@@ -403,6 +408,7 @@
 				D224A23B19FEEFED00F4252F /* User.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
+				D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */,
 				D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */,
 				D224A20B19FEB33300F4252F /* DreamApp.xcdatamodeld in Sources */,
 				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,

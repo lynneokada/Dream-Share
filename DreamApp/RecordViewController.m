@@ -7,29 +7,26 @@
 //
 
 #import "RecordViewController.h"
-#import "EditDreamViewController.h"
+#import "AddDreamViewController.h"
 #import "AppDelegate.h"
 #import "Global.h"
 #import "FileSystemManager.h"
+#import "Dream.h"
 
 @interface RecordViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
+@property (strong, nonatomic) AVAudioRecorder *recorder;
+
 @end
 
-@implementation RecordViewController {
-    AVAudioRecorder *myRecorder;
-    NSURL *URL;
-}
-
-@synthesize doneBarButton, recordPauseButton;
+@implementation RecordViewController
+@synthesize doneBarButton, recordPauseButton, recorder;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Disable Stop/Play button when application launches
-    [doneBarButton setEnabled:NO];
-    
-    //_URL = [[FileSystemManager sharedManager] newRecording];
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -44,11 +41,10 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
-    self.myRecorder= [[AVAudioRecorder alloc] initWithURL:URL settings:recordSetting error:NULL];
-    self.myRecorder.delegate = self;
-    self.myRecorder.meteringEnabled = YES;
-    [self.myRecorder prepareToRecord];
-    
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:self.dreamBeingAdded.pathToFolder] settings:recordSetting error:NULL];
+    self.recorder.delegate = self;
+    self.recorder.meteringEnabled = YES;
+    [self.recorder prepareToRecord];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,42 +54,33 @@
     [doneBarButton setEnabled:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    //[self.navigationController popToRootViewControllerAnimated:NO];
-}
-
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.myRecorder stop];
+    //stahp recording
+    [self.recorder stop];
     [[AVAudioSession sharedInstance] setActive:NO error:nil];
-    
-    NSLog(@"Finished recording");
 }
 
 - (IBAction)recordPauseTapped:(id)sender
 {
     // Stop the audio player before recording
-
+    
     self.tabBarController.tabBar.userInteractionEnabled = NO;
 
-    if (!self.myRecorder.recording)
+    if (!self.recorder.recording)
     {
         AVAudioSession *session = [AVAudioSession sharedInstance];
-        
         [session setActive:YES error:nil];
         
         //start recroding
-        [self.myRecorder record];
+        [self.recorder record];
         
         [recordPauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
     }
-    
-    else {
+    else
+    {
         // Pause recording
-        [self.myRecorder pause];
+        [self.recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
     }
     
@@ -115,12 +102,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    EditDreamViewController *editDreamViewController = [segue destinationViewController];
+    AddDreamViewController *addDreamViewController = [segue destinationViewController];
+    self.dreamBeingAdded.recordingName = @"recording.m4a";
     
-//    editDreamViewController.audioURL = URL;
-//    editDreamViewController.dreamFolderPath = _dreamFolderPath;
-//    NSLog(@"dream folder path: %@", _dreamFolderPath);
-//    NSLog(@"Sending the ulr to edit screen: %@", URL);
+    NSString *pathToAudio = [[FileSystemManager sharedManager] saveNewRecordingWithName:self.dreamBeingAdded.recordingName atPath:self.dreamBeingAdded.pathToFolder];
+    addDreamViewController.pathToAudio = pathToAudio;
+    
     self.tabBarController.tabBar.userInteractionEnabled = YES;
 }
 

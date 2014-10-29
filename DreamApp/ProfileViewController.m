@@ -15,6 +15,7 @@
 #import "FileSystemManager.h"
 #import "Dream.h"
 #import "CoreDataManager.h"
+#import "ShowDreamViewController.h"
 
 @interface ProfileViewController ()
 
@@ -83,14 +84,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"editDream"])
+    if ([segue.identifier isEqualToString:@"showDream"])
     {
-//        EditDreamFromProfileViewController *editDreamFromProfileViewController = [segue destinationViewController];
-//        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
-//
-//        editDreamFromProfileViewController.dream = self.dreamFolders[selectedIndexPath.row];
-//        
-//        NSLog(@"DREAM FOLDERS: %@", self.dreamFolders);
+        ShowDreamViewController *showDreamViewController = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        
+        showDreamViewController.dream = dreams[selectedIndexPath.row];
     }
     else if ([segue.identifier isEqualToString:@"addDream"])
     {

@@ -14,5 +14,5 @@
 
 - (NSString*)createDreamFolder;
 - (void) saveNewDreamWithName:(NSString*)name atPath:(NSString*)path withContent:(NSString*)content;
-
+- (NSString*) saveNewRecordingWithName:(NSString*)name atPath:(NSString*)path;
 @end
