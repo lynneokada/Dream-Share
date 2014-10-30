@@ -48,7 +48,7 @@
     if (fetchedDreams == nil) {
         //error handling, e.g. display error to user
     }
-    NSLog(@"fetchedDreams: %@", fetchedDreams);
+    //NSLog(@"fetchedDreams: %@", fetchedDreams);
     
     return fetchedDreams;
 }

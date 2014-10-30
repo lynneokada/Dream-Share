@@ -8,12 +8,15 @@
 
 #import "ShowDreamViewController.h"
 #import "Dream.h"
+#import "CommentTableViewController.h"
 
 @interface ShowDreamViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
 
@@ -26,6 +29,8 @@
     
     self.textView.delegate = self;
     self.textField.delegate = self;
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -47,14 +52,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"addComment"])
+    {
+        CommentTableViewController *commentTableViewController = [segue destinationViewController];
+        commentTableViewController.dream = self.dream;
+    }
 }
-*/
+
 
 @end

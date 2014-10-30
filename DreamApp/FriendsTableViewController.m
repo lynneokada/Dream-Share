@@ -1,51 +1,74 @@
 //
-//  FollowingTableViewController.m
+//  FriendsTableViewController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/9/14.
+//  Created by Lynne Okada on 10/29/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "FollowingTableViewController.h"
+#import "FriendsTableViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface FollowingTableViewController ()
+@interface FriendsTableViewController ()
 
 @end
 
-@implementation FollowingTableViewController
+@implementation FriendsTableViewController
+{
+    NSMutableArray *friendList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.following = [[NSMutableArray alloc] init];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    friendList = [[NSMutableArray alloc] init];
+    [FBRequestConnection startWithGraphPath:@"/me/friends"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error)
+     {
+         //dictionary
+         NSDictionary *resultDictionary = (NSDictionary *)result;
+         NSArray *data = [resultDictionary objectForKey:@"data"];
+         
+         for (NSDictionary *dic in data)
+         {
+             [friendList addObject:[dic objectForKey:@"name"]];
+             [friendList addObject:[dic objectForKey:@"id"]];
+         }//for
+         dispatch_async(dispatch_get_main_queue(), ^(void)
+                        {
+                            //do any update stuff here
+                        }); //main queue dispatch
+         
+     }];//FBrequest block
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.following count];
+    return [friendList count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

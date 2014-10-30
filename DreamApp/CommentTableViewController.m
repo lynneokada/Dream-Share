@@ -1,50 +1,55 @@
 //
-//  FollowersTableViewController.m
+//  CommentTableViewController.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/9/14.
+//  Created by Lynne Okada on 10/30/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "FollowersTableViewController.h"
+#import "CommentTableViewController.h"
 
-@interface FollowersTableViewController ()
+@interface CommentTableViewController ()
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
-@implementation FollowersTableViewController
+@implementation CommentTableViewController
+{
+    NSMutableArray *comments;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textField.delegate = self;
     
-    self.followers = [[NSMutableArray alloc] init];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    comments = [[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+}
+
+
+- (IBAction)sendButtonPressed:(id)sender
+{
+    [comments addObject:self.textField.text];
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.followers count];
+    return [comments count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
+    cell.textLabel.text = comments[indexPath.row];
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

@@ -115,7 +115,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (![textField.text isEqualToString:self.stringHolder]) {
+    if (![textField.text isEqualToString:self.stringHolder])
+    {
         textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
     }
     

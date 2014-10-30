@@ -115,8 +115,10 @@
                 sharedProfileManager.FBProfilePicture = profilePic;
                 sharedProfileManager.username = user.name;
                 sharedProfileManager.user_id = user.objectID;
+                
+                [self performSegueWithIdentifier:@"didLogin" sender:self];
             });
-        
+            
         }
     }];
     NSLog(@"username: %@", user.name);

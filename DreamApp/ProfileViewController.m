@@ -9,7 +9,6 @@
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
 #import "EditProfileViewController.h"
-#import "EditDreamFromProfileViewController.h"
 #import "AddDreamViewController.h"
 #import "Global.h"
 #import "FileSystemManager.h"
