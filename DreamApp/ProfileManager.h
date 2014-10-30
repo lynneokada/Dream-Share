@@ -12,6 +12,8 @@
 @interface ProfileManager : NSObject
 
 @property (nonatomic, strong) UIImage *FBProfilePicture;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *user_id;
 
 + (instancetype) sharedManager;
 

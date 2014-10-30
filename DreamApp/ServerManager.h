@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dream.h"
 
 @interface ServerManager : NSObject
 
 + (instancetype) sharedManager;
+
+- (void)postDream:(Dream*) dream;
 
 @end

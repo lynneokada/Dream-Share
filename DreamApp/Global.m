@@ -9,4 +9,4 @@
 #import "Global.h"
 
 NSString * const DREAM_DIRECTORY = @"/MasterDreamsFolder";
-NSString * const SERVER_URL = @"http://10.0.32.225:3000/dream";
+NSString * const SERVER_URL = @"http://192.168.2.23:3000/dream";

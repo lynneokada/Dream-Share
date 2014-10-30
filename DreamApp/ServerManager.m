@@ -30,7 +30,8 @@
 
 - (void)postDream:(Dream*) dream{
     
-    NSDictionary *dictionaryDreamLog = @{@"dreamContent": dream};
+    NSDictionary *dictionaryDreamLog = @{@"dreamContent": dream.dreamContent,
+                                         @"user_id": @"Lynne"};
 
     NSURL *url = [NSURL URLWithString:SERVER_URL];
 

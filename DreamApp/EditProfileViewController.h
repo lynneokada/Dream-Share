@@ -13,5 +13,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (nonatomic, retain) UIImagePickerController *imgPicker;
 
-
 @end

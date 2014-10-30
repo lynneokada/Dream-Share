@@ -31,9 +31,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    NSString *pathToContent = [NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.dreamName];
-    NSString *content = [NSString stringWithContentsOfFile:pathToContent encoding:NSUTF8StringEncoding error:nil];
-    self.textView.text = content;
+
+    self.textView.text = self.dream.dreamContent;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.recordingName]])
     {

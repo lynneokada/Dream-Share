@@ -11,6 +11,8 @@
 #import "FileSystemManager.h"
 #import "AppDelegate.h"
 #import "RecordViewController.h"
+#import "ProfileManager.h"
+#import "ServerManager.h"
 
 @interface AddDreamViewController ()
 {
@@ -86,12 +88,13 @@
 {
     NSString *dreamContent = self.textView.text;
     
-    self.dreamBeingAdded.dreamName = @"dreamContent.txt";
+    self.dreamBeingAdded.dreamContent = dreamContent;
+//    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] username];
     
-    //save to user's documents
-    [[FileSystemManager sharedManager] saveNewDreamWithName:self.dreamBeingAdded.dreamName atPath:self.dreamBeingAdded.pathToFolder withContent:dreamContent];
-    
+    // TODO think about error handling / whether to write to the server if anything errors out beforehand
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
