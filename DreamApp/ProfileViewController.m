@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end
 
@@ -29,6 +30,7 @@
     //array of dreams fetched from core data
     NSMutableArray *dreams;
 }
+@synthesize navigationItem;
 
 - (void)viewDidLoad
 {
@@ -40,6 +42,8 @@
     self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height /2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
+    
+    self.navigationItem.title = [[ProfileManager sharedManager] username];
 }
 
 - (void)viewDidAppear:(BOOL)animated

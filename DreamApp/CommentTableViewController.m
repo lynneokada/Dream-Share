@@ -7,10 +7,13 @@
 //
 
 #import "CommentTableViewController.h"
+#import "Dream.h"
 
 @interface CommentTableViewController ()
+
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 
 @end
 
@@ -22,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textField.delegate = self;
-    
+
     comments = [[NSMutableArray alloc] init];
 }
 
@@ -30,8 +33,16 @@
 {
     [super viewDidAppear:YES];
     
+    [self resignFirstResponder];
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField == self.textField) {
+        return YES;
+    }
+    
+    return YES;
+}
 
 - (IBAction)sendButtonPressed:(id)sender
 {

@@ -89,7 +89,7 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
-//    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] username];
+    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] username];
     
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
