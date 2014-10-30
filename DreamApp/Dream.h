@@ -10,26 +10,27 @@
 #import <CoreData/CoreData.h>
 #import "SyncableDBObject.h"
 
+@class Comment, Tag, User;
 
 @interface Dream : SyncableDBObject
 
 @property (nonatomic, retain) NSString * recordingName;
 @property (nonatomic, retain) NSString * pathToFolder;
 @property (nonatomic, retain) NSString * dreamContent;
-@property (nonatomic, retain) NSManagedObject *user;
+@property (nonatomic, retain) User *dreamer;
 @property (nonatomic, retain) NSSet *tag;
 @property (nonatomic, retain) NSSet *comment;
 @end
 
 @interface Dream (CoreDataGeneratedAccessors)
 
-- (void)addTagObject:(NSManagedObject *)value;
-- (void)removeTagObject:(NSManagedObject *)value;
+- (void)addTagObject:(Tag *)value;
+- (void)removeTagObject:(Tag *)value;
 - (void)addTag:(NSSet *)values;
 - (void)removeTag:(NSSet *)values;
 
-- (void)addCommentObject:(NSManagedObject *)value;
-- (void)removeCommentObject:(NSManagedObject *)value;
+- (void)addCommentObject:(Comment *)value;
+- (void)removeCommentObject:(Comment *)value;
 - (void)addComment:(NSSet *)values;
 - (void)removeComment:(NSSet *)values;
 

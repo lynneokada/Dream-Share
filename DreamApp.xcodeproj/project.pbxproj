@@ -43,10 +43,10 @@
 		D2D2376D19EDD36B00C738AF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D2376C19EDD36B00C738AF /* Global.m */; };
 		D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2DF191F1A02D80A002D206D /* DreamApp.xcdatamodeld */; };
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
-		D2DF19271A02FD33002D206D /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19261A02FD33002D206D /* Dream.m */; };
-		D2DF192A1A02FD40002D206D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19291A02FD40002D206D /* User.m */; };
 		D2DF192D1A02FD50002D206D /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192C1A02FD50002D206D /* Comment.m */; };
 		D2DF19301A02FD5A002D206D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192F1A02FD5A002D206D /* Tag.m */; };
+		D2DF19391A0300B6002D206D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19381A0300B6002D206D /* User.m */; };
+		D2DF193C1A030124002D206D /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF193B1A030124002D206D /* Dream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,14 +122,14 @@
 		D2DF19201A02D80A002D206D /* DreamApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamApp.xcdatamodel; sourceTree = "<group>"; };
 		D2DF19221A02FD27002D206D /* SyncableDBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncableDBObject.h; sourceTree = "<group>"; };
 		D2DF19231A02FD27002D206D /* SyncableDBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncableDBObject.m; sourceTree = "<group>"; };
-		D2DF19251A02FD33002D206D /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D2DF19261A02FD33002D206D /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
-		D2DF19281A02FD40002D206D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D2DF19291A02FD40002D206D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D2DF192B1A02FD50002D206D /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		D2DF192C1A02FD50002D206D /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		D2DF192E1A02FD5A002D206D /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		D2DF192F1A02FD5A002D206D /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		D2DF19371A0300B6002D206D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		D2DF19381A0300B6002D206D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		D2DF193A1A030124002D206D /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D2DF193B1A030124002D206D /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,10 +173,10 @@
 			children = (
 				D2DF19221A02FD27002D206D /* SyncableDBObject.h */,
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
-				D2DF19251A02FD33002D206D /* Dream.h */,
-				D2DF19261A02FD33002D206D /* Dream.m */,
-				D2DF19281A02FD40002D206D /* User.h */,
-				D2DF19291A02FD40002D206D /* User.m */,
+				D2DF193A1A030124002D206D /* Dream.h */,
+				D2DF193B1A030124002D206D /* Dream.m */,
+				D2DF19371A0300B6002D206D /* User.h */,
+				D2DF19381A0300B6002D206D /* User.m */,
 				D2DF192B1A02FD50002D206D /* Comment.h */,
 				D2DF192C1A02FD50002D206D /* Comment.m */,
 				D2DF192E1A02FD5A002D206D /* Tag.h */,
@@ -401,7 +401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2DF192A1A02FD40002D206D /* User.m in Sources */,
 				D26A3AFE1A02165400CFB30F /* FriendsTableViewController.m in Sources */,
 				D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
@@ -410,6 +409,7 @@
 				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
+				D2DF19391A0300B6002D206D /* User.m in Sources */,
 				D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */,
 				D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */,
 				D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */,
@@ -419,7 +419,6 @@
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2DF192D1A02FD50002D206D /* Comment.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
-				D2DF19271A02FD33002D206D /* Dream.m in Sources */,
 				D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
@@ -429,6 +428,7 @@
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
+				D2DF193C1A030124002D206D /* Dream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

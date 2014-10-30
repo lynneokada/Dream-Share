@@ -7,6 +7,9 @@
 //
 
 #import "Dream.h"
+#import "Comment.h"
+#import "Tag.h"
+#import "User.h"
 
 
 @implementation Dream
@@ -14,7 +17,7 @@
 @dynamic recordingName;
 @dynamic pathToFolder;
 @dynamic dreamContent;
-@dynamic user;
+@dynamic dreamer;
 @dynamic tag;
 @dynamic comment;
 
