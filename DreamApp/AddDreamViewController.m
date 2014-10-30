@@ -8,11 +8,13 @@
 
 #import "AddDreamViewController.h"
 #import "Dream.h"
+#import "User.h"
 #import "FileSystemManager.h"
 #import "AppDelegate.h"
 #import "RecordViewController.h"
 #import "ProfileManager.h"
 #import "ServerManager.h"
+#import "ProfileManager.h"
 
 @interface AddDreamViewController ()
 {
@@ -89,11 +91,10 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
-    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] username];
     
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    
+    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] user];
     [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
 }
 

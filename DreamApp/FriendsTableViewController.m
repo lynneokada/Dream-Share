@@ -7,65 +7,94 @@
 //
 
 #import "FriendsTableViewController.h"
+#import "FriendTableViewCell.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface FriendsTableViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *tableViewCell;
 
 @end
 
 @implementation FriendsTableViewController
 {
-    NSMutableArray *friendList;
+    NSMutableArray *facebookFriends;
+    NSDictionary<FBGraphUser>* friend;
+    UIImage *friendImage;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    friendList = [[NSMutableArray alloc] init];
+//    self.imageView.layer.cornerRadius = self.imageView.frame.size.height /2;
+//    self.imageView.layer.masksToBounds = YES;
+//    self.imageView.layer.borderWidth = 0;
+    
+    facebookFriends = [[NSMutableArray alloc] init];
     [FBRequestConnection startWithGraphPath:@"/me/friends"
                                  parameters:nil
                                  HTTPMethod:@"GET"
                           completionHandler:^(FBRequestConnection *connection,
                                               id result,
                                               NSError *error)
-     {
+     { if (error) {
+        //error handling
+    } else {
          //dictionary
          NSDictionary *resultDictionary = (NSDictionary *)result;
          NSArray *data = [resultDictionary objectForKey:@"data"];
          
          for (NSDictionary *dic in data)
          {
-             [friendList addObject:[dic objectForKey:@"name"]];
-             [friendList addObject:[dic objectForKey:@"id"]];
+             [facebookFriends addObject:[dic objectForKey:@"name"]];
+             [facebookFriends addObject:[dic objectForKey:@"id"]];
          }//for
+         NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", friend.objectID];
          dispatch_async(dispatch_get_main_queue(), ^(void)
                         {
                             //do any update stuff here
+                    
+                            friendImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+                            
                         }); //main queue dispatch
-         
+    }
      }];//FBrequest block
+    
+    [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        
+    }];
+    
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        facebookFriends = [result objectForKey:@"data"];
+        NSLog(@"Found: %i friends", facebookFriends.count);
+        for (friend in facebookFriends) {
+            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.objectID);
+        }
+    }];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    
     [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [friendList count];
+    return [facebookFriends count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell" forIndexPath:indexPath];
+    FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell"];
     
-    // Configure the cell...
-    
+    friend = facebookFriends[indexPath.row];
+    cell.friendName.text = friend.name;
+    cell.imageView.image = friendImage;
+
     return cell;
 }
 

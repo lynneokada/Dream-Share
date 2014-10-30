@@ -2,7 +2,7 @@
 //  Dream.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/29/14.
+//  Created by Lynne Okada on 10/30/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -10,28 +10,27 @@
 #import <CoreData/CoreData.h>
 #import "SyncableDBObject.h"
 
-@class Comment, Tag, User;
 
 @interface Dream : SyncableDBObject
 
 @property (nonatomic, retain) NSString * recordingName;
 @property (nonatomic, retain) NSString * pathToFolder;
 @property (nonatomic, retain) NSString * dreamContent;
-@property (nonatomic, retain) NSSet *comments;
-@property (nonatomic, retain) User *dreamer;
-@property (nonatomic, retain) NSSet *tags;
+@property (nonatomic, retain) NSManagedObject *user;
+@property (nonatomic, retain) NSSet *tag;
+@property (nonatomic, retain) NSSet *comment;
 @end
 
 @interface Dream (CoreDataGeneratedAccessors)
 
-- (void)addCommentsObject:(Comment *)value;
-- (void)removeCommentsObject:(Comment *)value;
-- (void)addComments:(NSSet *)values;
-- (void)removeComments:(NSSet *)values;
+- (void)addTagObject:(NSManagedObject *)value;
+- (void)removeTagObject:(NSManagedObject *)value;
+- (void)addTag:(NSSet *)values;
+- (void)removeTag:(NSSet *)values;
 
-- (void)addTagsObject:(Tag *)value;
-- (void)removeTagsObject:(Tag *)value;
-- (void)addTags:(NSSet *)values;
-- (void)removeTags:(NSSet *)values;
+- (void)addCommentObject:(NSManagedObject *)value;
+- (void)removeCommentObject:(NSManagedObject *)value;
+- (void)addComment:(NSSet *)values;
+- (void)removeComment:(NSSet *)values;
 
 @end

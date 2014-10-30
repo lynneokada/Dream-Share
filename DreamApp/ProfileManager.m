@@ -7,6 +7,7 @@
 //
 
 #import "ProfileManager.h"
+#import "User.h"
 
 @implementation ProfileManager
 

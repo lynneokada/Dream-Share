@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface ProfileManager : NSObject
 
 @property (nonatomic, strong) UIImage *FBProfilePicture;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *user_id;
+@property (nonatomic, strong) User *user;
 
 + (instancetype) sharedManager;
 

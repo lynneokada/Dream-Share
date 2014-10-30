@@ -12,6 +12,7 @@
 #import "ProfileViewController.h"
 #import "ProfileManager.h"
 #import "Dream.h"
+#import "User.h"
 
 @interface InitialViewController ()
 
@@ -114,16 +115,16 @@
                 ProfileManager *sharedProfileManager = [ProfileManager sharedManager];
                 sharedProfileManager.FBProfilePicture = profilePic;
                 sharedProfileManager.username = user.name;
-                sharedProfileManager.user_id = user.objectID;
                 
                 [self performSegueWithIdentifier:@"didLogin" sender:self];
             });
-            
         }
     }];
-    NSLog(@"username: %@", user.name);
     
+    //twice?
+    NSLog(@"username: %@", user.name);
     NSLog(@"user_id: %@", user.objectID);
+    [[ProfileManager sharedManager] user].userName = user.objectID;
 }
 
 // Handle possible errors that can occur durqing login

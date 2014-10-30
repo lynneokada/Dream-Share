@@ -2,7 +2,7 @@
 //  SyncableDBObject.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/27/14.
+//  Created by Lynne Okada on 10/30/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -13,6 +13,6 @@
 @interface SyncableDBObject : NSManagedObject
 
 @property (nonatomic, retain) NSString * db_id;
-@property (nonatomic, retain) NSDate * last_update;
+@property (nonatomic, retain) NSDate * last_updated;
 
 @end
