@@ -8,7 +8,6 @@
 
 #import "ServerManager.h"
 #import "Global.h"
-#import "Dream.h"
 
 @implementation ServerManager
 
@@ -30,8 +29,9 @@
 
 - (void)postDream:(Dream*) dream{
     
-    NSDictionary *dictionaryDreamLog = @{@"dreamContent": dream.dreamContent,
-                                         @"user_id": @"Lynne"};
+    NSDictionary *dictionaryDreamLog = @{@"user_id": dream.dreamer,
+                                         @"dreamContent": dream.dreamContent
+                                         };
 
     NSURL *url = [NSURL URLWithString:SERVER_URL];
 

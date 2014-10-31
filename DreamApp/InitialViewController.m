@@ -23,7 +23,9 @@
 @end
 
 @implementation InitialViewController
-
+{
+    NSMutableArray *facebookFriends;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -102,29 +104,35 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (error)
-        {
-            //error handling no wifi
-        }
-        else {
-            NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", user.objectID];
-            
-            dispatch_async(dispatch_get_global_queue(0, 0),^{
-                UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-                ProfileManager *sharedProfileManager = [ProfileManager sharedManager];
-                sharedProfileManager.FBProfilePicture = profilePic;
-                sharedProfileManager.username = user.name;
-                
-                [self performSegueWithIdentifier:@"didLogin" sender:self];
-            });
-        }
-    }];
     
-    //twice?
-    NSLog(@"username: %@", user.name);
-    NSLog(@"user_id: %@", user.objectID);
-    [[ProfileManager sharedManager] user].userName = user.objectID;
+    ProfileManager *sharedProfileManager = [ProfileManager sharedManager];
+    
+    [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+     {
+         if (error)
+         {
+             //error handling no wifi
+         } else {
+             
+             NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", user.objectID];
+             
+             dispatch_async(dispatch_get_global_queue(0, 0),^{
+                 UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+                 
+                 sharedProfileManager.FBProfilePicture = profilePic;
+                 sharedProfileManager.username = user.name;
+                 
+                 NSLog(@"username: %@", user.name);
+                 NSLog(@"user_id: %@", user.objectID);
+                 [ProfileManager sharedManager].user.userName = user.objectID;
+                 
+             });
+         }
+         
+         [self performSegueWithIdentifier:@"didLogin" sender:self];
+     }];
+
+    
 }
 
 // Handle possible errors that can occur durqing login
@@ -170,15 +178,6 @@
                           otherButtonTitles:nil] show];
     }
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"login"]) {
-//        LoginViewController *loginViewController = [segue destinationViewController];
-//    }
-//    if ([segue.identifier isEqualToString:@"createAccount"]) {
-//        CreateAccountViewController *createAccountViewController = [segue destinationViewController];
-//    }
-//}
 
 - (IBAction)unwindToInitialViewController:(UIStoryboardSegue *)unwindSegue
 {
