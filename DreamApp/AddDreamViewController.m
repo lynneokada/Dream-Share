@@ -73,6 +73,16 @@
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    
+    if (self.textView.text.length == 0)
+    {
+        //delete the dream
+    }
+}
+
 - (IBAction)playTapped:(id)sender
 {
     [self.playButton setEnabled:YES];
@@ -91,10 +101,13 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
+    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] user];
     
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
+    
+    
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] user];
+    
     [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
 }
 

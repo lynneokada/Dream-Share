@@ -602,37 +602,36 @@
         <scene sceneID="ki7-Lf-c8F">
             <objects>
                 <tableViewController id="FzC-ZE-GoT" customClass="FriendsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="Jvp-2J-Igr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="Jvp-2J-Igr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="115" id="kwo-UN-ebf" customClass="FriendTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="88" id="kwo-UN-ebf" customClass="FriendTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kwo-UN-ebf" id="xog-As-K9V">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d6j-eU-uPH">
-                                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                            <rect key="frame" x="8" y="11" width="65" height="65"/>
                                             <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="8Pg-Yj-oXr"/>
-                                                <constraint firstAttribute="height" constant="100" id="y1I-1E-dGo"/>
+                                                <constraint firstAttribute="width" constant="65" id="0U7-DV-k4w"/>
+                                                <constraint firstAttribute="height" constant="65" id="ih2-Sp-gtl"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xt2-Xx-Thn">
-                                            <rect key="frame" x="179" y="47" width="42" height="21"/>
+                                            <rect key="frame" x="81" y="33" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="d6j-eU-uPH" firstAttribute="leading" secondItem="xog-As-K9V" secondAttribute="leadingMargin" id="Edl-eC-Jtv"/>
-                                        <constraint firstAttribute="centerY" secondItem="d6j-eU-uPH" secondAttribute="centerY" constant="-0.75" id="Eoe-Fl-6F5"/>
-                                        <constraint firstItem="xt2-Xx-Thn" firstAttribute="leading" secondItem="d6j-eU-uPH" secondAttribute="trailing" constant="71" id="Num-2a-nqn"/>
-                                        <constraint firstItem="xt2-Xx-Thn" firstAttribute="top" secondItem="xog-As-K9V" secondAttribute="topMargin" constant="39" id="VJj-3x-MwL"/>
-                                        <constraint firstAttribute="centerX" secondItem="d6j-eU-uPH" secondAttribute="centerX" constant="242" id="f3x-9P-net"/>
+                                        <constraint firstItem="d6j-eU-uPH" firstAttribute="top" secondItem="xog-As-K9V" secondAttribute="topMargin" constant="3" id="68j-QO-6gU"/>
+                                        <constraint firstItem="xt2-Xx-Thn" firstAttribute="leading" secondItem="d6j-eU-uPH" secondAttribute="trailing" constant="8" id="CFF-R7-hEw"/>
+                                        <constraint firstItem="xt2-Xx-Thn" firstAttribute="top" secondItem="xog-As-K9V" secondAttribute="topMargin" constant="25" id="Wjs-UQ-KcE"/>
+                                        <constraint firstItem="d6j-eU-uPH" firstAttribute="leading" secondItem="xog-As-K9V" secondAttribute="leadingMargin" id="atU-MA-Iop"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -650,7 +649,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcd-e2-bO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7027" y="4843.5"/>
+            <point key="canvasLocation" x="7027" y="4842"/>
         </scene>
         <!--Show Dream View Controller-->
         <scene sceneID="NMa-DZ-9nT">

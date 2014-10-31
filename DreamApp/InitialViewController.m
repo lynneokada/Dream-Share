@@ -125,14 +125,11 @@
                  NSLog(@"username: %@", user.name);
                  NSLog(@"user_id: %@", user.objectID);
                  [ProfileManager sharedManager].user.userName = user.objectID;
-                 
+                 [ProfileManager sharedManager].dream.dreamer = user.name;
              });
          }
-         
          [self performSegueWithIdentifier:@"didLogin" sender:self];
      }];
-
-    
 }
 
 // Handle possible errors that can occur durqing login
