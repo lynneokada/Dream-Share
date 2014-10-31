@@ -137,12 +137,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23B6F4D1A042D110068675F /* Bolts.framework in Frameworks */,
 				D224A1B019F843B900F4252F /* Security.framework in Frameworks */,
 				D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */,
 				D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */,
 				D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */,
-				D224A0F819F8224000F4252F /* Bolts.framework in Frameworks */,
-				D224A0F919F8224000F4252F /* FacebookSDK.framework in Frameworks */,
+				D23B6F4E1A042D110068675F /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,18 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2249FF719F8224000F4252F /* FacebookSDK */ = {
-			isa = PBXGroup;
-			children = (
-				D2249FF819F8224000F4252F /* Bolts.framework */,
-				D2249FF919F8224000F4252F /* FacebookSDK.framework */,
-				D224A02619F8224000F4252F /* LICENSE */,
-				D224A02719F8224000F4252F /* README.txt */,
-			);
-			name = FacebookSDK;
-			path = ../../Documents/FacebookSDK;
-			sourceTree = "<group>";
-		};
 		D224A21F19FEEE2700F4252F /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,13 +210,24 @@
 			name = UIVIews;
 			sourceTree = "<group>";
 		};
+		D23B6F511A042D1F0068675F /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D23B6F491A042D110068675F /* Bolts.framework */,
+				D23B6F4A1A042D110068675F /* FacebookSDK.framework */,
+				D23B6F4B1A042D110068675F /* LICENSE */,
+				D23B6F4C1A042D110068675F /* README.txt */,
+			);
+			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
-				D2249FF719F8224000F4252F /* FacebookSDK */,
+				D23B6F511A042D1F0068675F /* FacebookSDK */,
 				D224A1AF19F843B900F4252F /* Security.framework */,
 				D224A1AD19F83DD900F4252F /* Social.framework */,
 				D224A1AB19F83DD200F4252F /* Accounts.framework */,
@@ -381,9 +380,9 @@
 			files = (
 				D270DAA419DB2270009D425B /* Main.storyboard in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
+				D23B6F4F1A042D110068675F /* LICENSE in Resources */,
 				D270DAA619DB2270009D425B /* Images.xcassets in Resources */,
-				D224A11219F8224000F4252F /* LICENSE in Resources */,
-				D224A11319F8224000F4252F /* README.txt in Resources */,
+				D23B6F501A042D110068675F /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +557,7 @@
 					"$(inherited)",
 					/Users/lokada/Documents/FacebookSDK,
 					/Users/lokada/Documents/FacebookSDK/FBAudienceNetwork,
+					"$(PROJECT_DIR)/DreamApp/FBSDK",
 				);
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -577,6 +577,7 @@
 					"$(inherited)",
 					/Users/lokada/Documents/FacebookSDK,
 					/Users/lokada/Documents/FacebookSDK/FBAudienceNetwork,
+					"$(PROJECT_DIR)/DreamApp/FBSDK",
 				);
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
