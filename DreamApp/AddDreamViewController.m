@@ -19,6 +19,7 @@
 @interface AddDreamViewController ()
 {
     UIToolbar *keyboardToolBar;
+    NSMutableArray *tags;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -34,11 +35,15 @@
 @implementation AddDreamViewController
 @synthesize keyboardToolBar;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.delegate = self;
+    self.textField.delegate = self;
+    
+    tags = [[NSMutableArray alloc] init];
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -111,7 +116,8 @@
     [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
     if (textView.text.length == 0) {
         self.saveButton.userInteractionEnabled = NO;
     } else {
@@ -119,7 +125,8 @@
     }
 }
 
-- (void) textViewDidEndEditing:(UITextView *)textView {
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
     if (textView.text.length == 0) {
         self.saveButton.userInteractionEnabled = NO;
     } else {
@@ -132,6 +139,8 @@
     if (![textField.text isEqualToString:self.stringHolder])
     {
         textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
+        [tags addObject:[textField.text substringFromIndex:[self.stringHolder length]]];
+        NSLog(@"TAGS: %@", tags);
     }
     
     if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
@@ -178,7 +187,8 @@
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"recordDream"])
     {
         RecordViewController *recordViewController = [segue destinationViewController];
