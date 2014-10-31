@@ -8,6 +8,7 @@
 
 #import "CommentTableViewController.h"
 #import "Dream.h"
+#import "Comment.h"
 
 @interface CommentTableViewController ()
 
@@ -47,6 +48,8 @@
 - (IBAction)sendButtonPressed:(id)sender
 {
     [comments addObject:self.textField.text];
+    
+    self.commentBeingAdded.comment = self.textField.text;
 }
 
 #pragma mark - Table view data source

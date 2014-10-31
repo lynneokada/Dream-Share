@@ -11,7 +11,7 @@
         <attribute name="recordingName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="commentedDream" inverseEntity="Comment" syncable="YES"/>
         <relationship name="dreamer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userDream" inverseEntity="User" syncable="YES"/>
-        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="taggedDream" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="taggedDream" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="SyncableDBObject" representedClassName="SyncableDBObject" isAbstract="YES" syncable="YES">
         <attribute name="db_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,17 +19,17 @@
     </entity>
     <entity name="Tag" representedClassName="Tag" parentEntity="SyncableDBObject" syncable="YES">
         <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="taggedDream" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dream" inverseName="tag" inverseEntity="Dream" syncable="YES"/>
+        <relationship name="taggedDream" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dream" inverseName="tags" inverseEntity="Dream" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" parentEntity="SyncableDBObject" syncable="YES">
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="userDream" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dream" inverseName="dreamer" inverseEntity="Dream" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SyncableDBObject" positionX="-117" positionY="-286" width="128" height="73"/>
-        <element name="Dream" positionX="-171" positionY="-70" width="128" height="133"/>
-        <element name="User" positionX="234" positionY="63" width="128" height="73"/>
         <element name="Comment" positionX="259" positionY="-97" width="128" height="88"/>
+        <element name="Dream" positionX="-171" positionY="-70" width="128" height="135"/>
+        <element name="SyncableDBObject" positionX="-117" positionY="-286" width="128" height="73"/>
         <element name="Tag" positionX="160" positionY="198" width="128" height="73"/>
+        <element name="User" positionX="234" positionY="63" width="128" height="73"/>
     </elements>
 </model>

@@ -13,6 +13,8 @@
 		D212713E1A043BE10063BFA1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212713A1A043BE10063BFA1 /* FacebookSDK.framework */; };
 		D212713F1A043BE10063BFA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D212713B1A043BE10063BFA1 /* LICENSE */; };
 		D21271401A043BE10063BFA1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D212713C1A043BE10063BFA1 /* README.txt */; };
+		D21271431A0443CC0063BFA1 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271421A0443CC0063BFA1 /* Dream.m */; };
+		D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */; };
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
@@ -46,7 +48,6 @@
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
 		D2DF192D1A02FD50002D206D /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192C1A02FD50002D206D /* Comment.m */; };
 		D2DF19301A02FD5A002D206D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192F1A02FD5A002D206D /* Tag.m */; };
-		D2DF193C1A030124002D206D /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF193B1A030124002D206D /* Dream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,10 @@
 		D212713A1A043BE10063BFA1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = DreamApp/FBSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D212713B1A043BE10063BFA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = DreamApp/FBSDK/LICENSE; sourceTree = "<group>"; };
 		D212713C1A043BE10063BFA1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = DreamApp/FBSDK/README.txt; sourceTree = "<group>"; };
+		D21271411A0443CC0063BFA1 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D21271421A0443CC0063BFA1 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
+		D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentTableViewCell.h; sourceTree = "<group>"; };
+		D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentTableViewCell.m; sourceTree = "<group>"; };
 		D224A1AB19F83DD200F4252F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D224A1AD19F83DD900F4252F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -128,8 +133,6 @@
 		D2DF192C1A02FD50002D206D /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		D2DF192E1A02FD5A002D206D /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		D2DF192F1A02FD5A002D206D /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		D2DF193A1A030124002D206D /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D2DF193B1A030124002D206D /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +164,8 @@
 			children = (
 				D2DF19221A02FD27002D206D /* SyncableDBObject.h */,
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
-				D2DF193A1A030124002D206D /* Dream.h */,
-				D2DF193B1A030124002D206D /* Dream.m */,
+				D21271411A0443CC0063BFA1 /* Dream.h */,
+				D21271421A0443CC0063BFA1 /* Dream.m */,
 				D21271361A042E7D0063BFA1 /* User.h */,
 				D21271371A042E7D0063BFA1 /* User.m */,
 				D2DF192B1A02FD50002D206D /* Comment.h */,
@@ -194,6 +197,8 @@
 				D270DB1C19DF21E4009D425B /* ProfileViewController.m */,
 				D22CDF891A00D94800C70894 /* ShowDreamViewController.h */,
 				D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */,
+				D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */,
+				D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */,
 				D26A3AFF1A0220B000CFB30F /* CommentTableViewController.h */,
 				D26A3B001A0220B000CFB30F /* CommentTableViewController.m */,
 				D26A3AFC1A02165400CFB30F /* FriendsTableViewController.h */,
@@ -414,6 +419,7 @@
 				D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */,
 				D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */,
 				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,
+				D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2DF192D1A02FD50002D206D /* Comment.m in Sources */,
@@ -427,7 +433,7 @@
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
-				D2DF193C1A030124002D206D /* Dream.m in Sources */,
+				D21271431A0443CC0063BFA1 /* Dream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

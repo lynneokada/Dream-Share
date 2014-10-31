@@ -19,7 +19,7 @@
 @interface AddDreamViewController ()
 {
     UIToolbar *keyboardToolBar;
-    NSMutableArray *tags;
+    NSMutableArray *dreamTags;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -43,7 +43,7 @@
     self.textView.delegate = self;
     self.textField.delegate = self;
     
-    tags = [[NSMutableArray alloc] init];
+    dreamTags = [[NSMutableArray alloc] init];
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -107,7 +107,9 @@
     
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] user];
+    self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
     
+    NSLog(@"DREAMER: %@", self.dreamBeingAdded.dreamer);
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
     
     
@@ -139,8 +141,8 @@
     if (![textField.text isEqualToString:self.stringHolder])
     {
         textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
-        [tags addObject:[textField.text substringFromIndex:[self.stringHolder length]]];
-        NSLog(@"TAGS: %@", tags);
+        [dreamTags addObject:[textField.text substringFromIndex:[self.stringHolder length]]];
+        NSLog(@"TAGS: %@", dreamTags);
     }
     
     if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')

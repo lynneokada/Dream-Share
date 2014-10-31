@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class Dream;
+@class Comment;
 
 @interface CommentTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) Dream *dream;
+@property (nonatomic, strong) Comment *commentBeingAdded;
 
 @end
