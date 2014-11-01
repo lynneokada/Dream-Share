@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D123519DF51E800DE7485 /* SearchViewController.m */; };
-		D21271381A042E7D0063BFA1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271371A042E7D0063BFA1 /* User.m */; };
 		D212713D1A043BE10063BFA1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21271391A043BE10063BFA1 /* Bolts.framework */; };
 		D212713E1A043BE10063BFA1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212713A1A043BE10063BFA1 /* FacebookSDK.framework */; };
 		D212713F1A043BE10063BFA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D212713B1A043BE10063BFA1 /* LICENSE */; };
 		D21271401A043BE10063BFA1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D212713C1A043BE10063BFA1 /* README.txt */; };
 		D21271431A0443CC0063BFA1 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271421A0443CC0063BFA1 /* Dream.m */; };
 		D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */; };
+		D21271491A0462400063BFA1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271481A0462400063BFA1 /* User.m */; };
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
@@ -63,8 +63,6 @@
 /* Begin PBXFileReference section */
 		D20D123419DF51E800DE7485 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D20D123519DF51E800DE7485 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		D21271361A042E7D0063BFA1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D21271371A042E7D0063BFA1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D21271391A043BE10063BFA1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = DreamApp/FBSDK/Bolts.framework; sourceTree = "<group>"; };
 		D212713A1A043BE10063BFA1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = DreamApp/FBSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D212713B1A043BE10063BFA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = DreamApp/FBSDK/LICENSE; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		D21271421A0443CC0063BFA1 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentTableViewCell.h; sourceTree = "<group>"; };
 		D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentTableViewCell.m; sourceTree = "<group>"; };
+		D21271471A0462400063BFA1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D21271481A0462400063BFA1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D224A1AB19F83DD200F4252F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D224A1AD19F83DD900F4252F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -166,8 +166,8 @@
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
 				D21271411A0443CC0063BFA1 /* Dream.h */,
 				D21271421A0443CC0063BFA1 /* Dream.m */,
-				D21271361A042E7D0063BFA1 /* User.h */,
-				D21271371A042E7D0063BFA1 /* User.m */,
+				D21271471A0462400063BFA1 /* User.h */,
+				D21271481A0462400063BFA1 /* User.m */,
 				D2DF192B1A02FD50002D206D /* Comment.h */,
 				D2DF192C1A02FD50002D206D /* Comment.m */,
 				D2DF192E1A02FD5A002D206D /* Tag.h */,
@@ -413,7 +413,6 @@
 				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
-				D21271381A042E7D0063BFA1 /* User.m in Sources */,
 				D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */,
 				D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */,
 				D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */,
@@ -430,6 +429,7 @@
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
 				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D2DF19301A02FD5A002D206D /* Tag.m in Sources */,
+				D21271491A0462400063BFA1 /* User.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,

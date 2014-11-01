@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+@class User;
+
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UITabBarDelegate, UITableViewDataSource, FBLoginViewDelegate, NSURLSessionDelegate>
+
+@property (nonatomic, strong) User *user;
 
 @end

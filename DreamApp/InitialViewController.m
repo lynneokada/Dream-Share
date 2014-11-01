@@ -13,6 +13,8 @@
 #import "ProfileManager.h"
 #import "Dream.h"
 #import "User.h"
+#import "AppDelegate.h"
+#import "CoreDataManager.h"
 
 @interface InitialViewController ()
 
@@ -24,6 +26,7 @@
 
 @implementation InitialViewController
 {
+    User *userLoggingIn;
     NSMutableArray *facebookFriends;
 }
 - (void)viewDidLoad
@@ -41,11 +44,10 @@
     [super viewDidAppear:animated];
     
     [self fadein];
-    [self whoaThatWasKindaCool];
+    [self buttonAnimation];
 }
 
-#pragma message "Not a great method name ;)"
-- (void) whoaThatWasKindaCool
+- (void) buttonAnimation
 {
     //saving the original position of the elements
     //CGRect originalTitleFrame = self.appName.frame;
@@ -120,12 +122,21 @@
                  UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
                  
                  sharedProfileManager.FBProfilePicture = profilePic;
-                 sharedProfileManager.username = user.name;
                  
                  NSLog(@"username: %@", user.name);
                  NSLog(@"user_id: %@", user.objectID);
-                 [ProfileManager sharedManager].user.userName = user.objectID;
-                 [ProfileManager sharedManager].dream.dreamer = user.name;
+                 NSLog(@"user.count %d", [[CoreDataManager sharedManager] requestUserInfo].count);
+                 
+                 if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
+                 {
+                     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+                     userLoggingIn = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+                    
+                     [ProfileManager sharedManager].FBUserFullName = user.name;
+                     userLoggingIn.fbFullName = user.name;
+                     userLoggingIn.fbUserID = user.objectID;
+                     
+                 }
              });
          }
          [self performSegueWithIdentifier:@"didLogin" sender:self];

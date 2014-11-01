@@ -106,7 +106,7 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
-    self.dreamBeingAdded.dreamer = [[ProfileManager sharedManager] user];
+    self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
     self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
     
     NSLog(@"DREAMER: %@", self.dreamBeingAdded.dreamer);

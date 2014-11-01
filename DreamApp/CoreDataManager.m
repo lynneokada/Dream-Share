@@ -53,4 +53,24 @@
     return fetchedDreams;
 }
 
+- (NSMutableArray*) requestUserInfo
+{
+    // get access to the managed object context
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    // get entity description for entity we are selecting
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    // create a new fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // create an error variable to pass to the execute method
+    NSError *error;
+    // retrieve results
+    NSMutableArray* fetchedUser = [[context executeFetchRequest:request error:&error]mutableCopy];
+    if (fetchedUser == nil) {
+        //error handling, e.g. display error to user
+    }
+    
+    return fetchedUser;
+}
 @end

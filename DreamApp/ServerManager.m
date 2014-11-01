@@ -27,12 +27,13 @@
     return self;
 }
 
+
 - (void)postDream:(Dream*) dream{
     
     NSDictionary *dictionaryDreamLog = @{@"user_id": dream.dreamer,
-                                         @"dreamContent": dream.dreamContent,
-                                         @"dreamTags": dream.tags,
-                                         @"dreamComments": dream.comment
+                                         @"dreamContent": dream.dreamContent
+                                         //@"dreamTags": dream.tags,
+                                         //@"dreamComments": dream.comment
                                          };
     
     NSURL *url = [NSURL URLWithString:SERVER_URL];
@@ -61,9 +62,11 @@
     [dataUpload resume];
 }
 
-
+/*
 - (void) getDream:(NSString*)dreamer_id {
     NSURL *url = [NSURL URLWithString:SERVER_URL];
+    
+    
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"GET"];
@@ -93,5 +96,5 @@
                                       }];
     [dataTask resume];
 }
-
+*/
 @end

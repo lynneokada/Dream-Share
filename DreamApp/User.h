@@ -2,7 +2,7 @@
 //  User.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/30/14.
+//  Created by Lynne Okada on 10/31/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -14,7 +14,8 @@
 
 @interface User : SyncableDBObject
 
-@property (nonatomic, retain) NSString * userName;
+@property (nonatomic, retain) NSString * fbFullName;
+@property (nonatomic, retain) NSString * fbUserID;
 @property (nonatomic, retain) NSSet *userDream;
 @end
 

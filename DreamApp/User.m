@@ -2,7 +2,7 @@
 //  User.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/30/14.
+//  Created by Lynne Okada on 10/31/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -12,7 +12,8 @@
 
 @implementation User
 
-@dynamic userName;
+@dynamic fbFullName;
+@dynamic fbUserID;
 @dynamic userDream;
 
 @end

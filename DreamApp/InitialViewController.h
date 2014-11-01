@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+@class User;
+
 @interface InitialViewController : UIViewController <FBLoginViewDelegate>
 
 @end
