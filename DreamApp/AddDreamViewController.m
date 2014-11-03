@@ -14,12 +14,14 @@
 #import "RecordViewController.h"
 #import "ProfileManager.h"
 #import "ServerManager.h"
+#import "CoreDataManager.h"
 #import "ProfileManager.h"
 
 @interface AddDreamViewController ()
 {
     UIToolbar *keyboardToolBar;
     NSMutableArray *dreamTags;
+    NSMutableArray *userInfo;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -59,6 +61,9 @@
                                              selector:@selector(textFieldDidChange)
                                                  name:@"UITextFieldTextDidChangeNotification"
                                                object:nil];
+    
+    ProfileManager *sharedProfileManager = [ProfileManager sharedManager];
+    self.user = sharedProfileManager.user;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -106,7 +111,7 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
-    self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
+    self.dreamBeingAdded.dreamer = self.user;
     self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
     
     NSLog(@"DREAMER: %@", self.dreamBeingAdded.dreamer);

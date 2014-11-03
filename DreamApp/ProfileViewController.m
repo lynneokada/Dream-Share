@@ -45,7 +45,7 @@
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
     
-    userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+    //userInfo = [[CoreDataManager sharedManager] requestUserInfo];
     
     self.navigationItem.title = [[ProfileManager sharedManager] FBUserFullName];
 }

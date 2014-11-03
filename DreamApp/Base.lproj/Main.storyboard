@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="5565" y="2564"/>
         </scene>
-        <!--View Controller-->
+        <!--Friend Profile View Controller-->
         <scene sceneID="Fnh-O7-IE5">
             <objects>
-                <viewController id="FSN-kD-XO3" sceneMemberID="viewController">
+                <viewController id="FSN-kD-XO3" customClass="FriendProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GYn-oG-s9Q"/>
                         <viewControllerLayoutGuide type="bottom" id="485-Rp-mP7"/>
@@ -269,6 +269,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="slB-4z-UAe">
                                 <rect key="frame" x="235" y="72" width="130" height="130"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="p2z-RP-0Ll"/>
                                     <constraint firstAttribute="width" constant="130" id="vtf-o5-ldU"/>
@@ -315,6 +316,9 @@
                             <constraint firstItem="vi5-9G-ICt" firstAttribute="top" secondItem="WIV-nq-jCL" secondAttribute="bottom" constant="-1" id="xTz-hN-bzn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="slB-4z-UAe" id="g4D-P6-o0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aus-Ha-gQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -637,6 +641,7 @@
                                 <connections>
                                     <outlet property="friendName" destination="xt2-Xx-Thn" id="oJp-VP-Fux"/>
                                     <outlet property="imageView" destination="d6j-eU-uPH" id="858-RI-IUt"/>
+                                    <segue destination="FSN-kD-XO3" kind="show" identifier="showFriend" id="otr-mO-S0Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -649,7 +654,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcd-e2-bO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7027" y="4842"/>
+            <point key="canvasLocation" x="4551" y="4844"/>
         </scene>
         <!--Show Dream View Controller-->
         <scene sceneID="NMa-DZ-9nT">
@@ -1254,9 +1259,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9nE-8i-evv"/>
         <segue reference="Agc-bG-7qX"/>
-        <segue reference="f4s-dY-Tx5"/>
+        <segue reference="9nE-8i-evv"/>
         <segue reference="nRM-fP-bUC"/>
+        <segue reference="otr-mO-S0Y"/>
+        <segue reference="f4s-dY-Tx5"/>
     </inferredMetricsTieBreakers>
 </document>

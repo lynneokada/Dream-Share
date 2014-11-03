@@ -10,6 +10,7 @@
 #import "FriendTableViewCell.h"
 #import "ProfileManager.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "FriendProfileViewController.h"
 
 @interface FriendsTableViewController ()
 
@@ -61,12 +62,6 @@
      }];
 }
 
-- (void) viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:YES];
-    
-}
-
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -85,6 +80,19 @@
     cell.imageView.image = image;
     
     return cell;
+}
+
+ #pragma mark - Navigation
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showFriend"])
+    {
+        FriendProfileViewController *friendProfileViewController = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        
+        friendProfileViewController.navTitle = [facebookFriends[selectedIndexPath.row] objectForKey:@"name"];
+    }
 }
 
 /*
@@ -121,14 +129,6 @@
  }
  */
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

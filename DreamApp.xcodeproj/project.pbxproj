@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20052381A0802DD005895FC /* FriendProfileViewController.m */; };
 		D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20D123519DF51E800DE7485 /* SearchViewController.m */; };
 		D212713D1A043BE10063BFA1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21271391A043BE10063BFA1 /* Bolts.framework */; };
 		D212713E1A043BE10063BFA1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212713A1A043BE10063BFA1 /* FacebookSDK.framework */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D20052371A0802DD005895FC /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
+		D20052381A0802DD005895FC /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
 		D20D123419DF51E800DE7485 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D20D123519DF51E800DE7485 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D21271391A043BE10063BFA1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = DreamApp/FBSDK/Bolts.framework; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */,
 				D28DFC701A02BA0500C55143 /* FriendTableViewCell.h */,
 				D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */,
+				D20052371A0802DD005895FC /* FriendProfileViewController.h */,
+				D20052381A0802DD005895FC /* FriendProfileViewController.m */,
 				D26A3B021A0242A900CFB30F /* FriendDreamViewController.h */,
 				D26A3B031A0242A900CFB30F /* FriendDreamViewController.m */,
 				D2594C9919E70DA70014F22B /* EditProfileViewController.h */,
@@ -433,6 +438,7 @@
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
+				D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */,
 				D21271431A0443CC0063BFA1 /* Dream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

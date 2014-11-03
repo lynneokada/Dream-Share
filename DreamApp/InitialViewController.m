@@ -114,6 +114,7 @@
          if (error)
          {
              //error handling no wifi
+             
          } else {
              
              NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", user.objectID];
@@ -125,16 +126,17 @@
                  
                  NSLog(@"username: %@", user.name);
                  NSLog(@"user_id: %@", user.objectID);
-                 NSLog(@"user.count %d", [[CoreDataManager sharedManager] requestUserInfo].count);
+                 NSLog(@"user.count %lu", (unsigned long)[[CoreDataManager sharedManager] requestUserInfo].count);
                  
                  if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
                  {
                      NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
                      userLoggingIn = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
                     
-                     [ProfileManager sharedManager].FBUserFullName = user.name;
+                     [ProfileManager sharedManager].FBUserFullName = user.name; //navigationbarTitle
                      userLoggingIn.fbFullName = user.name;
                      userLoggingIn.fbUserID = user.objectID;
+                     
                      
                  }
              });
