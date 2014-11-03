@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Dream.h"
 
-@interface ServerManager : NSObject
+@interface ServerManager : NSObject <NSURLSessionDataDelegate>
 
 + (instancetype) sharedManager;
 

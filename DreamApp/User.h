@@ -26,4 +26,6 @@
 - (void)addUserDream:(NSSet *)values;
 - (void)removeUserDream:(NSSet *)values;
 
+- (NSDictionary*)toDictionary;
+
 @end

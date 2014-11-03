@@ -8,6 +8,7 @@
 
 #import "ServerManager.h"
 #import "Global.h"
+#import "User.h"
 
 @implementation ServerManager
 
@@ -30,7 +31,7 @@
 
 - (void)postDream:(Dream*) dream{
     
-    NSDictionary *dictionaryDreamLog = @{@"user_id": dream.dreamer,
+    NSDictionary *dictionaryDreamLog = @{@"user_id": dream.dreamer.fbUserID,
                                          @"dreamContent": dream.dreamContent
                                          //@"dreamTags": dream.tags,
                                          //@"dreamComments": dream.comment

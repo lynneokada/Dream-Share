@@ -21,4 +21,9 @@
 @dynamic dreamer;
 @dynamic tags;
 
+- (NSDictionary*)toDictionary
+{
+    return @{@"dreamContent" : self.dreamContent, @"_id" : self.db_id};
+}
+
 @end

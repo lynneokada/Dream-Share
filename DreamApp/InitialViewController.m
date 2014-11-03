@@ -131,12 +131,11 @@
                  if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
                  {
                      NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-                     userLoggingIn = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+                     User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
                     
                      [ProfileManager sharedManager].FBUserFullName = user.name; //navigationbarTitle
-                     userLoggingIn.fbFullName = user.name;
-                     userLoggingIn.fbUserID = user.objectID;
-                     
+                     userBeingAdded.fbFullName = user.name;
+                     userBeingAdded.fbUserID = user.objectID;
                      
                  }
              });

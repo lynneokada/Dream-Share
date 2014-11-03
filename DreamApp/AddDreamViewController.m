@@ -21,7 +21,6 @@
 {
     UIToolbar *keyboardToolBar;
     NSMutableArray *dreamTags;
-    NSMutableArray *userInfo;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -61,9 +60,6 @@
                                              selector:@selector(textFieldDidChange)
                                                  name:@"UITextFieldTextDidChangeNotification"
                                                object:nil];
-    
-    ProfileManager *sharedProfileManager = [ProfileManager sharedManager];
-    self.user = sharedProfileManager.user;
 }
 
 - (void)viewDidAppear:(BOOL)animated

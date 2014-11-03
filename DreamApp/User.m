@@ -16,4 +16,9 @@
 @dynamic fbUserID;
 @dynamic userDream;
 
+- (NSDictionary*) toDictionary
+{
+    return @{@"fbUserID" : self.fbUserID, @"fbFullName" : self.fbFullName};
+}
+
 @end

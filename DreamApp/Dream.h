@@ -34,4 +34,6 @@
 - (void)addTags:(NSSet *)values;
 - (void)removeTags:(NSSet *)values;
 
+- (NSDictionary*) toDictionary;
+
 @end
