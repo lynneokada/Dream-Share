@@ -10,6 +10,7 @@
 
 @interface FriendProfileViewController : UIViewController
 
-@property (nonatomic, strong) NSString *navTitle;
+@property (nonatomic, strong) NSString *friendName;
+@property (nonatomic, strong) NSString *idString;
 
 @end

@@ -19,11 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",self.idString];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+
+    self.imageView.image = image;
     self.imageView.layer.cornerRadius = self.imageView.frame.size.height /2;
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.borderWidth = 0;
     
-    self.navigationItem.title = self.navTitle;
+    self.navigationItem.title = self.friendName;
 }
 
 - (void)didReceiveMemoryWarning {

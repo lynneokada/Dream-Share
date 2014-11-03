@@ -18,8 +18,8 @@
 
 @implementation FriendsTableViewController
 {
-    UIImage *friendImage;
     NSMutableArray *facebookFriends;
+    NSString *imageURL;
 }
 
 - (void)viewDidLoad {
@@ -75,7 +75,7 @@
     
     cell.friendName.text = [facebookFriends[indexPath.row] objectForKey:@"name"];
     
-    NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [facebookFriends[indexPath.row] objectForKey:@"id"]];
+    imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [facebookFriends[indexPath.row] objectForKey:@"id"]];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
     cell.imageView.image = image;
     
@@ -91,7 +91,8 @@
         FriendProfileViewController *friendProfileViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
-        friendProfileViewController.navTitle = [facebookFriends[selectedIndexPath.row] objectForKey:@"name"];
+        friendProfileViewController.friendName = [facebookFriends[selectedIndexPath.row] objectForKey:@"name"];
+        friendProfileViewController.idString = [facebookFriends[selectedIndexPath.row] objectForKey:@"id"];
     }
 }
 
