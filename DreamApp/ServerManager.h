@@ -14,5 +14,8 @@
 + (instancetype) sharedManager;
 
 - (void)postDream:(Dream*) dream;
+- (void)postUser:(User*) user;
+- (void) getDreamWith:(NSString*)user_id andStoreInto:(NSMutableArray*)dreamArray;
+- (void) getUserObject_id:(NSMutableArray*)object_id;
 
 @end

@@ -17,6 +17,7 @@
 #import "ShowDreamViewController.h"
 #import "ProfileManager.h"
 #import "User.h"
+#import "ServerManager.h"
 
 @interface ProfileViewController ()
 
@@ -31,6 +32,7 @@
     //array of dreams fetched from core data
     NSMutableArray *dreams;
     NSMutableArray *userInfo;
+    NSMutableArray *objectID;
 }
 @synthesize navigationItem;
 
@@ -45,6 +47,8 @@
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
     
+    objectID = [[NSMutableArray alloc] init];
+    
     self.navigationItem.title = [[ProfileManager sharedManager] FBUserFullName];
 }
 
@@ -55,6 +59,9 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     dreams = [[CoreDataManager sharedManager] requestDreams];
     userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+    
+    [[ServerManager sharedManager] getUserObject_id:objectID];
+    NSLog(@"%@", objectID[0]);
     
     [self.tableView reloadData];
 }

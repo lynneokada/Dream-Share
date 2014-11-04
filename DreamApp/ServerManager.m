@@ -37,7 +37,7 @@
                                          //@"dreamComments": dream.comment
                                          };
     
-    NSURL *url = [NSURL URLWithString:SERVER_URL];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dream", SERVER_URL]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"POST"];
@@ -63,11 +63,41 @@
     [dataUpload resume];
 }
 
-/*
-- (void) getDream:(NSString*)dreamer_id {
-    NSURL *url = [NSURL URLWithString:SERVER_URL];
+- (void)postUser:(User*)user
+{
+    NSDictionary *dictionaryUser = @{@"user_id" : user.fbUserID,
+                                     @"user_fullname" : user.fbFullName};
     
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];
     
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"POST"];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionaryUser options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionUploadTask *dataUpload = [urlSession uploadTaskWithRequest:request fromData:jsonData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        NSInteger responseStatusCode = [httpResponse statusCode];
+        
+        if (responseStatusCode == 200)
+        {
+            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"uploaded");
+        } else {
+            //error handing?
+            NSLog(@"wtf");
+        }
+    }];
+    [dataUpload resume];
+}
+
+- (void) getUserObject_id:(NSMutableArray*)object_id
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"GET"];
@@ -84,10 +114,10 @@
                                           {
                                               NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                               
-                                              [dreamCollection removeAllObjects];
+                                              [object_id removeAllObjects];
                                               for (int i = 0; i < [downloadedJSON count]; i++)
                                               {
-                                                  [dreamCollection addObject:downloadedJSON[i][@"content"]];
+                                                  [object_id addObject:downloadedJSON[i][@"content"]];
                                               }
                                           }
                                           else
@@ -96,6 +126,40 @@
                                           }
                                       }];
     [dataTask resume];
+
 }
-*/
+
+- (void) getDreamWith:(NSString*)user_id andStoreInto:(NSMutableArray *)dreamArray
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dream", SERVER_URL]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                          NSInteger responseStatusCode = [httpResponse statusCode];
+                                          
+                                          if (responseStatusCode == 200 && data)
+                                          {
+                                              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                              
+                                              [dreamArray removeAllObjects];
+                                              for (int i = 0; i < [downloadedJSON count]; i++)
+                                              {
+                                                  [dreamArray addObject:downloadedJSON[i][@"content"]];
+                                              }
+                                          }
+                                          else
+                                          {
+                                        
+                                          }
+                                      }];
+    [dataTask resume];
+}
+
 @end

@@ -15,6 +15,7 @@
 #import "User.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
+#import "ServerManager.h"
 
 @interface InitialViewController ()
 
@@ -26,7 +27,6 @@
 
 @implementation InitialViewController
 {
-    User *userLoggingIn;
     NSMutableArray *facebookFriends;
 }
 - (void)viewDidLoad
@@ -137,6 +137,7 @@
                      userBeingAdded.fbFullName = user.name;
                      userBeingAdded.fbUserID = user.objectID;
                      
+                     [[ServerManager sharedManager] postUser:userBeingAdded];
                  }
              });
          }
