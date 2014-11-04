@@ -885,7 +885,8 @@
                     <navigationItem key="navigationItem" title="Record" id="eiy-9D-gBP">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="94l-PE-MGJ">
                             <connections>
-                                <segue destination="xKO-9P-tjJ" kind="unwind" identifier="doneRecording" unwindAction="unwindToEditDreamViewController:" id="FY3-oO-woj"/>
+                                <action selector="doneTapped:" destination="Ne4-Yb-xoD" id="UiU-JA-1QS"/>
+                                <segue destination="xKO-9P-tjJ" kind="unwind" identifier="doneRecording" unwindAction="unwindToAddDreamViewController:" id="cec-6x-ORb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -899,7 +900,7 @@
             </objects>
             <point key="canvasLocation" x="7785" y="6288"/>
         </scene>
-        <!--edit-->
+        <!--Add Dream View Controller-->
         <scene sceneID="HjD-UN-t3v">
             <objects>
                 <viewController id="1uP-Wb-MZn" customClass="AddDreamViewController" sceneMemberID="viewController">
@@ -972,7 +973,7 @@
                             <constraint firstItem="cLb-z1-baV" firstAttribute="top" secondItem="vsL-Gt-faE" secondAttribute="topMargin" constant="63" id="zKZ-SG-qpn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="edit" id="ZHm-6B-9c8">
+                    <navigationItem key="navigationItem" id="ZHm-6B-9c8">
                         <barButtonItem key="rightBarButtonItem" title="Record" id="jHG-fw-EvI">
                             <connections>
                                 <segue destination="Ne4-Yb-xoD" kind="show" identifier="recordDream" id="wO7-F6-fMD"/>

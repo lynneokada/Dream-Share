@@ -70,12 +70,20 @@
 }
 
 -(void)back:(UIBarButtonItem *)sender {
-
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure you want to cancel your recording?" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
-                           
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self performSegueWithIdentifier:@"doneRecording" sender:self];
+    }];
+    
     [alert addAction:cancel];
+    [alert addAction:yes];
+    
+    if (yes)
+    {
+        //delete the recording
+    }
     
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -83,7 +91,7 @@
 - (IBAction)recordPauseTapped:(id)sender
 {
     self.tabBarController.tabBar.userInteractionEnabled = NO;
-
+    
     if (!self.recorder.recording)
     {
         AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -118,12 +126,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    AddDreamViewController *addDreamViewController = [segue destinationViewController];
-    
-    
-    addDreamViewController.pathToRecording = pathToRecording;
-    
-    self.tabBarController.tabBar.userInteractionEnabled = YES;
+    if ([segue.identifier isEqualToString:@"doneRecording"])
+    {
+        AddDreamViewController *addDreamViewController = [segue destinationViewController];
+        
+        addDreamViewController.pathToRecording = pathToRecording;
+        
+        self.tabBarController.tabBar.userInteractionEnabled = YES;
+    }
 }
 
 @end

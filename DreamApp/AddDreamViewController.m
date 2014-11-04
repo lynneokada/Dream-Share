@@ -83,9 +83,10 @@
 {
     [super viewDidDisappear:YES];
     
-    if (self.textView.text.length == 0)
+    //if theres absolutely no content
+    if (self.textView.text.length == 0 && ![[NSFileManager defaultManager] fileExistsAtPath:self.pathToRecording])
     {
-        //delete the dream
+        
     }
 }
 
@@ -179,13 +180,14 @@
     if ([self.textField isFirstResponder])
     {
         [self.textField resignFirstResponder];
-    } else if ([self.textView isFirstResponder])
+    }
+    else if ([self.textView isFirstResponder])
     {
         [self.textView resignFirstResponder];
     }
 }
 
-- (IBAction)unwindToEditDreamViewController:(UIStoryboardSegue *)unwindSegue
+- (IBAction)unwindToAddDreamViewController:(UIStoryboardSegue *)unwindSegue
 {
     
 }
@@ -195,9 +197,25 @@
     if ([segue.identifier isEqualToString:@"recordDream"])
     {
         RecordViewController *recordViewController = [segue destinationViewController];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:self.pathToRecording])
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure you want to redo your recording?" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+            
+            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [self.navigationController pushViewController:recordViewController animated:YES];
+            }];
+            
+            [alert addAction:cancel];
+            [alert addAction:yes];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+
         recordViewController.dreamBeingAdded = self.dreamBeingAdded;
+        }
     }
 }
-
 
 @end

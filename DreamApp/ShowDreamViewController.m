@@ -30,7 +30,8 @@
 @implementation ShowDreamViewController
 @synthesize keyboardToolBar;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     dreamTags = [[NSMutableArray alloc] init];
@@ -130,12 +131,13 @@
     NSString *pathToRecording = [NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder];
     NSURL *recordingURL = [NSURL fileURLWithPath:pathToRecording];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
-    NSLog(@"RECORDING_URL: %@", recordingURL);
+
     [player setDelegate:self];
     [player play];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     if ([segue.identifier isEqualToString:@"addComment"])
     {
         CommentTableViewController *commentTableViewController = [segue destinationViewController];
