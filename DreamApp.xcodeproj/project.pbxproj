@@ -13,7 +13,6 @@
 		D212713E1A043BE10063BFA1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212713A1A043BE10063BFA1 /* FacebookSDK.framework */; };
 		D212713F1A043BE10063BFA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D212713B1A043BE10063BFA1 /* LICENSE */; };
 		D21271401A043BE10063BFA1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D212713C1A043BE10063BFA1 /* README.txt */; };
-		D21271431A0443CC0063BFA1 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271421A0443CC0063BFA1 /* Dream.m */; };
 		D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */; };
 		D21271491A0462400063BFA1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271481A0462400063BFA1 /* User.m */; };
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
@@ -25,6 +24,7 @@
 		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
 		D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF841A006BDE00C70894 /* AddDreamViewController.m */; };
 		D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */; };
+		D230C9DB1A0964E000D0D5C0 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D230C9DA1A0964E000D0D5C0 /* Dream.m */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AF71A01ACA600CFB30F /* ProfileManager.m */; };
 		D26A3AFE1A02165400CFB30F /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */; };
@@ -70,8 +70,6 @@
 		D212713A1A043BE10063BFA1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = DreamApp/FBSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		D212713B1A043BE10063BFA1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = DreamApp/FBSDK/LICENSE; sourceTree = "<group>"; };
 		D212713C1A043BE10063BFA1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = DreamApp/FBSDK/README.txt; sourceTree = "<group>"; };
-		D21271411A0443CC0063BFA1 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D21271421A0443CC0063BFA1 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentTableViewCell.h; sourceTree = "<group>"; };
 		D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentTableViewCell.m; sourceTree = "<group>"; };
 		D21271471A0462400063BFA1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -91,6 +89,8 @@
 		D22CDF841A006BDE00C70894 /* AddDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDreamViewController.m; sourceTree = "<group>"; };
 		D22CDF891A00D94800C70894 /* ShowDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDreamViewController.h; sourceTree = "<group>"; };
 		D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDreamViewController.m; sourceTree = "<group>"; };
+		D230C9D91A0964E000D0D5C0 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D230C9DA1A0964E000D0D5C0 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D26A3AF61A01ACA600CFB30F /* ProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileManager.h; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 			children = (
 				D2DF19221A02FD27002D206D /* SyncableDBObject.h */,
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
-				D21271411A0443CC0063BFA1 /* Dream.h */,
-				D21271421A0443CC0063BFA1 /* Dream.m */,
+				D230C9D91A0964E000D0D5C0 /* Dream.h */,
+				D230C9DA1A0964E000D0D5C0 /* Dream.m */,
 				D21271471A0462400063BFA1 /* User.h */,
 				D21271481A0462400063BFA1 /* User.m */,
 				D2DF192B1A02FD50002D206D /* Comment.h */,
@@ -431,6 +431,7 @@
 				D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
+				D230C9DB1A0964E000D0D5C0 /* Dream.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
 				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D2DF19301A02FD5A002D206D /* Tag.m in Sources */,
@@ -439,7 +440,6 @@
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
 				D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */,
-				D21271431A0443CC0063BFA1 /* Dream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,9 @@
 @end
 
 @implementation RecordViewController
+{
+    NSString *pathToRecording;
+}
 @synthesize doneBarButton, recordPauseButton, recorder;
 
 - (void)viewDidLoad
@@ -30,6 +33,8 @@
     
     UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"cancel" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
     self.navigationItem.leftBarButtonItem = customBackButton;
+    
+    pathToRecording = [[FileSystemManager sharedManager] saveNewRecordingWithName:@"recording.m4a" atPath:self.dreamBeingAdded.pathToFolder];
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -44,7 +49,7 @@
     [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
     // Initiate and prepare the recorder
-    self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:self.dreamBeingAdded.pathToFolder] settings:recordSetting error:NULL];
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:pathToRecording] settings:recordSetting error:NULL];
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
     [self.recorder prepareToRecord];
@@ -114,9 +119,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     AddDreamViewController *addDreamViewController = [segue destinationViewController];
-    self.dreamBeingAdded.recordingName = @"recording.m4a";
     
-    NSString *pathToRecording = [[FileSystemManager sharedManager] saveNewRecordingWithName:self.dreamBeingAdded.recordingName atPath:self.dreamBeingAdded.pathToFolder];
+    
     addDreamViewController.pathToRecording = pathToRecording;
     
     self.tabBarController.tabBar.userInteractionEnabled = YES;

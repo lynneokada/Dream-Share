@@ -705,7 +705,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playTapped:" destination="KGX-EM-FjZ" eventType="touchUpInside" id="jCU-qh-a8P"/>
+                                    <action selector="playTapped:" destination="KGX-EM-FjZ" eventType="touchUpInside" id="Tb5-w8-MwG"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
@@ -922,12 +922,13 @@
                                     <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="0oT-nn-tfu"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type here" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
                                 <rect key="frame" x="0.0" y="121" width="600" height="122"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="122" id="ETW-HO-wY5"/>
                                 </constraints>
+                                <color key="textColor" white="0.82270665322580661" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
@@ -1263,6 +1264,6 @@
         <segue reference="9nE-8i-evv"/>
         <segue reference="nRM-fP-bUC"/>
         <segue reference="RAo-vR-tBp"/>
-        <segue reference="otr-mO-S0Y"/>
+        <segue reference="bKc-Qi-twy"/>
     </inferredMetricsTieBreakers>
 </document>

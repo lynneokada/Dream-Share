@@ -2,7 +2,7 @@
 //  Dream.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/31/14.
+//  Created by Lynne Okada on 11/4/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -16,7 +16,6 @@
 
 @property (nonatomic, retain) NSString * dreamContent;
 @property (nonatomic, retain) NSString * pathToFolder;
-@property (nonatomic, retain) NSString * recordingName;
 @property (nonatomic, retain) NSSet *comment;
 @property (nonatomic, retain) User *dreamer;
 @property (nonatomic, retain) NSSet *tags;
@@ -33,7 +32,5 @@
 - (void)removeTagsObject:(Tag *)value;
 - (void)addTags:(NSSet *)values;
 - (void)removeTags:(NSSet *)values;
-
-- (NSDictionary*) toDictionary;
 
 @end

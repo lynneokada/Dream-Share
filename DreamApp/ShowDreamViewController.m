@@ -14,6 +14,7 @@
 {
     UIToolbar *keyboardToolBar;
     NSMutableArray *dreamTags;
+    AVAudioPlayer *player;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -63,7 +64,7 @@
 
     self.textView.text = self.dream.dreamContent;
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", self.dream.pathToFolder, self.dream.recordingName]])
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder]])
     {
         self.playButton.enabled = NO;
     } else {
@@ -118,6 +119,20 @@
     {
         [self.textView resignFirstResponder];
     }
+}
+- (IBAction)playTapped:(id)sender
+{
+    [self.playButton setEnabled:YES];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session setActive:YES error:nil];
+    
+    NSString *pathToRecording = [NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder];
+    NSURL *recordingURL = [NSURL fileURLWithPath:pathToRecording];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:recordingURL error:nil];
+    NSLog(@"RECORDING_URL: %@", recordingURL);
+    [player setDelegate:self];
+    [player play];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

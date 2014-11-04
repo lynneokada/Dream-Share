@@ -2,7 +2,7 @@
 //  Dream.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/31/14.
+//  Created by Lynne Okada on 11/4/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -16,14 +16,8 @@
 
 @dynamic dreamContent;
 @dynamic pathToFolder;
-@dynamic recordingName;
 @dynamic comment;
 @dynamic dreamer;
 @dynamic tags;
-
-- (NSDictionary*)toDictionary
-{
-    return @{@"dreamContent" : self.dreamContent, @"_id" : self.db_id};
-}
 
 @end
