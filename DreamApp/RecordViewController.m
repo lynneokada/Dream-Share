@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"cancel" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = customBackButton;
+    
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryRecord error:nil];
@@ -59,6 +62,17 @@
     //stahp recording
     [self.recorder stop];
     [[AVAudioSession sharedInstance] setActive:NO error:nil];
+}
+
+-(void)back:(UIBarButtonItem *)sender {
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure you want to cancel your recording?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+                           
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)recordPauseTapped:(id)sender

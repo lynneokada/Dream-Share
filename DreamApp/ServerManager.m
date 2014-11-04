@@ -129,7 +129,7 @@
 
 }
 
-- (void) getDreamWith:(NSString*)user_id andStoreInto:(NSMutableArray *)dreamArray
+- (void) getDream:(NSMutableArray *)dreamArray
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dream", SERVER_URL]];
     
@@ -151,7 +151,7 @@
                                               [dreamArray removeAllObjects];
                                               for (int i = 0; i < [downloadedJSON count]; i++)
                                               {
-                                                  [dreamArray addObject:downloadedJSON[i][@"content"]];
+                                                  [dreamArray addObject:downloadedJSON[i][@"dreamContent"]];
                                               }
                                           }
                                           else

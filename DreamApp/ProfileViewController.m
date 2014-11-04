@@ -31,6 +31,7 @@
 @implementation ProfileViewController {
     //array of dreams fetched from core data
     NSMutableArray *dreams;
+    NSMutableArray *dreamsFromServer;
     NSMutableArray *userInfo;
     NSMutableArray *objectID;
 }
@@ -48,7 +49,8 @@
     self.profilePictureView.layer.borderWidth = 0;
     
     objectID = [[NSMutableArray alloc] init];
-    
+    dreamsFromServer = [[NSMutableArray alloc] init];
+
     self.navigationItem.title = [[ProfileManager sharedManager] FBUserFullName];
 }
 
@@ -59,9 +61,6 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     dreams = [[CoreDataManager sharedManager] requestDreams];
     userInfo = [[CoreDataManager sharedManager] requestUserInfo];
-    
-    [[ServerManager sharedManager] getUserObject_id:objectID];
-    NSLog(@"%@", objectID[0]);
     
     [self.tableView reloadData];
 }
