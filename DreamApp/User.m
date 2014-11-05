@@ -2,7 +2,7 @@
 //  User.m
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/31/14.
+//  Created by Lynne Okada on 11/4/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -14,11 +14,7 @@
 
 @dynamic fbFullName;
 @dynamic fbUserID;
+@dynamic userObjectID;
 @dynamic userDream;
-
-- (NSDictionary*) toDictionary
-{
-    return @{@"fbUserID" : self.fbUserID, @"fbFullName" : self.fbFullName};
-}
 
 @end

@@ -2,7 +2,7 @@
 //  User.h
 //  DreamApp
 //
-//  Created by Lynne Okada on 10/31/14.
+//  Created by Lynne Okada on 11/4/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) NSString * fbFullName;
 @property (nonatomic, retain) NSString * fbUserID;
+@property (nonatomic, retain) NSString * userObjectID;
 @property (nonatomic, retain) NSSet *userDream;
 @end
 
@@ -25,7 +26,5 @@
 - (void)removeUserDreamObject:(Dream *)value;
 - (void)addUserDream:(NSSet *)values;
 - (void)removeUserDream:(NSSet *)values;
-
-- (NSDictionary*)toDictionary;
 
 @end

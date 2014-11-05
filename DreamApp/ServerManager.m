@@ -54,10 +54,13 @@
         
         if (responseStatusCode == 200)
         {
+            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
             //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"userDocumentID: %@", userDocumentID);
             NSLog(@"uploaded");
         } else {
             //error handing?
+            NSLog(@"wtf");
         }
     }];
     [dataUpload resume];
@@ -127,6 +130,39 @@
                                       }];
     [dataTask resume];
 
+}
+
+- (void)getMyObject_id:(NSMutableArray *)myObject_id
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                          NSInteger responseStatusCode = [httpResponse statusCode];
+                                          
+                                          if (responseStatusCode == 200 && data)
+                                          {
+                                              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                              
+                                              [myObject_id removeAllObjects];
+                                              for (int i = 0; i < [downloadedJSON count]; i++)
+                                              {
+                                                  [myObject_id addObject:downloadedJSON[i][@"dreamContent"]];
+                                              }
+                                          }
+                                          else
+                                          {
+                                              
+                                          }
+                                      }];
+    [dataTask resume];
 }
 
 - (void) getDream:(NSMutableArray *)dreamArray
