@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendProfileViewController : UIViewController
+@interface FriendProfileViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *friendName;
-@property (nonatomic, strong) NSString *idString;
+@property (nonatomic, strong) NSString *friendID;
 
 @end

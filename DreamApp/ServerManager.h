@@ -13,9 +13,10 @@
 
 + (instancetype) sharedManager;
 
+@property (nonatomic, strong) NSString *userObjectID;
+
 - (void)postDream:(Dream*) dream;
 - (void)postUser:(User*) user;
-- (void) getDream:(NSMutableArray *)dreamArray;
-- (void) getUserObject_id:(NSMutableArray*)object_id;
+- (void) getDream:(NSString *)userID;
 
 @end

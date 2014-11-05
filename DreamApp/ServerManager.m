@@ -31,13 +31,14 @@
 
 - (void)postDream:(Dream*) dream{
     
-    NSDictionary *dictionaryDreamLog = @{@"user_id": dream.dreamer.fbUserID,
-                                         @"dreamContent": dream.dreamContent
+    NSDictionary *dictionaryDreamLog = @{
+                                         @"dreamContent": dream.dreamContent,
+                                         @"comments":@[]
                                          //@"dreamTags": dream.tags,
                                          //@"dreamComments": dream.comment
                                          };
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dream", SERVER_URL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,dream.dreamer.fbUserID]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"POST"];
@@ -54,10 +55,13 @@
         
         if (responseStatusCode == 200)
         {
-            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
-            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSLog(@"userDocumentID: %@", userDocumentID);
-            NSLog(@"uploaded");
+            NSDictionary *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"%@",downloadedJSON);
+//            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
+//            self.userObjectID = userDocumentID;
+//            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//            NSLog(@"userDocumentID: %@", userDocumentID);
+//            NSLog(@"uploaded");
         } else {
             //error handing?
             NSLog(@"wtf");
@@ -88,8 +92,11 @@
         
         if (responseStatusCode == 200)
         {
-            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
+            NSLog(@"userDocumentID: %@", userDocumentID);
             NSLog(@"uploaded");
+            
+            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         } else {
             //error handing?
             NSLog(@"wtf");
@@ -98,9 +105,9 @@
     [dataUpload resume];
 }
 
-- (void) getUserObject_id:(NSMutableArray*)object_id
+- (void) getDream:(NSString *)userID
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,userID]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"GET"];
@@ -116,79 +123,12 @@
                                           if (responseStatusCode == 200 && data)
                                           {
                                               NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              
-                                              [object_id removeAllObjects];
-                                              for (int i = 0; i < [downloadedJSON count]; i++)
-                                              {
-                                                  [object_id addObject:downloadedJSON[i][@"content"]];
-                                              }
-                                          }
-                                          else
-                                          {
-                                              
-                                          }
-                                      }];
-    [dataTask resume];
-
-}
-
-- (void)getMyObject_id:(NSMutableArray *)myObject_id
-{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    [request setHTTPMethod:@"GET"];
-    
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-    
-    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-                                      {
-                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-                                          NSInteger responseStatusCode = [httpResponse statusCode];
-                                          
-                                          if (responseStatusCode == 200 && data)
-                                          {
-                                              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              
-                                              [myObject_id removeAllObjects];
-                                              for (int i = 0; i < [downloadedJSON count]; i++)
-                                              {
-                                                  [myObject_id addObject:downloadedJSON[i][@"dreamContent"]];
-                                              }
-                                          }
-                                          else
-                                          {
-                                              
-                                          }
-                                      }];
-    [dataTask resume];
-}
-
-- (void) getDream:(NSMutableArray *)dreamArray
-{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dream", SERVER_URL]];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    [request setHTTPMethod:@"GET"];
-    
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
-    
-    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-                                      {
-                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-                                          NSInteger responseStatusCode = [httpResponse statusCode];
-                                          
-                                          if (responseStatusCode == 200 && data)
-                                          {
-                                              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              
-                                              [dreamArray removeAllObjects];
-                                              for (int i = 0; i < [downloadedJSON count]; i++)
-                                              {
-                                                  [dreamArray addObject:downloadedJSON[i][@"dreamContent"]];
-                                              }
+                                              NSLog(@"%@",downloadedJSON);
+//                                              [dreamArray removeAllObjects];
+//                                              for (int i = 0; i < [downloadedJSON count]; i++)
+//                                              {
+//                                                  [dreamArray addObject:downloadedJSON[i][@"dreamContent"]];
+//                                              }
                                           }
                                           else
                                           {

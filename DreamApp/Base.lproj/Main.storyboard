@@ -318,6 +318,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="slB-4z-UAe" id="g4D-P6-o0s"/>
+                        <outlet property="tableView" destination="vi5-9G-ICt" id="wTy-8c-hAv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aus-Ha-gQO" userLabel="First Responder" sceneMemberID="firstResponder"/>

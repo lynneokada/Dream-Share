@@ -7,21 +7,30 @@
 //
 
 #import "FriendProfileViewController.h"
+#import "ServerManager.h"
+#import "FriendDreamViewController.h"
 
 @interface FriendProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation FriendProfileViewController
+{
+    NSMutableArray *dreams;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",self.idString];
+    NSString* imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",self.friendID];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
 
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     self.imageView.image = image;
     self.imageView.layer.cornerRadius = self.imageView.frame.size.height /2;
     self.imageView.layer.masksToBounds = YES;
@@ -30,19 +39,36 @@
     self.navigationItem.title = self.friendName;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[ServerManager sharedManager] getDream:self.friendID];
+    [self.tableView reloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [dreams count];
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
+    
+    NSString *title = @"dream title";
+    
+    cell.textLabel.text = title;
+    
+    return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
+    
+    NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+    
+    friendDreamViewController.dream = dreams[selectedIndexPath.row];
+}
 
 @end

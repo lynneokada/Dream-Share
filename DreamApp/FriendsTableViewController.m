@@ -92,7 +92,7 @@
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
         friendProfileViewController.friendName = [facebookFriends[selectedIndexPath.row] objectForKey:@"name"];
-        friendProfileViewController.idString = [facebookFriends[selectedIndexPath.row] objectForKey:@"id"];
+        friendProfileViewController.friendID = [facebookFriends[selectedIndexPath.row] objectForKey:@"id"];
     }
 }
 
