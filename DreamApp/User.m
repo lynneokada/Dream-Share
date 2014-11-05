@@ -14,7 +14,6 @@
 
 @dynamic fbFullName;
 @dynamic fbUserID;
-@dynamic userObjectID;
 @dynamic userDream;
 
 @end

@@ -9,6 +9,8 @@
 #import "ServerManager.h"
 #import "Global.h"
 #import "User.h"
+#import "ProfileManager.h"
+#import "AppDelegate.h"
 
 @implementation ServerManager
 
@@ -28,17 +30,15 @@
     return self;
 }
 
-
-- (void)postDream:(Dream*) dream{
-    
+- (void)postDream:(Dream *)dream
+{
     NSDictionary *dictionaryDreamLog = @{
                                          @"dreamContent": dream.dreamContent,
-                                         @"comments":@[]
                                          //@"dreamTags": dream.tags,
                                          //@"dreamComments": dream.comment
                                          };
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,dream.dreamer.fbUserID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams", SERVER_URL]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"POST"];
@@ -57,17 +57,18 @@
         {
             NSDictionary *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSLog(@"%@",downloadedJSON);
-//            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
-//            self.userObjectID = userDocumentID;
-//            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//            NSLog(@"userDocumentID: %@", userDocumentID);
-//            NSLog(@"uploaded");
+            //            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
+            //            self.userObjectID = userDocumentID;
+            //            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            //            NSLog(@"userDocumentID: %@", userDocumentID);
+            //            NSLog(@"uploaded");
         } else {
             //error handing?
             NSLog(@"wtf");
         }
     }];
     [dataUpload resume];
+
 }
 
 - (void)postUser:(User*)user
@@ -92,9 +93,16 @@
         
         if (responseStatusCode == 200)
         {
-            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
-            NSLog(@"userDocumentID: %@", userDocumentID);
+            NSString *mongoUserID = [NSString stringWithUTF8String:[data bytes]];
+            
+            [ProfileManager sharedManager].user.db_id = mongoUserID;
+            
+            NSLog(@"userDocumentID: %@", mongoUserID);
             NSLog(@"uploaded");
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+            });
             
             //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         } else {

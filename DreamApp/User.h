@@ -16,7 +16,6 @@
 
 @property (nonatomic, retain) NSString * fbFullName;
 @property (nonatomic, retain) NSString * fbUserID;
-@property (nonatomic, retain) NSString * userObjectID;
 @property (nonatomic, retain) NSSet *userDream;
 @end
 

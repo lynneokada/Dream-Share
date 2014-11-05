@@ -49,7 +49,7 @@
     
     dreamsFromServer = [[NSMutableArray alloc] init];
 
-    self.navigationItem.title = [[ProfileManager sharedManager] FBUserFullName];
+    self.navigationItem.title = [ProfileManager sharedManager].user.fbFullName;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,8 +59,6 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     dreams = [[CoreDataManager sharedManager] requestDreams];
     userInfo = [[CoreDataManager sharedManager] requestUserInfo];
-    
-    [[ServerManager sharedManager] getDream:@"10204296019656434"];
     
     [self.tableView reloadData];
 }

@@ -132,8 +132,6 @@
                  {
                      NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
                      User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-                    
-                     [ProfileManager sharedManager].FBUserFullName = user.name;
 
                      userBeingAdded.fbFullName = user.name;
                      userBeingAdded.fbUserID = user.objectID;
