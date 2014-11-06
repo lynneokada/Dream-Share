@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class Dream;
-
 @interface FriendDreamViewController : UIViewController <UITextViewDelegate>
 
-@property (nonatomic, strong) Dream *dream;
+@property (nonatomic, strong) NSString *dreamContent;
 
 @end

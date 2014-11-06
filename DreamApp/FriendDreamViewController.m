@@ -7,7 +7,6 @@
 //
 
 #import "FriendDreamViewController.h"
-#import "Dream.h"
 
 @interface FriendDreamViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,7 +21,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.delegate = self;
-    self.textView.text = self.dream.dreamContent;
+    self.textView.text = self.dreamContent;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }

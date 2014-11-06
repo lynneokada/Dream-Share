@@ -72,12 +72,8 @@
 {
     FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
     NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
-    
-    //create dream object
-    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-    Dream *dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
-    dreamBeingAdded.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
-    friendDreamViewController.dream = dreamBeingAdded;
+
+    friendDreamViewController.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
     
 //    friendDreamViewController.dream = dreams[selectedIndexPath.row];
 }
