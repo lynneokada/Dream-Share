@@ -924,8 +924,8 @@
                                     <action selector="playTapped:" destination="1uP-Wb-MZn" eventType="touchUpInside" id="0oT-nn-tfu"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type here" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
-                                <rect key="frame" x="0.0" y="121" width="600" height="122"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI5-UC-nAq">
+                                <rect key="frame" x="0.0" y="173" width="600" height="122"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="122" id="ETW-HO-wY5"/>
@@ -948,8 +948,17 @@
                                     <segue destination="wgk-EB-3GH" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewController:" id="Hfx-XO-YDL"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="dream title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4l-dy-3ab">
+                                <rect key="frame" x="0.0" y="132" width="600" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="BId-at-WsC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sf5-HJ-OLw">
-                                <rect key="frame" x="0.0" y="246" width="600" height="41"/>
+                                <rect key="frame" x="0.0" y="297" width="600" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="jfd-Vh-QAa"/>
@@ -964,13 +973,16 @@
                             <constraint firstItem="Ghy-YG-umX" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="A6k-M1-i69"/>
                             <constraint firstItem="sf5-HJ-OLw" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="FRQ-b8-2oB"/>
                             <constraint firstItem="VI5-UC-nAq" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="Ih0-wo-ghJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B4l-dy-3ab" secondAttribute="trailing" constant="-16" id="KvV-VQ-sOd"/>
+                            <constraint firstItem="B4l-dy-3ab" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="MqQ-XH-6eN"/>
                             <constraint firstItem="hLY-Zr-4RT" firstAttribute="top" secondItem="Ghy-YG-umX" secondAttribute="bottom" id="PFi-qR-8su"/>
+                            <constraint firstItem="sf5-HJ-OLw" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="2" id="U5A-6L-8AB"/>
+                            <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="B4l-dy-3ab" secondAttribute="bottom" constant="2" id="Zo5-Xh-pyP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ghy-YG-umX" secondAttribute="trailing" constant="-16" id="asY-vF-6MX"/>
+                            <constraint firstItem="B4l-dy-3ab" firstAttribute="top" secondItem="cLb-z1-baV" secondAttribute="bottom" constant="14" id="cok-jc-sVW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VI5-UC-nAq" secondAttribute="trailing" constant="-16" id="ddO-lu-0UD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sf5-HJ-OLw" secondAttribute="trailing" constant="-16" id="eNp-Bi-hAW"/>
                             <constraint firstItem="cLb-z1-baV" firstAttribute="leading" secondItem="vsL-Gt-faE" secondAttribute="leadingMargin" constant="-16" id="mc9-qM-XO0"/>
-                            <constraint firstItem="sf5-HJ-OLw" firstAttribute="top" secondItem="VI5-UC-nAq" secondAttribute="bottom" constant="3" id="sFf-hW-Doe"/>
-                            <constraint firstItem="VI5-UC-nAq" firstAttribute="top" secondItem="cLb-z1-baV" secondAttribute="bottom" constant="3" id="yVB-CI-kBB"/>
                             <constraint firstItem="cLb-z1-baV" firstAttribute="top" secondItem="vsL-Gt-faE" secondAttribute="topMargin" constant="63" id="zKZ-SG-qpn"/>
                         </constraints>
                     </view>
@@ -986,6 +998,7 @@
                         <outlet property="saveButton" destination="Ghy-YG-umX" id="jti-xd-21T"/>
                         <outlet property="textField" destination="sf5-HJ-OLw" id="rEZ-Ll-St2"/>
                         <outlet property="textView" destination="VI5-UC-nAq" id="f1V-tZ-Cp9"/>
+                        <outlet property="titleTextField" destination="B4l-dy-3ab" id="VjM-yc-eHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dos-M1-U4t" userLabel="First Responder" sceneMemberID="firstResponder"/>

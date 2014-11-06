@@ -7,6 +7,7 @@
     </entity>
     <entity name="Dream" representedClassName="Dream" parentEntity="SyncableDBObject" syncable="YES">
         <attribute name="dreamContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dreamTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pathToFolder" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="commentedDream" inverseEntity="Comment" syncable="YES"/>
         <relationship name="dreamer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userDream" inverseEntity="User" syncable="YES"/>
@@ -27,7 +28,7 @@
     </entity>
     <elements>
         <element name="Comment" positionX="259" positionY="-97" width="128" height="88"/>
-        <element name="Dream" positionX="-171" positionY="-70" width="128" height="118"/>
+        <element name="Dream" positionX="-171" positionY="-70" width="128" height="135"/>
         <element name="SyncableDBObject" positionX="-117" positionY="-286" width="128" height="73"/>
         <element name="Tag" positionX="160" positionY="198" width="128" height="73"/>
         <element name="User" positionX="234" positionY="63" width="128" height="88"/>

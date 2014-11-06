@@ -23,7 +23,6 @@
 		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
 		D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF841A006BDE00C70894 /* AddDreamViewController.m */; };
 		D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */; };
-		D230C9DB1A0964E000D0D5C0 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D230C9DA1A0964E000D0D5C0 /* Dream.m */; };
 		D230C9DE1A099A1F00D0D5C0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D230C9DD1A099A1F00D0D5C0 /* User.m */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AF71A01ACA600CFB30F /* ProfileManager.m */; };
@@ -49,6 +48,7 @@
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
 		D2DF192D1A02FD50002D206D /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192C1A02FD50002D206D /* Comment.m */; };
 		D2DF19301A02FD5A002D206D /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192F1A02FD5A002D206D /* Tag.m */; };
+		D2E2BAFB1A0B4AB6006B72E6 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E2BAFA1A0B4AB6006B72E6 /* Dream.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +87,6 @@
 		D22CDF841A006BDE00C70894 /* AddDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDreamViewController.m; sourceTree = "<group>"; };
 		D22CDF891A00D94800C70894 /* ShowDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDreamViewController.h; sourceTree = "<group>"; };
 		D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDreamViewController.m; sourceTree = "<group>"; };
-		D230C9D91A0964E000D0D5C0 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D230C9DA1A0964E000D0D5C0 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D230C9DC1A099A1F00D0D5C0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D230C9DD1A099A1F00D0D5C0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
@@ -136,6 +134,8 @@
 		D2DF192C1A02FD50002D206D /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		D2DF192E1A02FD5A002D206D /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		D2DF192F1A02FD5A002D206D /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		D2E2BAF91A0B4AB6006B72E6 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D2E2BAFA1A0B4AB6006B72E6 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +167,8 @@
 			children = (
 				D2DF19221A02FD27002D206D /* SyncableDBObject.h */,
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
-				D230C9D91A0964E000D0D5C0 /* Dream.h */,
-				D230C9DA1A0964E000D0D5C0 /* Dream.m */,
+				D2E2BAF91A0B4AB6006B72E6 /* Dream.h */,
+				D2E2BAFA1A0B4AB6006B72E6 /* Dream.m */,
 				D230C9DC1A099A1F00D0D5C0 /* User.h */,
 				D230C9DD1A099A1F00D0D5C0 /* User.m */,
 				D2DF192B1A02FD50002D206D /* Comment.h */,
@@ -431,8 +431,8 @@
 				D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D230C9DE1A099A1F00D0D5C0 /* User.m in Sources */,
+				D2E2BAFB1A0B4AB6006B72E6 /* Dream.m in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
-				D230C9DB1A0964E000D0D5C0 /* Dream.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
 				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D2DF19301A02FD5A002D206D /* Tag.m in Sources */,

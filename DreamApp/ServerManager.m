@@ -33,7 +33,8 @@
 - (void)postDream:(Dream *)dream
 {
     NSDictionary *dictionaryDreamLog = @{
-                                         @"user_id": [ProfileManager sharedManager].user.db_id,
+                                         @"mongoUser_id": [ProfileManager sharedManager].user.db_id,
+                                         @"dreamTitle": dream.dreamTitle,
                                          @"dreamContent": dream.dreamContent
                                          //@"dreamTags": dream.tags,
                                          //@"dreamComments": dream.comment
@@ -74,7 +75,7 @@
 
 - (void)postUser:(User*)user
 {
-    NSDictionary *dictionaryUser = @{@"user_id" : user.fbUserID,
+    NSDictionary *dictionaryUser = @{@"fbUser_id" : user.fbUserID,
                                      @"user_fullname" : user.fbFullName};
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/user", SERVER_URL]];

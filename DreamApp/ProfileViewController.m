@@ -71,9 +71,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
-    NSString *title = @"dream title";
-    
-    cell.textLabel.text = title;
+    cell.textLabel.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
     
     return cell;
 }

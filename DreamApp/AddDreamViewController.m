@@ -26,6 +26,7 @@
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
 @property (nonatomic, strong) NSString *stringHolder;
 @property (nonatomic, strong) AVAudioPlayer *player;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
@@ -43,6 +44,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.delegate = self;
     self.textField.delegate = self;
+    self.titleTextField.delegate = self;
     
     dreamTags = [[NSMutableArray alloc] init];
     
@@ -55,6 +57,7 @@
     
     self.textField.inputAccessoryView = keyboardToolBar;
     self.textView.inputAccessoryView = keyboardToolBar;
+    self.titleTextField.inputAccessoryView = keyboardToolBar;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textFieldDidChange)
@@ -105,8 +108,10 @@
 
 - (IBAction)saveTapped:(id)sender
 {
+    NSString *dreamTitle = self.titleTextField.text;
     NSString *dreamContent = self.textView.text;
     
+    self.dreamBeingAdded.dreamTitle = dreamTitle;
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
     self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
