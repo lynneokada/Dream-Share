@@ -9,6 +9,7 @@
 #import "FriendDreamViewController.h"
 
 @interface FriendDreamViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -21,7 +22,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.textView.delegate = self;
+    self.titleTextView.delegate = self;
     self.textView.text = self.dreamContent;
+    self.titleTextView.text = self.dreamTitle; 
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }

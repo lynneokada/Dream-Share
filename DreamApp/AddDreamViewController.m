@@ -82,17 +82,6 @@
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:YES];
-    
-    //if theres absolutely no content
-    if (self.textView.text.length == 0 && ![[NSFileManager defaultManager] fileExistsAtPath:self.pathToRecording])
-    {
-        
-    }
-}
-
 - (IBAction)playTapped:(id)sender
 {
     [self.playButton setEnabled:YES];
@@ -117,8 +106,8 @@
     self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
     self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
     
-    NSLog(@"DREAMER: %@", self.dreamBeingAdded.dreamer);
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
+
     
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     

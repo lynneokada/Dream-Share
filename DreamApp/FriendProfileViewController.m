@@ -72,6 +72,7 @@
     NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
 
     friendDreamViewController.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
+    friendDreamViewController.dreamTitle = [dreams[selectedIndexPath.row] valueForKey:@"dreamTitle"];
     
 //    friendDreamViewController.dream = dreams[selectedIndexPath.row];
 }
