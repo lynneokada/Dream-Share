@@ -64,6 +64,7 @@
     [super viewDidAppear:YES];
 
     self.textView.text = self.dream.dreamContent;
+    self.textField.text = self.dream.tags;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder]])
     {

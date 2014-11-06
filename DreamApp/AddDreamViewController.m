@@ -99,32 +99,6 @@
     [self.player play];
 }
 
-- (IBAction)saveTapped:(id)sender
-{
-    NSString *dreamTitle = self.titleTextField.text;
-    NSString *dreamContent = self.textView.text;
-    
-    self.dreamBeingAdded.dreamTitle = dreamTitle;
-    self.dreamBeingAdded.dreamContent = dreamContent;
-    self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
-    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
-    
-    for(NSString *tag in dreamTags)
-    {
-        //create tags to core data
-        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-        Tag *tagsBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
-        tagsBeingAdded.tagName = tag;
-    }
-    
-    // TODO think about error handling / whether to write to the server if anything errors out beforehand
-    
-    
-    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
-    
-    [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
-}
-
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (textView.text.length == 0) {
@@ -157,14 +131,15 @@
         textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
     }
     
-    NSString *str = @"         ";
-    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
-    if ([[str stringByTrimmingCharactersInSet: set] length] == 0)
-    {
-        
-    }
-    
-    NSLog(@"STRINGHOLDER: %@", stringHolder);
+//    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+//    if ([[stringHolder stringByTrimmingCharactersInSet: set] length] == 0)
+//    {
+//        NSLog(@"trimming: %@", stringHolder);
+//        stringHolder = textField.text;
+//    } else {
+//    
+//    stringHolder = textField.text;
+//    }
     
     stringHolder = textField.text;
     return YES;
@@ -207,6 +182,37 @@
 - (IBAction)unwindToAddDreamViewController:(UIStoryboardSegue *)unwindSegue
 {
     
+}
+
+
+- (IBAction)saveTapped:(id)sender
+{
+    NSString *dreamTitle = self.titleTextField.text;
+    NSString *dreamContent = self.textView.text;
+    
+    self.dreamBeingAdded.dreamTitle = dreamTitle;
+    self.dreamBeingAdded.dreamContent = dreamContent;
+    self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
+    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
+    
+    NSMutableSet *tagsForDreamEntity = [[NSMutableSet alloc] init];
+    for(NSString *tag in dreamTags)
+    {
+        //create tags to core data
+        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        Tag *tagsBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
+        tagsBeingAdded.tagName = tag;
+        [tagsForDreamEntity addObject:tagsBeingAdded.tagName];
+    }
+    NSLog(@"NSSET TAGS: %@", tagsForDreamEntity);
+    self.dreamBeingAdded.tags = tagsForDreamEntity;
+    
+    // TODO think about error handling / whether to write to the server if anything errors out beforehand
+    
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+    
+    [[ServerManager sharedManager] postDream:self.dreamBeingAdded];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

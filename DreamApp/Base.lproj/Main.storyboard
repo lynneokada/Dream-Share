@@ -723,7 +723,7 @@
                                     <action selector="playTapped:" destination="KGX-EM-FjZ" eventType="touchUpInside" id="Tb5-w8-MwG"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="no tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
                                 <rect key="frame" x="0.0" y="302" width="600" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -944,7 +944,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="122" id="ETW-HO-wY5"/>
                                 </constraints>
-                                <color key="textColor" white="0.82270665322580661" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
                             </textView>
@@ -1292,7 +1291,7 @@
         <segue reference="9nE-8i-evv"/>
         <segue reference="Agc-bG-7qX"/>
         <segue reference="bKc-Qi-twy"/>
-        <segue reference="f4s-dY-Tx5"/>
         <segue reference="nRM-fP-bUC"/>
+        <segue reference="RAo-vR-tBp"/>
     </inferredMetricsTieBreakers>
 </document>
