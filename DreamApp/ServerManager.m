@@ -9,6 +9,7 @@
 #import "ServerManager.h"
 #import "Global.h"
 #import "User.h"
+#import "Tag.h"
 #import "ProfileManager.h"
 #import "AppDelegate.h"
 
@@ -32,12 +33,12 @@
 
 - (void)postDream:(Dream *)dream
 {
+    NSMutableArray *tagsArray = [NSKeyedUnarchiver unarchiveObjectWithData:dream.tags.tagsArray];
     NSDictionary *dictionaryDreamLog = @{
                                          @"mongoUser_id": [ProfileManager sharedManager].user.db_id,
                                          @"dreamTitle": dream.dreamTitle,
-                                         @"dreamContent": dream.dreamContent
-                                         //@"dreamTags": dream.tags,
-                                         //@"dreamComments": dream.comment
+                                         @"dreamContent": dream.dreamContent,
+                                         @"dreamTags": tagsArray
                                          };
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams", SERVER_URL]];
