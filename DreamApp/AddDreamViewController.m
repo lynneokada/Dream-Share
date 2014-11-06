@@ -9,6 +9,7 @@
 #import "AddDreamViewController.h"
 #import "Dream.h"
 #import "User.h"
+#import "Tag.h"
 #import "FileSystemManager.h"
 #import "AppDelegate.h"
 #import "RecordViewController.h"
@@ -24,7 +25,6 @@
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
-@property (nonatomic, strong) NSString *stringHolder;
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -34,7 +34,9 @@
 
 @end
 
-@implementation AddDreamViewController
+@implementation AddDreamViewController {
+    NSString *stringHolder;
+}
 @synthesize keyboardToolBar;
 
 - (void)viewDidLoad
@@ -45,6 +47,8 @@
     self.textView.delegate = self;
     self.textField.delegate = self;
     self.titleTextField.delegate = self;
+    
+    stringHolder = @"";
     
     dreamTags = [[NSMutableArray alloc] init];
     
@@ -104,10 +108,17 @@
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
     self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
-    self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
+    
+    for(NSString *tag in dreamTags)
+    {
+        //create tags to core data
+        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        Tag *tagsBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
+        tagsBeingAdded.tagName = tag;
+    }
     
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
-
+    
     
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     
@@ -134,10 +145,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (![textField.text isEqualToString:self.stringHolder])
+    if (![textField.text isEqualToString:stringHolder])
     {
-        textField.text = [NSString stringWithFormat:@"%@#%@", self.stringHolder, [textField.text substringFromIndex:[self.stringHolder length]]];
-        [dreamTags addObject:[textField.text substringFromIndex:[self.stringHolder length]]];
+        textField.text = [NSString stringWithFormat:@"%@#%@", stringHolder, [textField.text substringFromIndex:[stringHolder length]]];
+        [dreamTags addObject:[textField.text substringFromIndex:[stringHolder length]]];
         NSLog(@"TAGS: %@", dreamTags);
     }
     
@@ -146,14 +157,22 @@
         textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
     }
     
-    self.stringHolder = textField.text;
+    NSString *str = @"         ";
+    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+    if ([[str stringByTrimmingCharactersInSet: set] length] == 0)
+    {
+        
+    }
     
+    NSLog(@"STRINGHOLDER: %@", stringHolder);
+    
+    stringHolder = textField.text;
     return YES;
 }
 
 -(void)textFieldDidChange
 {
-    if ([self.textField.text length] < [self.stringHolder length])
+    if ([self.textField.text length] < [stringHolder length])
     {
         int textFieldLength = [self.textField.text length];
         
@@ -165,7 +184,7 @@
                 break;
             }
         }
-        self.stringHolder = self.textField.text;
+        stringHolder = self.textField.text;
     }
 }
 
@@ -178,6 +197,10 @@
     else if ([self.textView isFirstResponder])
     {
         [self.textView resignFirstResponder];
+    }
+    else if ([self.titleTextField isFirstResponder])
+    {
+        [self.titleTextField resignFirstResponder];
     }
 }
 
@@ -206,8 +229,8 @@
             
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-
-        recordViewController.dreamBeingAdded = self.dreamBeingAdded;
+            
+            recordViewController.dreamBeingAdded = self.dreamBeingAdded;
         }
     }
 }
