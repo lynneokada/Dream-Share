@@ -108,12 +108,12 @@
     NSString *dreamContent = self.textView.text;
     
     self.dreamBeingAdded.dreamContent = dreamContent;
-    self.dreamBeingAdded.dreamer = self.user;
+    self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
+    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
     self.dreamBeingAdded.tags = [NSSet setWithArray:dreamTags];
     
     NSLog(@"DREAMER: %@", self.dreamBeingAdded.dreamer);
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
-    
     
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     

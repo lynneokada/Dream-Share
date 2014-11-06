@@ -10,12 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 
 @class Dream;
-@class User;
 
 @interface AddDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate>
 
 @property (nonatomic, strong) Dream *dreamBeingAdded;
-@property (nonatomic, strong) User *user;
 
 @property (nonatomic, strong) NSString *pathToRecording;
 

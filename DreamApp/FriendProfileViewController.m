@@ -9,6 +9,7 @@
 #import "FriendProfileViewController.h"
 #import "ServerManager.h"
 #import "FriendDreamViewController.h"
+#import "AppDelegate.h"
 
 @interface FriendProfileViewController ()
 
@@ -19,7 +20,7 @@
 
 @implementation FriendProfileViewController
 {
-    NSMutableArray *dreams;
+    NSArray *dreams;
 }
 
 - (void)viewDidLoad {
@@ -36,13 +37,18 @@
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.borderWidth = 0;
     
+    dreams = [[NSArray alloc] init];
+    
     self.navigationItem.title = self.friendName;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [[ServerManager sharedManager] getDream:self.friendID];
-    [self.tableView reloadData];
+    [[ServerManager sharedManager] getDreamsWithUserID:self.friendID andCallbackBlock:^(NSArray * downloadedDreams) {
+        dreams = downloadedDreams;
+        [self.tableView reloadData];
+    }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,10 +71,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
-    
     NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
     
-    friendDreamViewController.dream = dreams[selectedIndexPath.row];
+    //create dream object
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    Dream *dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
+    dreamBeingAdded.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
+    friendDreamViewController.dream = dreamBeingAdded;
+    
+//    friendDreamViewController.dream = dreams[selectedIndexPath.row];
 }
 
 @end

@@ -33,7 +33,8 @@
 - (void)postDream:(Dream *)dream
 {
     NSDictionary *dictionaryDreamLog = @{
-                                         @"dreamContent": dream.dreamContent,
+                                         @"user_id": [ProfileManager sharedManager].user.db_id,
+                                         @"dreamContent": dream.dreamContent
                                          //@"dreamTags": dream.tags,
                                          //@"dreamComments": dream.comment
                                          };
@@ -95,7 +96,7 @@
         {
             NSString *mongoUserID = [NSString stringWithUTF8String:[data bytes]];
             
-            [ProfileManager sharedManager].user.db_id = mongoUserID;
+            user.db_id = mongoUserID;
             
             NSLog(@"userDocumentID: %@", mongoUserID);
             NSLog(@"uploaded");
@@ -113,7 +114,7 @@
     [dataUpload resume];
 }
 
-- (void) getDream:(NSString *)userID
+- (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,userID]];
     
@@ -124,26 +125,30 @@
     NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
     
     NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-                                      {
-                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-                                          NSInteger responseStatusCode = [httpResponse statusCode];
-                                          
-                                          if (responseStatusCode == 200 && data)
-                                          {
-                                              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              NSLog(@"%@",downloadedJSON);
-//                                              [dreamArray removeAllObjects];
-//                                              for (int i = 0; i < [downloadedJSON count]; i++)
-//                                              {
-//                                                  [dreamArray addObject:downloadedJSON[i][@"dreamContent"]];
-//                                              }
-                                          }
-                                          else
-                                          {
-                                        
-                                          }
-                                      }];
+      {
+          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+          NSInteger responseStatusCode = [httpResponse statusCode];
+          
+          if (responseStatusCode == 200 && data)
+          {
+              
+              NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+              NSLog(@"%@",downloadedJSON);
+              dispatch_async(dispatch_get_main_queue(), ^{
+                   callBackBlock(downloadedJSON);
+              });
+          }
+          else
+          {
+              
+          }
+      }];
     [dataTask resume];
+
 }
+
+- (void)getDream:(NSString *)userID
+{
+    }
 
 @end

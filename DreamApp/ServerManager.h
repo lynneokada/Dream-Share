@@ -15,8 +15,8 @@
 
 @property (nonatomic, strong) NSString *userObjectID;
 
-- (void)postDream:(Dream*) dream;
+- (void)postDream:(Dream *)dream;
 - (void)postUser:(User*) user;
-- (void) getDream:(NSString *)userID;
+- (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 
 @end

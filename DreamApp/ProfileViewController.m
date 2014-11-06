@@ -32,7 +32,6 @@
     //array of dreams fetched from core data
     NSMutableArray *dreams;
     NSMutableArray *dreamsFromServer;
-    NSMutableArray *userInfo;
 }
 @synthesize navigationItem;
 
@@ -48,7 +47,7 @@
     self.profilePictureView.layer.borderWidth = 0;
     
     dreamsFromServer = [[NSMutableArray alloc] init];
-
+    
     self.navigationItem.title = [ProfileManager sharedManager].user.fbFullName;
 }
 
@@ -58,7 +57,6 @@
     
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     dreams = [[CoreDataManager sharedManager] requestDreams];
-    userInfo = [[CoreDataManager sharedManager] requestUserInfo];
     
     [self.tableView reloadData];
 }
@@ -118,9 +116,6 @@
         NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
         Dream *dreamBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
         addDreamViewController.dreamBeingAdded = dreamBeingAdded;
-        
-        //pass user info
-        addDreamViewController.user = userInfo[0];
         
         //create path to dream folder
         NSString *dreamFolderPath = [[FileSystemManager sharedManager] createDreamFolder];

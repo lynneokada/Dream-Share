@@ -137,6 +137,11 @@
                      userBeingAdded.fbUserID = user.objectID;
                      
                      [[ServerManager sharedManager] postUser:userBeingAdded];
+                     [ProfileManager sharedManager].user = userBeingAdded;
+                     
+                 } else {
+                     NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+                     [ProfileManager sharedManager].user = userInfo[0];
                  }
              });
          }
