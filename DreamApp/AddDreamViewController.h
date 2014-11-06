@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @class Dream;
+@class Tag;
 
 @interface AddDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, NSURLSessionDelegate>
 

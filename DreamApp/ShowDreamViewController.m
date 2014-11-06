@@ -8,6 +8,7 @@
 
 #import "ShowDreamViewController.h"
 #import "Dream.h"
+#import "Tag.h"
 #import "CommentTableViewController.h"
 
 @interface ShowDreamViewController ()
@@ -62,9 +63,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-
+    
+    NSMutableArray *tagsArray = [NSKeyedUnarchiver unarchiveObjectWithData:self.dream.tags.tagsArray];
+    self.textField.text = [tagsArray componentsJoinedByString: @" "];
+    
     self.textView.text = self.dream.dreamContent;
-    self.textField.text = self.dream.tags;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder]])
     {

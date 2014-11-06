@@ -12,7 +12,7 @@
 
 @implementation Tag
 
-@dynamic tagName;
+@dynamic tagsArray;
 @dynamic taggedDream;
 
 @end

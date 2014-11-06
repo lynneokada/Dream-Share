@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * dreamTitle;
 @property (nonatomic, retain) NSSet *comment;
 @property (nonatomic, retain) User *dreamer;
-@property (nonatomic, retain) NSSet *tags;
+@property (nonatomic, retain) Tag *tags;
 @end
 
 @interface Dream (CoreDataGeneratedAccessors)
@@ -28,10 +28,5 @@
 - (void)removeCommentObject:(Comment *)value;
 - (void)addComment:(NSSet *)values;
 - (void)removeComment:(NSSet *)values;
-
-- (void)addTagsObject:(Tag *)value;
-- (void)removeTagsObject:(Tag *)value;
-- (void)addTags:(NSSet *)values;
-- (void)removeTags:(NSSet *)values;
 
 @end

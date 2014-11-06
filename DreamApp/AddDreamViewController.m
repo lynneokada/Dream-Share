@@ -195,18 +195,13 @@
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
     self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
     
-    NSMutableSet *tagsForDreamEntity = [[NSMutableSet alloc] init];
-    for(NSString *tag in dreamTags)
-    {
-        //create tags to core data
-        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-        Tag *tagsBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
-        tagsBeingAdded.tagName = tag;
-        [tagsForDreamEntity addObject:tagsBeingAdded.tagName];
-    }
-    NSLog(@"NSSET TAGS: %@", tagsForDreamEntity);
-    self.dreamBeingAdded.tags = tagsForDreamEntity;
-    
+    NSLog(@"DREAMTAGS: %@", dreamTags);
+    //create Tag entity for core data
+    NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+    Tag *tagsBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"Tags" inManagedObjectContext:context];
+    NSData *tagsArrayData = [NSKeyedArchiver archivedDataWithRootObject:dreamTags];
+    tagsBeingAdded.tagsArray = tagsArrayData;
+    self.dreamBeingAdded.tags = tagsBeingAdded;
     // TODO think about error handling / whether to write to the server if anything errors out beforehand
     
     
