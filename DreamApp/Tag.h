@@ -14,7 +14,7 @@
 
 @interface Tag : SyncableDBObject
 
-@property (nonatomic, retain) NSString * tagName;
+@property (nonatomic, retain) NSString *tagName;
 @property (nonatomic, retain) NSSet *taggedDream;
 @end
 
