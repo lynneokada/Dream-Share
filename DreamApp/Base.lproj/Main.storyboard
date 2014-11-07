@@ -248,7 +248,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dream Share" id="ogg-Yn-KTs"/>
                     <connections>
-                        <outlet property="searchDreamTags" destination="WFB-U2-rDd" id="tGo-RK-b80"/>
+                        <outlet property="searchBar" destination="WFB-U2-rDd" id="B0d-ab-23v"/>
+                        <outlet property="tableView" destination="Uhd-09-KoK" id="LLE-5A-JBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>

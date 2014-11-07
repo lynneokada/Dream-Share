@@ -7,35 +7,63 @@
 //
 
 #import "SearchViewController.h"
+#import "ServerManager.h"
 
 @interface SearchViewController ()
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation SearchViewController
-@synthesize searchDreamTags;
+@implementation SearchViewController {
+    NSArray *searchResults;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchDreamTags.delegate = self;
+    self.searchBar.delegate = self;
+    self.tableView.delegate = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    // Do any additional setup after loading the view.
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    searchResults = [[NSMutableArray alloc] init];
+    NSString *searchTag = [NSString stringWithFormat:@"#%@", searchBar.text];
+    NSLog(@"SEARCHTAG: %@", searchTag);
+    
+    [[ServerManager sharedManager] getDreamsWithTag:searchTag andCallbackBlock:^(NSArray * foundDreams) {
+        searchResults = foundDreams;
+        [self.tableView reloadData];
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [searchResults count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = @"found!";
+    
+    return cell;
 }
 
 - (void) dismissKeyboard
 {
     // add self
-    [self.searchDreamTags resignFirstResponder];
+    [self.searchBar resignFirstResponder];
 }
 
 

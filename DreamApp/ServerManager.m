@@ -149,6 +149,35 @@
 
 }
 
+- (void)getDreamsWithTag:(NSString*)tag andCallbackBlock:(void (^)(NSArray*))callBackBlock
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,tag]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+      NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+      NSInteger responseStatusCode = [httpResponse statusCode];
+      
+      if (responseStatusCode == 200 && data)
+      {
+          NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+          NSLog(@"%@",downloadedJSON);
+          dispatch_async(dispatch_get_main_queue(), ^{
+              callBackBlock(downloadedJSON);
+          });
+      } else {
+          NSLog(@"wtf");
+      }
+    }];
+    [dataTask resume];
+}
+
 - (void)getDream:(NSString *)userID
 {
     }
