@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+
 @end
 
 @implementation SearchViewController {
@@ -36,12 +37,14 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     searchResults = [[NSMutableArray alloc] init];
-    NSString *searchTag = [NSString stringWithFormat:@"#%@", searchBar.text];
-    NSLog(@"SEARCHTAG: %@", searchTag);
+    NSString *searchTag = searchBar.text;
+    NSLog(@"SEARCH: %@", searchTag);
     
     [[ServerManager sharedManager] getDreamsWithTag:searchTag andCallbackBlock:^(NSArray * foundDreams) {
         searchResults = foundDreams;
         [self.tableView reloadData];
+        NSLog(@"found dreams: %d", searchResults.count);
+        NSLog(@"%@", searchResults);
     }];
 }
 
@@ -55,7 +58,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"found!";
+    cell.textLabel.text = [searchResults[indexPath.row] valueForKey:@"dreamTitle"];
     
     return cell;
 }

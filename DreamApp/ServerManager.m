@@ -118,7 +118,8 @@
 
 - (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,userID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/friends/%@", SERVER_URL,userID]];
+    NSLog(@"URL: %@", url);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"GET"];
@@ -151,7 +152,8 @@
 
 - (void)getDreamsWithTag:(NSString*)tag andCallbackBlock:(void (^)(NSArray*))callBackBlock
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/%@", SERVER_URL,tag]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/tags/%@", SERVER_URL, tag]];
+    NSLog(@"URL: %@", url);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [request setHTTPMethod:@"GET"];
@@ -177,9 +179,5 @@
     }];
     [dataTask resume];
 }
-
-- (void)getDream:(NSString *)userID
-{
-    }
 
 @end

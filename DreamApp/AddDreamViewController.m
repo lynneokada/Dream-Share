@@ -121,8 +121,8 @@
 {
     if (![textField.text isEqualToString:stringHolder])
     {
-        textField.text = [NSString stringWithFormat:@"%@#%@", stringHolder, [textField.text substringFromIndex:[stringHolder length]]];
         [dreamTags addObject:[textField.text substringFromIndex:[stringHolder length]]];
+        textField.text = [NSString stringWithFormat:@"%@#%@", stringHolder, [textField.text substringFromIndex:[stringHolder length]]];
         NSLog(@"TAGS: %@", dreamTags);
     }
     

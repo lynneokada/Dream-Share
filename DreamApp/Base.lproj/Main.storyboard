@@ -196,27 +196,13 @@
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kx1-tP-QWY">
                                 <rect key="frame" x="0.0" y="108" width="600" height="43"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W9E-L9-Tkh">
-                                        <rect key="frame" x="8" y="8" width="584" height="29"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <segments>
-                                            <segment title="Dreamers"/>
-                                            <segment title="tags"/>
-                                        </segments>
-                                    </segmentedControl>
-                                </subviews>
                                 <color key="backgroundColor" white="0.87761466730000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="W9E-L9-Tkh" secondAttribute="trailing" constant="8" id="0X8-y1-P2b"/>
-                                    <constraint firstItem="W9E-L9-Tkh" firstAttribute="top" secondItem="Kx1-tP-QWY" secondAttribute="top" constant="8" id="M2t-yR-ffp"/>
-                                    <constraint firstAttribute="centerX" secondItem="W9E-L9-Tkh" secondAttribute="centerX" id="UZG-7a-4pJ"/>
                                     <constraint firstAttribute="height" constant="43" id="ZYT-s5-p7Q"/>
-                                    <constraint firstItem="W9E-L9-Tkh" firstAttribute="leading" secondItem="Kx1-tP-QWY" secondAttribute="leading" constant="8" id="lQ4-JS-gEd"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uhd-09-KoK">
-                                <rect key="frame" x="0.0" y="152" width="600" height="399"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" id="286-8U-hyE">
@@ -234,14 +220,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Kx1-tP-QWY" secondAttribute="trailing" constant="-16" id="7Um-aQ-QOq"/>
+                            <constraint firstItem="9NP-m8-0gf" firstAttribute="top" secondItem="Uhd-09-KoK" secondAttribute="bottom" id="I1h-s2-ucB"/>
                             <constraint firstItem="WFB-U2-rDd" firstAttribute="top" secondItem="hAP-8R-fET" secondAttribute="bottom" id="L9z-Nu-fVm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uhd-09-KoK" secondAttribute="trailing" constant="-16" id="Mb2-fn-c5d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WFB-U2-rDd" secondAttribute="trailing" constant="-16" id="da4-b0-WPJ"/>
-                            <constraint firstItem="9NP-m8-0gf" firstAttribute="top" secondItem="Uhd-09-KoK" secondAttribute="bottom" id="e9U-Zc-NGF"/>
-                            <constraint firstItem="Uhd-09-KoK" firstAttribute="top" secondItem="Kx1-tP-QWY" secondAttribute="bottom" constant="1" id="o9F-40-Xux"/>
+                            <constraint firstItem="Uhd-09-KoK" firstAttribute="top" secondItem="WFB-U2-rDd" secondAttribute="bottom" id="fLy-HE-gzQ"/>
+                            <constraint firstItem="Uhd-09-KoK" firstAttribute="leading" secondItem="xM3-lv-2Cg" secondAttribute="leadingMargin" constant="-16" id="jHs-gY-IA2"/>
                             <constraint firstItem="Kx1-tP-QWY" firstAttribute="top" secondItem="WFB-U2-rDd" secondAttribute="bottom" id="ot9-SI-2wV"/>
                             <constraint firstAttribute="centerX" secondItem="WFB-U2-rDd" secondAttribute="centerX" id="qbC-O7-hJ9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uhd-09-KoK" secondAttribute="trailing" constant="-16" id="sDv-Dh-jt2"/>
-                            <constraint firstItem="Uhd-09-KoK" firstAttribute="leading" secondItem="xM3-lv-2Cg" secondAttribute="leadingMargin" constant="-16" id="shi-y0-0FD"/>
                             <constraint firstItem="WFB-U2-rDd" firstAttribute="leading" secondItem="xM3-lv-2Cg" secondAttribute="leadingMargin" constant="-16" id="tvb-7e-ms7"/>
                             <constraint firstItem="Kx1-tP-QWY" firstAttribute="leading" secondItem="xM3-lv-2Cg" secondAttribute="leadingMargin" constant="-16" id="twv-mD-3EQ"/>
                         </constraints>
@@ -249,7 +235,7 @@
                     <navigationItem key="navigationItem" title="Dream Share" id="ogg-Yn-KTs"/>
                     <connections>
                         <outlet property="searchBar" destination="WFB-U2-rDd" id="B0d-ab-23v"/>
-                        <outlet property="tableView" destination="Uhd-09-KoK" id="LLE-5A-JBo"/>
+                        <outlet property="tableView" destination="Uhd-09-KoK" id="ZtE-7J-SIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dea-f7-r84" userLabel="First Responder" sceneMemberID="firstResponder"/>
