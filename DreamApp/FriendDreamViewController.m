@@ -24,7 +24,9 @@
     self.textView.delegate = self;
     self.titleTextView.delegate = self;
     self.textView.text = self.dreamContent;
-    self.titleTextView.text = self.dreamTitle; 
+    self.titleTextView.text = self.dreamTitle;
+    
+    self.navigationItem.title = self.navtitle;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }

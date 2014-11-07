@@ -8,11 +8,11 @@
 
 #import "SearchViewController.h"
 #import "ServerManager.h"
+#import "FriendDreamViewController.h"
 
 @interface SearchViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 
 @end
 
@@ -24,6 +24,7 @@
     [super viewDidLoad];
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -69,15 +70,19 @@
     [self.searchBar resignFirstResponder];
 }
 
-
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
+    NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+    if([segue.identifier isEqualToString:@"showDream"])
+    {
+        friendDreamViewController.dreamTitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamTitle"];
+        friendDreamViewController.dreamContent = [searchResults[selectedIndexPath.row] valueForKey:@"dreamContent"];
+        friendDreamViewController.navtitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamerName"];
+    }
 }
-*/
+
 
 @end
