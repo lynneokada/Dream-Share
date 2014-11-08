@@ -20,6 +20,7 @@
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
 @property (nonatomic, strong) NSString *stringHolder;
+@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,6 +39,7 @@
     dreamTags = [[NSMutableArray alloc] init];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.titleTextView.delegate = self;
     self.textView.delegate = self;
     self.textField.delegate = self;
     
@@ -64,10 +66,19 @@
 {
     [super viewDidAppear:YES];
     
+    //REHASHING TAGS (BETTER WAY?)
     NSMutableArray *tagsArray = [NSKeyedUnarchiver unarchiveObjectWithData:self.dream.tags.tagsArray];
-    self.textField.text = [tagsArray componentsJoinedByString: @" "];
+    NSMutableArray *hashedTagArray = [[NSMutableArray alloc] init];
     
+    for (NSString *hashit in tagsArray)
+    {
+        NSString *rehashedTag = [NSString stringWithFormat:@"#%@", hashit];
+        [hashedTagArray addObject:rehashedTag];
+    }
+    
+    self.textField.text = [hashedTagArray componentsJoinedByString: @" "];
     self.textView.text = self.dream.dreamContent;
+    self.titleTextView.text = self.dream.dreamTitle;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder]])
     {
