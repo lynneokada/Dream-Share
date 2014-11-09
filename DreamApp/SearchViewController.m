@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "ServerManager.h"
 #import "FriendDreamViewController.h"
+#import "CustomSearchTableViewCell.h"
 
 @interface SearchViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -16,11 +17,14 @@
 
 @end
 
-@implementation SearchViewController {
+@implementation SearchViewController
+{
     NSArray *searchResults;
+    NSString *imageURL;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
@@ -31,8 +35,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -41,7 +43,8 @@
     NSString *searchTag = searchBar.text;
     NSLog(@"SEARCH: %@", searchTag);
     
-    [[ServerManager sharedManager] getDreamsWithTag:searchTag andCallbackBlock:^(NSArray * foundDreams) {
+    [[ServerManager sharedManager] getDreamsWithTag:searchTag andCallbackBlock:^(NSArray * foundDreams)
+    {
         searchResults = foundDreams;
         [self.tableView reloadData];
         NSLog(@"found dreams: %d", searchResults.count);
@@ -57,27 +60,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+    CustomSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [searchResults[indexPath.row] objectForKey:@"dreamerName"]];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    cell.imageView.image = image;
     
-    cell.textLabel.text = [searchResults[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.dreamerName.text = [searchResults[indexPath.row] valueForKey:@"dreamerName"];
+    cell.dreamTitle.text = [searchResults[indexPath.row] valueForKey:@"dreamTitle"];
     
     return cell;
 }
 
 - (void) dismissKeyboard
 {
-    // add self
     [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
-    NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
-    if([segue.identifier isEqualToString:@"showDream"])
+    if([segue.identifier isEqualToString:@"showSearchedDream"])
     {
+        FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        
         friendDreamViewController.dreamTitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamTitle"];
         friendDreamViewController.dreamContent = [searchResults[selectedIndexPath.row] valueForKey:@"dreamContent"];
         friendDreamViewController.navtitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamerName"];

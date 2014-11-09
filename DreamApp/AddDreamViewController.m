@@ -48,9 +48,8 @@
     self.textField.delegate = self;
     self.titleTextField.delegate = self;
     
-    stringHolder = @"";
-    
     dreamTags = [[NSMutableArray alloc] init];
+    stringHolder = @"";
     
     if (keyboardToolBar == nil) {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -221,16 +220,21 @@
             
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
             
-            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+            {
                 [self.navigationController pushViewController:recordViewController animated:YES];
+                
+                NSString *cancelRecording = [NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder];
+                NSError *error;
+                [[NSFileManager defaultManager] removeItemAtPath:cancelRecording error:&error];
             }];
             
             [alert addAction:cancel];
             [alert addAction:yes];
             
+            recordViewController.dreamBeingAdded = self.dreamBeingAdded;
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            
             recordViewController.dreamBeingAdded = self.dreamBeingAdded;
         }
     }

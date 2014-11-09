@@ -37,6 +37,7 @@
     [super viewDidLoad];
 
     dreamTags = [[NSMutableArray alloc] init];
+    self.stringHolder = @"";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.titleTextView.delegate = self;

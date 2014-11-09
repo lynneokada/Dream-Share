@@ -33,6 +33,11 @@
     
     UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"cancel" style:UIBarButtonItemStyleDone target:self action:@selector(back:)];
     self.navigationItem.leftBarButtonItem = customBackButton;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
     
     pathToRecording = [[FileSystemManager sharedManager] saveNewRecordingWithName:@"recording.m4a" atPath:self.dreamBeingAdded.pathToFolder];
     
@@ -53,11 +58,6 @@
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
     [self.recorder prepareToRecord];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
     
     [doneBarButton setEnabled:NO];
 }
@@ -73,17 +73,17 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure you want to cancel your recording?" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+        NSString *cancelRecording = [NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder];
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:cancelRecording error:&error];
+        
         [self performSegueWithIdentifier:@"doneRecording" sender:self];
     }];
     
     [alert addAction:cancel];
     [alert addAction:yes];
-    
-    if (yes)
-    {
-        //delete the recording
-    }
     
     [self presentViewController:alert animated:YES completion:nil];
 }
