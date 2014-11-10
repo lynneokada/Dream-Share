@@ -85,6 +85,18 @@
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder]] && self.textField.text == nil && self.titleTextField.text == nil)
+//    {
+//        NSString *deleteFile = self.dreamBeingAdded.pathToFolder;
+//        NSError *error;
+//        [[NSFileManager defaultManager] removeItemAtPath:deleteFile error:&error];
+//    }
+}
+
 - (IBAction)playTapped:(id)sender
 {
     [self.playButton setEnabled:YES];

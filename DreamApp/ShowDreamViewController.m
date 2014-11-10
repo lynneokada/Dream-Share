@@ -37,7 +37,6 @@
     [super viewDidLoad];
 
     dreamTags = [[NSMutableArray alloc] init];
-    self.stringHolder = @"";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.titleTextView.delegate = self;
@@ -78,6 +77,7 @@
     }
     
     self.textField.text = [hashedTagArray componentsJoinedByString: @" "];
+    self.stringHolder = [NSString stringWithFormat:@"%@ ", self.textField.text];
     self.textView.text = self.dream.dreamContent;
     self.titleTextView.text = self.dream.dreamTitle;
     
