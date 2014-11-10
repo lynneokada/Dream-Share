@@ -12,28 +12,27 @@
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextView *tagsTextView;
 
 
 @end
 
 @implementation FriendDreamViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.textView.delegate = self;
     self.titleTextView.delegate = self;
+    self.tagsTextView.delegate = self;
     self.textView.text = self.dreamContent;
     self.titleTextView.text = self.dreamTitle;
     
     self.navigationItem.title = self.navtitle;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

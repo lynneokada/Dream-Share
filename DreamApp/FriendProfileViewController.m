@@ -74,6 +74,7 @@
     friendDreamViewController.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
     friendDreamViewController.dreamTitle = [dreams[selectedIndexPath.row] valueForKey:@"dreamTitle"];
     friendDreamViewController.navtitle = self.friendName;
+    //friendDreamViewController.tags = [dreams[selectedIndexPath.row] valueForKey:@"dreamTags"];
 }
 
 @end

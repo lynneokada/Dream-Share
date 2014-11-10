@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *navtitle;
 @property (nonatomic, strong) NSString *dreamContent;
 @property (nonatomic, strong) NSString *dreamTitle;
+@property (nonatomic, strong) NSArray *tags;
 
 @end
