@@ -44,6 +44,7 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */; };
 		D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */; };
+		D2C64CEF1A11806000A8008C /* SearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEE1A11806000A8008C /* SearchBarViewController.m */; };
 		D2D2376D19EDD36B00C738AF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D2376C19EDD36B00C738AF /* Global.m */; };
 		D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2DF191F1A02D80A002D206D /* DreamApp.xcdatamodeld */; };
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
@@ -128,6 +129,8 @@
 		D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
 		D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchTableViewCell.m; sourceTree = "<group>"; };
+		D2C64CED1A11806000A8008C /* SearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarViewController.h; sourceTree = "<group>"; };
+		D2C64CEE1A11806000A8008C /* SearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarViewController.m; sourceTree = "<group>"; };
 		D2D2376B19EDD36B00C738AF /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		D2D2376C19EDD36B00C738AF /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		D2DF19201A02D80A002D206D /* DreamApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamApp.xcdatamodel; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
 				D20D123419DF51E800DE7485 /* SearchViewController.h */,
 				D20D123519DF51E800DE7485 /* SearchViewController.m */,
+				D2C64CED1A11806000A8008C /* SearchBarViewController.h */,
+				D2C64CEE1A11806000A8008C /* SearchBarViewController.m */,
 				D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */,
 				D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */,
 			);
@@ -445,6 +450,7 @@
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
+				D2C64CEF1A11806000A8008C /* SearchBarViewController.m in Sources */,
 				D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
