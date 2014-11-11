@@ -27,7 +27,6 @@
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AF71A01ACA600CFB30F /* ProfileManager.m */; };
 		D26A3AFE1A02165400CFB30F /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */; };
-		D26A3B011A0220B000CFB30F /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3B001A0220B000CFB30F /* CommentTableViewController.m */; };
 		D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3B031A0242A900CFB30F /* FriendDreamViewController.m */; };
 		D270DA9819DB2270009D425B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9719DB2270009D425B /* main.m */; };
 		D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DA9A19DB2270009D425B /* AppDelegate.m */; };
@@ -44,7 +43,8 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */; };
 		D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */; };
-		D2C64CEF1A11806000A8008C /* SearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEE1A11806000A8008C /* SearchBarViewController.m */; };
+		D2C64CF21A11A41200A8008C /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CF11A11A41200A8008C /* AddCommentViewController.m */; };
+		D2C64CF51A11FF7400A8008C /* CustomCommenttTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CF41A11FF7400A8008C /* CustomCommenttTableViewCell.m */; };
 		D2D2376D19EDD36B00C738AF /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D2376C19EDD36B00C738AF /* Global.m */; };
 		D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2DF191F1A02D80A002D206D /* DreamApp.xcdatamodeld */; };
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
@@ -97,8 +97,6 @@
 		D26A3AF71A01ACA600CFB30F /* ProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileManager.m; sourceTree = "<group>"; };
 		D26A3AFC1A02165400CFB30F /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
 		D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
-		D26A3AFF1A0220B000CFB30F /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
-		D26A3B001A0220B000CFB30F /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
 		D26A3B021A0242A900CFB30F /* FriendDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDreamViewController.h; sourceTree = "<group>"; };
 		D26A3B031A0242A900CFB30F /* FriendDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDreamViewController.m; sourceTree = "<group>"; };
 		D270DA9219DB2270009D425B /* DreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,8 +127,10 @@
 		D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
 		D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchTableViewCell.m; sourceTree = "<group>"; };
-		D2C64CED1A11806000A8008C /* SearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarViewController.h; sourceTree = "<group>"; };
-		D2C64CEE1A11806000A8008C /* SearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarViewController.m; sourceTree = "<group>"; };
+		D2C64CF01A11A41200A8008C /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
+		D2C64CF11A11A41200A8008C /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
+		D2C64CF31A11FF7400A8008C /* CustomCommenttTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommenttTableViewCell.h; sourceTree = "<group>"; };
+		D2C64CF41A11FF7400A8008C /* CustomCommenttTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommenttTableViewCell.m; sourceTree = "<group>"; };
 		D2D2376B19EDD36B00C738AF /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		D2D2376C19EDD36B00C738AF /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		D2DF19201A02D80A002D206D /* DreamApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamApp.xcdatamodel; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 				D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */,
 				D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */,
 				D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */,
-				D26A3AFF1A0220B000CFB30F /* CommentTableViewController.h */,
-				D26A3B001A0220B000CFB30F /* CommentTableViewController.m */,
+				D2C64CF31A11FF7400A8008C /* CustomCommenttTableViewCell.h */,
+				D2C64CF41A11FF7400A8008C /* CustomCommenttTableViewCell.m */,
 				D26A3AFC1A02165400CFB30F /* FriendsTableViewController.h */,
 				D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */,
 				D28DFC701A02BA0500C55143 /* FriendTableViewCell.h */,
@@ -222,10 +222,10 @@
 				D2594C9A19E70DA70014F22B /* EditProfileViewController.m */,
 				D20D123419DF51E800DE7485 /* SearchViewController.h */,
 				D20D123519DF51E800DE7485 /* SearchViewController.m */,
-				D2C64CED1A11806000A8008C /* SearchBarViewController.h */,
-				D2C64CEE1A11806000A8008C /* SearchBarViewController.m */,
 				D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */,
 				D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */,
+				D2C64CF01A11A41200A8008C /* AddCommentViewController.h */,
+				D2C64CF11A11A41200A8008C /* AddCommentViewController.m */,
 			);
 			name = UIVIews;
 			sourceTree = "<group>";
@@ -425,7 +425,6 @@
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
 				D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */,
 				D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */,
-				D26A3B011A0220B000CFB30F /* CommentTableViewController.m in Sources */,
 				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
@@ -436,6 +435,7 @@
 				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,
 				D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
+				D2C64CF21A11A41200A8008C /* AddCommentViewController.m in Sources */,
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2DF192D1A02FD50002D206D /* Comment.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
@@ -449,8 +449,8 @@
 				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
 				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
+				D2C64CF51A11FF7400A8008C /* CustomCommenttTableViewCell.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
-				D2C64CEF1A11806000A8008C /* SearchBarViewController.m in Sources */,
 				D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

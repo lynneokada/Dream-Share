@@ -10,6 +10,7 @@
 
 @interface FriendDreamViewController : UIViewController <UITextViewDelegate>
 
+@property (nonatomic, strong) NSString *dream_id;
 @property (nonatomic, strong) NSString *navtitle;
 @property (nonatomic, strong) NSString *dreamContent;
 @property (nonatomic, strong) NSString *dreamTitle;

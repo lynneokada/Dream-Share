@@ -63,13 +63,15 @@
 }
 
 #pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // Return the number of rows in the section.
     //return [facebookFriends count];
     return [facebookFriends count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

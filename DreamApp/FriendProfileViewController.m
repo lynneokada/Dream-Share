@@ -44,7 +44,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [[ServerManager sharedManager] getDreamsWithUserID:self.friendID andCallbackBlock:^(NSArray * downloadedDreams) {
+    [[ServerManager sharedManager] getDreamsWithUserID:self.friendID andCallbackBlock:^(NSArray * downloadedDreams)
+    {
         dreams = downloadedDreams;
         [self.tableView reloadData];
     }];
@@ -71,6 +72,8 @@
     FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
     NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
 
+    NSLog(@"DREAMID: %@", [dreams[selectedIndexPath.row] valueForKey:@"_id"]);
+    friendDreamViewController.dream_id = [dreams[selectedIndexPath.row] valueForKey:@"_id"];
     friendDreamViewController.dreamContent = [dreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
     friendDreamViewController.dreamTitle = [dreams[selectedIndexPath.row] valueForKey:@"dreamTitle"];
     friendDreamViewController.navtitle = self.friendName;

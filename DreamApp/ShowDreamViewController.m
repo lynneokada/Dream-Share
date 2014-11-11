@@ -9,7 +9,9 @@
 #import "ShowDreamViewController.h"
 #import "Dream.h"
 #import "Tag.h"
-#import "CommentTableViewController.h"
+#import "AddCommentViewController.h"
+#import "ServerManager.h"
+#import "CustomCommenttTableViewCell.h"
 
 @interface ShowDreamViewController ()
 {
@@ -30,6 +32,9 @@
 @end
 
 @implementation ShowDreamViewController
+{
+    NSMutableArray *fetchedComments;
+}
 @synthesize keyboardToolBar;
 
 - (void)viewDidLoad
@@ -42,6 +47,8 @@
     self.titleTextView.delegate = self;
     self.textView.delegate = self;
     self.textField.delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
@@ -81,12 +88,35 @@
     self.textView.text = self.dream.dreamContent;
     self.titleTextView.text = self.dream.dreamTitle;
     
+    fetchedComments = [NSMutableArray new];
+    [[ServerManager sharedManager] getCommentsWith:[self.dream valueForKey:@"db_id"] andCallbackBlock:^(NSArray *comments)
+    {
+        fetchedComments = [comments mutableCopy];
+        [self.tableView reloadData];
+    }];
+    
     if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/recording.m4a", self.dream.pathToFolder]])
     {
         self.playButton.enabled = NO;
     } else {
         self.playButton.enabled = YES;
     }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [fetchedComments count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCommenttTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.name.text = [fetchedComments[indexPath.row] objectForKey:@"dreamerName"];
+    cell.comment.text = [fetchedComments[indexPath.row] objectForKey:@"commentContent"];
+    
+    return cell;
 }
 
 #pragma textEditing/KeyboardToolBar
@@ -156,8 +186,9 @@
 {
     if ([segue.identifier isEqualToString:@"addComment"])
     {
-        CommentTableViewController *commentTableViewController = [segue destinationViewController];
-        commentTableViewController.dream = self.dream;
+        AddCommentViewController *addCommentViewController = [segue destinationViewController];
+        addCommentViewController.dream = self.dream;
+        addCommentViewController.fetchedComments = fetchedComments;
     }
 }
 

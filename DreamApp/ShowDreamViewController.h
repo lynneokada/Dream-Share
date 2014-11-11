@@ -11,7 +11,7 @@
 
 @class Dream;
 
-@interface ShowDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
+@interface ShowDreamViewController : UIViewController <AVAudioPlayerDelegate, UITextViewDelegate, UITextFieldDelegate, UITabBarControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Dream *dream;
 

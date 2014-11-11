@@ -7,6 +7,8 @@
 //
 
 #import "FriendDreamViewController.h"
+#import "ServerManager.h"
+#import "AddCommentViewController.h"
 
 @interface FriendDreamViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
@@ -18,6 +20,9 @@
 @end
 
 @implementation FriendDreamViewController
+{
+    NSMutableArray *fetchedComments;
+}
 
 - (void)viewDidLoad
 {
@@ -35,14 +40,24 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments)
+     {
+         fetchedComments = [comments mutableCopy];
+         [self.tableView reloadData];
+     }];
 }
-*/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"addComment"])
+    {
+        AddCommentViewController *addCommentViewController = [segue destinationViewController];
+        addCommentViewController.fetchedComments = fetchedComments;
+        addCommentViewController.friendDream_id = self.dream_id;
+    }
+}
+
 
 @end

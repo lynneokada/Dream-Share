@@ -64,15 +64,6 @@
     chosenImage = info[UIImagePickerControllerEditedImage];
     self.profilePicture.image = chosenImage;
     
-    //path to documents directory
-    //    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //    NSString *documentsDirectory = [path objectAtIndex:0];
-    //    NSString *getImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-    //    NSLog(@"%@", getImagePath);
-    //
-    //    chosenImage = [[UIImage alloc] initWithContentsOfFile:@"savedImage.png"];
-    //    NSLog(@"%@", chosenImage);
-    
     UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     NSData *imageData = UIImagePNGRepresentation(pickedImage);
     
@@ -95,15 +86,6 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//
-//    UITouch *touch = [touches anyObject];
-//    if ([touch view] == self.profilePicture){
-//        NSLog(@"touchrecieved");
-//        //[self performSegueWithIdentifier:@"imageScroll" sender:self];
-//    }
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

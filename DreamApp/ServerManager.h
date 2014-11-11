@@ -17,7 +17,10 @@
 
 - (void)postDream:(Dream *)dream;
 - (void)postUser:(User*) user;
+- (void)postComment:(NSString*)comment withDreamID:(NSString*)dreamID;
+
 - (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getDreamsWithTag:(NSString*)tag andCallbackBlock:(void (^)(NSArray*))callBackBlock;
+- (void)getCommentsWith:(NSString*)dreamID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 
 @end
