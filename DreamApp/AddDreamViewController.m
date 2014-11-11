@@ -204,7 +204,8 @@
     self.dreamBeingAdded.dreamTitle = dreamTitle;
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
-    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
+    //SHOULD BE UNIQUE MONGO DREAM Id
+//    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
     
     NSLog(@"DREAMTAGS: %@", dreamTags);
     //create Tag entity for core data

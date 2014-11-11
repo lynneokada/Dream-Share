@@ -104,6 +104,7 @@
         ShowDreamViewController *showDreamViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
+        NSLog(@"DREAM: %@", dreams[selectedIndexPath.row]);
         showDreamViewController.dream = dreams[selectedIndexPath.row];
     }
     else if ([segue.identifier isEqualToString:@"addDream"])

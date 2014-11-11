@@ -59,13 +59,16 @@
         
         if (responseStatusCode == 200)
         {
-            NSDictionary *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSLog(@"%@",downloadedJSON);
-            //            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
-            //            self.userObjectID = userDocumentID;
-            //            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            //            NSLog(@"userDocumentID: %@", userDocumentID);
-            //            NSLog(@"uploaded");
+            
+            NSDictionary *dreamDict = downloadedJSON[0];
+            dream.db_id = dreamDict[@"_id"];
+            NSLog(@"DREAM_ID FROM MONGO: %@", dream.db_id);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+            });
         } else {
             //error handing?
             NSLog(@"wtf");

@@ -10,9 +10,6 @@
 #import "AppDelegate.h"
 
 @implementation CoreDataManager
-{
-    
-}
 
 + (instancetype) sharedManager {
     static CoreDataManager *sharedManager = nil;
