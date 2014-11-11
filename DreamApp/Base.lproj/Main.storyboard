@@ -401,12 +401,36 @@
                                 <rect key="frame" x="0.0" y="342" width="600" height="173"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M9P-uk-Jh1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="M9P-uk-Jh1" customClass="CustomCommenttTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M9P-uk-Jh1" id="YJZ-Rb-ZPe">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUC-K4-Rm6">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhD-Tv-UxD">
+                                                    <rect key="frame" x="58" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CUC-K4-Rm6" firstAttribute="leading" secondItem="YJZ-Rb-ZPe" secondAttribute="leadingMargin" id="1b2-De-xnU"/>
+                                                <constraint firstAttribute="centerY" secondItem="CUC-K4-Rm6" secondAttribute="centerY" constant="0.25" id="EbU-6S-YoN"/>
+                                                <constraint firstItem="hhD-Tv-UxD" firstAttribute="top" secondItem="YJZ-Rb-ZPe" secondAttribute="topMargin" constant="3" id="nhm-ZD-97L"/>
+                                                <constraint firstItem="hhD-Tv-UxD" firstAttribute="leading" secondItem="CUC-K4-Rm6" secondAttribute="trailing" constant="8" id="qvb-4u-5C1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="comment" destination="hhD-Tv-UxD" id="aoL-Zd-Ji5"/>
+                                            <outlet property="name" destination="CUC-K4-Rm6" id="CSM-7f-IuO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1360,10 +1384,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dnD-oi-cAO"/>
+        <segue reference="3Pr-M6-p1p"/>
         <segue reference="Agc-bG-7qX"/>
         <segue reference="9nE-8i-evv"/>
         <segue reference="nRM-fP-bUC"/>
-        <segue reference="3Pr-M6-p1p"/>
-        <segue reference="DNb-5c-l7e"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,6 @@
 @property (nonatomic, strong) Dream *dream;
 @property (nonatomic, strong) NSMutableArray *fetchedComments;
 
-@property (nonatomic, strong) NSString *friendDream_id;
+@property (nonatomic, strong) NSString *dream_id;
 
 @end

@@ -9,6 +9,7 @@
 #import "FriendDreamViewController.h"
 #import "ServerManager.h"
 #import "AddCommentViewController.h"
+#import "CustomCommenttTableViewCell.h"
 
 @interface FriendDreamViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
@@ -35,6 +36,9 @@
     self.textView.text = self.dreamContent;
     self.titleTextView.text = self.dreamTitle;
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     self.navigationItem.title = self.navtitle;
     
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -49,13 +53,29 @@
      }];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [fetchedComments count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCommenttTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.name.text = [fetchedComments[indexPath.row] objectForKey:@"dreamerName"];
+    cell.comment.text = [fetchedComments[indexPath.row] objectForKey:@"commentContent"];
+    
+    return cell;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"addComment"])
     {
         AddCommentViewController *addCommentViewController = [segue destinationViewController];
         addCommentViewController.fetchedComments = fetchedComments;
-        addCommentViewController.friendDream_id = self.dream_id;
+        addCommentViewController.dream_id = self.dream_id;
     }
 }
 

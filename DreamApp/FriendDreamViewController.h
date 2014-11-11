@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendDreamViewController : UIViewController <UITextViewDelegate>
+@interface FriendDreamViewController : UIViewController <UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString *dream_id;
 @property (nonatomic, strong) NSString *navtitle;

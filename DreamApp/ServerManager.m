@@ -143,11 +143,7 @@
         {
             NSDictionary *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSLog(@"%@",downloadedJSON);
-            //            NSString *userDocumentID = [NSString stringWithUTF8String:[data bytes]];
-            //            self.userObjectID = userDocumentID;
-            //            //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            //            NSLog(@"userDocumentID: %@", userDocumentID);
-            //            NSLog(@"uploaded");
+
         } else {
             //error handing?
             NSLog(@"wtf");

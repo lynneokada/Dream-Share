@@ -8,6 +8,7 @@
 
 #import "AddCommentViewController.h"
 #import "ServerManager.h"
+#import "CustomCommentTableViewCell.h"
 
 @interface AddCommentViewController ()
 
@@ -38,7 +39,7 @@
 {
     [super viewDidAppear:YES];
     [self resignFirstResponder];
-    NSLog(@"dream_id: %@", [self.dream valueForKey:@"db_id"]);
+    NSLog(@"dream_id: %@", self.dream_id);
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -58,19 +59,13 @@
     return [self.fetchedComments count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.fetchedComments[indexPath.row];
-    
-    return cell;
-}
-
 - (IBAction)sendTapped:(id)sender
 {
     NSString *comment = self.textField.text;
-    [[ServerManager sharedManager] postComment:comment withDreamID:[self.dream valueForKey:@"db_id"]];
-    [self.fetchedComments addObject:comment];
+    [[ServerManager sharedManager] postComment:comment withDreamID:self.dream_id];
+    [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments) {
+        self.fetchedComments = [comments mutableCopy];
+    }];
     [self.tableView reloadData];
     self.textField.text = @"";
 }
@@ -83,6 +78,15 @@
         return NO;
     }
     return YES;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
+    cell.comment.text = [self.fetchedComments[indexPath.row] valueForKey:@"commentContent"];
+    cell.name.text = [self.fetchedComments[indexPath.row] valueForKey:@"dreamerName"];
+    
+    return cell;
 }
 
 - (void) dismissKeyboard

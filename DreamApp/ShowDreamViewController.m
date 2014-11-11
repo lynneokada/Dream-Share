@@ -188,6 +188,7 @@
     {
         AddCommentViewController *addCommentViewController = [segue destinationViewController];
         addCommentViewController.dream = self.dream;
+        addCommentViewController.dream_id = [self.dream valueForKey:@"db_id"];
         addCommentViewController.fetchedComments = fetchedComments;
     }
 }
