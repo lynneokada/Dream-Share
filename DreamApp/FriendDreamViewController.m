@@ -51,6 +51,15 @@
          fetchedComments = [comments mutableCopy];
          [self.tableView reloadData];
      }];
+    
+    NSMutableArray *hashedTagArray = [[NSMutableArray alloc] init];
+    
+    for (NSString *hashit in self.tags)
+    {
+        NSString *rehashedTag = [NSString stringWithFormat:@"#%@", hashit];
+        [hashedTagArray addObject:rehashedTag];
+    }
+    self.tagsTextView.text = [hashedTagArray componentsJoinedByString: @" "];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

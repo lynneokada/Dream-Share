@@ -98,9 +98,12 @@
         FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
         
+        NSLog(@"SEARCHRESULTS: %@", searchResults[selectedIndexPath.row]);
         friendDreamViewController.dreamTitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamTitle"];
         friendDreamViewController.dreamContent = [searchResults[selectedIndexPath.row] valueForKey:@"dreamContent"];
         friendDreamViewController.navtitle = [searchResults[selectedIndexPath.row] valueForKey:@"dreamerName"];
+        friendDreamViewController.tags = [searchResults[selectedIndexPath.row] valueForKey:@"dreamTags"];
+        friendDreamViewController.dream_id = [searchResults[selectedIndexPath.row] valueForKey:@"_id"];
     }
 }
 
