@@ -219,19 +219,18 @@
                                                     <rect key="frame" x="8" y="9" width="72" height="72"/>
                                                     <color key="backgroundColor" white="0.82270665320000003" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="72" id="iBR-2s-WLv"/>
-                                                        <constraint firstAttribute="height" constant="72" id="xc8-1e-TBj"/>
+                                                        <constraint firstAttribute="width" constant="72" id="884-Hx-Zme"/>
+                                                        <constraint firstAttribute="height" constant="72" id="eFf-wt-VCm"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Z16-Go-Ytt" firstAttribute="top" secondItem="3Cy-Nn-eID" secondAttribute="bottom" constant="8" id="WcI-60-9RT"/>
-                                                <constraint firstItem="lXK-gk-19Q" firstAttribute="leading" secondItem="Yyy-BT-1Lx" secondAttribute="leadingMargin" id="cqW-tf-gsr"/>
-                                                <constraint firstItem="3Cy-Nn-eID" firstAttribute="top" secondItem="Yyy-BT-1Lx" secondAttribute="topMargin" id="jQr-L8-ohN"/>
-                                                <constraint firstAttribute="centerX" secondItem="lXK-gk-19Q" secondAttribute="centerX" constant="256" id="ndK-8z-Tp5"/>
-                                                <constraint firstItem="Z16-Go-Ytt" firstAttribute="leading" secondItem="lXK-gk-19Q" secondAttribute="trailing" constant="24" id="rCy-eD-VbI"/>
-                                                <constraint firstAttribute="centerY" secondItem="lXK-gk-19Q" secondAttribute="centerY" id="tYU-Ni-fRF"/>
-                                                <constraint firstItem="3Cy-Nn-eID" firstAttribute="leading" secondItem="lXK-gk-19Q" secondAttribute="trailing" constant="24" id="x8p-fW-FTr"/>
+                                                <constraint firstItem="3Cy-Nn-eID" firstAttribute="top" secondItem="Yyy-BT-1Lx" secondAttribute="topMargin" id="1Yi-Tr-o1F"/>
+                                                <constraint firstAttribute="centerY" secondItem="lXK-gk-19Q" secondAttribute="centerY" constant="-0.25" id="69b-OO-OuS"/>
+                                                <constraint firstItem="Z16-Go-Ytt" firstAttribute="top" secondItem="3Cy-Nn-eID" secondAttribute="bottom" constant="8" id="Blw-Uw-xjp"/>
+                                                <constraint firstItem="Z16-Go-Ytt" firstAttribute="leading" secondItem="lXK-gk-19Q" secondAttribute="trailing" constant="24" id="X7t-Ql-vAa"/>
+                                                <constraint firstItem="3Cy-Nn-eID" firstAttribute="leading" secondItem="lXK-gk-19Q" secondAttribute="trailing" constant="24" id="drW-bT-cgg"/>
+                                                <constraint firstItem="lXK-gk-19Q" firstAttribute="leading" secondItem="Yyy-BT-1Lx" secondAttribute="leadingMargin" id="fLX-Aa-4UL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
@@ -1385,9 +1384,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="DNb-5c-l7e"/>
-        <segue reference="Agc-bG-7qX"/>
+        <segue reference="C6J-WU-El6"/>
         <segue reference="9nE-8i-evv"/>
-        <segue reference="3Pr-M6-p1p"/>
+        <segue reference="Oi7-AE-ofQ"/>
         <segue reference="3kM-H6-3md"/>
     </inferredMetricsTieBreakers>
 </document>

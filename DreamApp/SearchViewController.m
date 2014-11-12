@@ -71,6 +71,7 @@
     
     cell.dreamerName.text = [searchResults[indexPath.row] valueForKey:@"dreamerName"];
     cell.dreamTitle.text = [searchResults[indexPath.row] valueForKey:@"dreamTitle"];
+
     
     return cell;
 }
