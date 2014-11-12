@@ -1,18 +1,23 @@
 //
-//  InboxTableViewController.m
+//  GlobalTableViewController.m
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/26/14.
 //  Copyright (c) 2014 Lynne Okada. All rights reserved.
 //
 
-#import "InboxTableViewController.h"
+#import "GlobalTableViewController.h"
+#import "ServerManager.h"
+#import "CustomGlobalDreamTableViewCell.h"
 
-@interface InboxTableViewController ()
+@interface GlobalTableViewController ()
 
 @end
 
-@implementation InboxTableViewController
+@implementation GlobalTableViewController
+{
+    NSArray *allDreams;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,28 +29,34 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    [[ServerManager sharedManager] getAllDreamsWithBlock:^(NSArray * dreams) {
+        allDreams = dreams;
+        [self.tableView reloadData];
+        NSLog(@"ALLDREAMS: %@", allDreams);
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return [allDreams count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inboxCell" forIndexPath:indexPath];
+    CustomGlobalDreamTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.name.text = [allDreams[indexPath.row] objectForKey:@"dreamerName"];
+    cell.title.text = [allDreams[indexPath.row] objectForKey:@"dreamTitle"];
     
     return cell;
 }

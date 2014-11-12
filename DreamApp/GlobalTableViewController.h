@@ -1,5 +1,5 @@
 //
-//  InboxTableViewController.h
+//  GlobalTableViewController.h
 //  DreamApp
 //
 //  Created by Lynne Okada on 10/26/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InboxTableViewController : UITableViewController
+@interface GlobalTableViewController : UITableViewController
 
 @end

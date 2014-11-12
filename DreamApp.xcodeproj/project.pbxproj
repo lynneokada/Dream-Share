@@ -18,7 +18,7 @@
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
 		D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A20D19FEDF8F00F4252F /* ServerManager.m */; };
-		D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24019FEF01700F4252F /* InboxTableViewController.m */; };
+		D224A24119FEF01700F4252F /* GlobalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24019FEF01700F4252F /* GlobalTableViewController.m */; };
 		D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24919FF01BC00F4252F /* FileSystemManager.m */; };
 		D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D224A24C19FF2CC100F4252F /* CoreDataManager.m */; };
 		D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF841A006BDE00C70894 /* AddDreamViewController.m */; };
@@ -42,6 +42,7 @@
 		D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D270DB0D19DCAB8C009D425B /* AVFoundation.framework */; };
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */; };
+		D2B4A0FF1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B4A0FE1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m */; };
 		D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */; };
 		D2C64CF21A11A41200A8008C /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CF11A11A41200A8008C /* AddCommentViewController.m */; };
 		D2C64CF51A11FF7400A8008C /* CustomCommenttTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CF41A11FF7400A8008C /* CustomCommenttTableViewCell.m */; };
@@ -79,8 +80,8 @@
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D224A20C19FEDF8F00F4252F /* ServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
 		D224A20D19FEDF8F00F4252F /* ServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerManager.m; sourceTree = "<group>"; };
-		D224A23F19FEF01700F4252F /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
-		D224A24019FEF01700F4252F /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
+		D224A23F19FEF01700F4252F /* GlobalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalTableViewController.h; sourceTree = "<group>"; };
+		D224A24019FEF01700F4252F /* GlobalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalTableViewController.m; sourceTree = "<group>"; };
 		D224A24819FF01BC00F4252F /* FileSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystemManager.h; sourceTree = "<group>"; };
 		D224A24919FF01BC00F4252F /* FileSystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystemManager.m; sourceTree = "<group>"; };
 		D224A24B19FF2CC100F4252F /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
@@ -125,6 +126,8 @@
 		D270DB1C19DF21E4009D425B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D28DFC701A02BA0500C55143 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		D2B4A0FD1A14218300EF89EC /* CustomGlobalDreamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGlobalDreamTableViewCell.h; sourceTree = "<group>"; };
+		D2B4A0FE1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGlobalDreamTableViewCell.m; sourceTree = "<group>"; };
 		D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
 		D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchTableViewCell.m; sourceTree = "<group>"; };
 		D2C64CF01A11A41200A8008C /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
@@ -196,8 +199,10 @@
 				D270DACB19DBD85E009D425B /* CreateAccountViewController.m */,
 				D270DACD19DC7849009D425B /* WelcomeViewController.h */,
 				D270DACE19DC7849009D425B /* WelcomeViewController.m */,
-				D224A23F19FEF01700F4252F /* InboxTableViewController.h */,
-				D224A24019FEF01700F4252F /* InboxTableViewController.m */,
+				D224A23F19FEF01700F4252F /* GlobalTableViewController.h */,
+				D224A24019FEF01700F4252F /* GlobalTableViewController.m */,
+				D2B4A0FD1A14218300EF89EC /* CustomGlobalDreamTableViewCell.h */,
+				D2B4A0FE1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m */,
 				D270DB0A19DCA7E3009D425B /* RecordViewController.h */,
 				D270DB0B19DCA7E3009D425B /* RecordViewController.m */,
 				D22CDF831A006BDE00C70894 /* AddDreamViewController.h */,
@@ -423,7 +428,7 @@
 				D26A3AFE1A02165400CFB30F /* FriendsTableViewController.m in Sources */,
 				D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */,
 				D270DAC619DB362B009D425B /* InitialViewController.m in Sources */,
-				D224A24119FEF01700F4252F /* InboxTableViewController.m in Sources */,
+				D224A24119FEF01700F4252F /* GlobalTableViewController.m in Sources */,
 				D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */,
 				D224A24A19FF01BC00F4252F /* FileSystemManager.m in Sources */,
 				D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */,
@@ -439,6 +444,7 @@
 				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2DF192D1A02FD50002D206D /* Comment.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
+				D2B4A0FF1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m in Sources */,
 				D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
 				D2E2BB071A0C19E9006B72E6 /* Dream.m in Sources */,

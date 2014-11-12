@@ -1277,21 +1277,56 @@
             </objects>
             <point key="canvasLocation" x="4841" y="1064"/>
         </scene>
-        <!--Inbox Table View Controller-->
+        <!--Global Table View Controller-->
         <scene sceneID="VAx-Z5-iOS">
             <objects>
-                <tableViewController id="bM4-ie-BP0" customClass="InboxTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="22" sectionFooterHeight="22" id="XqK-AY-PsP">
+                <tableViewController id="bM4-ie-BP0" customClass="GlobalTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="XqK-AY-PsP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inboxCell" rowHeight="118" id="LPB-pF-kue">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dreamCell" rowHeight="60" id="LPB-pF-kue" customClass="CustomGlobalDreamTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LPB-pF-kue" id="TUR-SG-gum">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d0m-1z-XeI">
+                                            <rect key="frame" x="8" y="4" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="atD-Zk-eDs"/>
+                                                <constraint firstAttribute="height" constant="50" id="gUl-4q-zUN"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqC-zZ-lAX">
+                                            <rect key="frame" x="66" y="4" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-Qu-csH">
+                                            <rect key="frame" x="66" y="25" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AbP-Qu-csH" firstAttribute="leading" secondItem="d0m-1z-XeI" secondAttribute="trailing" constant="8" id="6nc-IO-EsL"/>
+                                        <constraint firstItem="AqC-zZ-lAX" firstAttribute="leading" secondItem="d0m-1z-XeI" secondAttribute="trailing" constant="8" id="KPi-da-Mia"/>
+                                        <constraint firstItem="d0m-1z-XeI" firstAttribute="leading" secondItem="TUR-SG-gum" secondAttribute="leadingMargin" id="L6I-aJ-pah"/>
+                                        <constraint firstAttribute="centerY" secondItem="d0m-1z-XeI" secondAttribute="centerY" constant="1" id="Pbs-sR-Ac0"/>
+                                        <constraint firstItem="AqC-zZ-lAX" firstAttribute="top" secondItem="TUR-SG-gum" secondAttribute="topMargin" constant="-4" id="kfz-7j-UaL"/>
+                                        <constraint firstItem="AbP-Qu-csH" firstAttribute="top" secondItem="AqC-zZ-lAX" secondAttribute="bottom" id="x9e-49-TlE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="d0m-1z-XeI" id="M5t-Kx-Q62"/>
+                                    <outlet property="name" destination="AqC-zZ-lAX" id="Er9-MU-Yh5"/>
+                                    <outlet property="title" destination="AbP-Qu-csH" id="eLL-xL-t2T"/>
+                                    <segue destination="HX2-cF-HfM" kind="show" identifier="seeDream" id="45g-tF-f2W"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1324,11 +1359,11 @@
             </objects>
             <point key="canvasLocation" x="6279" y="1824"/>
         </scene>
-        <!--inbox-->
+        <!--global-->
         <scene sceneID="xru-on-Zvj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqa-16-8iN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="inbox" id="ksz-UA-IRd"/>
+                    <tabBarItem key="tabBarItem" title="global" id="ksz-UA-IRd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L1R-Hf-O3A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1386,7 +1421,7 @@
         <segue reference="DNb-5c-l7e"/>
         <segue reference="C6J-WU-El6"/>
         <segue reference="9nE-8i-evv"/>
-        <segue reference="Oi7-AE-ofQ"/>
+        <segue reference="45g-tF-f2W"/>
         <segue reference="3kM-H6-3md"/>
     </inferredMetricsTieBreakers>
 </document>
