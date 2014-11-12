@@ -9,4 +9,4 @@
 #import "Global.h"
 
 NSString * const DREAM_DIRECTORY = @"/MasterDreamsFolder";
-NSString * const SERVER_URL = @"http://10.2.12.249:3000";
+NSString * const SERVER_URL = @"http://dream-share.herokuapp.com";

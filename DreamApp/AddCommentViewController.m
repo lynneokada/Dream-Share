@@ -65,8 +65,9 @@
     [[ServerManager sharedManager] postComment:comment withDreamID:self.dream_id];
     [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments) {
         self.fetchedComments = [comments mutableCopy];
+        [self.tableView reloadData];
     }];
-    [self.tableView reloadData];
+    
     self.textField.text = @"";
 }
 
