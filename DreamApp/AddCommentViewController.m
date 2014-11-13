@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -50,6 +51,43 @@
     }
     
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+    if (textField == self.textField)
+    {
+        //[self.navigationController.toolbar setContentOffset:CGPointMake(0,textField.center.y-210) animated:YES];
+//        [self.toolbar setFrame:CGRectMake(self.navigationController.toolbar.frame.origin.x,
+//                                          self.navigationController.toolbar.frame.origin.y - keyboardFrame.size.height +self.navigationController.toolbar.frame.size.height,
+//                                          self.navigationController.toolbar.frame.size.width,
+//                                          self.navigationController.toolbar.frame.size.height)];
+    }
+}
+
+- (void) liftMainViewWhenKeybordAppears:(NSNotification*)aNotification
+{
+    NSDictionary* userInfo = [aNotification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardFrame];
+    
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    [self.toolbar setFrame:CGRectMake(self.toolbar.frame.origin.x,
+                                                           self.toolbar.frame.origin.y - keyboardFrame.size.height +self.toolbar.frame.size.height,
+                                                           self.toolbar.frame.size.width,
+                                                           self.toolbar.frame.size.height)];
+    [UIView commitAnimations];
+    
 }
 
 #pragma mark - Table view data source

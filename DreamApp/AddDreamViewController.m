@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -139,6 +140,7 @@
     
     if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
     {
+        NSLog(@"textfield.text length: %lu", (unsigned long)[textField.text length]);
         textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
     }
     
@@ -156,6 +158,14 @@
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == self.textField)
+    {
+    [self.scrollView setContentOffset:CGPointMake(0,textField.center.y-210) animated:YES];
+    }
+}
+
 -(void)textFieldDidChange
 {
     if ([self.textField.text length] < [stringHolder length])
@@ -171,6 +181,14 @@
             }
         }
         stringHolder = self.textField.text;
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == self.textField)
+    {
+    [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES];
     }
 }
 

@@ -135,8 +135,9 @@
 
                      userBeingAdded.fbFullName = user.name;
                      userBeingAdded.fbUserID = user.objectID;
-                     
+                
                      [[ServerManager sharedManager] postUser:userBeingAdded];
+                     
                      [ProfileManager sharedManager].user = userBeingAdded;
                      
                  } else {
