@@ -9,6 +9,7 @@
 #import "GlobalTableViewController.h"
 #import "ServerManager.h"
 #import "CustomGlobalDreamTableViewCell.h"
+#import "FriendDreamViewController.h"
 
 @interface GlobalTableViewController ()
 
@@ -62,6 +63,21 @@
 }
 
 
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+    FriendDreamViewController *friendDreamViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"showDream"])
+    {
+        friendDreamViewController.dream_id = [allDreams[selectedIndexPath.row] valueForKey:@"_id"];
+        friendDreamViewController.navtitle = [allDreams[selectedIndexPath.row] valueForKey:@"dreamerName"];
+        friendDreamViewController.dreamTitle = [allDreams[selectedIndexPath.row] valueForKey:@"dreamTitle"];
+        friendDreamViewController.dreamContent = [allDreams[selectedIndexPath.row] valueForKey:@"dreamContent"];
+        friendDreamViewController.tags = [allDreams[selectedIndexPath.row] valueForKey:@"dreamTags"];
+    }
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,16 +109,6 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 

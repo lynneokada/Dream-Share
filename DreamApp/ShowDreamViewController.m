@@ -157,6 +157,17 @@
     }
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    CGPoint touchLocation = [touch locationInView:self.tableView];
+    if ([self.tableView indexPathForRowAtPoint:touchLocation])
+    {
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (void)resignKeyboard:(id)sender
 {
     if ([self.textField isFirstResponder])

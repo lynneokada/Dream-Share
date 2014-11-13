@@ -369,7 +369,7 @@
                                     <constraint firstAttribute="height" constant="36" id="QSl-A4-6MD"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCV-bX-pG9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCV-bX-pG9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -387,7 +387,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-cl-bhi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-cl-bhi">
                                 <rect key="frame" x="0.0" y="301" width="600" height="38"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -397,7 +397,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Y4n-hD-V5s">
-                                <rect key="frame" x="0.0" y="342" width="600" height="173"/>
+                                <rect key="frame" x="0.0" y="342" width="600" height="171"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" rowHeight="25" id="M9P-uk-Jh1" customClass="CustomCommenttTableViewCell">
@@ -438,6 +438,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NCV-bX-pG9" secondAttribute="trailing" constant="-16" id="4Zv-Rc-YkR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOj-ES-JjB" secondAttribute="trailing" constant="-16" id="5Gg-fn-vHO"/>
+                            <constraint firstItem="Kvb-i9-ZNH" firstAttribute="top" secondItem="Y4n-hD-V5s" secondAttribute="bottom" constant="2" id="6pH-nJ-g1l"/>
                             <constraint firstItem="OeW-cl-bhi" firstAttribute="top" secondItem="eOj-ES-JjB" secondAttribute="bottom" constant="3" id="AuH-2v-Etz"/>
                             <constraint firstItem="Kvb-i9-ZNH" firstAttribute="leading" secondItem="Srm-bT-hBe" secondAttribute="leadingMargin" constant="-16" id="DOU-0k-Wm5"/>
                             <constraint firstItem="eOj-ES-JjB" firstAttribute="leading" secondItem="Srm-bT-hBe" secondAttribute="leadingMargin" constant="-16" id="G23-9X-57A"/>
@@ -446,7 +447,6 @@
                             <constraint firstItem="Y4n-hD-V5s" firstAttribute="leading" secondItem="Srm-bT-hBe" secondAttribute="leadingMargin" constant="-16" id="Q5O-0c-rba"/>
                             <constraint firstItem="qap-0J-GCj" firstAttribute="top" secondItem="Kvb-i9-ZNH" secondAttribute="bottom" id="XbQ-MX-wbB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kvb-i9-ZNH" secondAttribute="trailing" constant="-16" id="Xsd-3f-477"/>
-                            <constraint firstItem="Kvb-i9-ZNH" firstAttribute="top" secondItem="Y4n-hD-V5s" secondAttribute="bottom" id="Y9u-CS-KKG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OeW-cl-bhi" secondAttribute="trailing" constant="-16" id="cLu-T5-xyf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y4n-hD-V5s" secondAttribute="trailing" constant="-16" id="g2O-go-Gnl"/>
                             <constraint firstItem="NCV-bX-pG9" firstAttribute="top" secondItem="zIc-4T-gxc" secondAttribute="bottom" id="pEI-u0-THL"/>
@@ -1344,7 +1344,7 @@
                                     <outlet property="imageView" destination="d0m-1z-XeI" id="M5t-Kx-Q62"/>
                                     <outlet property="name" destination="AqC-zZ-lAX" id="Er9-MU-Yh5"/>
                                     <outlet property="title" destination="AbP-Qu-csH" id="eLL-xL-t2T"/>
-                                    <segue destination="HX2-cF-HfM" kind="show" identifier="seeDream" id="45g-tF-f2W"/>
+                                    <segue destination="HX2-cF-HfM" kind="show" identifier="showDream" id="45g-tF-f2W"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1437,10 +1437,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DNb-5c-l7e"/>
+        <segue reference="dnD-oi-cAO"/>
+        <segue reference="45g-tF-f2W"/>
         <segue reference="C6J-WU-El6"/>
         <segue reference="9nE-8i-evv"/>
-        <segue reference="45g-tF-f2W"/>
         <segue reference="3kM-H6-3md"/>
     </inferredMetricsTieBreakers>
 </document>
