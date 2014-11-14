@@ -35,20 +35,20 @@
     NSLog(@"dream_id: %@", self.dream_id);
     [self.textField becomeFirstResponder];
     
+    if (self.fetchedComments.count > 0)
+    {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.fetchedComments.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+    
     [UIView beginAnimations: @"moveField"context: nil];
     [UIView setAnimationDelegate: self];
     [UIView setAnimationDuration: 0.5];
     [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
     self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x,
-                                       self.toolbar.frame.origin.y + 200,
-                                       self.toolbar.frame.size.width,
-                                       self.toolbar.frame.size.height);
+                                    self.toolbar.frame.origin.y + 200,
+                                    self.toolbar.frame.size.width,
+                                    self.toolbar.frame.size.height);
     [UIView commitAnimations];
-    
-    if (self.fetchedComments.count > 6)
-    {
-        
-    }
 }
 
 #pragma mark - Table view data source
@@ -80,13 +80,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

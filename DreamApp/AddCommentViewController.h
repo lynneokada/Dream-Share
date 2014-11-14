@@ -10,7 +10,7 @@
 
 @class Dream;
 
-@interface AddCommentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface AddCommentViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, UITabBarControllerDelegate>
 
 @property (nonatomic, strong) Dream *dream;
 @property (nonatomic, strong) NSMutableArray *fetchedComments;

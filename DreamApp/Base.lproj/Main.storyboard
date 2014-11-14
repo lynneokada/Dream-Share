@@ -175,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="3415" y="316"/>
         </scene>
-        <!--Dream Share-->
+        <!--Search-->
         <scene sceneID="98F-SQ-Zde">
             <objects>
                 <viewController id="esg-Ki-3aj" customClass="SearchViewController" sceneMemberID="viewController">
@@ -258,7 +258,7 @@
                             <constraint firstItem="WFB-U2-rDd" firstAttribute="leading" secondItem="xM3-lv-2Cg" secondAttribute="leadingMargin" constant="-16" id="tvb-7e-ms7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dream Share" id="ogg-Yn-KTs"/>
+                    <navigationItem key="navigationItem" title="Search" id="ogg-Yn-KTs"/>
                     <connections>
                         <outlet property="searchBar" destination="WFB-U2-rDd" id="B0d-ab-23v"/>
                         <outlet property="tableView" destination="Uhd-09-KoK" id="ZtE-7J-SIp"/>
@@ -1321,7 +1321,7 @@
             </objects>
             <point key="canvasLocation" x="4841" y="1064"/>
         </scene>
-        <!--Global Table View Controller-->
+        <!--Global Feed-->
         <scene sceneID="VAx-Z5-iOS">
             <objects>
                 <tableViewController id="bM4-ie-BP0" customClass="GlobalTableViewController" sceneMemberID="viewController">
@@ -1379,7 +1379,7 @@
                             <outlet property="delegate" destination="bM4-ie-BP0" id="2La-v6-LJJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CMI-ni-lqS"/>
+                    <navigationItem key="navigationItem" title="Global Feed" id="CMI-ni-lqS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzv-cN-Swl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1459,14 +1459,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Db2-fv-txr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4835" y="1824"/>
+            <point key="canvasLocation" x="4841" y="1824"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="DNb-5c-l7e"/>
         <segue reference="C6J-WU-El6"/>
         <segue reference="9nE-8i-evv"/>
-        <segue reference="45g-tF-f2W"/>
+        <segue reference="Oi7-AE-ofQ"/>
         <segue reference="3kM-H6-3md"/>
     </inferredMetricsTieBreakers>
 </document>
