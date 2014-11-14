@@ -126,26 +126,38 @@
                  NSLog(@"user_id: %@", user.objectID);
                  NSLog(@"user.count %lu", (unsigned long)[[CoreDataManager sharedManager] requestUserInfo].count);
                  
+                 //CHECK IF USER EXISTS
                  [[ServerManager sharedManager] checkForUser:user.objectID andCallbackBlock:^(NSArray * userInfo)
                   {
                       NSLog(@"%@", userInfo);
                       if (userInfo == nil)
                       {
+                          //CREATE USER IN CORE DATA AND POST TO SERVER
+                          NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+                          User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+                          
+                          userBeingAdded.fbFullName = user.name;
+                          userBeingAdded.fbUserID = user.objectID;
+                          
+                          [[ServerManager sharedManager] postUser:userBeingAdded];
+                          [ProfileManager sharedManager].user = userBeingAdded;
+                      } else {
+                          //ELSE IF USER IS IN SERVER CHECK IF USER IS STORE IN CORE DATE
                           if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
                           {
+                              //IF NOT MAKE ONE
                               NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
                               User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
                               
                               userBeingAdded.fbFullName = user.name;
                               userBeingAdded.fbUserID = user.objectID;
                               
-                              [[ServerManager sharedManager] postUser:userBeingAdded];
-                              
                               [ProfileManager sharedManager].user = userBeingAdded;
+                          } else {
+                              //ELSE GRAB ALL THE INFO FROM CORE DATAAaaaaaa
+                              NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+                              [ProfileManager sharedManager].user = userInfo[0];
                           }
-                      } else {
-                          NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
-                          [ProfileManager sharedManager].user = userInfo[0];
                       }
                   }];
              });
