@@ -33,7 +33,6 @@
 {
     [super viewDidAppear:YES];
     NSLog(@"dream_id: %@", self.dream_id);
-    [self.textField becomeFirstResponder];
     
     if (self.fetchedComments.count > 6)
     {
@@ -58,16 +57,6 @@
     }];
     
     self.textField.text = @"";
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    CGPoint touchLocation = [touch locationInView:self.tableView];
-    if ([self.tableView indexPathForRowAtPoint:touchLocation])
-    {
-        return NO;
-    }
-    return YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
