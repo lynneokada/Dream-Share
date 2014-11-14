@@ -20,6 +20,7 @@
     AVAudioPlayer *player;
 }
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
 @property (nonatomic, strong) NSString *stringHolder;
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
@@ -154,6 +155,22 @@
             }
         }
         self.stringHolder = self.textField.text;
+    }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == self.textField)
+    {
+        [self.scrollView setContentOffset:CGPointMake(0,textField.center.y-210) animated:YES];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField == self.textField)
+    {
+        [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES];
     }
 }
 

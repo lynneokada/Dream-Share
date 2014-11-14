@@ -33,6 +33,17 @@
 {
     [super viewDidAppear:YES];
     NSLog(@"dream_id: %@", self.dream_id);
+    [self.textField becomeFirstResponder];
+    
+    [UIView beginAnimations: @"moveField"context: nil];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationDuration: 0.5];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x,
+                                       self.toolbar.frame.origin.y + 200,
+                                       self.toolbar.frame.size.width,
+                                       self.toolbar.frame.size.height);
+    [UIView commitAnimations];
     
     if (self.fetchedComments.count > 6)
     {
