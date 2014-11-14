@@ -19,6 +19,7 @@
 - (void)postUser:(User*) user;
 - (void)postComment:(NSString*)comment withDreamID:(NSString*)dreamID;
 
+- (void)checkForUser:(NSString*)fbUserID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getAllDreamsWithBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getDreamsWithTag:(NSString*)tag andCallbackBlock:(void (^)(NSArray*))callBackBlock;

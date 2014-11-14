@@ -7,8 +7,6 @@
 //
 
 #import "InitialViewController.h"
-#import "LoginViewController.h"
-#import "CreateAccountViewController.h"
 #import "ProfileViewController.h"
 #import "ProfileManager.h"
 #import "Dream.h"
@@ -128,29 +126,35 @@
                  NSLog(@"user_id: %@", user.objectID);
                  NSLog(@"user.count %lu", (unsigned long)[[CoreDataManager sharedManager] requestUserInfo].count);
                  
-                 if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
-                 {
-                     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
-                     User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-
-                     userBeingAdded.fbFullName = user.name;
-                     userBeingAdded.fbUserID = user.objectID;
-                
-                     [[ServerManager sharedManager] postUser:userBeingAdded];
-                     
-                     [ProfileManager sharedManager].user = userBeingAdded;
-                     
-                 } else {
-                     NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
-                     [ProfileManager sharedManager].user = userInfo[0];
-                 }
+                 [[ServerManager sharedManager] checkForUser:user.objectID andCallbackBlock:^(NSArray * userInfo)
+                  {
+                      NSLog(@"%@", userInfo);
+                      if (userInfo == nil)
+                      {
+                          if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
+                          {
+                              NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+                              User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+                              
+                              userBeingAdded.fbFullName = user.name;
+                              userBeingAdded.fbUserID = user.objectID;
+                              
+                              [[ServerManager sharedManager] postUser:userBeingAdded];
+                              
+                              [ProfileManager sharedManager].user = userBeingAdded;
+                          }
+                      } else {
+                          NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+                          [ProfileManager sharedManager].user = userInfo[0];
+                      }
+                  }];
              });
          }
          [self performSegueWithIdentifier:@"didLogin" sender:self];
      }];
 }
 
-// Handle possible errors that can occur durqing login
+// Handle possible errors that can occur during login
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     NSString *alertMessage, *alertTitle;

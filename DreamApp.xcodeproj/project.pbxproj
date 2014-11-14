@@ -35,8 +35,6 @@
 		D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D270DAA719DB2270009D425B /* LaunchScreen.xib */; };
 		D270DAB519DB2270009D425B /* DreamAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DAB419DB2270009D425B /* DreamAppTests.m */; };
 		D270DAC619DB362B009D425B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DAC519DB362B009D425B /* InitialViewController.m */; };
-		D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DAC819DBD38F009D425B /* LoginViewController.m */; };
-		D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DACB19DBD85E009D425B /* CreateAccountViewController.m */; };
 		D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DACE19DC7849009D425B /* WelcomeViewController.m */; };
 		D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB0B19DCA7E3009D425B /* RecordViewController.m */; };
 		D270DB0E19DCAB8C009D425B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D270DB0D19DCAB8C009D425B /* AVFoundation.framework */; };
@@ -113,10 +111,6 @@
 		D270DAB419DB2270009D425B /* DreamAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DreamAppTests.m; sourceTree = "<group>"; };
 		D270DAC419DB362B009D425B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		D270DAC519DB362B009D425B /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
-		D270DAC719DBD38F009D425B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		D270DAC819DBD38F009D425B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		D270DACA19DBD85E009D425B /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
-		D270DACB19DBD85E009D425B /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		D270DACD19DC7849009D425B /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		D270DACE19DC7849009D425B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		D270DB0A19DCA7E3009D425B /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
@@ -193,10 +187,6 @@
 			children = (
 				D270DAC419DB362B009D425B /* InitialViewController.h */,
 				D270DAC519DB362B009D425B /* InitialViewController.m */,
-				D270DAC719DBD38F009D425B /* LoginViewController.h */,
-				D270DAC819DBD38F009D425B /* LoginViewController.m */,
-				D270DACA19DBD85E009D425B /* CreateAccountViewController.h */,
-				D270DACB19DBD85E009D425B /* CreateAccountViewController.m */,
 				D270DACD19DC7849009D425B /* WelcomeViewController.h */,
 				D270DACE19DC7849009D425B /* WelcomeViewController.m */,
 				D224A23F19FEF01700F4252F /* GlobalTableViewController.h */,
@@ -441,7 +431,6 @@
 				D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */,
 				D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */,
 				D2C64CF21A11A41200A8008C /* AddCommentViewController.m in Sources */,
-				D270DACC19DBD85E009D425B /* CreateAccountViewController.m in Sources */,
 				D2DF192D1A02FD50002D206D /* Comment.m in Sources */,
 				D20D123619DF51E800DE7485 /* SearchViewController.m in Sources */,
 				D2B4A0FF1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m in Sources */,
@@ -454,7 +443,6 @@
 				D2E2BB0A1A0C1ABC006B72E6 /* Tag.m in Sources */,
 				D224A20E19FEDF8F00F4252F /* ServerManager.m in Sources */,
 				D270DACF19DC7849009D425B /* WelcomeViewController.m in Sources */,
-				D270DAC919DBD38F009D425B /* LoginViewController.m in Sources */,
 				D2C64CF51A11FF7400A8008C /* CustomCommenttTableViewCell.m in Sources */,
 				D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */,
 				D20052391A0802DD005895FC /* FriendProfileViewController.m in Sources */,
