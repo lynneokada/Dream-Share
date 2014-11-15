@@ -22,6 +22,7 @@
 {
     UIToolbar *keyboardToolBar;
     NSMutableArray *dreamTags;
+    BOOL saveDream;
 }
 
 @property (retain, nonatomic) UIToolbar *keyboardToolBar;
@@ -73,6 +74,7 @@
 {
     [super viewDidAppear:YES];
     
+    saveDream = NO;
     //does an audio file exist?
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.pathToRecording])
     {
@@ -90,12 +92,12 @@
 {
     [super viewDidDisappear:YES];
     
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder]] && self.textField.text == nil && self.titleTextField.text == nil)
-//    {
-//        NSString *deleteFile = self.dreamBeingAdded.pathToFolder;
-//        NSError *error;
-//        [[NSFileManager defaultManager] removeItemAtPath:deleteFile error:&error];
-//    }
+    if (saveDream == NO)
+    {
+        //DELETE FROM CORE DATA
+        NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+        [context deleteObject:self.dreamBeingAdded];
+    }
 }
 
 - (IBAction)playTapped:(id)sender
@@ -216,6 +218,7 @@
 
 - (IBAction)saveTapped:(id)sender
 {
+    saveDream = YES;
     NSString *dreamTitle = self.titleTextField.text;
     NSString *dreamContent = self.textView.text;
     

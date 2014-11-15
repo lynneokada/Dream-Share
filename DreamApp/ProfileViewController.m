@@ -64,7 +64,6 @@
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
     {
-        NSLog(@"dream db_id: %@", [dreams[i] valueForKey:@"db_id"]);
         if ([dreams[i] valueForKey:@"db_id"] == nil)
         {
             [[ServerManager sharedManager] postDream:dreams[i]];

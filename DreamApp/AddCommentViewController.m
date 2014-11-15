@@ -27,13 +27,18 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.textField.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
     NSLog(@"dream_id: %@", self.dream_id);
-    [self.textField becomeFirstResponder];
+    //[self.textField becomeFirstResponder];
     
     if (self.fetchedComments.count > 0)
     {
@@ -61,11 +66,17 @@
 - (IBAction)sendTapped:(id)sender
 {
     NSString *comment = self.textField.text;
-    [[ServerManager sharedManager] postComment:comment withDreamID:self.dream_id];
-    [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments) {
-        self.fetchedComments = [comments mutableCopy];
-        [self.tableView reloadData];
-    }];
+    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+    if ([[comment stringByTrimmingCharactersInSet: set] length] == 0)
+    {
+        self.textField.text = @"";
+    } else {
+        [[ServerManager sharedManager] postComment:comment withDreamID:self.dream_id];
+        [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments) {
+            self.fetchedComments = [comments mutableCopy];
+            [self.tableView reloadData];
+        }];
+    }
     
     self.textField.text = @"";
 }
@@ -79,6 +90,29 @@
     return cell;
 }
 
+- (void)keyboardDidShow: (NSNotification *) notif
+{
+//    NSDictionary* userInfo = [notif userInfo];
+//    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    NSLog(@"%f", keyboardSize.height);
+//    [self.toolbar setFrame:CGRectMake(0, keyboardSize.height, 0, 200)];
+//}
+    NSDictionary* userInfo = [notif userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardFrame;
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    [self.toolbar setFrame:CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y - keyboardFrame.size.height, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
+    
+    [UIView commitAnimations];
+}
+    
 /*
  #pragma mark - Navigation
  
