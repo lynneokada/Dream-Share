@@ -38,21 +38,31 @@
 {
     [super viewDidAppear:YES];
     NSLog(@"dream_id: %@", self.dream_id);
-    //[self.textField becomeFirstResponder];
+    [self.textField becomeFirstResponder];
     
-    if (self.fetchedComments.count > 0)
+    if (self.fetchedComments.count > 5)
     {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.fetchedComments.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.fetchedComments.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
+}
+
+- (void)keyboardDidShow: (NSNotification *) notif
+{
+    NSDictionary* userInfo = [notif userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardFrame;
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
     
-    [UIView beginAnimations: @"moveField"context: nil];
-    [UIView setAnimationDelegate: self];
-    [UIView setAnimationDuration: 0.5];
-    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-    self.toolbar.frame = CGRectMake(self.toolbar.frame.origin.x,
-                                    self.toolbar.frame.origin.y + 200,
-                                    self.toolbar.frame.size.width,
-                                    self.toolbar.frame.size.height);
+    NSLog(@"keyboard.height: %f", keyboardFrame.size.height);
+    NSLog(@"toolbar height: %f", self.toolbar.frame.origin.y);
+    [self.toolbar setFrame:CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y - 174, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
+    //[self.toolbar setFrame:CGRectMake(0, keyboardFrame.size.height - self.toolbar.frame.size.height, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
     [UIView commitAnimations];
 }
 
@@ -72,7 +82,8 @@
         self.textField.text = @"";
     } else {
         [[ServerManager sharedManager] postComment:comment withDreamID:self.dream_id];
-        [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments) {
+        [[ServerManager sharedManager] getCommentsWith:self.dream_id andCallbackBlock:^(NSArray * comments)
+        {
             self.fetchedComments = [comments mutableCopy];
             [self.tableView reloadData];
         }];
@@ -88,29 +99,6 @@
     cell.name.text = [self.fetchedComments[indexPath.row] valueForKey:@"dreamerName"];
     
     return cell;
-}
-
-- (void)keyboardDidShow: (NSNotification *) notif
-{
-//    NSDictionary* userInfo = [notif userInfo];
-//    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-//    NSLog(@"%f", keyboardSize.height);
-//    [self.toolbar setFrame:CGRectMake(0, keyboardSize.height, 0, 200)];
-//}
-    NSDictionary* userInfo = [notif userInfo];
-    NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    CGRect keyboardFrame;
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-    [self.toolbar setFrame:CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y - keyboardFrame.size.height, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
-    
-    [UIView commitAnimations];
 }
     
 /*

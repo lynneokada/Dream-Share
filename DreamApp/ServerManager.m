@@ -15,7 +15,8 @@
 
 @implementation ServerManager
 
-+ (instancetype) sharedManager {
++ (instancetype) sharedManager
+{
     static ServerManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -24,8 +25,10 @@
     return sharedManager;
 }
 
-- (instancetype) init {
-    if (self = [super init]) {
+- (instancetype) init
+{
+    if (self = [super init])
+    {
         
     }
     return self;
@@ -318,4 +321,65 @@
     [dataTask resume];
 }
 
+- (void)deleteDreamUsing:(NSString*)dreamdb_id
+{
+    self.deleteDreamSuccess = NO;
+    
+    NSLog(@"dreamdb_id: %@", dreamdb_id);
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/delete/%@", SERVER_URL, dreamdb_id]];
+    NSLog(@"URL: %@", url);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                          NSInteger responseStatusCode = [httpResponse statusCode];
+                                          
+                                          if (responseStatusCode == 200 && data)
+                                          {
+                                              self.deleteDreamSuccess = YES;
+                                              //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                              NSLog(@"yeeeeee");
+
+                                          } else {
+                                              NSLog(@"wtf");
+                                          }
+                                      }];
+    [dataTask resume];
+}
+
+- (void)deleteCommentsFromDream:(NSString*)dreamdb_id
+{
+    NSLog(@"dreamdb_id: %@", dreamdb_id);
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/comments/delete/%@", SERVER_URL, dreamdb_id]];
+    NSLog(@"URL: %@", url);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    [request setHTTPMethod:@"DELETE"];
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+                                          NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                          NSInteger responseStatusCode = [httpResponse statusCode];
+                                          
+                                          if (responseStatusCode == 200 && data)
+                                          {
+                                              //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                              NSLog(@"yeeeeee");
+                                              
+                                          } else {
+                                              NSLog(@"wtf");
+                                          }
+                                      }];
+    [dataTask resume];
+
+}
 @end

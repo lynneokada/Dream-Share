@@ -88,18 +88,26 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Dream *dream = dreams[indexPath.row];
+
+    [dreams removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //DELETE FROM SERVER
+    [[ServerManager sharedManager] deleteDreamUsing:dream.db_id];
+    [[ServerManager sharedManager] deleteCommentsFromDream:dream.db_id];
+    
+    if ([[ServerManager sharedManager] deleteDreamSuccess] == YES)
+    {
     //DELETE FROM CORE DATA
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     [context deleteObject:dreams[indexPath.row]];
     
-    Dream *dream = dreams[indexPath.row];
-    //DELETE FROM FILE SYSTEM
+        //DELETE FROM FILE SYSTEM
     NSString *dreamToBeDeleted = dream.pathToFolder;
     NSError *error;
     [[NSFileManager defaultManager] removeItemAtPath:dreamToBeDeleted error:&error];
-    
-    [dreams removeObjectAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 - (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue

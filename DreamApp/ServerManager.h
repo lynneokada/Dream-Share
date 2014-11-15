@@ -14,6 +14,7 @@
 + (instancetype) sharedManager;
 
 @property (nonatomic, strong) NSString *userObjectID;
+@property (nonatomic, assign) BOOL deleteDreamSuccess;
 
 - (void)postDream:(Dream *)dream;
 - (void)postUser:(User*) user;
@@ -24,5 +25,8 @@
 - (void)getDreamsWithUserID:(NSString*)userID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getDreamsWithTag:(NSString*)tag andCallbackBlock:(void (^)(NSArray*))callBackBlock;
 - (void)getCommentsWith:(NSString*)dreamID andCallbackBlock:(void (^)(NSArray*))callBackBlock;
+
+- (void)deleteDreamUsing:(NSString*)dreamdb_id;
+- (void)deleteCommentsFromDream:(NSString*)dreamdb_id;
 
 @end
