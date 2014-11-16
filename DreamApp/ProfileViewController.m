@@ -31,7 +31,6 @@
 @implementation ProfileViewController {
     //array of dreams fetched from core data
     NSMutableArray *dreams;
-    NSMutableArray *dreamsFromServer;
 }
 @synthesize navigationItem;
 
@@ -46,21 +45,12 @@
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
     
-    dreamsFromServer = [[NSMutableArray alloc] init];
-    
     self.navigationItem.title = [ProfileManager sharedManager].user.fbFullName;
     
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:YES];
-    
-    self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
-    dreams = [[CoreDataManager sharedManager] requestDreams];
-    
     [self.tableView reloadData];
-
+    
+    dreams = [[CoreDataManager sharedManager] requestDreams];
+    NSLog(@"dream count: %lu", (unsigned long)dreams.count);
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
     {
@@ -69,6 +59,18 @@
             [[ServerManager sharedManager] postDream:dreams[i]];
         }
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
+    
+    dreams = [[CoreDataManager sharedManager] requestDreams];
+    
+    [self.tableView reloadData];
+    NSLog(@"DREAMS FROM CORE DATA: %@", dreams);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,16 +91,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Dream *dream = dreams[indexPath.row];
-
-    [dreams removeObjectAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     //DELETE FROM SERVER
     [[ServerManager sharedManager] deleteDreamUsing:dream.db_id];
     [[ServerManager sharedManager] deleteCommentsFromDream:dream.db_id];
     
-    if ([[ServerManager sharedManager] deleteDreamSuccess] == YES)
-    {
     //DELETE FROM CORE DATA
     NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     [context deleteObject:dreams[indexPath.row]];
@@ -107,7 +104,9 @@
     NSString *dreamToBeDeleted = dream.pathToFolder;
     NSError *error;
     [[NSFileManager defaultManager] removeItemAtPath:dreamToBeDeleted error:&error];
-    }
+    
+    [dreams removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (IBAction)unwindToProfileViewController:(UIStoryboardSegue *)unwindSegue

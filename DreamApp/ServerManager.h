@@ -14,7 +14,6 @@
 + (instancetype) sharedManager;
 
 @property (nonatomic, strong) NSString *userObjectID;
-@property (nonatomic, assign) BOOL deleteDreamSuccess;
 
 - (void)postDream:(Dream *)dream;
 - (void)postUser:(User*) user;

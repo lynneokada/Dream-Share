@@ -33,12 +33,12 @@
 {
     [super viewDidAppear:YES];
     
-    [FBSession openActiveSessionWithReadPermissions:@[@"public_profile", @"user_friends"]
-                                       allowLoginUI:YES
-                                  completionHandler:^(FBSession *session,
-                                                      FBSessionState status,
-                                                      NSError *error) {
-                                  }];
+//    [FBSession openActiveSessionWithReadPermissions:@[@"public_profile", @"user_friends"]
+//                                       allowLoginUI:YES
+//                                  completionHandler:^(FBSession *session,
+//                                                      FBSessionState status,
+//                                                      NSError *error) {
+//                                  }];
     
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         

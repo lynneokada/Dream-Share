@@ -142,7 +142,7 @@
                           [[ServerManager sharedManager] postUser:userBeingAdded];
                           [ProfileManager sharedManager].user = userBeingAdded;
                       } else {
-                          //ELSE IF USER IS IN SERVER CHECK IF USER IS STORE IN CORE DATE
+                          //ELSE IF USER IS IN SERVER CHECK IF USER IS STORED IN CORE DATE
                           if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
                           {
                               //IF NOT MAKE ONE

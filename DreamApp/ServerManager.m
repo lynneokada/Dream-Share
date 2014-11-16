@@ -323,8 +323,6 @@
 
 - (void)deleteDreamUsing:(NSString*)dreamdb_id
 {
-    self.deleteDreamSuccess = NO;
-    
     NSLog(@"dreamdb_id: %@", dreamdb_id);
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/delete/%@", SERVER_URL, dreamdb_id]];
     NSLog(@"URL: %@", url);
@@ -342,8 +340,6 @@
                                           
                                           if (responseStatusCode == 200 && data)
                                           {
-                                              self.deleteDreamSuccess = YES;
-                                              //NSArray *downloadedJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                               NSLog(@"yeeeeee");
 
                                           } else {
