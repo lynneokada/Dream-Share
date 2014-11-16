@@ -232,8 +232,6 @@
     self.dreamBeingAdded.dreamTitle = dreamTitle;
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;
-    //SHOULD BE UNIQUE MONGO DREAM Id
-//    self.dreamBeingAdded.db_id = [ProfileManager sharedManager].user.db_id;
     
     NSLog(@"DREAMTAGS: %@", dreamTags);
     //create Tag entity for core data
@@ -242,8 +240,6 @@
     NSData *tagsArrayData = [NSKeyedArchiver archivedDataWithRootObject:dreamTags];
     tagsBeingAdded.tagsArray = tagsArrayData;
     self.dreamBeingAdded.tags = tagsBeingAdded;
-    // TODO think about error handling / whether to write to the server if anything errors out beforehand
-    
     
     [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
     

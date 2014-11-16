@@ -84,6 +84,17 @@
 {
     CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
+    switch (indexPath.row % 2)
+    {
+        case 0:
+            cell.backgroundColor = [UIColor colorWithRed:0.239f green:0.329f blue:0.4f alpha:1.0f];
+            break;
+            
+        case 1:
+            cell.backgroundColor = [UIColor colorWithRed:0.325f green:0.443f blue:0.541f alpha:1.0f];
+            break;
+    }
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     
