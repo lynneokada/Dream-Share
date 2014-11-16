@@ -218,10 +218,17 @@
 
 - (IBAction)saveTapped:(id)sender
 {
+//    NSDate *date = [NSDate date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSDate *today = [NSDate date];
+    
     saveDream = YES;
     NSString *dreamTitle = self.titleTextField.text;
     NSString *dreamContent = self.textView.text;
     
+    NSLog(@"today is %@", today);
+    self.dreamBeingAdded.last_updated = today;
     self.dreamBeingAdded.dreamTitle = dreamTitle;
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;

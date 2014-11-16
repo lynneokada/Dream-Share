@@ -18,6 +18,7 @@
 #import "ProfileManager.h"
 #import "User.h"
 #import "ServerManager.h"
+#import "CustomProfileTableViewCell.h"
 
 @interface ProfileViewController ()
 
@@ -81,9 +82,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
+    CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
+    NSString* date = [[NSString alloc] initWithData:[dreams[indexPath.row] valueForKey:@"last_updated"] encoding:NSUTF8StringEncoding];
     
-    cell.textLabel.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.date.text = date;
+    cell.title.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.content.text = [dreams[indexPath.row] valueForKey:@"dreamContent"];
     
     return cell;
 }
