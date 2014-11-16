@@ -83,9 +83,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
-    NSString* date = [[NSString alloc] initWithData:[dreams[indexPath.row] valueForKey:@"last_updated"] encoding:NSUTF8StringEncoding];
     
-    cell.date.text = date;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    
+    cell.date.text = [dateFormatter stringFromDate:[dreams[indexPath.row] valueForKey:@"last_updated"]];
     cell.title.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
     cell.content.text = [dreams[indexPath.row] valueForKey:@"dreamContent"];
     
