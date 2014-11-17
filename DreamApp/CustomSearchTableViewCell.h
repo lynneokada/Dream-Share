@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *dreamerName;
 @property (weak, nonatomic) IBOutlet UILabel *dreamTitle;
+@property (weak, nonatomic) IBOutlet UITextView *dreamContent;
 
 @end
