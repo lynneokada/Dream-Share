@@ -38,7 +38,7 @@
     self.imageView.layer.borderWidth = 0;
     
     // Create a white border with defined width
-    self.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.imageView.layer.borderColor = [UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor;
     self.imageView.layer.borderWidth = 5;
     
     // To enable corners to be "clipped"

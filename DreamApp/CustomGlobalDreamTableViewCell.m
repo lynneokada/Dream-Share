@@ -16,11 +16,10 @@
     imageView.layer.cornerRadius = self.imageView.frame.size.height /2;
     imageView.layer.masksToBounds = YES;
     imageView.layer.borderWidth = 0;
-    
-    
+        
     // Create a white border with defined width
     imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    imageView.layer.borderWidth = 5;
+    imageView.layer.borderWidth = 3;
     
     // To enable corners to be "clipped"
     [imageView setClipsToBounds:YES];

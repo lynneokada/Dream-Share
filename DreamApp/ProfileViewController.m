@@ -47,7 +47,7 @@
     self.profilePictureView.layer.borderWidth = 0;
     
     // Create a white border with defined width
-    self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profilePictureView.layer.borderColor = [UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor;
     self.profilePictureView.layer.borderWidth = 5;
     
     // To enable corners to be "clipped"
@@ -90,17 +90,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
-    
-    switch (indexPath.row % 2)
-    {
-        case 0:
-            cell.backgroundColor = [UIColor colorWithRed:0.239f green:0.329f blue:0.4f alpha:1.0f];
-            break;
-            
-        case 1:
-            cell.backgroundColor = [UIColor colorWithRed:0.325f green:0.443f blue:0.541f alpha:1.0f];
-            break;
-    }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];

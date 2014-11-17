@@ -55,11 +55,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomGlobalDreamTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
+    
     NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [allDreams[indexPath.row] objectForKey:@"fbUser_id"]];
-    dispatch_async(dispatch_get_global_queue(0, 0),^{
-        UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-        cell.imageView.image = profilePic;
-    });
+    UIImage *profilePic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    cell.imageView.image = profilePic;
     cell.name.text = [allDreams[indexPath.row] objectForKey:@"dreamerName"];
     cell.title.text = [allDreams[indexPath.row] objectForKey:@"dreamTitle"];
     cell.content.text = [allDreams[indexPath.row] objectForKey:@"dreamContent"];
