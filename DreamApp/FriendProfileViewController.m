@@ -10,6 +10,7 @@
 #import "ServerManager.h"
 #import "FriendDreamViewController.h"
 #import "AppDelegate.h"
+#import "CustomProfileTableViewCell.h"
 
 @interface FriendProfileViewController ()
 
@@ -67,9 +68,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
+    CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    
+    cell.title.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.content.text = [dreams[indexPath.row] valueForKey:@"dreamContent"];
+    cell.date.text = [dateFormatter stringFromDate:[dreams[indexPath.row] valueForKey:@"last_updated"]];
     
     return cell;
 }
