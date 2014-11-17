@@ -30,6 +30,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    UITabBar *tabBar = self.navigationController.tabBarController.tabBar;
+    
+    UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:2]; // whichever tab-item
+    UIImage *selectedIcon = [UIImage imageNamed:@"MAGNIFYING GLASS_selected.png"];
+    [targetTabBarItem setSelectedImage:selectedIcon];
     
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
 //                                   initWithTarget:self

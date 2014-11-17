@@ -67,6 +67,12 @@
             [[ServerManager sharedManager] postDream:dreams[i]];
         }
     }
+    
+    UITabBar *tabBar = self.navigationController.tabBarController.tabBar;
+    
+    UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:0]; // whichever tab-item
+    UIImage *selectedIcon = [UIImage imageNamed:@"HOME_selected.png"];
+    [targetTabBarItem setSelectedImage:selectedIcon];
 }
 
 - (void)viewDidAppear:(BOOL)animated

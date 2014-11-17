@@ -1365,7 +1365,7 @@
         <image name="GLOBE.png" width="26" height="26"/>
         <image name="HOME.png" width="25" height="21"/>
         <image name="MAGNIFYING GLASS.png" width="25" height="25"/>
-        <image name="MICROPHONE.png" width="25" height="33"/>
+        <image name="MICROPHONE.png" width="20" height="26"/>
         <image name="arrowR.png" width="25" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>

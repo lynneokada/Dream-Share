@@ -25,6 +25,9 @@
 		D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D22CDF8A1A00D94800C70894 /* ShowDreamViewController.m */; };
 		D230C9DE1A099A1F00D0D5C0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D230C9DD1A099A1F00D0D5C0 /* User.m */; };
 		D2530D081A19E9A400A6FA41 /* MICROPHONE.png in Resources */ = {isa = PBXBuildFile; fileRef = D2530D071A19E9A400A6FA41 /* MICROPHONE.png */; };
+		D2530D0A1A19EC4900A6FA41 /* HOME_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D2530D091A19EC4900A6FA41 /* HOME_selected.png */; };
+		D2530D0C1A19F0B400A6FA41 /* GLOBE_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D2530D0B1A19F0B400A6FA41 /* GLOBE_selected.png */; };
+		D2530D0E1A19F0C100A6FA41 /* MAGNIFYING GLASS_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D2530D0D1A19F0C100A6FA41 /* MAGNIFYING GLASS_selected.png */; };
 		D2594C9B19E70DA70014F22B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2594C9A19E70DA70014F22B /* EditProfileViewController.m */; };
 		D26A3AF81A01ACA600CFB30F /* ProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AF71A01ACA600CFB30F /* ProfileManager.m */; };
 		D26A3AFE1A02165400CFB30F /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */; };
@@ -99,6 +102,9 @@
 		D230C9DC1A099A1F00D0D5C0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D230C9DD1A099A1F00D0D5C0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D2530D071A19E9A400A6FA41 /* MICROPHONE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MICROPHONE.png; path = ../MICROPHONE.png; sourceTree = "<group>"; };
+		D2530D091A19EC4900A6FA41 /* HOME_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HOME_selected.png; path = ../HOME_selected.png; sourceTree = "<group>"; };
+		D2530D0B1A19F0B400A6FA41 /* GLOBE_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GLOBE_selected.png; path = ../GLOBE_selected.png; sourceTree = "<group>"; };
+		D2530D0D1A19F0C100A6FA41 /* MAGNIFYING GLASS_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MAGNIFYING GLASS_selected.png"; path = "../MAGNIFYING GLASS_selected.png"; sourceTree = "<group>"; };
 		D2594C9919E70DA70014F22B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D2594C9A19E70DA70014F22B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D26A3AF61A01ACA600CFB30F /* ProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileManager.h; sourceTree = "<group>"; };
@@ -265,6 +271,9 @@
 				D2B44FB21A19E24700E07F37 /* GLOBE.png */,
 				D2B44FB01A19DC2000E07F37 /* HOME.png */,
 				D2530D071A19E9A400A6FA41 /* MICROPHONE.png */,
+				D2530D091A19EC4900A6FA41 /* HOME_selected.png */,
+				D2530D0D1A19F0C100A6FA41 /* MAGNIFYING GLASS_selected.png */,
+				D2530D0B1A19F0B400A6FA41 /* GLOBE_selected.png */,
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
@@ -423,6 +432,7 @@
 				D2530D081A19E9A400A6FA41 /* MICROPHONE.png in Resources */,
 				D270DAA419DB2270009D425B /* Main.storyboard in Resources */,
 				D2B44FB11A19DC2000E07F37 /* HOME.png in Resources */,
+				D2530D0C1A19F0B400A6FA41 /* GLOBE_selected.png in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
 				D2B44FAD1A19D78600E07F37 /* MAGNIFYING GLASS.png in Resources */,
 				D2B44FA71A19CE8F00E07F37 /* arrowR.png in Resources */,
@@ -430,7 +440,9 @@
 				D2B44FB31A19E24700E07F37 /* GLOBE.png in Resources */,
 				D212713F1A043BE10063BFA1 /* LICENSE in Resources */,
 				D270DAA619DB2270009D425B /* Images.xcassets in Resources */,
+				D2530D0E1A19F0C100A6FA41 /* MAGNIFYING GLASS_selected.png in Resources */,
 				D21271401A043BE10063BFA1 /* README.txt in Resources */,
+				D2530D0A1A19EC4900A6FA41 /* HOME_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
