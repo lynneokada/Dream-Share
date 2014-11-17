@@ -416,24 +416,24 @@
                                                         <constraint firstAttribute="centerY" secondItem="MFC-eG-6Lf" secondAttribute="centerY" constant="0.5" id="rr8-lq-cbA"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowR.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Gw-Kk-YnL">
-                                                    <rect key="frame" x="582" y="92" width="10" height="15"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ARROW.png" translatesAutoresizingMaskIntoConstraints="NO" id="m90-Bf-beX">
+                                                    <rect key="frame" x="582" y="87" width="10" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="Rd7-vc-sET"/>
-                                                        <constraint firstAttribute="width" constant="10" id="z1k-tP-db4"/>
+                                                        <constraint firstAttribute="width" constant="10" id="HYL-he-hRg"/>
+                                                        <constraint firstAttribute="height" constant="16" id="oF9-FY-BMx"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="m90-Bf-beX" firstAttribute="leading" secondItem="Sra-d5-q1d" secondAttribute="trailing" constant="23" id="6qX-TH-5A3"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Sra-d5-q1d" secondAttribute="bottom" constant="0.5" id="EQu-p5-H1H"/>
-                                                <constraint firstItem="2Gw-Kk-YnL" firstAttribute="leading" secondItem="Sra-d5-q1d" secondAttribute="trailing" constant="23" id="LvP-7o-cGL"/>
-                                                <constraint firstItem="2Gw-Kk-YnL" firstAttribute="trailing" secondItem="wUI-Oq-rt9" secondAttribute="trailingMargin" id="Mrn-Af-9C6"/>
+                                                <constraint firstAttribute="centerY" secondItem="m90-Bf-beX" secondAttribute="centerY" constant="-20" id="Mv0-04-Sfu"/>
                                                 <constraint firstItem="Sra-d5-q1d" firstAttribute="top" secondItem="JiC-SS-0Vr" secondAttribute="bottom" constant="8" id="W5r-zr-ncT"/>
+                                                <constraint firstItem="m90-Bf-beX" firstAttribute="trailing" secondItem="wUI-Oq-rt9" secondAttribute="trailingMargin" id="Wcx-op-VSa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JiC-SS-0Vr" secondAttribute="trailing" constant="-8" id="cKg-cK-TSf"/>
                                                 <constraint firstItem="JiC-SS-0Vr" firstAttribute="leading" secondItem="wUI-Oq-rt9" secondAttribute="leadingMargin" constant="-8" id="f4t-Bl-ZEK"/>
                                                 <constraint firstItem="Sra-d5-q1d" firstAttribute="leading" secondItem="wUI-Oq-rt9" secondAttribute="leadingMargin" id="g8g-6G-I7T"/>
                                                 <constraint firstItem="JiC-SS-0Vr" firstAttribute="top" secondItem="wUI-Oq-rt9" secondAttribute="topMargin" constant="-8" id="tDV-c2-Fbn"/>
-                                                <constraint firstAttribute="centerY" secondItem="2Gw-Kk-YnL" secondAttribute="centerY" constant="-24.5" id="wXo-lK-dlZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1362,11 +1362,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ARROW.png" width="25" height="39"/>
         <image name="GLOBE.png" width="26" height="26"/>
         <image name="HOME.png" width="25" height="21"/>
         <image name="MAGNIFYING GLASS.png" width="25" height="25"/>
         <image name="MICROPHONE.png" width="20" height="26"/>
-        <image name="arrowR.png" width="25" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="45g-tF-f2W"/>

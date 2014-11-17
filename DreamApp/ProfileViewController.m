@@ -48,7 +48,7 @@
     
     // Create a white border with defined width
     self.profilePictureView.layer.borderColor = [UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor;
-    self.profilePictureView.layer.borderWidth = 5;
+    self.profilePictureView.layer.borderWidth = 7;
     
     // To enable corners to be "clipped"
     [self.profilePictureView setClipsToBounds:YES];

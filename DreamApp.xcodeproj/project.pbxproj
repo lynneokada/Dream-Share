@@ -45,7 +45,6 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */; };
 		D2B44FA11A18A3C400E07F37 /* CustomProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B44FA01A18A3C400E07F37 /* CustomProfileTableViewCell.m */; };
-		D2B44FA71A19CE8F00E07F37 /* arrowR.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FA61A19CE8F00E07F37 /* arrowR.png */; };
 		D2B44FAB1A19D6B800E07F37 /* MAGNIFYING GLASS 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FAA1A19D6B800E07F37 /* MAGNIFYING GLASS 2.png */; };
 		D2B44FAD1A19D78600E07F37 /* MAGNIFYING GLASS.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FAC1A19D78600E07F37 /* MAGNIFYING GLASS.png */; };
 		D2B44FAF1A19DABE00E07F37 /* ARROW.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FAE1A19DABE00E07F37 /* ARROW.png */; };
@@ -137,7 +136,6 @@
 		D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		D2B44F9F1A18A3C400E07F37 /* CustomProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProfileTableViewCell.h; sourceTree = "<group>"; };
 		D2B44FA01A18A3C400E07F37 /* CustomProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProfileTableViewCell.m; sourceTree = "<group>"; };
-		D2B44FA61A19CE8F00E07F37 /* arrowR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowR.png; path = ../arrowR.png; sourceTree = "<group>"; };
 		D2B44FAA1A19D6B800E07F37 /* MAGNIFYING GLASS 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MAGNIFYING GLASS 2.png"; path = "../MAGNIFYING GLASS 2.png"; sourceTree = "<group>"; };
 		D2B44FAC1A19D78600E07F37 /* MAGNIFYING GLASS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MAGNIFYING GLASS.png"; path = "../MAGNIFYING GLASS.png"; sourceTree = "<group>"; };
 		D2B44FAE1A19DABE00E07F37 /* ARROW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ARROW.png; path = ../ARROW.png; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
-				D2B44FA61A19CE8F00E07F37 /* arrowR.png */,
 				D2B44FAA1A19D6B800E07F37 /* MAGNIFYING GLASS 2.png */,
 				D2B44FAC1A19D78600E07F37 /* MAGNIFYING GLASS.png */,
 				D2B44FAE1A19DABE00E07F37 /* ARROW.png */,
@@ -435,7 +432,6 @@
 				D2530D0C1A19F0B400A6FA41 /* GLOBE_selected.png in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
 				D2B44FAD1A19D78600E07F37 /* MAGNIFYING GLASS.png in Resources */,
-				D2B44FA71A19CE8F00E07F37 /* arrowR.png in Resources */,
 				D2B44FAB1A19D6B800E07F37 /* MAGNIFYING GLASS 2.png in Resources */,
 				D2B44FB31A19E24700E07F37 /* GLOBE.png in Resources */,
 				D212713F1A043BE10063BFA1 /* LICENSE in Resources */,
