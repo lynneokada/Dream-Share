@@ -37,6 +37,13 @@
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.borderWidth = 0;
     
+    // Create a white border with defined width
+    self.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.imageView.layer.borderWidth = 5;
+    
+    // To enable corners to be "clipped"
+    [self.imageView setClipsToBounds:YES];
+    
     dreams = [[NSArray alloc] init];
     
     self.navigationItem.title = self.friendName;

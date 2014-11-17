@@ -41,6 +41,8 @@
 		D270DB1D19DF21E4009D425B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D270DB1C19DF21E4009D425B /* ProfileViewController.m */; };
 		D28DFC721A02BA0500C55143 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */; };
 		D2B44FA11A18A3C400E07F37 /* CustomProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B44FA01A18A3C400E07F37 /* CustomProfileTableViewCell.m */; };
+		D2B44FA31A198F9500E07F37 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FA21A198F9500E07F37 /* arrow_right.png */; };
+		D2B44FA51A19920A00E07F37 /* microphone_white.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B44FA41A19920A00E07F37 /* microphone_white.png */; };
 		D2B4A0FF1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B4A0FE1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m */; };
 		D2C64CEC1A0EF2F400A8008C /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CEB1A0EF2F400A8008C /* CustomSearchTableViewCell.m */; };
 		D2C64CF21A11A41200A8008C /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C64CF11A11A41200A8008C /* AddCommentViewController.m */; };
@@ -123,6 +125,8 @@
 		D28DFC711A02BA0500C55143 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		D2B44F9F1A18A3C400E07F37 /* CustomProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProfileTableViewCell.h; sourceTree = "<group>"; };
 		D2B44FA01A18A3C400E07F37 /* CustomProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProfileTableViewCell.m; sourceTree = "<group>"; };
+		D2B44FA21A198F9500E07F37 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = ../../Downloads/IKONS/PNG/128/arrow_right.png; sourceTree = "<group>"; };
+		D2B44FA41A19920A00E07F37 /* microphone_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microphone_white.png; path = ../../Downloads/IKONS/PNG/128/microphone_white.png; sourceTree = "<group>"; };
 		D2B4A0FD1A14218300EF89EC /* CustomGlobalDreamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGlobalDreamTableViewCell.h; sourceTree = "<group>"; };
 		D2B4A0FE1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGlobalDreamTableViewCell.m; sourceTree = "<group>"; };
 		D2C64CEA1A0EF2F400A8008C /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
+				D2B44FA21A198F9500E07F37 /* arrow_right.png */,
+				D2B44FA41A19920A00E07F37 /* microphone_white.png */,
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
@@ -400,9 +406,11 @@
 			files = (
 				D270DAA419DB2270009D425B /* Main.storyboard in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
+				D2B44FA31A198F9500E07F37 /* arrow_right.png in Resources */,
 				D212713F1A043BE10063BFA1 /* LICENSE in Resources */,
 				D270DAA619DB2270009D425B /* Images.xcassets in Resources */,
 				D21271401A043BE10063BFA1 /* README.txt in Resources */,
+				D2B44FA51A19920A00E07F37 /* microphone_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

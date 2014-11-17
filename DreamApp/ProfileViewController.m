@@ -42,9 +42,16 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height /2;
+    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height/2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
+    
+    // Create a white border with defined width
+    self.profilePictureView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profilePictureView.layer.borderWidth = 5;
+    
+    // To enable corners to be "clipped"
+    [self.profilePictureView setClipsToBounds:YES];
     
     self.navigationItem.title = [ProfileManager sharedManager].user.fbFullName;
     

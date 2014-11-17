@@ -67,7 +67,7 @@
     CustomSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [searchResults[indexPath.row] objectForKey:@"dreamerName"]];
+    imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [searchResults[indexPath.row] objectForKey:@"fbUser_id"]];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
     cell.imageView.image = image;
     

@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     facebookFriends = [[NSMutableArray alloc] init];
 }
 
