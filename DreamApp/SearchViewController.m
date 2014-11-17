@@ -31,12 +31,12 @@
     self.tableView.dataSource = self;
     
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    tap.delegate = self;
-    
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    tap.delegate = self;
+//    
+//    [self.view addGestureRecognizer:tap];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -52,6 +52,8 @@
         NSLog(@"found dreams: %lu", (unsigned long)searchResults.count);
         NSLog(@"%@", searchResults);
     }];
+    
+    [self dismissKeyboard];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -76,15 +78,15 @@
     return cell;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    CGPoint touchLocation = [touch locationInView:self.tableView];
-    if ([self.tableView indexPathForRowAtPoint:touchLocation])
-    {
-        return NO;
-    }
-    return YES;
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+//{
+//    CGPoint touchLocation = [touch locationInView:self.tableView];
+//    if ([self.tableView indexPathForRowAtPoint:touchLocation])
+//    {
+//        return NO;
+//    }
+//    return YES;
+//}
 
 - (void) dismissKeyboard
 {
