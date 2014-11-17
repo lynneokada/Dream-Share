@@ -100,7 +100,7 @@
                                                     <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXW-MS-9gz">
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXW-MS-9gz">
                                                     <rect key="frame" x="8" y="86" width="561" height="56"/>
                                                     <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -241,7 +241,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qap-0J-GCj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Srm-bT-hBe">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHL-8U-bsR">
@@ -408,7 +408,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="twM-e5-EmL" id="wUI-Oq-rt9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-d5-q1d">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-d5-q1d">
                                                     <rect key="frame" x="8" y="48" width="551" height="93.5"/>
                                                     <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -850,7 +850,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ePH-9b-8jR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="P5l-Ky-Ipn">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-ki-tND">
@@ -1236,7 +1236,7 @@
                                             <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-ca-WbK">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-ca-WbK">
                                             <rect key="frame" x="8" y="77" width="558" height="65"/>
                                             <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1292,6 +1292,7 @@
                                         <constraint firstItem="69q-gk-rrm" firstAttribute="top" secondItem="TUR-SG-gum" secondAttribute="topMargin" constant="-8" id="zdS-W4-47q"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="content" destination="g0S-ca-WbK" id="aG5-9u-udA"/>
                                     <outlet property="imageView" destination="d0m-1z-XeI" id="M5t-Kx-Q62"/>
@@ -1410,8 +1411,8 @@
         <image name="MICROPHONE.png" width="20" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oi7-AE-ofQ"/>
-        <segue reference="dnD-oi-cAO"/>
         <segue reference="nRM-fP-bUC"/>
+        <segue reference="45g-tF-f2W"/>
+        <segue reference="dnD-oi-cAO"/>
     </inferredMetricsTieBreakers>
 </document>
