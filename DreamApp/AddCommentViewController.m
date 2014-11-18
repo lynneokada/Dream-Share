@@ -95,6 +95,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [self.fetchedComments[indexPath.row] objectForKey:@"fbUser_id"]];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    cell.imageView.image = image;
     cell.comment.text = [self.fetchedComments[indexPath.row] valueForKey:@"commentContent"];
     cell.name.text = [self.fetchedComments[indexPath.row] valueForKey:@"dreamerName"];
     

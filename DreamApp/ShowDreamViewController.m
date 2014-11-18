@@ -78,6 +78,13 @@
     NSMutableArray *tagsArray = [NSKeyedUnarchiver unarchiveObjectWithData:self.dream.tags.tagsArray];
     NSMutableArray *hashedTagArray = [[NSMutableArray alloc] init];
     
+    NSLog(@"tags: %@", tagsArray);
+    if (tagsArray.count == 0)
+    {
+        //MAKE PLACEHOLDER WHITE
+
+    }
+    
     for (NSString *hashit in tagsArray)
     {
         NSString *rehashedTag = [NSString stringWithFormat:@"#%@", hashit];

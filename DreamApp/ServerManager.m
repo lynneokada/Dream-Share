@@ -127,6 +127,7 @@
 {
     NSDictionary *dictionaryDreamLog = @{
                                          @"dream_id": dreamID,
+                                         @"fbUser_id": [ProfileManager sharedManager].user.fbUserID,
                                          @"dreamerName": [ProfileManager sharedManager].user.fbFullName,
                                          @"commentContent":comment
                                          };

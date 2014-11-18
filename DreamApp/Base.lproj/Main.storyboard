@@ -805,7 +805,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="BYc-4I-prz"/>
                                         </constraints>
-                                        <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.89803921568627454" green="0.88627450980392153" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -833,7 +833,7 @@
                                             <constraint firstAttribute="bottom" secondItem="DkL-mg-Wva" secondAttribute="bottom" constant="8" id="UNd-2b-VMd"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="no tags" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
                                         <rect key="frame" x="0.0" y="319" width="600" height="30"/>
                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1495,6 +1495,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="nRM-fP-bUC"/>
         <segue reference="3Pr-M6-p1p"/>
-        <segue reference="dnD-oi-cAO"/>
+        <segue reference="DNb-5c-l7e"/>
     </inferredMetricsTieBreakers>
 </document>
