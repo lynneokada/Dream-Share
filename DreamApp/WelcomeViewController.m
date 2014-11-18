@@ -9,6 +9,7 @@
 #import "WelcomeViewController.h"
 
 @interface WelcomeViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *UIButton;
 
 @end
 
@@ -16,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [[self.UIButton layer] setBorderWidth:1.5f];
+    [[self.UIButton layer] setBorderColor:[UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,6 +14,9 @@
 		D212713F1A043BE10063BFA1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D212713B1A043BE10063BFA1 /* LICENSE */; };
 		D21271401A043BE10063BFA1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D212713C1A043BE10063BFA1 /* README.txt */; };
 		D21271461A044E920063BFA1 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */; };
+		D21644B31A1C0551000539D5 /* cloud_share.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B21A1C0551000539D5 /* cloud_share.png */; };
+		D21644B51A1C070A000539D5 /* cloud_search.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B41A1C070A000539D5 /* cloud_search.png */; };
+		D21644B71A1C0868000539D5 /* cloud_post.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B61A1C0868000539D5 /* cloud_post.png */; };
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
@@ -88,6 +91,9 @@
 		D212713C1A043BE10063BFA1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = DreamApp/FBSDK/README.txt; sourceTree = "<group>"; };
 		D21271441A044E920063BFA1 /* CustomCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentTableViewCell.h; sourceTree = "<group>"; };
 		D21271451A044E920063BFA1 /* CustomCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentTableViewCell.m; sourceTree = "<group>"; };
+		D21644B21A1C0551000539D5 /* cloud_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_share.png; sourceTree = "<group>"; };
+		D21644B41A1C070A000539D5 /* cloud_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_search.png; sourceTree = "<group>"; };
+		D21644B61A1C0868000539D5 /* cloud_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_post.png; sourceTree = "<group>"; };
 		D224A1AB19F83DD200F4252F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D224A1AD19F83DD900F4252F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -118,14 +124,14 @@
 		D26A3AFD1A02165400CFB30F /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
 		D26A3B021A0242A900CFB30F /* FriendDreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDreamViewController.h; sourceTree = "<group>"; };
 		D26A3B031A0242A900CFB30F /* FriendDreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDreamViewController.m; sourceTree = "<group>"; };
-		D270DA9219DB2270009D425B /* DreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D270DA9219DB2270009D425B /* Dream Share.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dream Share.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270DA9619DB2270009D425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270DA9719DB2270009D425B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D270DA9919DB2270009D425B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D270DA9A19DB2270009D425B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D270DAA319DB2270009D425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D270DAA819DB2270009D425B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D270DAAE19DB2270009D425B /* DreamAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D270DAAE19DB2270009D425B /* Dream ShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dream ShareTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270DAB319DB2270009D425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270DAB419DB2270009D425B /* DreamAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DreamAppTests.m; sourceTree = "<group>"; };
 		D270DAC419DB362B009D425B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
@@ -272,6 +278,7 @@
 		D270DA8919DB2270009D425B = {
 			isa = PBXGroup;
 			children = (
+				D21644B61A1C0868000539D5 /* cloud_post.png */,
 				D270DA9419DB2270009D425B /* DreamApp */,
 				D270DAB119DB2270009D425B /* DreamAppTests */,
 				D270DA9319DB2270009D425B /* Products */,
@@ -286,8 +293,8 @@
 		D270DA9319DB2270009D425B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D270DA9219DB2270009D425B /* DreamApp.app */,
-				D270DAAE19DB2270009D425B /* DreamAppTests.xctest */,
+				D270DA9219DB2270009D425B /* Dream Share.app */,
+				D270DAAE19DB2270009D425B /* Dream ShareTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,6 +378,8 @@
 				D2530D0F1A19F9CC00A6FA41 /* more.png */,
 				D2B461E31A1A782700441462 /* hex.png */,
 				D2B461E51A1A7B4300441462 /* hexncloud.png */,
+				D21644B21A1C0551000539D5 /* cloud_share.png */,
+				D21644B41A1C070A000539D5 /* cloud_search.png */,
 			);
 			name = icons;
 			path = ..;
@@ -379,9 +388,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D270DA9119DB2270009D425B /* DreamApp */ = {
+		D270DA9119DB2270009D425B /* Dream Share */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D270DAB819DB2270009D425B /* Build configuration list for PBXNativeTarget "DreamApp" */;
+			buildConfigurationList = D270DAB819DB2270009D425B /* Build configuration list for PBXNativeTarget "Dream Share" */;
 			buildPhases = (
 				D270DA8E19DB2270009D425B /* Sources */,
 				D270DA8F19DB2270009D425B /* Frameworks */,
@@ -391,14 +400,14 @@
 			);
 			dependencies = (
 			);
-			name = DreamApp;
+			name = "Dream Share";
 			productName = DreamApp;
-			productReference = D270DA9219DB2270009D425B /* DreamApp.app */;
+			productReference = D270DA9219DB2270009D425B /* Dream Share.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D270DAAD19DB2270009D425B /* DreamAppTests */ = {
+		D270DAAD19DB2270009D425B /* Dream ShareTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D270DABB19DB2270009D425B /* Build configuration list for PBXNativeTarget "DreamAppTests" */;
+			buildConfigurationList = D270DABB19DB2270009D425B /* Build configuration list for PBXNativeTarget "Dream ShareTests" */;
 			buildPhases = (
 				D270DAAA19DB2270009D425B /* Sources */,
 				D270DAAB19DB2270009D425B /* Frameworks */,
@@ -409,9 +418,9 @@
 			dependencies = (
 				D270DAB019DB2270009D425B /* PBXTargetDependency */,
 			);
-			name = DreamAppTests;
+			name = "Dream ShareTests";
 			productName = DreamAppTests;
-			productReference = D270DAAE19DB2270009D425B /* DreamAppTests.xctest */;
+			productReference = D270DAAE19DB2270009D425B /* Dream ShareTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -433,7 +442,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D270DA8D19DB2270009D425B /* Build configuration list for PBXProject "DreamApp" */;
+			buildConfigurationList = D270DA8D19DB2270009D425B /* Build configuration list for PBXProject "Dream Share" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -447,8 +456,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D270DA9119DB2270009D425B /* DreamApp */,
-				D270DAAD19DB2270009D425B /* DreamAppTests */,
+				D270DA9119DB2270009D425B /* Dream Share */,
+				D270DAAD19DB2270009D425B /* Dream ShareTests */,
 			);
 		};
 /* End PBXProject section */
@@ -461,10 +470,13 @@
 				D2B44FAF1A19DABE00E07F37 /* ARROW.png in Resources */,
 				D2530D081A19E9A400A6FA41 /* MICROPHONE.png in Resources */,
 				D270DAA419DB2270009D425B /* Main.storyboard in Resources */,
+				D21644B51A1C070A000539D5 /* cloud_search.png in Resources */,
 				D2B461F21A1AC96C00441462 /* Icon58x58.png in Resources */,
 				D2B461F31A1AC96C00441462 /* Icon80x80.png in Resources */,
 				D2B44FB11A19DC2000E07F37 /* HOME.png in Resources */,
+				D21644B31A1C0551000539D5 /* cloud_share.png in Resources */,
 				D2530D0C1A19F0B400A6FA41 /* GLOBE_selected.png in Resources */,
+				D21644B71A1C0868000539D5 /* cloud_post.png in Resources */,
 				D270DAA919DB2270009D425B /* LaunchScreen.xib in Resources */,
 				D2B44FAD1A19D78600E07F37 /* MAGNIFYING GLASS.png in Resources */,
 				D2B461ED1A1AB70900441462 /* Images.xcassets in Resources */,
@@ -542,7 +554,7 @@
 /* Begin PBXTargetDependency section */
 		D270DAB019DB2270009D425B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D270DA9119DB2270009D425B /* DreamApp */;
+			target = D270DA9119DB2270009D425B /* Dream Share */;
 			targetProxy = D270DAAF19DB2270009D425B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -660,7 +672,7 @@
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dream Share";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -680,7 +692,7 @@
 				INFOPLIST_FILE = DreamApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dream Share";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -699,7 +711,7 @@
 				);
 				INFOPLIST_FILE = DreamAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dream ShareTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamApp.app/DreamApp";
 			};
 			name = Debug;
@@ -714,7 +726,7 @@
 				);
 				INFOPLIST_FILE = DreamAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Dream ShareTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DreamApp.app/DreamApp";
 			};
 			name = Release;
@@ -722,7 +734,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D270DA8D19DB2270009D425B /* Build configuration list for PBXProject "DreamApp" */ = {
+		D270DA8D19DB2270009D425B /* Build configuration list for PBXProject "Dream Share" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D270DAB619DB2270009D425B /* Debug */,
@@ -731,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D270DAB819DB2270009D425B /* Build configuration list for PBXNativeTarget "DreamApp" */ = {
+		D270DAB819DB2270009D425B /* Build configuration list for PBXNativeTarget "Dream Share" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D270DAB919DB2270009D425B /* Debug */,
@@ -740,7 +752,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D270DABB19DB2270009D425B /* Build configuration list for PBXNativeTarget "DreamAppTests" */ = {
+		D270DABB19DB2270009D425B /* Build configuration list for PBXNativeTarget "Dream ShareTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D270DABC19DB2270009D425B /* Debug */,

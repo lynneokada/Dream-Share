@@ -17,10 +17,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hexncloud.png" translatesAutoresizingMaskIntoConstraints="NO" id="qpi-83-XB0">
-                    <rect key="frame" x="192" y="185" width="97" height="109"/>
+                    <rect key="frame" x="213" y="210" width="54" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="97" id="dsG-QH-Eul"/>
-                        <constraint firstAttribute="height" constant="109" id="uaG-U7-wwK"/>
+                        <constraint firstAttribute="width" constant="54" id="dsG-QH-Eul"/>
+                        <constraint firstAttribute="height" constant="60" id="uaG-U7-wwK"/>
                     </constraints>
                 </imageView>
             </subviews>
