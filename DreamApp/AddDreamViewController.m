@@ -229,6 +229,10 @@
     
     NSLog(@"today is %@", today);
     self.dreamBeingAdded.last_updated = today;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    
+    self.dreamBeingAdded.dreamDate = [dateFormatter stringFromDate:today];
     self.dreamBeingAdded.dreamTitle = dreamTitle;
     self.dreamBeingAdded.dreamContent = dreamContent;
     self.dreamBeingAdded.dreamer = [ProfileManager sharedManager].user;

@@ -43,7 +43,8 @@
                                          @"dreamerName": [ProfileManager sharedManager].user.fbFullName,
                                          @"dreamTitle": dream.dreamTitle,
                                          @"dreamContent": dream.dreamContent,
-                                         @"dreamTags": tagsArray
+                                         @"dreamTags": tagsArray,
+                                         @"dreamDate": dream.dreamDate
                                          };
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams", SERVER_URL]];

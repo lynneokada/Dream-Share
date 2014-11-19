@@ -69,6 +69,7 @@
         if ([dreams[i] valueForKey:@"db_id"] == nil)
         {
             [[ServerManager sharedManager] postDream:dreams[i]];
+            NSLog(@"DREAM NEEDS TO POST: %@", dreams[i]);
         }
     }
     
@@ -108,10 +109,7 @@
 {
     CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-    
-    cell.date.text = [dateFormatter stringFromDate:[dreamsOnline[indexPath.row] valueForKey:@"last_updated"]];
+    cell.date.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamDate"];
     cell.title.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamTitle"];
     cell.content.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamContent"];
     

@@ -17,6 +17,7 @@
 		D21644B31A1C0551000539D5 /* cloud_share.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B21A1C0551000539D5 /* cloud_share.png */; };
 		D21644B51A1C070A000539D5 /* cloud_search.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B41A1C070A000539D5 /* cloud_search.png */; };
 		D21644B71A1C0868000539D5 /* cloud_post.png in Resources */ = {isa = PBXBuildFile; fileRef = D21644B61A1C0868000539D5 /* cloud_post.png */; };
+		D21644BA1A1C2779000539D5 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D21644B91A1C2779000539D5 /* Dream.m */; };
 		D224A1AC19F83DD200F4252F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AB19F83DD200F4252F /* Accounts.framework */; };
 		D224A1AE19F83DD900F4252F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AD19F83DD900F4252F /* Social.framework */; };
 		D224A1B019F843B900F4252F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D224A1AF19F843B900F4252F /* Security.framework */; };
@@ -66,7 +67,6 @@
 		D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2DF191F1A02D80A002D206D /* DreamApp.xcdatamodeld */; };
 		D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF19231A02FD27002D206D /* SyncableDBObject.m */; };
 		D2DF192D1A02FD50002D206D /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DF192C1A02FD50002D206D /* Comment.m */; };
-		D2E2BB071A0C19E9006B72E6 /* Dream.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E2BB061A0C19E9006B72E6 /* Dream.m */; };
 		D2E2BB0A1A0C1ABC006B72E6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E2BB091A0C1ABC006B72E6 /* Tag.m */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +94,8 @@
 		D21644B21A1C0551000539D5 /* cloud_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_share.png; sourceTree = "<group>"; };
 		D21644B41A1C070A000539D5 /* cloud_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_search.png; sourceTree = "<group>"; };
 		D21644B61A1C0868000539D5 /* cloud_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_post.png; sourceTree = "<group>"; };
+		D21644B81A1C2779000539D5 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
+		D21644B91A1C2779000539D5 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D224A1AB19F83DD200F4252F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D224A1AD19F83DD900F4252F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D224A1AF19F843B900F4252F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -172,8 +174,6 @@
 		D2DF19231A02FD27002D206D /* SyncableDBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncableDBObject.m; sourceTree = "<group>"; };
 		D2DF192B1A02FD50002D206D /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		D2DF192C1A02FD50002D206D /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		D2E2BB051A0C19E9006B72E6 /* Dream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dream.h; sourceTree = "<group>"; };
-		D2E2BB061A0C19E9006B72E6 /* Dream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dream.m; sourceTree = "<group>"; };
 		D2E2BB081A0C1ABC006B72E6 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		D2E2BB091A0C1ABC006B72E6 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,8 +207,8 @@
 			children = (
 				D2DF19221A02FD27002D206D /* SyncableDBObject.h */,
 				D2DF19231A02FD27002D206D /* SyncableDBObject.m */,
-				D2E2BB051A0C19E9006B72E6 /* Dream.h */,
-				D2E2BB061A0C19E9006B72E6 /* Dream.m */,
+				D21644B81A1C2779000539D5 /* Dream.h */,
+				D21644B91A1C2779000539D5 /* Dream.m */,
 				D230C9DC1A099A1F00D0D5C0 /* User.h */,
 				D230C9DD1A099A1F00D0D5C0 /* User.m */,
 				D2E2BB081A0C1ABC006B72E6 /* Tag.h */,
@@ -517,6 +517,7 @@
 				D270DA9B19DB2270009D425B /* AppDelegate.m in Sources */,
 				D22CDF8B1A00D94800C70894 /* ShowDreamViewController.m in Sources */,
 				D22CDF851A006BDE00C70894 /* AddDreamViewController.m in Sources */,
+				D21644BA1A1C2779000539D5 /* Dream.m in Sources */,
 				D2DF19211A02D80A002D206D /* DreamApp.xcdatamodeld in Sources */,
 				D2DF19241A02FD27002D206D /* SyncableDBObject.m in Sources */,
 				D224A24D19FF2CC100F4252F /* CoreDataManager.m in Sources */,
@@ -528,7 +529,6 @@
 				D2B4A0FF1A14218300EF89EC /* CustomGlobalDreamTableViewCell.m in Sources */,
 				D26A3B041A0242A900CFB30F /* FriendDreamViewController.m in Sources */,
 				D2D2376D19EDD36B00C738AF /* Global.m in Sources */,
-				D2E2BB071A0C19E9006B72E6 /* Dream.m in Sources */,
 				D230C9DE1A099A1F00D0D5C0 /* User.m in Sources */,
 				D270DA9819DB2270009D425B /* main.m in Sources */,
 				D270DB0C19DCA7E3009D425B /* RecordViewController.m in Sources */,
