@@ -55,6 +55,11 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    
+    if (allDreams.count == 0)
+    {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
     return [allDreams count];
 }
 

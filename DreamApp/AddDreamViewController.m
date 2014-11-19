@@ -68,6 +68,8 @@
                                              selector:@selector(textFieldDidChange)
                                                  name:@"UITextFieldTextDidChangeNotification"
                                                object:nil];
+    
+    [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor whiteColor]];
 }
 
 - (void)viewDidAppear:(BOOL)animated

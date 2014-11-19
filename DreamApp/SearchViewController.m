@@ -36,12 +36,12 @@
     UIImage *selectedIcon = [UIImage imageNamed:@"MAGNIFYING GLASS_selected.png"];
     [targetTabBarItem setSelectedImage:selectedIcon];
     
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-//                                   initWithTarget:self
-//                                   action:@selector(dismissKeyboard)];
-//    tap.delegate = self;
-//    
-//    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    tap.delegate = self;
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -64,6 +64,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (searchResults.count == 0)
+    {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
+    
     return [searchResults count];
 }
 
@@ -83,15 +88,15 @@
     return cell;
 }
 
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-//{
-//    CGPoint touchLocation = [touch locationInView:self.tableView];
-//    if ([self.tableView indexPathForRowAtPoint:touchLocation])
-//    {
-//        return NO;
-//    }
-//    return YES;
-//}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    CGPoint touchLocation = [touch locationInView:self.tableView];
+    if ([self.tableView indexPathForRowAtPoint:touchLocation])
+    {
+        return NO;
+    }
+    return YES;
+}
 
 - (void) dismissKeyboard
 {

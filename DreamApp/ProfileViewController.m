@@ -59,6 +59,7 @@
     [self.tableView reloadData];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
+    NSLog(@"dreams from core data: %@", dreams);
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
     {
@@ -91,6 +92,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (dreams.class == 0)
+    {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
+    
     return [dreams count];
 }
 
