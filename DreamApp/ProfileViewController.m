@@ -59,13 +59,11 @@
     [self.tableView reloadData];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
-    NSLog(@"dream count: %lu", (unsigned long)dreams.count);
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
     {
         if ([dreams[i] valueForKey:@"db_id"] == nil)
         {
-            NSLog(@"DREAM NEEDS TO POST: %@", [dreams[i] valueForKey:@"db_id"]);
             [[ServerManager sharedManager] postDream:dreams[i]];
         }
     }
@@ -87,7 +85,6 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
-    NSLog(@"DREAMS FROM CORE DATA: %@", dreams);
     [self.tableView reloadData];
 }
 
