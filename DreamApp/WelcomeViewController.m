@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[self.UIButton layer] setBorderWidth:1.5f];
+    [[self.UIButton layer] setBorderWidth:1.0f];
     [[self.UIButton layer] setBorderColor:[UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor];
 }
 

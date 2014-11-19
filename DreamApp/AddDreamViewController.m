@@ -85,7 +85,8 @@
         self.playButton.enabled = YES;
     }
     
-    if (self.textView.text.length == 0) {
+    if (self.textView.text.length == 0)
+    {
         self.saveButton.userInteractionEnabled = NO;
     }
 }

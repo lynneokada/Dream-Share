@@ -14,6 +14,7 @@
 @interface SearchViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *noDreamResultsLabel;
 
 @end
 
@@ -64,9 +65,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (searchResults.count == 0)
+    if (searchResults.count < 1)
     {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        self.noDreamResultsLabel.hidden = NO;
+    } else {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        self.noDreamResultsLabel.hidden = YES;
     }
     
     return [searchResults count];

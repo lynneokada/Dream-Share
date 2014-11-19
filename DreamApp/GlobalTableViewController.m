@@ -59,6 +59,8 @@
     if (allDreams.count == 0)
     {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    } else {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     }
     return [allDreams count];
 }

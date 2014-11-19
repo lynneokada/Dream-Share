@@ -70,6 +70,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (self.fetchedComments.count == 0)
+    {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
+    
     return [self.fetchedComments count];
 }
 

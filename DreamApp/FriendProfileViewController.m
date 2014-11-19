@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *UIView;
+@property (weak, nonatomic) IBOutlet UILabel *noDreamsLabel;
 
 @end
 
@@ -67,6 +68,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (dreams.count < 1)
+    {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        self.noDreamsLabel.hidden = NO;
+    } else{
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        self.noDreamsLabel.hidden = YES;
+    }
+    
     return [dreams count];
 }
 
