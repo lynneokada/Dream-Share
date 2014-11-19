@@ -108,6 +108,8 @@
                               
                               userBeingAdded.fbFullName = user.name;
                               userBeingAdded.fbUserID = user.objectID;
+                              userBeingAdded.db_id = [userInfo valueForKey:@"_id"];
+                              NSLog(@"user.db_id: %@", [userInfo valueForKey:@"_id"]);
                               
                               [ProfileManager sharedManager].user = userBeingAdded;
                               

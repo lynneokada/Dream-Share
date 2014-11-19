@@ -161,7 +161,6 @@
     [dataUpload resume];
 }
 
-
 - (void)checkForUser:(NSString*)fbUserID andCallbackBlock:(void (^)(NSArray*))callBackBlock
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@", SERVER_URL,fbUserID]];
