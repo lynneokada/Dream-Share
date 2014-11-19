@@ -29,12 +29,10 @@
 
 @end
 
-@implementation ProfileViewController {
+@implementation ProfileViewController
+{
     //array of dreams fetched from core data
     NSMutableArray *dreams;
-    
-    //array of dreams fetched from server
-    NSArray *dreamsOnline;
 }
 @synthesize navigationItem;
 
@@ -61,14 +59,13 @@
     [self.tableView reloadData];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
-    dreamsOnline = [[NSArray alloc] init];
     NSLog(@"dream count: %lu", (unsigned long)dreams.count);
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
     {
         if ([dreams[i] valueForKey:@"db_id"] == nil)
         {
-            [[ServerManager sharedManager] postDream:dreams[i]];
+            //[[ServerManager sharedManager] postDream:dreams[i]];
             NSLog(@"DREAM NEEDS TO POST: %@", dreams[i]);
         }
     }
@@ -90,28 +87,23 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
-
-    [[ServerManager sharedManager] getDreamsWithUserID:[ProfileManager sharedManager].user.fbUserID andCallbackBlock:^(NSArray * downloadedDreams)
-     {
-         dreamsOnline = downloadedDreams;
-         [self.tableView reloadData];
-         NSLog(@"DREAMS FROM SERVER: %@", dreamsOnline);
-     }];
+    NSLog(@"DREAMS FROM CORE DATA: %@", dreams);
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [dreamsOnline count];
+    return [dreams count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dreamCell" forIndexPath:indexPath];
     
-    cell.date.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamDate"];
-    cell.title.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamTitle"];
-    cell.content.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamContent"];
+    cell.date.text = [dreams[indexPath.row] valueForKey:@"dreamDate"];
+    cell.title.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.content.text = [dreams[indexPath.row] valueForKey:@"dreamContent"];
     
     return cell;
 }

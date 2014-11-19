@@ -24,6 +24,7 @@
 @implementation InitialViewController
 {
     NSMutableArray *facebookFriends;
+    NSArray *recoveredDreams;
 }
 
 - (void)viewDidLoad
@@ -34,6 +35,8 @@
     loginView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     [self.view addSubview:loginView];
     loginView.delegate = self;
+    
+    recoveredDreams = [[NSArray alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -99,7 +102,7 @@
                           //ELSE IF USER IS IN SERVER CHECK IF USER IS STORED IN CORE DATE
                           if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
                           {
-                              //IF NOT MAKE ONE
+                              //IF NOT MAKE ONE (MUST HAVE DELETED APP AND REDOWNLOADED)
                               NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
                               User *userBeingAdded = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
                               
@@ -107,6 +110,21 @@
                               userBeingAdded.fbUserID = user.objectID;
                               
                               [ProfileManager sharedManager].user = userBeingAdded;
+                              
+                              [[ServerManager sharedManager]getAllDreamsWithBlock:^(NSArray * downloadedDreams) {
+                                  recoveredDreams = downloadedDreams;
+                                  
+                                  //RE-ADD DREAMS TO CORE DATA
+                                  for (int i = 0; i < recoveredDreams.count; i++)
+                                  {
+                                      NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
+                                      Dream *dreamToCoreData = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
+                                      dreamToCoreData.dreamTitle = [recoveredDreams[i] valueForKey:@"dreamTitle"];
+                                      dreamToCoreData.dreamContent = [recoveredDreams[i] valueForKey:@"dreamContent"];
+                                      dreamToCoreData.dreamDate = [recoveredDreams[i] valueForKey:@"dreamDate"];
+                                      dreamToCoreData.dreamer = [ProfileManager sharedManager].user;
+                                  }
+                              }];
                           } else {
                               //ELSE GRAB ALL THE INFO FROM CORE DATAAaaaaaa
                               NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
