@@ -18,8 +18,6 @@
 @interface InitialViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *appName;
-@property (weak, nonatomic) IBOutlet UIButton *login;
-@property (weak, nonatomic) IBOutlet UIButton *createAccount;
 
 @end
 
@@ -27,12 +25,13 @@
 {
     NSMutableArray *facebookFriends;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"user_friends"]];
-    loginView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2+75);
+    loginView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     [self.view addSubview:loginView];
     loginView.delegate = self;
 }
@@ -42,51 +41,6 @@
     [super viewDidAppear:animated];
     
     [self fadein];
-    [self buttonAnimation];
-}
-
-- (void) buttonAnimation
-{
-    //saving the original position of the elements
-    //CGRect originalTitleFrame = self.appName.frame;
-    CGRect originalLoginFrame = self.login.frame;
-    CGRect originalCreateAccountFrame = self.createAccount.frame;
-    
-    //create the off screen positions of each element
-    //    CGRect offScreenTitleFrame = CGRectMake(originalTitleFrame.origin.x,
-    //                                           originalTitleFrame.origin.y - self.view.frame.size.height / 2.0f,
-    //                                           originalTitleFrame.size.width,
-    //                                           originalTitleFrame.size.height);
-    
-    CGRect offScreenLoginFrame = CGRectMake(originalLoginFrame.origin.x + self.view.frame.size.width,
-                                            originalLoginFrame.origin.y,
-                                            originalLoginFrame.size.width,
-                                            originalLoginFrame.size.height);
-    
-    CGRect offScreenCreateAccountFrame = CGRectMake(originalCreateAccountFrame.origin.x - self.view.frame.size.width,
-                                                    originalCreateAccountFrame.origin.y,
-                                                    originalCreateAccountFrame.size.width,
-                                                    originalCreateAccountFrame.size.height);
-    //set elements off screen
-    //self.appName.alpha = 0.0f;
-    self.login.alpha = 0.0f;
-    self.createAccount.alpha = 0.0f;
-    
-    //self.appName.frame = offScreenTitleFrame;
-    self.login.frame = offScreenLoginFrame;
-    self.createAccount.frame = offScreenCreateAccountFrame;
-    
-    [UIView animateWithDuration:1.0f delay:0.0f usingSpringWithDamping:0.75f initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        //self.appName.alpha = 1.0f;
-        self.login.alpha = 1.0f;
-        self.createAccount.alpha = 1.0f;
-        
-        //self.appName.frame = originalTitleFrame;
-        self.login.frame = originalLoginFrame;
-        self.createAccount.frame = originalCreateAccountFrame;
-    } completion:^(BOOL finished) {
-        
-    }];
 }
 
 - (void) fadein {

@@ -23,15 +23,18 @@
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
+@property (weak, nonatomic) IBOutlet UIButton *UIButton;
 
 @end
 
 @implementation ProfileViewController {
     //array of dreams fetched from core data
     NSMutableArray *dreams;
+    
+    //array of dreams fetched from server
+    NSArray *dreamsOnline;
 }
 @synthesize navigationItem;
 
@@ -48,7 +51,7 @@
     
     // Create a white border with defined width
     self.profilePictureView.layer.borderColor = [UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor;
-    self.profilePictureView.layer.borderWidth = 7;
+    self.profilePictureView.layer.borderWidth = 5;
     
     // To enable corners to be "clipped"
     [self.profilePictureView setClipsToBounds:YES];
@@ -58,6 +61,7 @@
     [self.tableView reloadData];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
+    dreamsOnline = [[NSArray alloc] init];
     NSLog(@"dream count: %lu", (unsigned long)dreams.count);
     //FOR WHEN DREAM IS CREATED WITHOUT SERVER CONNECTION
     for (int i = 0; i < dreams.count; i++)
@@ -73,6 +77,9 @@
     UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:0]; // whichever tab-item
     UIImage *selectedIcon = [UIImage imageNamed:@"HOME_selected.png"];
     [targetTabBarItem setSelectedImage:selectedIcon];
+    
+    [[self.UIButton layer] setBorderWidth:1.0f];
+    [[self.UIButton layer] setBorderColor:[UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -82,15 +89,19 @@
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     
     dreams = [[CoreDataManager sharedManager] requestDreams];
-    
-    [self.tableView reloadData];
-    NSLog(@"DREAMS FROM CORE DATA: %@", dreams);
+
+    [[ServerManager sharedManager] getDreamsWithUserID:[ProfileManager sharedManager].user.fbUserID andCallbackBlock:^(NSArray * downloadedDreams)
+     {
+         dreamsOnline = downloadedDreams;
+         [self.tableView reloadData];
+         NSLog(@"DREAMS FROM SERVER: %@", dreamsOnline);
+     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [dreams count];
+    return [dreamsOnline count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,9 +111,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     
-    cell.date.text = [dateFormatter stringFromDate:[dreams[indexPath.row] valueForKey:@"last_updated"]];
-    cell.title.text = [dreams[indexPath.row] valueForKey:@"dreamTitle"];
-    cell.content.text = [dreams[indexPath.row] valueForKey:@"dreamContent"];
+    cell.date.text = [dateFormatter stringFromDate:[dreamsOnline[indexPath.row] valueForKey:@"last_updated"]];
+    cell.title.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamTitle"];
+    cell.content.text = [dreamsOnline[indexPath.row] valueForKey:@"dreamContent"];
     
     return cell;
 }

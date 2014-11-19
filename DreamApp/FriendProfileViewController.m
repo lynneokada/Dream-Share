@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *UIView;
 
 @end
 
@@ -48,6 +49,9 @@
     dreams = [[NSArray alloc] init];
     
     self.navigationItem.title = self.friendName;
+    
+    [[self.UIView layer] setBorderWidth:1.0f];
+    [[self.UIView layer] setBorderColor:[UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated

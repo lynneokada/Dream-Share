@@ -17,8 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hexncloud.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGc-WN-wGd">
+                                <rect key="frame" x="268" y="89" width="65" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="aCU-fB-jCC"/>
+                                    <constraint firstAttribute="height" constant="73" id="t35-MG-0oO"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knw-zH-Ef8">
-                                <rect key="frame" x="212" y="173" width="177" height="37"/>
+                                <rect key="frame" x="212" y="184" width="176.5" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +33,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="PGc-WN-wGd" firstAttribute="top" secondItem="zMM-EI-BSb" secondAttribute="bottom" constant="69" id="CUJ-CF-aR7"/>
                             <constraint firstAttribute="centerX" secondItem="knw-zH-Ef8" secondAttribute="centerX" constant="-0.5" id="Pub-Xj-uHx"/>
-                            <constraint firstItem="knw-zH-Ef8" firstAttribute="top" secondItem="zMM-EI-BSb" secondAttribute="bottom" constant="153" id="zJ3-L1-YXf"/>
+                            <constraint firstAttribute="centerX" secondItem="PGc-WN-wGd" secondAttribute="centerX" constant="-0.5" id="gOq-zu-95I"/>
+                            <constraint firstItem="knw-zH-Ef8" firstAttribute="top" secondItem="PGc-WN-wGd" secondAttribute="bottom" constant="22" id="rXE-Rv-cqk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XuR-2T-Hr2"/>
@@ -187,14 +196,14 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecu-oM-74N">
                                 <rect key="frame" x="0.0" y="120" width="600" height="56"/>
-                                <color key="backgroundColor" white="0.82270665320000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="nE5-EK-4mR"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="149" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vi5-9G-ICt">
                                 <rect key="frame" x="0.0" y="176" width="600" height="311"/>
-                                <color key="backgroundColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dreamCell" rowHeight="150" id="9NE-pn-3NO" customClass="CustomProfileTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -251,7 +260,7 @@
                                                 <constraint firstItem="cWO-qL-S3Z" firstAttribute="top" secondItem="35a-og-wVV" secondAttribute="bottom" constant="8" id="rIt-Zj-jnc"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="content" destination="cWO-qL-S3Z" id="Lr5-Hh-BBX"/>
                                             <outlet property="date" destination="qtW-W9-FAb" id="Rso-bN-wuK"/>
@@ -262,7 +271,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ecu-oM-74N" firstAttribute="leading" secondItem="67K-M3-apc" secondAttribute="leadingMargin" constant="-16" id="2ny-kO-Mcb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ecu-oM-74N" secondAttribute="trailing" constant="-16" id="5LZ-OJ-UEP"/>
@@ -277,6 +286,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="UIView" destination="ecu-oM-74N" id="VYq-5W-sYV"/>
                         <outlet property="imageView" destination="slB-4z-UAe" id="g4D-P6-o0s"/>
                         <outlet property="tableView" destination="vi5-9G-ICt" id="wTy-8c-hAv"/>
                     </connections>
@@ -532,12 +542,12 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3M-k4-1QL">
                                 <rect key="frame" x="0.0" y="120" width="600" height="56"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="IUa-8E-EFb"/>
                                 </constraints>
                                 <state key="normal" title="friends">
-                                    <color key="titleColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -568,6 +578,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="UIButton" destination="q3M-k4-1QL" id="zP3-gw-O8X"/>
                         <outlet property="navigationItem" destination="GFs-eg-LRm" id="zTi-sp-uIr"/>
                         <outlet property="profilePictureView" destination="Gs1-Uv-MQ0" id="HBg-qR-Fhg"/>
                         <outlet property="tableView" destination="jjZ-wN-jiN" id="IG8-L8-CJF"/>
@@ -1444,6 +1455,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="6zb-HT-vuP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.89411764705882357" green="0.88627450980392153" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
@@ -1464,9 +1476,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jqa-16-8iN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="global" image="GLOBE.png" selectedImage="GLOBE.png" id="ksz-UA-IRd"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="L1R-Hf-O3A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="L1R-Hf-O3A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -1507,9 +1520,10 @@
                     <tabBarItem key="tabBarItem" title="search" image="MAGNIFYING GLASS.png" selectedImage="MAGNIFYING GLASS.png" id="UTP-dj-kYg"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bGg-q9-hM8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="bGg-q9-hM8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.89803921568627454" green="0.88627450980392153" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -1538,7 +1552,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nRM-fP-bUC"/>
-        <segue reference="3Pr-M6-p1p"/>
         <segue reference="DNb-5c-l7e"/>
+        <segue reference="3Pr-M6-p1p"/>
     </inferredMetricsTieBreakers>
 </document>
