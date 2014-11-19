@@ -11,6 +11,7 @@
 #import "ProfileManager.h"
 #import "Dream.h"
 #import "User.h"
+#import "Tag.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
 #import "ServerManager.h"
@@ -121,10 +122,19 @@
                                   {
                                       NSManagedObjectContext *context = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
                                       Dream *dreamToCoreData = [NSEntityDescription insertNewObjectForEntityForName:@"Dream" inManagedObjectContext:context];
+                                      
+                                      Tag *tagsToCoreData = [NSEntityDescription insertNewObjectForEntityForName:@"Tags" inManagedObjectContext:context];
+                                      
                                       dreamToCoreData.dreamTitle = [recoveredDreams[i] valueForKey:@"dreamTitle"];
                                       dreamToCoreData.dreamContent = [recoveredDreams[i] valueForKey:@"dreamContent"];
                                       dreamToCoreData.dreamDate = [recoveredDreams[i] valueForKey:@"dreamDate"];
                                       dreamToCoreData.dreamer = [ProfileManager sharedManager].user;
+                                      dreamToCoreData.db_id = [recoveredDreams[i] valueForKey:@"_id"];
+                                      
+                                      NSArray *jsonTagsArray = (NSArray *) [recoveredDreams[i] valueForKey:@"dreamTags"];
+                                      NSData *tagsArrayData = [NSKeyedArchiver archivedDataWithRootObject:jsonTagsArray];
+                                      tagsToCoreData.tagsArray = tagsArrayData;
+                                      dreamToCoreData.tags = tagsToCoreData;
                                   }
                               }];
                           } else {

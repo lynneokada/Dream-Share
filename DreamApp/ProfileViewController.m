@@ -65,8 +65,8 @@
     {
         if ([dreams[i] valueForKey:@"db_id"] == nil)
         {
-            //[[ServerManager sharedManager] postDream:dreams[i]];
-            NSLog(@"DREAM NEEDS TO POST: %@", dreams[i]);
+            NSLog(@"DREAM NEEDS TO POST: %@", [dreams[i] valueForKey:@"db_id"]);
+            [[ServerManager sharedManager] postDream:dreams[i]];
         }
     }
     
