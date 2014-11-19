@@ -72,8 +72,9 @@
     UITabBar *tabBar = self.navigationController.tabBarController.tabBar;
     
     UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:0]; // whichever tab-item
-    UIImage *selectedIcon = [UIImage imageNamed:@"HOME_selected.png"];
+    UIImage *selectedIcon = [UIImage imageNamed:@"HOME.png"];
     [targetTabBarItem setSelectedImage:selectedIcon];
+    tabBar.tintColor = [UIColor whiteColor];
     
     [[self.UIButton layer] setBorderWidth:1.0f];
     [[self.UIButton layer] setBorderColor:[UIColor colorWithRed:0.933 green:0.925 blue:0.941 alpha:1].CGColor];
@@ -82,6 +83,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor redColor]];
     
     self.profilePictureView.image = [[ProfileManager sharedManager] FBProfilePicture];
     

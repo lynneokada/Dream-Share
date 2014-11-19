@@ -1543,7 +1543,7 @@
         <image name="ARROW.png" width="25" height="39"/>
         <image name="GLOBE.png" width="26" height="26"/>
         <image name="HOME.png" width="25" height="21"/>
-        <image name="MAGNIFYING GLASS.png" width="25" height="25"/>
+        <image name="MAGNIFYING GLASS.png" width="30" height="30"/>
         <image name="MICROPHONE.png" width="20" height="26"/>
         <image name="cloud_post.png" width="267" height="197"/>
         <image name="cloud_search.png" width="267" height="208"/>

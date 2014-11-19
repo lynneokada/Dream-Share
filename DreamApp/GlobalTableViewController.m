@@ -27,7 +27,7 @@
     UITabBar *tabBar = self.navigationController.tabBarController.tabBar;
     
     UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:1]; // whichever tab-item
-    UIImage *selectedIcon = [UIImage imageNamed:@"GLOBE_selected.png"];
+    UIImage *selectedIcon = [UIImage imageNamed:@"GLOBE.png"];
     [targetTabBarItem setSelectedImage:selectedIcon];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

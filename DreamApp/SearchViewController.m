@@ -33,7 +33,7 @@
     UITabBar *tabBar = self.navigationController.tabBarController.tabBar;
     
     UITabBarItem *targetTabBarItem = [[tabBar items] objectAtIndex:2]; // whichever tab-item
-    UIImage *selectedIcon = [UIImage imageNamed:@"MAGNIFYING GLASS_selected.png"];
+    UIImage *selectedIcon = [UIImage imageNamed:@"MAGNIFYING GLASS.png"];
     [targetTabBarItem setSelectedImage:selectedIcon];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
