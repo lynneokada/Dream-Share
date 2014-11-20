@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (strong, nonatomic) AVAudioRecorder *recorder;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 @end
 
@@ -92,20 +93,23 @@
 
 - (void)incrementProgressBar
 {
-    self.progressBar.progress += 0.1;
+    self.progressBar.progress += 0.0003;
     NSLog(@"progress: %f", self.progressBar.progress);
     
-    if (self.progressBar.progress == 1)
+    if (self.progressBar.progress >= 1)
     {
         [timer invalidate];
     }
 }
 
+- (void)stopProgressBar
+{
+    self.progressBar.progress += 0;
+}
+
 - (IBAction)recordPauseTapped:(id)sender
 {
     self.tabBarController.tabBar.userInteractionEnabled = NO;
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(incrementProgressBar) userInfo:nil repeats:YES];
     
     if (!self.recorder.recording)
     {
@@ -114,14 +118,14 @@
         
         //start recroding
         [self.recorder record];
-        
         [recordPauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
-    }
-    else
-    {
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(incrementProgressBar) userInfo:nil repeats:YES];
+    } else {
         // Pause recording
         [self.recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(stopProgressBar) userInfo:nil repeats:YES];
     }
     [doneBarButton setEnabled:YES];
 }

@@ -1094,6 +1094,16 @@
                                     <action selector="recordPauseTapped:" destination="Ne4-Yb-xoD" eventType="touchUpInside" id="W7C-WJ-zn1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqg-yg-GgE">
+                                <rect key="frame" x="283" y="208" width="34" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="LYo-qz-xfk"/>
+                                    <constraint firstAttribute="width" constant="34" id="w6v-kW-uRx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <progressView opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ru1-dV-Xfz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                 <color key="tintColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1105,7 +1115,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" id="Oa9-yv-Cat"/>
+                            <constraint firstItem="z1m-85-vTy" firstAttribute="centerX" secondItem="Oqg-yg-GgE" secondAttribute="centerX" id="Olt-f4-fYz"/>
                             <constraint firstItem="Ru1-dV-Xfz" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="VNq-J1-37Q"/>
+                            <constraint firstItem="z1m-85-vTy" firstAttribute="centerY" secondItem="Oqg-yg-GgE" secondAttribute="centerY" constant="25" id="WFl-7m-vJe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ru1-dV-Xfz" secondAttribute="trailing" constant="-16" id="br9-OL-j3C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z1m-85-vTy" secondAttribute="trailing" constant="-16" id="fde-fX-g3b"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="mJW-Cb-Slf"/>
@@ -1124,6 +1136,7 @@
                     <connections>
                         <outlet property="doneBarButton" destination="94l-PE-MGJ" id="p1I-Kk-CcY"/>
                         <outlet property="progressBar" destination="Ru1-dV-Xfz" id="Sdd-NL-4cX"/>
+                        <outlet property="progressLabel" destination="Oqg-yg-GgE" id="Jcj-lW-zmA"/>
                         <outlet property="recordPauseButton" destination="z1m-85-vTy" id="KwX-vd-jmb"/>
                     </connections>
                 </viewController>
