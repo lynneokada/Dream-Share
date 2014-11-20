@@ -167,7 +167,7 @@
 {
     if (textField == self.textField)
     {
-    [self.scrollView setContentOffset:CGPointMake(0,textField.center.y-210) animated:YES];
+        [self.scrollView setContentOffset:CGPointMake(0,textField.center.y-210) animated:YES];
     }
 }
 
@@ -221,9 +221,6 @@
 
 - (IBAction)saveTapped:(id)sender
 {
-//    NSDate *date = [NSDate date];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSDate *today = [NSDate date];
     
     saveDream = YES;

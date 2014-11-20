@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+@property (weak, nonatomic) IBOutlet UILabel *noCommentsLabel;
 
 @end
 
@@ -113,6 +114,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (fetchedComments.count < 1)
+    {
+        self.noCommentsLabel.hidden = NO;
+    } else {
+        self.noCommentsLabel.hidden = YES;
+    }
     return [fetchedComments count];
 }
 

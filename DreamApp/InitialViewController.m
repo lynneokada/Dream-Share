@@ -140,6 +140,7 @@
                           } else {
                               //ELSE GRAB ALL THE INFO FROM CORE DATAAaaaaaa
                               NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
+                              NSLog(@"userInfo: %@", userInfo);
                               [ProfileManager sharedManager].user = userInfo[0];
                           }
                       }

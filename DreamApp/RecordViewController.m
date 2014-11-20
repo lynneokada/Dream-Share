@@ -18,12 +18,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (strong, nonatomic) AVAudioRecorder *recorder;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 
 @end
 
 @implementation RecordViewController
 {
     NSString *pathToRecording;
+    NSTimer *timer;
 }
 @synthesize doneBarButton, recordPauseButton, recorder;
 
@@ -88,9 +90,22 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)incrementProgressBar
+{
+    self.progressBar.progress += 0.1;
+    NSLog(@"progress: %f", self.progressBar.progress);
+    
+    if (self.progressBar.progress == 1)
+    {
+        [timer invalidate];
+    }
+}
+
 - (IBAction)recordPauseTapped:(id)sender
 {
     self.tabBarController.tabBar.userInteractionEnabled = NO;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(incrementProgressBar) userInfo:nil repeats:YES];
     
     if (!self.recorder.recording)
     {
