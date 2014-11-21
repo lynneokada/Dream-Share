@@ -382,10 +382,10 @@
 
 }
 
-- (void)updateDream:(NSString*)dreamdb_id
+- (void)updateDream:(NSString*)dreamdb_id title:(NSString*)dream_title content:(NSString*)dream_content tags:(NSArray*)dream_tags
 {
     NSLog(@"dreamdb_id: %@", dreamdb_id);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/update/%@", SERVER_URL, dreamdb_id]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/dreams/update/%@/%@/%@/%@", SERVER_URL, dreamdb_id, dream_title, dream_content, dream_tags]];
     NSLog(@"URL: %@", url);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];

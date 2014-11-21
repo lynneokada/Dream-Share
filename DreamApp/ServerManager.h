@@ -28,5 +28,5 @@
 - (void)deleteDreamUsing:(NSString*)dreamdb_id;
 - (void)deleteCommentsFromDream:(NSString*)dreamdb_id;
 
-- (void)updateDream:(NSString*)dreamdb_id;
+- (void)updateDream:(NSString*)dreamdb_id title:(NSString*)dream_title content:(NSString*)dream_content tags:(NSArray*)dream_tags;
 @end

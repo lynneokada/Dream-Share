@@ -171,6 +171,9 @@
         self.titleTextView.editable = NO;
         self.textView.editable = NO;
         self.textField.enabled = NO;
+        
+        NSLog(@"dreamdb_id: %@", self.dream.db_id);
+        [[ServerManager sharedManager] updateDream:self.dream.db_id title:self.dream.dreamTitle content:self.dream.dreamContent tags:dreamTags];
     }
 }
 
