@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UILabel *noCommentsLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
@@ -152,6 +153,25 @@
     self.stringHolder = textField.text;
     
     return YES;
+}
+
+- (IBAction)editTapped:(id)sender
+{
+    NSLog(@"button: %@", self.editButton.title);
+    if ([self.editButton.title isEqualToString:@"edit"])
+    {
+        self.editButton.title = @"done";
+        self.titleTextView.editable = YES;
+        self.textView.editable = YES;
+        self.textField.enabled = YES;
+    }
+    else if ([self.editButton.title isEqualToString: @"done"])
+    {
+        self.editButton.title = @"edit";
+        self.titleTextView.editable = NO;
+        self.textView.editable = NO;
+        self.textField.enabled = NO;
+    }
 }
 
 -(void)textFieldDidChange

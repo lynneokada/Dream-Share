@@ -782,7 +782,7 @@
             </objects>
             <point key="canvasLocation" x="4551" y="4844"/>
         </scene>
-        <!--Show Dream View Controller-->
+        <!--dream-->
         <scene sceneID="NMa-DZ-9nT">
             <objects>
                 <viewController id="KGX-EM-FjZ" customClass="ShowDreamViewController" sceneMemberID="viewController">
@@ -797,7 +797,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nj1-GQ-EZ3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <subviews>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf4-o2-2cu">
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf4-o2-2cu">
                                         <rect key="frame" x="0.0" y="93" width="600" height="225"/>
                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -858,7 +858,7 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLU-hY-Zb3">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLU-hY-Zb3">
                                         <rect key="frame" x="0.0" y="56" width="600" height="36"/>
                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -892,7 +892,7 @@
                                             <constraint firstAttribute="bottom" secondItem="DkL-mg-Wva" secondAttribute="bottom" constant="8" id="UNd-2b-VMd"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
                                         <rect key="frame" x="0.0" y="319" width="600" height="30"/>
                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -949,8 +949,17 @@
                             <constraint firstItem="nj1-GQ-EZ3" firstAttribute="top" secondItem="qKn-QP-MRG" secondAttribute="bottom" id="lHh-gv-KIE"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="dream" id="uhs-OU-zJ9">
+                        <barButtonItem key="backBarButtonItem" title="back" id="ULC-Fr-fqw"/>
+                        <barButtonItem key="rightBarButtonItem" title="edit" id="YNk-O6-vxH">
+                            <connections>
+                                <action selector="editTapped:" destination="KGX-EM-FjZ" id="RLW-yY-fXj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentButton" destination="DkL-mg-Wva" id="sYJ-Pl-6Bl"/>
+                        <outlet property="editButton" destination="YNk-O6-vxH" id="Vje-K4-yHu"/>
                         <outlet property="noCommentsLabel" destination="eZL-xH-v69" id="k13-BU-YGU"/>
                         <outlet property="playButton" destination="w6l-Vv-w1E" id="R07-ca-OTg"/>
                         <outlet property="scrollView" destination="nj1-GQ-EZ3" id="xxr-p5-rTy"/>
@@ -1299,7 +1308,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10U-Xd-zaw">
-                                <rect key="frame" x="197" y="337" width="27" height="21"/>
+                                <rect key="frame" x="197" y="340" width="27" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="JOr-Gp-wS7"/>
                                     <constraint firstAttribute="height" constant="21" id="fxy-VW-Zeu"/>
@@ -1385,7 +1394,7 @@
                             <constraint firstItem="Sm7-yt-mXB" firstAttribute="leading" secondItem="GQ1-Dp-azu" secondAttribute="trailing" constant="57" id="Jlj-Od-NlM"/>
                             <constraint firstItem="NZB-rj-fmu" firstAttribute="top" secondItem="eYw-do-qmb" secondAttribute="bottom" constant="69" id="KPf-ap-SCH"/>
                             <constraint firstItem="M56-Ne-zoB" firstAttribute="top" secondItem="Sm7-yt-mXB" secondAttribute="bottom" constant="10" id="QLk-vS-z4H"/>
-                            <constraint firstItem="10U-Xd-zaw" firstAttribute="top" secondItem="5l4-vU-l88" secondAttribute="bottom" constant="8" id="Urs-jZ-sB8"/>
+                            <constraint firstItem="10U-Xd-zaw" firstAttribute="top" secondItem="5l4-vU-l88" secondAttribute="bottom" constant="11" id="Urs-jZ-sB8"/>
                             <constraint firstItem="M56-Ne-zoB" firstAttribute="leading" secondItem="l8n-D1-1fp" secondAttribute="trailing" constant="51" id="WZe-Ue-elM"/>
                             <constraint firstItem="qu7-Zf-St0" firstAttribute="top" secondItem="l8n-D1-1fp" secondAttribute="bottom" constant="68" id="b7E-os-9fW"/>
                             <constraint firstAttribute="centerX" secondItem="GQ1-Dp-azu" secondAttribute="centerX" constant="-0.5" id="dbx-eG-634"/>
