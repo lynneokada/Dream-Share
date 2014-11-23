@@ -12,6 +12,7 @@
 #import "AddCommentViewController.h"
 #import "ServerManager.h"
 #import "CustomCommenttTableViewCell.h"
+#import "AppDelegate.h"
 
 @interface ShowDreamViewController ()
 {
@@ -172,7 +173,15 @@
         self.textView.editable = NO;
         self.textField.enabled = NO;
         
+        self.dream.dreamTitle = self.titleTextView.text;
+        self.dream.dreamContent = self.textView.text;
+        
+        
         NSLog(@"dreamdb_id: %@", self.dream.db_id);
+        NSLog(@"dream_title: %@", self.dream.dreamTitle);
+        NSLog(@"dreamTags: %@", dreamTags);
+        [(AppDelegate *)[UIApplication sharedApplication].delegate saveContext];
+        
         [[ServerManager sharedManager] updateDream:self.dream.db_id title:self.dream.dreamTitle content:self.dream.dreamContent tags:dreamTags];
     }
 }

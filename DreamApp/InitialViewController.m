@@ -99,6 +99,8 @@
                           
                           [[ServerManager sharedManager] postUser:userBeingAdded];
                           [ProfileManager sharedManager].user = userBeingAdded;
+                          
+                          [self performSegueWithIdentifier:@"didLogin" sender:self];
                       } else {
                           //ELSE IF USER IS IN SERVER CHECK IF USER IS STORED IN CORE DATE
                           if ([[CoreDataManager sharedManager] requestUserInfo].count == 0)
@@ -135,6 +137,8 @@
                                       NSData *tagsArrayData = [NSKeyedArchiver archivedDataWithRootObject:jsonTagsArray];
                                       tagsToCoreData.tagsArray = tagsArrayData;
                                       dreamToCoreData.tags = tagsToCoreData;
+                                      
+                                      [self performSegueWithIdentifier:@"didLogin" sender:self];
                                   }
                               }];
                           } else {
@@ -142,12 +146,13 @@
                               NSMutableArray *userInfo = [[CoreDataManager sharedManager] requestUserInfo];
                               NSLog(@"userInfo: %@", userInfo);
                               [ProfileManager sharedManager].user = userInfo[0];
+                              
+                              [self performSegueWithIdentifier:@"didLogin" sender:self];
                           }
                       }
                   }];
              });
          }
-         [self performSegueWithIdentifier:@"didLogin" sender:self];
      }];
 }
 
