@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *noCommentsLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
+
 @end
 
 @implementation ShowDreamViewController
@@ -159,16 +160,16 @@
 - (IBAction)editTapped:(id)sender
 {
     NSLog(@"button: %@", self.editButton.title);
-    if ([self.editButton.title isEqualToString:@"edit"])
+    if ([self.editButton.title isEqualToString:@"Edit"])
     {
-        self.editButton.title = @"done";
+        self.editButton.title = @"Done";
         self.titleTextView.editable = YES;
         self.textView.editable = YES;
         self.textField.enabled = YES;
     }
-    else if ([self.editButton.title isEqualToString: @"done"])
+    else if ([self.editButton.title isEqualToString: @"Done"])
     {
-        self.editButton.title = @"edit";
+        self.editButton.title = @"Edit";
         self.titleTextView.editable = NO;
         self.textView.editable = NO;
         self.textField.enabled = NO;
