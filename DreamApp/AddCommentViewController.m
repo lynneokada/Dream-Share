@@ -37,6 +37,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+    
     NSLog(@"dream_id: %@", self.dream_id);
     [self.textField becomeFirstResponder];
     
@@ -64,6 +65,8 @@
     [self.toolbar setFrame:CGRectMake(self.toolbar.frame.origin.x, self.toolbar.frame.origin.y - 174, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
     //[self.toolbar setFrame:CGRectMake(0, keyboardFrame.size.height - self.toolbar.frame.size.height, self.toolbar.frame.size.width, self.toolbar.frame.size.height)];
     [UIView commitAnimations];
+    
+    self.toolbar.hidden = NO;
 }
 
 #pragma mark - Table view data source

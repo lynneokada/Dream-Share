@@ -20,7 +20,6 @@
 
 @interface AddDreamViewController ()
 {
-    UIToolbar *keyboardToolBar;
     NSMutableArray *dreamTags;
     BOOL saveDream;
 }
@@ -39,7 +38,6 @@
 @implementation AddDreamViewController {
     NSString *stringHolder;
 }
-@synthesize keyboardToolBar;
 
 - (void)viewDidLoad
 {
@@ -53,23 +51,31 @@
     dreamTags = [[NSMutableArray alloc] init];
     stringHolder = @"";
     
-    if (keyboardToolBar == nil) {
-        keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    if (self.keyboardToolBar == nil) {
+        self.keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
         
         UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
-        [keyboardToolBar setItems:[[NSArray alloc] initWithObjects:done, nil]];
+        done.tintColor = [UIColor whiteColor];
+        
+        [self.keyboardToolBar setItems:[[NSArray alloc] initWithObjects:done, nil]];
     }
     
-    self.textField.inputAccessoryView = keyboardToolBar;
-    self.textView.inputAccessoryView = keyboardToolBar;
-    self.titleTextField.inputAccessoryView = keyboardToolBar;
+    self.textField.inputAccessoryView = self.keyboardToolBar;
+    self.textView.inputAccessoryView = self.keyboardToolBar;
+    self.titleTextField.inputAccessoryView = self.keyboardToolBar;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textFieldDidChange)
                                                  name:@"UITextFieldTextDidChangeNotification"
                                                object:nil];
     
-    [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor whiteColor]];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    [[UILabel appearanceWhenContainedIn:[UITextField class], nil] setTextColor:[UIColor grayColor]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -213,11 +219,14 @@
     }
 }
 
+-(void)dismissKeyboard {
+    [self.textField resignFirstResponder];
+}
+
 - (IBAction)unwindToAddDreamViewController:(UIStoryboardSegue *)unwindSegue
 {
     
 }
-
 
 - (IBAction)saveTapped:(id)sender
 {
