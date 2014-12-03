@@ -809,36 +809,12 @@
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Bx-Rb-AzZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="31X-pk-JxC">
-                                                        <rect key="frame" x="0.0" y="451" width="600" height="36"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkL-mg-Wva">
-                                                                <rect key="frame" x="511" y="8" width="81" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="YBe-v4-DhS"/>
-                                                                    <constraint firstAttribute="width" constant="81" id="e6A-rK-Wyw"/>
-                                                                </constraints>
-                                                                <state key="normal" title="comment">
-                                                                    <color key="titleColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <segue destination="Fjo-Sd-83s" kind="show" identifier="addComment" id="DNb-5c-l7e"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="centerX" secondItem="DkL-mg-Wva" secondAttribute="centerX" constant="-251.5" id="7IE-IR-U4R"/>
-                                                            <constraint firstAttribute="centerY" secondItem="DkL-mg-Wva" secondAttribute="centerY" id="aRg-OF-xKk"/>
-                                                            <constraint firstAttribute="height" constant="36" id="saL-aV-8gB"/>
-                                                        </constraints>
-                                                    </view>
                                                     <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf4-o2-2cu">
                                                         <rect key="frame" x="0.0" y="93" width="600" height="225"/>
                                                         <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6l-Vv-w1E">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
@@ -862,7 +838,7 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.89803921568627454" green="0.88627450980392153" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                                     </textView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Yw-lj-1g0">
                                                         <rect key="frame" x="0.0" y="319" width="600" height="30"/>
@@ -872,7 +848,7 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                                     </textField>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nk9-aR-r6S">
                                                         <rect key="frame" x="0.0" y="350" width="600" height="100"/>
@@ -924,6 +900,31 @@
                                                         <color key="textColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="31X-pk-JxC">
+                                                        <rect key="frame" x="0.0" y="451" width="600" height="36"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkL-mg-Wva">
+                                                                <rect key="frame" x="511" y="8" width="81" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="81" id="RPC-mO-mT1"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="Yvy-Hj-E67"/>
+                                                                </constraints>
+                                                                <state key="normal" title="comment">
+                                                                    <color key="titleColor" red="0.8980392157" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="Fjo-Sd-83s" kind="show" identifier="addComment" id="DNb-5c-l7e"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.19452262810000001" green="0.2349776033" blue="0.28182212750000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="DkL-mg-Wva" secondAttribute="bottom" constant="8" id="Vm5-FE-Pfj"/>
+                                                            <constraint firstAttribute="trailing" secondItem="DkL-mg-Wva" secondAttribute="trailing" constant="8" id="gQQ-u7-d4g"/>
+                                                            <constraint firstAttribute="height" constant="36" id="saL-aV-8gB"/>
+                                                            <constraint firstAttribute="centerY" secondItem="DkL-mg-Wva" secondAttribute="centerY" id="y9y-Gf-lV9"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -976,7 +977,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="dream" id="uhs-OU-zJ9">
                         <barButtonItem key="backBarButtonItem" title="back" id="ULC-Fr-fqw"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="FuP-bN-tjo">
+                        <barButtonItem key="rightBarButtonItem" title="edit" id="FuP-bN-tjo">
                             <connections>
                                 <action selector="editTapped:" destination="KGX-EM-FjZ" id="yTA-TY-Iba"/>
                             </connections>
@@ -1140,21 +1141,12 @@
                                 <color key="textColor" red="0.91649531019999997" green="0.90768285530000004" blue="0.92530776520000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ru1-dV-Xfz">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
-                                <color key="tintColor" red="0.1529411765" green="0.1843137255" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="lym-t3-hr1"/>
-                                </constraints>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WgY-xg-zwV" firstAttribute="top" secondItem="z1m-85-vTy" secondAttribute="bottom" id="Oa9-yv-Cat"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="centerX" secondItem="Oqg-yg-GgE" secondAttribute="centerX" id="Olt-f4-fYz"/>
-                            <constraint firstItem="Ru1-dV-Xfz" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="VNq-J1-37Q"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="centerY" secondItem="Oqg-yg-GgE" secondAttribute="centerY" constant="25" id="WFl-7m-vJe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ru1-dV-Xfz" secondAttribute="trailing" constant="-16" id="br9-OL-j3C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z1m-85-vTy" secondAttribute="trailing" constant="-16" id="fde-fX-g3b"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="leading" secondItem="rll-cI-M32" secondAttribute="leadingMargin" constant="-16" id="mJW-Cb-Slf"/>
                             <constraint firstItem="z1m-85-vTy" firstAttribute="top" secondItem="2v6-7a-hIr" secondAttribute="bottom" id="oVg-Od-Bce"/>
@@ -1171,7 +1163,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="94l-PE-MGJ" id="p1I-Kk-CcY"/>
-                        <outlet property="progressBar" destination="Ru1-dV-Xfz" id="Sdd-NL-4cX"/>
                         <outlet property="progressLabel" destination="Oqg-yg-GgE" id="Jcj-lW-zmA"/>
                         <outlet property="recordPauseButton" destination="z1m-85-vTy" id="KwX-vd-jmb"/>
                     </connections>

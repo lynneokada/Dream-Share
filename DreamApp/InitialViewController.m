@@ -137,9 +137,8 @@
                                       NSData *tagsArrayData = [NSKeyedArchiver archivedDataWithRootObject:jsonTagsArray];
                                       tagsToCoreData.tagsArray = tagsArrayData;
                                       dreamToCoreData.tags = tagsToCoreData;
-                                      
-                                      [self performSegueWithIdentifier:@"didLogin" sender:self];
                                   }
+                                  [self performSegueWithIdentifier:@"didLogin" sender:self];
                               }];
                           } else {
                               //ELSE GRAB ALL THE INFO FROM CORE DATAAaaaaaa

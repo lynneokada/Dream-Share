@@ -53,7 +53,9 @@
     
     if (self.keyboardToolBar == nil) {
         self.keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-        self.keyboardToolBar.barTintColor = [UIColor redColor];
+        self.keyboardToolBar.translucent = NO;
+        self.keyboardToolBar.backgroundColor = [UIColor colorWithRed:0.2 green:0.243 blue:0.282 alpha:1];
+        self.keyboardToolBar.barTintColor = [UIColor colorWithRed:0.2 green:0.243 blue:0.282 alpha:1];
         
         UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
         done.tintColor = [UIColor whiteColor];

@@ -60,11 +60,16 @@
     if (keyboardToolBar == nil)
     {
         keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+        keyboardToolBar.translucent = NO;
+        keyboardToolBar.backgroundColor = [UIColor colorWithRed:0.2 green:0.243 blue:0.282 alpha:1];
+        keyboardToolBar.barTintColor = [UIColor colorWithRed:0.2 green:0.243 blue:0.282 alpha:1];
         
         UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
+        done.tintColor = [UIColor whiteColor];
         [keyboardToolBar setItems:[[NSArray alloc] initWithObjects:done, nil]];
     }
     
+    self.titleTextView.inputAccessoryView = keyboardToolBar;
     self.textField.inputAccessoryView = keyboardToolBar;
     self.textView.inputAccessoryView = keyboardToolBar;
     
@@ -237,9 +242,14 @@
     if ([self.textField isFirstResponder])
     {
         [self.textField resignFirstResponder];
-    } else if ([self.textView isFirstResponder])
+    }
+    else if ([self.textView isFirstResponder])
     {
         [self.textView resignFirstResponder];
+    }
+    else if ([self.titleTextView resignFirstResponder])
+    {
+        [self.titleTextView resignFirstResponder];
     }
 }
 - (IBAction)playTapped:(id)sender
