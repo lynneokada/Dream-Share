@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (strong, nonatomic) AVAudioRecorder *recorder;
-@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 @end
 
@@ -90,16 +89,6 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)incrementProgress
-{
-
-}
-
-- (void)stopProgress
-{
-    
-}
-
 - (IBAction)recordPauseTapped:(id)sender
 {
     self.tabBarController.tabBar.userInteractionEnabled = NO;
@@ -112,13 +101,12 @@
         //start recroding
         [self.recorder record];
         [recordPauseButton setTitle:@"PAUSE" forState:UIControlStateNormal];
-        
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(incrementProgress) userInfo:nil repeats:YES];
+
     } else {
         // Pause recording
         [self.recorder pause];
         [recordPauseButton setTitle:@"RECORD" forState:UIControlStateNormal];
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(stopProgress) userInfo:nil repeats:YES];
+
     }
     [doneBarButton setEnabled:YES];
 }

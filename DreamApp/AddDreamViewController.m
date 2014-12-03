@@ -50,6 +50,7 @@
     
     dreamTags = [[NSMutableArray alloc] init];
     stringHolder = @"";
+    self.textField.text = @"";
     
     if (self.keyboardToolBar == nil) {
         self.keyboardToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -145,30 +146,32 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (![textField.text isEqualToString:stringHolder])
-    {
-        [dreamTags addObject:[textField.text substringFromIndex:[stringHolder length]]];
-        textField.text = [NSString stringWithFormat:@"%@#%@", stringHolder, [textField.text substringFromIndex:[stringHolder length]]];
-        NSLog(@"TAGS: %@", dreamTags);
+    if (textField == self.textField) {
+        if (![textField.text isEqualToString:stringHolder])
+        {
+            [dreamTags addObject:[textField.text substringFromIndex:[stringHolder length]]];
+            textField.text = [NSString stringWithFormat:@"%@#%@", stringHolder, [textField.text substringFromIndex:[stringHolder length]]];
+            NSLog(@"TAGS: %@", dreamTags);
+        }
+        
+        if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
+        {
+            NSLog(@"textfield.text length: %lu", (unsigned long)[textField.text length]);
+            textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
+        }
+        
+        //    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+        //    if ([[stringHolder stringByTrimmingCharactersInSet: set] length] == 0)
+        //    {
+        //        NSLog(@"trimming: %@", stringHolder);
+        //        stringHolder = textField.text;
+        //    } else {
+        //
+        //    stringHolder = textField.text;
+        //    }
+        
+        stringHolder = textField.text;
     }
-    
-    if ([textField.text characterAtIndex:([textField.text length] - 1)] != ' ')
-    {
-        NSLog(@"textfield.text length: %lu", (unsigned long)[textField.text length]);
-        textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
-    }
-    
-//    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
-//    if ([[stringHolder stringByTrimmingCharactersInSet: set] length] == 0)
-//    {
-//        NSLog(@"trimming: %@", stringHolder);
-//        stringHolder = textField.text;
-//    } else {
-//    
-//    stringHolder = textField.text;
-//    }
-    
-    stringHolder = textField.text;
     return YES;
 }
 
@@ -274,13 +277,13 @@
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
             
             UIAlertAction *yes = [UIAlertAction actionWithTitle:@"yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
-            {
-                [self.navigationController pushViewController:recordViewController animated:YES];
-                
-                NSString *cancelRecording = [NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder];
-                NSError *error;
-                [[NSFileManager defaultManager] removeItemAtPath:cancelRecording error:&error];
-            }];
+                                  {
+                                      [self.navigationController pushViewController:recordViewController animated:YES];
+                                      
+                                      NSString *cancelRecording = [NSString stringWithFormat: @"%@/recording.m4a", self.dreamBeingAdded.pathToFolder];
+                                      NSError *error;
+                                      [[NSFileManager defaultManager] removeItemAtPath:cancelRecording error:&error];
+                                  }];
             
             [alert addAction:cancel];
             [alert addAction:yes];
