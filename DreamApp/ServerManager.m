@@ -38,6 +38,7 @@
 {
     NSMutableArray *tagsArray = [NSKeyedUnarchiver unarchiveObjectWithData:dream.tags.tagsArray];
     NSLog(@"tagsArray: %@", tagsArray);
+    
     NSDictionary *dictionaryDreamLog = @{
                                          @"mongoUser_id": [ProfileManager sharedManager].user.db_id,
                                          @"fbUser_id": [ProfileManager sharedManager].user.fbUserID,
